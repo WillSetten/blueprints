@@ -1,5 +1,6 @@
 # Blueprints
 [Documentation](https://docs.google.com/document/d/1dZyTUqAmTPXoscCHL1ZNipVq-plh-DWQZ6tF-S3xGvE/edit#)
+
 ##Using Unity with Github:
 1. Go [here](https://git-lfs.github.com/) and download Git LFS.
 2. Go [here](https://assetstore.unity.com/packages/tools/version-control/github-for-unity-118069) and add Github for Unity to your unity assets.
