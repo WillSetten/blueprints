@@ -10,8 +10,8 @@ public class ClickableTile : MonoBehaviour
 
     void OnMouseUp()
     {
-        Debug.Log("Click!");
+        Debug.Log("Click on tile!");
 
-        map.MoveSelectedUnitTo(tileX, tileY);
+        map.GeneratePathTo(tileX, tileY);
     }
 }
