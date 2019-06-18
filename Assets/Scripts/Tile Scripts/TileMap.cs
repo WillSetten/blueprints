@@ -78,9 +78,16 @@ public class TileMap : MonoBehaviour
     //Takes in an x and y to move the selected unit to. This method currently uses basic Dyikstra
     public void GeneratePathTo(int x, int y)
     {
-        // Clear out our unit's old path.
-        selectedUnit.GetComponent<Unit>().currentPath = null;
-
+        // If the unit had a path, clear it and move the unit to the tile it is meant to be on.
+        if (selectedUnit.GetComponent<Unit>().currentPath != null)
+        {
+            selectedUnit.transform.position = TileCoordToWorldCoord(
+                selectedUnit.GetComponent<Unit>().tileX,
+                selectedUnit.GetComponent<Unit>().tileY);
+            selectedUnit.GetComponent<Unit>().currentPath = null;
+            selectedUnit.GetComponent<Unit>().directionX = 0;
+            selectedUnit.GetComponent<Unit>().directionY = 0;
+        }
         Dictionary<Node, float> dist = new Dictionary<Node, float>();
         Dictionary<Node, Node> prev = new Dictionary<Node, Node>();
 
@@ -255,5 +262,10 @@ public class TileMap : MonoBehaviour
         // terrain flags here to see if they are allowed to enter the tile.
 
         return tileTypes[tiles[x, y]].isWalkable;
+    }
+
+    public void setSelectedUnit(GameObject newUnit)
+    {
+        selectedUnit = newUnit;
     }
 }

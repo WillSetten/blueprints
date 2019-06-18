@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
+    public string name = "Inmate";
     public int tileX;
     public int tileY;
     public int directionX;
@@ -12,6 +13,12 @@ public class Unit : MonoBehaviour
     public TileMap map;
 
     public List<Node> currentPath = null;
+
+    void OnMouseUp()
+    {
+        Debug.Log("Clicked on "+name);
+        map.setSelectedUnit(transform.gameObject);
+    }
 
     void Update()
     {
@@ -58,18 +65,59 @@ public class Unit : MonoBehaviour
                 tileX = currentPath[0].x;
                 tileY = currentPath[0].y;
                 currentPath.RemoveAt(0);
+                int oldDirectionX = directionX;
+                int oldDirectionY = directionY;
                 directionX = currentPath[0].x - tileX;
                 directionY = currentPath[0].y - tileY;
+                if (oldDirectionX != directionX || oldDirectionY != directionY) {
+                    setRotation();
+                }
             }
         }
         //Move as long as there are nodes in the path
         if (currentPath!=null) {
-            transform.position = incrementPosition(transform.position, directionX, directionY);
+            transform.position = incrementPosition(transform.position);
         }
     }
 
-    public Vector3 incrementPosition(Vector3 position, int directionX, int directionY)
+    public Vector3 incrementPosition(Vector3 position)
     {
         return map.TileCoordToWorldCoord(position.x + directionX*2.5f*Time.deltaTime, position.y + directionY *2.5f* Time.deltaTime);
+    }
+
+    public void setRotation()
+    {
+        if (directionX == 1 && directionY == -1)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 45);
+        }
+        else if (directionX == 1 && directionY == 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 90);
+        }
+        else if (directionX == 1 && directionY == 1)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 135);
+        }
+        else if (directionX == 0 && directionY == 1)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 180);
+        }
+        else if (directionX == -1 && directionY == 1)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, -135);
+        }
+        else if (directionX == -1 && directionY == 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, -90);
+        }
+        else if (directionX == -1 && directionY == -1)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, -45);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 }

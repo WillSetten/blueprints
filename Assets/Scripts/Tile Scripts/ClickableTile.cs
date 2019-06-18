@@ -8,10 +8,13 @@ public class ClickableTile : MonoBehaviour
     public int tileY;
     public TileMap map;
 
-    void OnMouseUp()
+    void OnMouseOver()
     {
-        Debug.Log("Tile " + tileX + "," + tileY);
+        if (Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("Tile " + tileX + "," + tileY);
 
-        map.GeneratePathTo(tileX, tileY);
+            map.GeneratePathTo(tileX, tileY);
+        }
     }
 }
