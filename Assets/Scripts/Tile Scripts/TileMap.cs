@@ -70,7 +70,7 @@ public class TileMap : MonoBehaviour
 
     //Converts Tile Co-ordinates with Co-ordinates in the actual world. For now, this is yust a matter of converting two ints into
     //a Vector3. Any scaling issues will probably have to be fixed in this method.
-    public Vector3 TileCoordToWorldCoord(int x, int y)
+    public Vector3 TileCoordToWorldCoord(float x, float y)
     {
         return new Vector3(x, y, 0);
     }
@@ -172,7 +172,7 @@ public class TileMap : MonoBehaviour
 
         currentPath.Reverse();
 
-        selectedUnit.GetComponent<Unit>().currentPath = currentPath;
+        selectedUnit.GetComponent<Unit>().setPath(currentPath);
     }
 
     //Generates a series of nodes from the graph which define which tiles are connected to which tiles.

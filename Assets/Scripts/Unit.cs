@@ -6,7 +6,9 @@ public class Unit : MonoBehaviour
 {
     public int tileX;
     public int tileY;
-    public int moveRate;
+    public int directionX;
+    public int directionY;
+    public int moveRate=5;
     public TileMap map;
 
     public List<Node> currentPath = null;
@@ -24,32 +26,50 @@ public class Unit : MonoBehaviour
                 Debug.DrawLine(start, end);
                 currNode = currNode + 1;
             }
-            if (moveCounter == 0)
-            {
-                MoveNextTile();
-                moveCounter = moveRate;
-            }
-            else
-            {
-                moveCounter = moveCounter - 1;
-            }
+        MoveNextTile();
         }
+    }
+
+    public void setPath(List<Node> newPath) 
+    {
+        currentPath = newPath;
     }
 
     public void MoveNextTile()
     {
+        //If there is no path to follow, return.
         if (currentPath == null)
             return;
-
-        currentPath.RemoveAt(0);
-
-        transform.position = map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y);
-
-        if(currentPath.Count == 1)
-        {
-            tileX = currentPath[0].x;
-            tileY = currentPath[0].y;
-            currentPath = null;
+        //If the unit is close enough to its next destination
+        if (Vector3.Distance(transform.position, map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y)) < 0.1f) {
+            //If the unit has hit a node but has reached the end of its path
+            if (currentPath.Count == 1)
+            {
+                transform.position = map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y);
+                tileX = currentPath[0].x;
+                tileY = currentPath[0].y;
+                currentPath = null;
+                directionX = 0;
+                directionY = 0;
+            }
+            //If the unit has hit a node but has more nodes to visit
+            else
+            {
+                tileX = currentPath[0].x;
+                tileY = currentPath[0].y;
+                currentPath.RemoveAt(0);
+                directionX = currentPath[0].x - tileX;
+                directionY = currentPath[0].y - tileY;
+            }
         }
+        //Move as long as there are nodes in the path
+        if (currentPath!=null) {
+            transform.position = incrementPosition(transform.position, directionX, directionY);
+        }
+    }
+
+    public Vector3 incrementPosition(Vector3 position, int directionX, int directionY)
+    {
+        return map.TileCoordToWorldCoord(position.x + directionX*2.5f*Time.deltaTime, position.y + directionY *2.5f* Time.deltaTime);
     }
 }
