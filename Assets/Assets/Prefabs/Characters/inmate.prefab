@@ -93,8 +93,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6402980f0896957419a07e36a07b0008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Inmate
+  selectable: 1
   tileX: 0
   tileY: 0
+  directionX: 0
+  directionY: 0
+  moveRate: 0
   map: {fileID: 0}
 --- !u!61 &9189422957289248383
 BoxCollider2D:
