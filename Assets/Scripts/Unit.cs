@@ -12,11 +12,15 @@ public class Unit : MonoBehaviour
     public int directionY;
     public int moveRate=5;
     public TileMap map;
+    Animator animator;
+    Rigidbody2D rigidbody2D;
 
     public List<Node> currentPath = null;
 
     private void Start()
     {
+        rigidbody2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         tileX = (int)transform.position.x;
         tileY = (int)transform.position.y;
         transform.position = map.TileCoordToWorldCoord(tileX, tileY);
@@ -71,6 +75,8 @@ public class Unit : MonoBehaviour
                 currentPath = null;
                 directionX = 0;
                 directionY = 0;
+                animator.SetFloat("Move X", directionX);
+                animator.SetFloat("Move Y", directionY);
             }
             //If the unit has hit a node but has more nodes to visit
             else
@@ -83,7 +89,9 @@ public class Unit : MonoBehaviour
                 directionX = currentPath[0].x - tileX;
                 directionY = currentPath[0].y - tileY;
                 if (oldDirectionX != directionX || oldDirectionY != directionY) {
-                    setRotation();
+                    //setRotation();
+                    animator.SetFloat("Move X", directionX);
+                    animator.SetFloat("Move Y", directionY);
                 }
             }
         }
