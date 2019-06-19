@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    public string name = "Inmate";
+    public string name;
+    public bool selectable = true;
     public int tileX;
     public int tileY;
     public int directionX;
@@ -14,10 +15,22 @@ public class Unit : MonoBehaviour
 
     public List<Node> currentPath = null;
 
+    private void Start()
+    {
+        tileX = (int)transform.position.x;
+        tileY = (int)transform.position.y;
+        transform.position = map.TileCoordToWorldCoord(tileX, tileY);
+        Debug.Log(transform.gameObject.name);
+        name = transform.gameObject.name;
+    }
+
     void OnMouseUp()
     {
         Debug.Log("Clicked on "+name);
-        map.setSelectedUnit(transform.gameObject);
+        if (selectable)
+        {
+            map.setSelectedUnit(transform.gameObject);
+        }
     }
 
     void Update()

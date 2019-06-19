@@ -6,6 +6,7 @@ public class TileMap : MonoBehaviour
 {
     //Each unit should have a click handler which, when selected, should make this variable equal to that unit.
     public GameObject selectedUnit;
+    public List<GameObject> units;
     public TileType[] tileTypes;
 
     int[,] tiles; //2D Integer array for showing which tiles are passable and which aren't
@@ -14,13 +15,14 @@ public class TileMap : MonoBehaviour
     int mapSizeX = 10;
     int mapSizeY = 10;
 
+    //Initialisation
     private void Start()
     {
-        //Setup the selected units variables
-        selectedUnit.GetComponent<Unit>().tileX = (int)selectedUnit.transform.position.x;
-        selectedUnit.GetComponent<Unit>().tileY = (int)selectedUnit.transform.position.y;
-        selectedUnit.GetComponent<Unit>().map = this;
-
+        //Setup all units variables
+        foreach (GameObject u in units)
+        {
+            u.GetComponent<Unit>().map = this;
+        }
         GenerateMapData();
         GeneratePathfindingGraph();
         GenerateMapVisuals();
@@ -40,6 +42,8 @@ public class TileMap : MonoBehaviour
                 tiles[x, y] = 0;
             }
         }
+        tiles[2, 6] = 1;
+        tiles[2, 5] = 1;
         tiles[3, 4] = 1;
         tiles[4, 4] = 1;
         tiles[5, 4] = 1;
@@ -78,16 +82,6 @@ public class TileMap : MonoBehaviour
     //Takes in an x and y to move the selected unit to. This method currently uses basic Dyikstra
     public void GeneratePathTo(int x, int y)
     {
-        // If the unit had a path, clear it and move the unit to the tile it is meant to be on.
-        if (selectedUnit.GetComponent<Unit>().currentPath != null)
-        {
-            selectedUnit.transform.position = TileCoordToWorldCoord(
-                selectedUnit.GetComponent<Unit>().tileX,
-                selectedUnit.GetComponent<Unit>().tileY);
-            selectedUnit.GetComponent<Unit>().currentPath = null;
-            selectedUnit.GetComponent<Unit>().directionX = 0;
-            selectedUnit.GetComponent<Unit>().directionY = 0;
-        }
         Dictionary<Node, float> dist = new Dictionary<Node, float>();
         Dictionary<Node, Node> prev = new Dictionary<Node, Node>();
 
@@ -178,6 +172,19 @@ public class TileMap : MonoBehaviour
         // So we need to invert it!
 
         currentPath.Reverse();
+
+        // If the unit had a path, clear it and move the unit to the tile it is meant to be on.
+        if (selectedUnit.GetComponent<Unit>().currentPath != null)
+        {
+            //If the unit is currently not moving in the correct direction, reset its position then replace its path
+            //if(selectedUnit.GetComponent<Unit>().currentPath[0]!=currentPath[1]){
+                selectedUnit.transform.position = TileCoordToWorldCoord(
+                    selectedUnit.GetComponent<Unit>().tileX,
+                    selectedUnit.GetComponent<Unit>().tileY);
+                selectedUnit.GetComponent<Unit>().directionX = 0;
+                selectedUnit.GetComponent<Unit>().directionY = 0;
+            //}
+        }
 
         selectedUnit.GetComponent<Unit>().setPath(currentPath);
     }
