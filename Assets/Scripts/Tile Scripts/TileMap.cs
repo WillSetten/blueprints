@@ -177,15 +177,18 @@ public class TileMap : MonoBehaviour
         if (selectedUnit.GetComponent<Unit>().currentPath != null)
         {
             //If the unit is currently not moving in the correct direction, reset its position then replace its path
-            //if(selectedUnit.GetComponent<Unit>().currentPath[0]!=currentPath[1]){
+            if (selectedUnit.GetComponent<Unit>().currentPath[0] != currentPath[1])
+            {
                 selectedUnit.transform.position = TileCoordToWorldCoord(
                     selectedUnit.GetComponent<Unit>().tileX,
                     selectedUnit.GetComponent<Unit>().tileY);
-                selectedUnit.GetComponent<Unit>().directionX = 0;
-                selectedUnit.GetComponent<Unit>().directionY = 0;
-            //}
+            }
+            //If the unit is currently moving in the correct direction, remove the first node of the path as it will have already gone past that tile
+            else
+            {
+                currentPath.RemoveAt(0);
+            }
         }
-
         selectedUnit.GetComponent<Unit>().setPath(currentPath);
     }
 
