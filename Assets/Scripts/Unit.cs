@@ -39,7 +39,7 @@ public class Unit : MonoBehaviour
 
     void Update()
     {
-        if (currentPath !=null)
+        if (currentPath !=null && !map.paused)
         {
             int moveCounter = moveRate;
             int currNode = 0;
@@ -106,6 +106,7 @@ public class Unit : MonoBehaviour
         return map.TileCoordToWorldCoord(position.x + directionX*2.5f*Time.deltaTime, position.y + directionY *2.5f* Time.deltaTime);
     }
 
+    //Redundant method
     public void setRotation()
     {
         if (directionX == 1 && directionY == -1)

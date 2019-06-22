@@ -8,6 +8,7 @@ public class TileMap : MonoBehaviour
     public GameObject selectedUnit;
     public List<GameObject> units;
     public TileType[] tileTypes;
+    public bool paused = false;
 
     int[,] tiles; //2D Integer array for showing which tiles are passable and which aren't
     Node[,] graph; //2D Array of Nodes for pathfinding
@@ -26,6 +27,52 @@ public class TileMap : MonoBehaviour
         GenerateMapData();
         GeneratePathfindingGraph();
         GenerateMapVisuals();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            Debug.Log("Space Pressed");
+            if(paused)
+            {
+                //If game is getting unpaused, start up all unit animations again
+                foreach (GameObject u in units)
+                {
+                    u.GetComponent<Animator>().enabled = true;
+                }
+                paused = false;
+            }
+            else
+            {
+                //If game is getting paused, stop all unit animations
+                foreach(GameObject u in units)
+                {
+                    u.GetComponent<Animator>().enabled = false;
+                }
+                paused = true;
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.Alpha1)|| Input.GetKeyUp(KeyCode.Keypad1))
+        {
+            Debug.Log("1 pressed");
+            setSelectedUnit(units[0]);
+        }
+        if (Input.GetKeyUp(KeyCode.Alpha2) || Input.GetKeyUp(KeyCode.Keypad2) && (units.Count>1))
+        {
+            Debug.Log("2 pressed");
+            setSelectedUnit(units[1]);
+        }
+        if (Input.GetKeyUp(KeyCode.Alpha3) || Input.GetKeyUp(KeyCode.Keypad3) && (units.Count > 2))
+        {
+            Debug.Log("3 pressed");
+            setSelectedUnit(units[2]);
+        }
+        if (Input.GetKeyUp(KeyCode.Alpha4) || Input.GetKeyUp(KeyCode.Keypad4) && (units.Count > 3))
+        {
+            Debug.Log("4 pressed");
+            setSelectedUnit(units[3]);
+        }
     }
 
     //Decides how large the map is, which tiles (floor, walls) go where in the map
