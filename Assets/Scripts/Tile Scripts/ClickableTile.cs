@@ -14,7 +14,7 @@ public class ClickableTile : MonoBehaviour
         {
             Debug.Log("Tile " + tileX + "," + tileY);
 
-            map.GeneratePathTo(tileX, tileY);
+            map.GeneratePathTo(tileX, tileY, map.selectedUnit);
         }
     }
 }

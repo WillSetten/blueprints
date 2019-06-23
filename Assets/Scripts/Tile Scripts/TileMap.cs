@@ -127,7 +127,7 @@ public class TileMap : MonoBehaviour
     }
 
     //Takes in an x and y to move the selected unit to. This method currently uses basic Dyikstra
-    public void GeneratePathTo(int x, int y)
+    public void GeneratePathTo(int x, int y, GameObject unit)
     {
         Dictionary<Node, float> dist = new Dictionary<Node, float>();
         Dictionary<Node, Node> prev = new Dictionary<Node, Node>();
@@ -136,8 +136,8 @@ public class TileMap : MonoBehaviour
         List<Node> unvisited = new List<Node>();
 
         Node source = graph[
-                            selectedUnit.GetComponent<Unit>().tileX,
-                            selectedUnit.GetComponent<Unit>().tileY
+                            unit.GetComponent<Unit>().tileX,
+                            unit.GetComponent<Unit>().tileY
                             ];
 
         Node target = graph[
@@ -221,14 +221,14 @@ public class TileMap : MonoBehaviour
         currentPath.Reverse();
 
         // If the unit had a path, clear it and move the unit to the tile it is meant to be on.
-        if (selectedUnit.GetComponent<Unit>().currentPath != null)
+        if (unit.GetComponent<Unit>().currentPath != null)
         {
             //If the unit is currently not moving in the correct direction, reset its position then replace its path
-            if (selectedUnit.GetComponent<Unit>().currentPath[0] != currentPath[1])
+            if (unit.GetComponent<Unit>().currentPath[0] != currentPath[1])
             {
-                selectedUnit.transform.position = TileCoordToWorldCoord(
-                    selectedUnit.GetComponent<Unit>().tileX,
-                    selectedUnit.GetComponent<Unit>().tileY);
+                unit.transform.position = TileCoordToWorldCoord(
+                    unit.GetComponent<Unit>().tileX,
+                    unit.GetComponent<Unit>().tileY);
             }
             //If the unit is currently moving in the correct direction, remove the first node of the path as it will have already gone past that tile
             else
@@ -236,7 +236,7 @@ public class TileMap : MonoBehaviour
                 currentPath.RemoveAt(0);
             }
         }
-        selectedUnit.GetComponent<Unit>().setPath(currentPath);
+        unit.GetComponent<Unit>().setPath(currentPath);
     }
 
     //Generates a series of nodes from the graph which define which tiles are connected to which tiles.
