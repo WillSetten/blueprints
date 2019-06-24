@@ -140,10 +140,7 @@ public class TileMap : MonoBehaviour
                             unit.GetComponent<Unit>().tileY
                             ];
 
-        Node target = graph[
-                            x,
-                            y
-                            ];
+        Node target = graph[x,y];
 
         dist[source] = 0;
         prev[source] = null;
@@ -239,6 +236,10 @@ public class TileMap : MonoBehaviour
         unit.GetComponent<Unit>().setPath(currentPath);
     }
 
+    public float pathfindingHeuristic(Node start, Node goal)
+    {
+        return (float)System.Math.Sqrt(Mathf.Pow(start.x - goal.x, 2) + Mathf.Pow(start.y - goal.y, 2));
+    }
     //Generates a series of nodes from the graph which define which tiles are connected to which tiles.
     public void GeneratePathfindingGraph()
     {
@@ -265,9 +266,9 @@ public class TileMap : MonoBehaviour
                 if (x > 0)
                 {
                     graph[x, y].neighbours.Add(graph[x - 1, y]);
-                    if (y > 0)
+                    if (y > 0 && tiles[x - 1, y] != 1 && tiles[x, y - 1] != 1)
                         graph[x, y].neighbours.Add(graph[x - 1, y - 1]);
-                    if (y < mapSizeY - 1)
+                    if (y < mapSizeY - 1 && tiles[x - 1, y] != 1 && tiles[x, y + 1] != 1)
                         graph[x, y].neighbours.Add(graph[x - 1, y + 1]);
                 }
 
@@ -275,9 +276,9 @@ public class TileMap : MonoBehaviour
                 if (x < mapSizeX - 1)
                 {
                     graph[x, y].neighbours.Add(graph[x + 1, y]);
-                    if (y > 0)
+                    if (y > 0 && tiles[x + 1, y] != 1 && tiles[x, y - 1] != 1)
                         graph[x, y].neighbours.Add(graph[x + 1, y - 1]);
-                    if (y < mapSizeY - 1)
+                    if (y < mapSizeY - 1 && tiles[x + 1, y] != 1 && tiles[x, y + 1] != 1)
                         graph[x, y].neighbours.Add(graph[x + 1, y + 1]);
                 }
 
@@ -296,8 +297,9 @@ public class TileMap : MonoBehaviour
 
         TileType tt = tileTypes[tiles[targetX, targetY]];
 
-        if (UnitCanEnterTile(targetX, targetY) == false)
+        if (UnitCanEnterTile(targetX, targetY) == false) {
             return Mathf.Infinity;
+        }
 
         float cost = tt.movementCost;
 
