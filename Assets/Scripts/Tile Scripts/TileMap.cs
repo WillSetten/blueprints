@@ -13,8 +13,8 @@ public class TileMap : MonoBehaviour
     int[,] tiles; //2D Integer array for showing which tiles are passable and which aren't
     Node[,] graph; //2D Array of Nodes for pathfinding
 
-    int mapSizeX = 10;
-    int mapSizeY = 10;
+    public int mapSizeX = 10;
+    public int mapSizeY = 10;
 
     //Initialisation
     private void Start()
