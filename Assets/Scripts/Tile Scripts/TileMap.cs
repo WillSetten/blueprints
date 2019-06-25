@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class TileMap : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class TileMap : MonoBehaviour
     public int mapSizeX = 10;
     public int mapSizeY = 10;
 
+    Dictionary<string,string> pathCache;
+
     //Initialisation
     private void Start()
     {
@@ -27,6 +30,7 @@ public class TileMap : MonoBehaviour
         GenerateMapData();
         GeneratePathfindingGraph();
         GenerateMapVisuals();
+        pathCache = new Dictionary<string, string>();
     }
 
     private void Update()
@@ -129,93 +133,120 @@ public class TileMap : MonoBehaviour
     //Takes in an x and y to move the selected unit to. This method currently uses basic Dyikstra
     public void GeneratePathTo(int x, int y, GameObject unit)
     {
-        Dictionary<Node, float> dist = new Dictionary<Node, float>();
-        Dictionary<Node, Node> prev = new Dictionary<Node, Node>();
-
-        // Setup the "Q" -- the list of nodes we haven't checked yet.
-        List<Node> unvisited = new List<Node>();
-
-        Node source = graph[
-                            unit.GetComponent<Unit>().tileX,
-                            unit.GetComponent<Unit>().tileY
-                            ];
-
-        Node target = graph[x,y];
-
-        dist[source] = 0;
-        prev[source] = null;
-
-        // Initialize everything to have INFINITY distance, since
-        // we don't know any better right now. Also, it's possible
-        // that some nodes CAN'T be reached from the source,
-        // which would make INFINITY a reasonable value
-        foreach (Node v in graph)
-        {
-            if (v != source)
-            {
-                dist[v] = Mathf.Infinity;
-                prev[v] = null;
-            }
-
-            unvisited.Add(v);
-        }
-
-        while (unvisited.Count > 0)
-        {
-            // "u" is going to be the unvisited node with the smallest distance.
-            Node u = null;
-
-            foreach (Node possibleU in unvisited)
-            {
-                if (u == null || dist[possibleU] < dist[u])
-                {
-                    u = possibleU;
-                }
-            }
-
-            if (u == target)
-            {
-                break;  // Exit the while loop!
-            }
-
-            unvisited.Remove(u);
-
-            foreach (Node v in u.neighbours)
-            {
-                //float alt = dist[u] + u.DistanceTo(v);
-                float alt = dist[u] + CostToEnterTile(x,y,v.x,v.y);
-                if (alt < dist[v])
-                {
-                    dist[v] = alt;
-                    prev[v] = u;
-                }
-            }
-        }
-
-        // If we get there, the either we found the shortest route
-        // to our target, or there is no route at ALL to our target.
-
-        if (prev[target] == null)
-        {
-            // No route between our target and the source
-            return;
-        }
-
         List<Node> currentPath = new List<Node>();
-
-        Node curr = target;
-
-        // Step through the "prev" chain and add it to our path
-        while (curr != null)
+        Dictionary<int, Node> open = new Dictionary<int,Node>();
+        Dictionary<int, Node> close = new Dictionary<int, Node>();
+        Dictionary<Node, Node> prev = new Dictionary<Node, Node>();
+        Node source = graph[selectedUnit.GetComponent<Unit>().tileX, selectedUnit.GetComponent<Unit>().tileY];
+        string pathname = string.Concat(source.x, source.y, x, y);
+        //Check the pathCache for this path, we may have already calculated it!
+        if (pathCache.ContainsKey(pathname))
         {
-            currentPath.Add(curr);
-            curr = prev[curr];
+            Debug.Log("Found path " + pathname + " in the pathCache!");
+            currentPath = pathFromString(pathCache[pathname]);
         }
+        //If we haven't previously calculated the path, proceed as normal
+        else
+        {
+            Node goal = graph[x, y];
 
-        // Right now, currentPath describes a route from out target to our source
-        // So we need to invert it!
+            if (UnitCanEnterTile(x, y) == false)
+            {
+                // We probably clicked on a mountain or something, so just quit out.
+                return;
+            }
 
-        currentPath.Reverse();
+            source.f = source.DistanceTo(goal);
+            source.g = 0;
+            open[int.Parse(string.Concat(source.x +""+ source.y))] = source;
+            prev[source] = null;
+            Node currentNode = source;
+
+            while (open.Count > 0)
+            {
+                //Find the node with the lowest f and assign it to currentNode
+                int indexOfMin = 0;
+                foreach(int i in open.Keys)
+                {
+                    if (indexOfMin == 0)
+                    {
+                        indexOfMin = i;
+                    }
+
+                    else if (open[indexOfMin].f > open[i].f)
+                    {
+                        indexOfMin = i;
+                    }
+                }
+                currentNode = open[indexOfMin];
+
+                if (currentNode == goal)
+                {
+                    break;  // We got it! Exit the while loop
+                }
+
+                currentNode.f = currentNode.g + currentNode.DistanceTo(goal);
+                open.Remove(int.Parse(string.Concat(currentNode.x +""+ currentNode.y)));
+                close.Add(close.Count, currentNode);
+                foreach (Node n in currentNode.neighbours)
+                {
+                    if (!containsNode(close,n))
+                    {
+                        prev[n] = currentNode;
+                        n.g = currentNode.g + CostToEnterTile(n.x, n.y, currentNode.x, currentNode.y);
+                        n.f = n.g + n.DistanceTo(goal);
+                        if (!containsNode(open, n))
+                        {
+                            open.Add(int.Parse(string.Concat(n.x+""+n.y)), n);
+                        }
+                        else
+                        {
+                            int openNeighbourIndex = int.Parse(string.Concat(n.x + "" + n.y));
+                            Node openNeighbour = open[openNeighbourIndex];
+                            if (n.g < openNeighbour.g)
+                            {
+                                open.Remove(openNeighbourIndex);
+                                open.Add(openNeighbourIndex, n);
+                                prev[open[openNeighbourIndex]] = currentNode;
+                            }
+                        }
+                    }
+                }
+            }
+
+            //If the goal was not found, return
+            if (currentNode != goal)
+            {
+                return;
+            }
+
+            // Step through the "prev" chain and add it to our path
+            while (currentNode != null)
+            {
+                Debug.Log("-> Tile " + currentNode.x + "," + currentNode.y);
+                currentPath.Add(currentNode);
+                currentNode = prev[currentNode];
+            }
+            //Add both the path and it's inverse to the path cache to make future traversals faster
+            //This uses slightly more memory but should massively cut down on CPU load later on
+            if (!pathCache.ContainsKey(pathname))
+            {
+                pathCache.Add(string.Concat(x, y, currentPath[currentPath.Count - 1].x, 
+                    currentPath[currentPath.Count - 1].y), 
+                    pathToString(currentPath));
+                currentPath.Reverse();
+                pathCache.Add(pathname, pathToString(currentPath));
+            }
+            else
+            {
+                currentPath.Reverse();
+            }
+
+            Debug.Log("Close list size: " + close.Count);
+            Debug.Log("Open list size: " + open.Count);
+            Debug.Log("Prev list size: " + prev.Count);
+            Debug.Log("Path length: " + currentPath.Count);
+        }
 
         // If the unit had a path, clear it and move the unit to the tile it is meant to be on.
         if (unit.GetComponent<Unit>().currentPath != null)
@@ -234,11 +265,6 @@ public class TileMap : MonoBehaviour
             }
         }
         unit.GetComponent<Unit>().setPath(currentPath);
-    }
-
-    public float pathfindingHeuristic(Node start, Node goal)
-    {
-        return (float)System.Math.Sqrt(Mathf.Pow(start.x - goal.x, 2) + Mathf.Pow(start.y - goal.y, 2));
     }
     //Generates a series of nodes from the graph which define which tiles are connected to which tiles.
     public void GeneratePathfindingGraph()
@@ -262,31 +288,33 @@ public class TileMap : MonoBehaviour
         {
             for (int y = 0; y < mapSizeX; y++)
             {
-                // Try left
-                if (x > 0)
-                {
-                    graph[x, y].neighbours.Add(graph[x - 1, y]);
-                    if (y > 0 && tiles[x - 1, y] != 1 && tiles[x, y - 1] != 1)
-                        graph[x, y].neighbours.Add(graph[x - 1, y - 1]);
-                    if (y < mapSizeY - 1 && tiles[x - 1, y] != 1 && tiles[x, y + 1] != 1)
-                        graph[x, y].neighbours.Add(graph[x - 1, y + 1]);
-                }
+                if (UnitCanEnterTile(x,y)) {
+                    // Try left
+                    if (x > 0)
+                    {
+                        graph[x, y].neighbours.Add(graph[x - 1, y]);
+                        if (y > 0 && tiles[x - 1, y] != 1 && tiles[x, y - 1] != 1)
+                            graph[x, y].neighbours.Add(graph[x - 1, y - 1]);
+                        if (y < mapSizeY - 1 && tiles[x - 1, y] != 1 && tiles[x, y + 1] != 1)
+                            graph[x, y].neighbours.Add(graph[x - 1, y + 1]);
+                    }
 
-                // Try Right
-                if (x < mapSizeX - 1)
-                {
-                    graph[x, y].neighbours.Add(graph[x + 1, y]);
-                    if (y > 0 && tiles[x + 1, y] != 1 && tiles[x, y - 1] != 1)
-                        graph[x, y].neighbours.Add(graph[x + 1, y - 1]);
-                    if (y < mapSizeY - 1 && tiles[x + 1, y] != 1 && tiles[x, y + 1] != 1)
-                        graph[x, y].neighbours.Add(graph[x + 1, y + 1]);
-                }
+                    // Try Right
+                    if (x < mapSizeX - 1)
+                    {
+                        graph[x, y].neighbours.Add(graph[x + 1, y]);
+                        if (y > 0 && tiles[x + 1, y] != 1 && tiles[x, y - 1] != 1)
+                            graph[x, y].neighbours.Add(graph[x + 1, y - 1]);
+                        if (y < mapSizeY - 1 && tiles[x + 1, y] != 1 && tiles[x, y + 1] != 1)
+                            graph[x, y].neighbours.Add(graph[x + 1, y + 1]);
+                    }
 
-                // Try straight up and down
-                if (y > 0)
-                    graph[x, y].neighbours.Add(graph[x, y - 1]);
-                if (y < mapSizeY - 1)
-                    graph[x, y].neighbours.Add(graph[x, y + 1]);
+                    // Try straight up and down
+                    if (y > 0)
+                        graph[x, y].neighbours.Add(graph[x, y - 1]);
+                    if (y < mapSizeY - 1)
+                        graph[x, y].neighbours.Add(graph[x, y + 1]);
+                }
             }
         }
     }
@@ -297,17 +325,13 @@ public class TileMap : MonoBehaviour
 
         TileType tt = tileTypes[tiles[targetX, targetY]];
 
-        if (UnitCanEnterTile(targetX, targetY) == false) {
-            return Mathf.Infinity;
-        }
-
         float cost = tt.movementCost;
 
         if (sourceX != targetX && sourceY != targetY)
         {
             // We are moving diagonally!  Fudge the cost for tie-breaking
             // Purely a cosmetic thing!
-            cost += 0.001f;
+            cost += 0.5f;
         }
 
         return cost;
@@ -326,5 +350,44 @@ public class TileMap : MonoBehaviour
     public void setSelectedUnit(GameObject newUnit)
     {
         selectedUnit = newUnit;
+    }
+
+    //Converts a path to string for easy storage
+    public string pathToString(List<Node> path)
+    {
+        string pathString="";
+        foreach (Node n in path)
+        {
+            pathString = string.Concat(pathString, n.x, n.y);
+        }
+        return pathString;
+    }
+
+    //Converts a path from string
+    public List<Node> pathFromString(string path)
+    {
+        List<Node> pathList = new List<Node>();
+        int x = 0;
+        int y = 0;
+        for (int i=0; i<path.Length; i=i+2)
+        {
+            x = (int)char.GetNumericValue(path[i]);
+            y = (int)char.GetNumericValue(path[i + 1]);
+            pathList.Add(graph[x,y]);
+        }
+        return pathList;
+    }
+
+    public bool containsNode(Dictionary<int,Node> list, Node node)
+    {
+        for(int i=0; i<list.Count; i++)
+        {
+            Node current = list.ElementAt(i).Value;
+            if(current.x==node.x && current.y == node.y)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -12,9 +12,9 @@ public class ClickableTile : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            Debug.Log("Tile " + tileX + "," + tileY);
-
             map.GeneratePathTo(tileX, tileY, map.selectedUnit);
+
+            Debug.Log("Goal Tile :" + tileX + "," + tileY);
         }
     }
 }
