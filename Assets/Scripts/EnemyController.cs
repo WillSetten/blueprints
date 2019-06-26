@@ -28,7 +28,7 @@ public class EnemyController : MonoBehaviour
             Debug.Log("New AI Path created");
             map.GeneratePathTo(rnd.Next(0, map.mapSizeX),
                 rnd.Next(0, map.mapSizeY),
-                transform.gameObject);
+                unit);
         }
         else
         {

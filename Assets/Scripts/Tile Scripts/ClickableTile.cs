@@ -12,7 +12,7 @@ public class ClickableTile : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            map.GeneratePathTo(tileX, tileY, map.selectedUnit);
+            map.GeneratePathTo(tileX, tileY, map.selectedUnit.GetComponent<Unit>());
 
             Debug.Log("Goal Tile :" + tileX + "," + tileY);
         }

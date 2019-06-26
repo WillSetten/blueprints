@@ -131,13 +131,13 @@ public class TileMap : MonoBehaviour
     }
 
     //Takes in an x and y to move the selected unit to. This method currently uses basic Dyikstra
-    public void GeneratePathTo(int x, int y, GameObject unit)
+    public void GeneratePathTo(int x, int y, Unit unit)
     {
         List<Node> currentPath = new List<Node>();
         Dictionary<string, Node> open = new Dictionary<string,Node>();
         Dictionary<string, Node> close = new Dictionary<string, Node>();
         Dictionary<Node, Node> prev = new Dictionary<Node, Node>();
-        Node source = graph[selectedUnit.GetComponent<Unit>().tileX, selectedUnit.GetComponent<Unit>().tileY];
+        Node source = graph[unit.tileX, unit.tileY];
         string pathname = string.Concat(source.x, source.y, x, y);
         //Check the pathCache for this path, we may have already calculated it!
         if (pathCache.ContainsKey(pathname))
@@ -250,14 +250,14 @@ public class TileMap : MonoBehaviour
         }
 
         // If the unit had a path, clear it and move the unit to the tile it is meant to be on.
-        if (unit.GetComponent<Unit>().currentPath != null)
+        if (unit.currentPath != null)
         {
             //If the unit is currently not moving in the correct direction, reset its position then replace its path
-            if (unit.GetComponent<Unit>().currentPath[0] != currentPath[1])
+            if (unit.currentPath[0] != currentPath[1])
             {
                 unit.transform.position = TileCoordToWorldCoord(
-                    unit.GetComponent<Unit>().tileX,
-                    unit.GetComponent<Unit>().tileY);
+                    unit.tileX,
+                    unit.tileY);
             }
             //If the unit is currently moving in the correct direction, remove the first node of the path as it will have already gone past that tile
             else
@@ -265,8 +265,9 @@ public class TileMap : MonoBehaviour
                 currentPath.RemoveAt(0);
             }
         }
-        unit.GetComponent<Unit>().setPath(currentPath);
+        unit.setPath(currentPath);
     }
+
     //Generates a series of nodes from the graph which define which tiles are connected to which tiles.
     public void GeneratePathfindingGraph()
     {
