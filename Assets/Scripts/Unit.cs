@@ -66,7 +66,8 @@ public class Unit : MonoBehaviour
         if (currentPath == null)
             return;
         //If the unit is close enough to its next destination
-        if (Vector3.Distance(transform.position, map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y)) < 2.5f * Time.deltaTime) {
+        if (Vector2.Distance(transform.position, map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y)) < 0.1f || checkIfOverMoved())
+        {
             //If the unit has hit a node but has reached the end of its path
             if (currentPath.Count == 1)
             {
@@ -89,7 +90,8 @@ public class Unit : MonoBehaviour
                 int oldDirectionY = directionY;
                 directionX = currentPath[0].x - tileX;
                 directionY = currentPath[0].y - tileY;
-                if (oldDirectionX != directionX || oldDirectionY != directionY) {
+                if (oldDirectionX != directionX || oldDirectionY != directionY)
+                {
                     //setRotation();
                     animator.SetFloat("Move X", directionX);
                     animator.SetFloat("Move Y", directionY);
@@ -142,5 +144,31 @@ public class Unit : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
+    }
+
+    bool checkIfOverMoved()
+    {
+        Vector3 position = transform.position;
+        //If moving right and has an X co-ordinate greater than that of the destination
+        if (directionX > 0 && position.x>map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y).x)
+        {
+            return true;
+        }
+        //If moving left and has an X co-ordinate less than that of the destination
+        if (directionX < 0 && position.x < map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y).x)
+        {
+            return true;
+        }
+        //If moving up and has an Y co-ordinate greater than that of the destination
+        if (directionY > 0 && position.y > map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y).y)
+        {
+            return true;
+        }
+        //If moving down and has an Y co-ordinate less than that of the destination
+        if (directionY < 0 && position.y < map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y).y)
+        {
+            return true;
+        }
+        return false;
     }
 }
