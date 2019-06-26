@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class EnemyController : MonoBehaviour
 {
     System.Random rnd;
-    float setTimer = 5f;
+    float setTimer;
     float timer=0;
     private Unit unit;
     private TileMap map;
@@ -13,8 +14,9 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         unit = gameObject.GetComponent<Unit>();
-        map = unit.map;
+        map = GameObject.Find("Map").GetComponent<TileMap>();
         rnd = new System.Random();
+        setTimer = rnd.Next(2,10);
     }
 
     // Update is called once per frame
@@ -22,10 +24,11 @@ public class EnemyController : MonoBehaviour
     {
         if (timer > setTimer) {
             timer = 0;
+            setTimer = rnd.Next(2, 10);
             Debug.Log("New AI Path created");
             map.GeneratePathTo(rnd.Next(0, map.mapSizeX),
                 rnd.Next(0, map.mapSizeY),
-                gameObject);
+                transform.gameObject);
         }
         else
         {

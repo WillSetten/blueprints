@@ -134,8 +134,8 @@ public class TileMap : MonoBehaviour
     public void GeneratePathTo(int x, int y, GameObject unit)
     {
         List<Node> currentPath = new List<Node>();
-        Dictionary<int, Node> open = new Dictionary<int,Node>();
-        Dictionary<int, Node> close = new Dictionary<int, Node>();
+        Dictionary<string, Node> open = new Dictionary<string,Node>();
+        Dictionary<string, Node> close = new Dictionary<string, Node>();
         Dictionary<Node, Node> prev = new Dictionary<Node, Node>();
         Node source = graph[selectedUnit.GetComponent<Unit>().tileX, selectedUnit.GetComponent<Unit>().tileY];
         string pathname = string.Concat(source.x, source.y, x, y);
@@ -158,17 +158,17 @@ public class TileMap : MonoBehaviour
 
             source.f = source.DistanceTo(goal);
             source.g = 0;
-            open[int.Parse(string.Concat(source.x +""+ source.y))] = source;
+            open[string.Concat(source.x +","+ source.y)] = source;
             prev[source] = null;
             Node currentNode = source;
 
             while (open.Count > 0)
             {
                 //Find the node with the lowest f and assign it to currentNode
-                int indexOfMin = 0;
-                foreach(int i in open.Keys)
+                string indexOfMin = "";
+                foreach(string i in open.Keys)
                 {
-                    if (indexOfMin == 0)
+                    if (indexOfMin.Equals(""))
                     {
                         indexOfMin = i;
                     }
@@ -186,28 +186,29 @@ public class TileMap : MonoBehaviour
                 }
 
                 currentNode.f = currentNode.g + currentNode.DistanceTo(goal);
-                open.Remove(int.Parse(string.Concat(currentNode.x +""+ currentNode.y)));
-                close.Add(close.Count, currentNode);
+                open.Remove(string.Concat(currentNode.x +","+ currentNode.y));
+                close.Add(string.Concat(currentNode.x + "," + currentNode.y), currentNode);
                 foreach (Node n in currentNode.neighbours)
                 {
                     if (!containsNode(close,n))
                     {
-                        prev[n] = currentNode;
                         n.g = currentNode.g + CostToEnterTile(n.x, n.y, currentNode.x, currentNode.y);
                         n.f = n.g + n.DistanceTo(goal);
                         if (!containsNode(open, n))
                         {
-                            open.Add(int.Parse(string.Concat(n.x+""+n.y)), n);
+                            open.Add(string.Concat(n.x+","+n.y), n);
+                            prev[n] = currentNode;
                         }
                         else
                         {
-                            int openNeighbourIndex = int.Parse(string.Concat(n.x + "" + n.y));
+                            //We already have this node in the open list, so we need to see if this path to this node is faster
+                            string openNeighbourIndex = string.Concat(n.x + "," + n.y);
                             Node openNeighbour = open[openNeighbourIndex];
+                            //If it faster to get to this node via the currentNode, replace prev data for this node with the currentNode
                             if (n.g < openNeighbour.g)
                             {
-                                open.Remove(openNeighbourIndex);
-                                open.Add(openNeighbourIndex, n);
-                                prev[open[openNeighbourIndex]] = currentNode;
+                                open[openNeighbourIndex].g = n.g;
+                                prev[n] = currentNode;
                             }
                         }
                     }
@@ -292,21 +293,22 @@ public class TileMap : MonoBehaviour
                     // Try left
                     if (x > 0)
                     {
-                        graph[x, y].neighbours.Add(graph[x - 1, y]);
                         if (y > 0 && tiles[x - 1, y] != 1 && tiles[x, y - 1] != 1)
                             graph[x, y].neighbours.Add(graph[x - 1, y - 1]);
                         if (y < mapSizeY - 1 && tiles[x - 1, y] != 1 && tiles[x, y + 1] != 1)
                             graph[x, y].neighbours.Add(graph[x - 1, y + 1]);
+                        graph[x, y].neighbours.Add(graph[x - 1, y]);
                     }
 
                     // Try Right
                     if (x < mapSizeX - 1)
                     {
-                        graph[x, y].neighbours.Add(graph[x + 1, y]);
                         if (y > 0 && tiles[x + 1, y] != 1 && tiles[x, y - 1] != 1)
                             graph[x, y].neighbours.Add(graph[x + 1, y - 1]);
                         if (y < mapSizeY - 1 && tiles[x + 1, y] != 1 && tiles[x, y + 1] != 1)
                             graph[x, y].neighbours.Add(graph[x + 1, y + 1]);
+
+                        graph[x, y].neighbours.Add(graph[x + 1, y]);
                     }
 
                     // Try straight up and down
@@ -358,7 +360,7 @@ public class TileMap : MonoBehaviour
         string pathString="";
         foreach (Node n in path)
         {
-            pathString = string.Concat(pathString, n.x, n.y);
+            pathString = string.Concat(pathString, n.x, "," , n.y, ",");
         }
         return pathString;
     }
@@ -369,21 +371,36 @@ public class TileMap : MonoBehaviour
         List<Node> pathList = new List<Node>();
         int x = 0;
         int y = 0;
-        for (int i=0; i<path.Length; i=i+2)
+        string tempX="";
+        string tempY="";
+        for (int i=0; i<path.Length; i++)
         {
-            x = (int)char.GetNumericValue(path[i]);
-            y = (int)char.GetNumericValue(path[i + 1]);
-            pathList.Add(graph[x,y]);
+            while (!path[i].Equals(','))
+            {
+                tempX = string.Concat(path[i]);
+                i++;
+            }
+            if(!tempX.Equals(""))
+                x = int.Parse(tempX);
+            i++;
+
+            while (!path[i].Equals(','))
+            {
+                tempY = string.Concat(path[i]);
+                i++;
+            }
+            if (!tempX.Equals(""))
+                y = int.Parse(tempY);
+            pathList.Add(graph[x, y]);
         }
         return pathList;
     }
 
-    public bool containsNode(Dictionary<int,Node> list, Node node)
+    public bool containsNode(Dictionary<string,Node> list, Node node)
     {
-        for(int i=0; i<list.Count; i++)
+        foreach(KeyValuePair<string,Node> current in list)
         {
-            Node current = list.ElementAt(i).Value;
-            if(current.x==node.x && current.y == node.y)
+            if(current.Value.x==node.x && current.Value.y == node.y)
             {
                 return true;
             }

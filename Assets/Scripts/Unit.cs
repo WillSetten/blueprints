@@ -23,6 +23,7 @@ public class Unit : MonoBehaviour
         animator = GetComponent<Animator>();
         tileX = (int)transform.position.x;
         tileY = (int)transform.position.y;
+        map = GameObject.Find("Map").GetComponent<TileMap>();
         transform.position = map.TileCoordToWorldCoord(tileX, tileY);
         Debug.Log(transform.gameObject.name);
         name = transform.gameObject.name;
