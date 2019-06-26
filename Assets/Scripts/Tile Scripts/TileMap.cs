@@ -8,6 +8,7 @@ public class TileMap : MonoBehaviour
     //Each unit should have a click handler which, when selected, should make this variable equal to that unit.
     public GameObject selectedUnit;
     public List<GameObject> units;
+    public EnemyController enemyController;
     public TileType[] tileTypes;
     public bool paused = false;
 
@@ -22,11 +23,7 @@ public class TileMap : MonoBehaviour
     //Initialisation
     private void Start()
     {
-        //Setup all units variables
-        foreach (GameObject u in units)
-        {
-            u.GetComponent<Unit>().map = this;
-        }
+        enemyController = GameObject.Find("Enemy Controller").GetComponent<EnemyController>();
         GenerateMapData();
         GeneratePathfindingGraph();
         GenerateMapVisuals();
@@ -45,6 +42,7 @@ public class TileMap : MonoBehaviour
                 {
                     u.GetComponent<Animator>().enabled = true;
                 }
+                enemyController.togglePause();
                 paused = false;
             }
             else
@@ -54,6 +52,7 @@ public class TileMap : MonoBehaviour
                 {
                     u.GetComponent<Animator>().enabled = false;
                 }
+                enemyController.togglePause();
                 paused = true;
             }
         }

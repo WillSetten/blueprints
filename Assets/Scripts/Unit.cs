@@ -66,7 +66,7 @@ public class Unit : MonoBehaviour
         if (currentPath == null)
             return;
         //If the unit is close enough to its next destination
-        if (Vector3.Distance(transform.position, map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y)) < 0.1f) {
+        if (Vector3.Distance(transform.position, map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y)) < 2.5f * Time.deltaTime) {
             //If the unit has hit a node but has reached the end of its path
             if (currentPath.Count == 1)
             {
