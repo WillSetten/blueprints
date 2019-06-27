@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClickableTile : MonoBehaviour
+public class Tile : MonoBehaviour
 {
     public int tileX;
     public int tileY;

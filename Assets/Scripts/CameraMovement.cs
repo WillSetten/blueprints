@@ -7,6 +7,10 @@ public class CameraMovement : MonoBehaviour
     public Camera viewingCamera;
     public Vector2 direction;
     float moveSpeed = 5f;
+    bool up = false;
+    bool down = false;
+    bool left = false;
+    bool right = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +22,7 @@ public class CameraMovement : MonoBehaviour
     void Update()
     {
         checkInput();
+        manageDirection();
         moveCam();
     }
 
@@ -30,27 +35,59 @@ public class CameraMovement : MonoBehaviour
     {
         if (Input.GetKeyDown("w"))
         {
-            direction = new Vector2(direction.x,1);
+            up = true;
         }
         if (Input.GetKeyDown("a"))
         {
-            direction = new Vector2(-1, direction.y);
+            left = true;
         }
         if (Input.GetKeyDown("d"))
         {
-            direction = new Vector2(1, direction.y);
+            right = true;
         }
         if (Input.GetKeyDown("s"))
         {
+            down = true;
+        }
+        if (Input.GetKeyUp("w"))
+        {
+            up = false;
+        }
+        if (Input.GetKeyUp("s"))
+        {
+            down = false;
+        }
+        if (Input.GetKeyUp("a"))
+        {
+            left = false;
+        }
+        if (Input.GetKeyUp("d"))
+        {
+            right = false;
+        }
+    }
+
+    void manageDirection()
+    {
+        if (up)
+        {
+            direction = new Vector2(direction.x, 1);
+        }
+        if (left)
+        {
+            direction = new Vector2(-1, direction.y);
+        }
+        if (right)
+        {
+            direction = new Vector2(1, direction.y);
+        }
+        if (down)
+        {
             direction = new Vector2(direction.x, -1);
         }
-        if (Input.GetKeyUp("w")|| Input.GetKeyUp("s"))
+        else if(!up && !down && !left && !right)
         {
-            direction = new Vector2(direction.x,0);
-        }
-        if (Input.GetKeyUp("a") || Input.GetKeyUp("d"))
-        {
-            direction = new Vector2(0, direction.y);
+            direction = new Vector2(0,0);
         }
     }
 }
