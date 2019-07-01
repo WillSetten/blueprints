@@ -100,7 +100,8 @@ public class Unit : MonoBehaviour
         }
         //Move as long as there are nodes in the path
         if (currentPath!=null) {
-            transform.position = incrementPosition(transform.position);
+            //transform.position = incrementPosition(transform.position);
+            rigidbody2D.velocity = new Vector2(directionX*2.5f,directionY*2.5f);
         }
     }
 

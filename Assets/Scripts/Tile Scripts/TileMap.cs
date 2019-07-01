@@ -105,7 +105,7 @@ public class TileMap : MonoBehaviour
             for (int y = 0; y < mapSizeY; y++)
             {
                 TileType tt = tileTypes[tiles[x , y]];
-                GameObject go = (GameObject)Instantiate(tt.tileVisualPrefab, new Vector3(x, y, 0), Quaternion.identity);
+                GameObject go = (GameObject)Instantiate(tt.tileVisualPrefab, new Vector3(x, y, 1), Quaternion.identity);
 
                 Tile ct = go.GetComponent<Tile>();
                 ct.tileX = x ;
@@ -188,6 +188,7 @@ public class TileMap : MonoBehaviour
                 currentNode.f = currentNode.g + currentNode.DistanceTo(goal);
                 open.Remove(string.Concat(currentNode.x +","+ currentNode.y));
                 close.Add(string.Concat(currentNode.x + "," + currentNode.y), currentNode);
+                //A* algorithm
                 foreach (Node n in currentNode.neighbours)
                 {
                     if (!containsNode(close,n))
