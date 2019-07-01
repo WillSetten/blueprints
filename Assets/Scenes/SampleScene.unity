@@ -412,7 +412,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
@@ -862,8 +862,8 @@ MonoBehaviour:
     isWalkable: 0
     movementCost: 1e+10
   paused: 0
-  mapSizeX: 10
-  mapSizeY: 10
+  mapSizeX: 26
+  mapSizeY: 26
 --- !u!4 &1421958789
 Transform:
   m_ObjectHideFlags: 0
@@ -1130,7 +1130,7 @@ PrefabInstance:
     - target: {fileID: 3662318051941725373, guid: c234bd6d49cd7f943ace873985e15c22,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3662318051941725373, guid: c234bd6d49cd7f943ace873985e15c22,
         type: 3}

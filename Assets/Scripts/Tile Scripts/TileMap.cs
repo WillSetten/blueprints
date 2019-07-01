@@ -15,8 +15,8 @@ public class TileMap : MonoBehaviour
     int[,] tiles; //2D Integer array for showing which tiles are passable and which aren't
     Node[,] graph; //2D Array of Nodes for pathfinding
 
-    public int mapSizeX = 10;
-    public int mapSizeY = 10;
+    public int mapSizeX;
+    public int mapSizeY;
 
     Dictionary<string,string> pathCache;
 
@@ -28,6 +28,8 @@ public class TileMap : MonoBehaviour
         GeneratePathfindingGraph();
         GenerateMapVisuals();
         pathCache = new Dictionary<string, string>();
+        mapSizeX = 26;
+        mapSizeY = 26;
     }
 
     private void Update()
@@ -92,16 +94,7 @@ public class TileMap : MonoBehaviour
                 tiles[x, y] = 0;
             }
         }
-        tiles[2, 6] = 1;
-        tiles[2, 5] = 1;
-        tiles[3, 4] = 1;
-        tiles[4, 4] = 1;
-        tiles[5, 4] = 1;
-        tiles[6, 4] = 1;
-        tiles[7, 4] = 1;
-        tiles[8, 4] = 1;
-        tiles[8, 5] = 1;
-        tiles[8, 6] = 1;
+        harvestAndTrustee();
     }
 
     //Generates the actual tiles from the given map
@@ -132,6 +125,14 @@ public class TileMap : MonoBehaviour
     //Takes in an x and y to move the selected unit to. This method currently uses basic Dyikstra
     public void GeneratePathTo(int x, int y, Unit unit)
     {
+        //If the units current destination is the same as the one thats been clicked on, return
+        if (unit.currentPath != null) {
+            Node currentDestination = unit.currentPath[unit.currentPath.Count - 1];
+            if (currentDestination.x == x && currentDestination.y == y)
+            {
+                return;
+            }
+        }
         List<Node> currentPath = new List<Node>();
         Dictionary<string, Node> open = new Dictionary<string,Node>();
         Dictionary<string, Node> close = new Dictionary<string, Node>();
@@ -406,5 +407,174 @@ public class TileMap : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void harvestAndTrustee()
+    {
+        tiles[5, 2] = 1;
+        tiles[6, 2] = 1;
+        tiles[7, 2] = 1;
+        tiles[8, 2] = 1;
+        tiles[9, 2] = 1;
+        tiles[10, 2] = 1;
+        tiles[11, 2] = 1;
+        tiles[14, 2] = 1;
+        tiles[15, 2] = 1;
+
+        tiles[5, 3] = 1;
+        tiles[15, 3] = 1;
+
+        tiles[5, 4] = 1;
+        tiles[15, 4] = 1;
+
+        tiles[5, 5] = 1;
+        tiles[15, 5] = 1;
+
+        tiles[5, 6] = 1;
+        tiles[8, 6] = 1;
+        tiles[10, 6] = 1;
+        tiles[15, 6] = 1;
+
+        tiles[5, 7] = 1;
+        tiles[8, 7] = 1;
+        tiles[10, 7] = 1;
+        tiles[15, 7] = 1;
+        
+        tiles[8, 8] = 1;
+        tiles[10, 8] = 1;
+        tiles[15, 8] = 1;
+        tiles[16, 8] = 1;
+        tiles[17, 8] = 1;
+        tiles[18, 8] = 1;
+        tiles[19, 8] = 1;
+        tiles[20, 8] = 1;
+        tiles[21, 8] = 1;
+
+        tiles[5, 9] = 1;
+        tiles[8, 9] = 1;
+        tiles[10, 9] = 1;
+        tiles[21, 9] = 1;
+
+        tiles[2, 10] = 1;
+        tiles[3, 10] = 1;
+        tiles[4, 10] = 1;
+        tiles[5, 10] = 1;
+        tiles[21, 10] = 1;
+
+        tiles[2, 11] = 1;
+        tiles[21, 11] = 1;
+
+        tiles[2, 12] = 1;
+        tiles[5, 12] = 1;
+        tiles[12, 12] = 1;
+        tiles[14, 12] = 1;
+        tiles[15, 12] = 1;
+        tiles[21, 12] = 1;
+
+
+        tiles[2, 13] = 1;
+        tiles[3, 13] = 1;
+        tiles[4, 13] = 1;
+        tiles[5, 13] = 1;
+        tiles[6, 13] = 1;
+        tiles[7, 13] = 1;
+        tiles[8, 13] = 1;
+        tiles[9, 13] = 1;
+        tiles[10, 13] = 1;
+        tiles[11, 13] = 1;
+        tiles[12, 13] = 1;
+        tiles[15, 13] = 1;
+        tiles[21, 13] = 1;
+
+        tiles[4, 14] = 1;
+        tiles[5, 14] = 1;
+        tiles[6, 14] = 1;
+        tiles[7, 14] = 1;
+        tiles[8, 14] = 1;
+        tiles[9, 14] = 1;
+        tiles[12, 14] = 1;
+        tiles[21, 14] = 1;
+
+        tiles[4, 15] = 1;
+        tiles[5, 15] = 1;
+        tiles[9, 15] = 1;
+        tiles[12, 15] = 1;
+        tiles[13, 15] = 1;
+        tiles[15, 15] = 1;
+        tiles[16, 15] = 1;
+        tiles[21, 15] = 1;
+
+        tiles[4, 16] = 1;
+        tiles[5, 16] = 1;
+        tiles[9, 16] = 1;
+        tiles[12, 16] = 1;
+        tiles[21, 16] = 1;
+
+        tiles[4, 17] = 1;
+        tiles[5, 17] = 1;
+        tiles[21, 17] = 1;
+
+        tiles[4, 18] = 1;
+        tiles[5, 18] = 1;
+        tiles[9, 18] = 1;
+        tiles[12, 18] = 1;
+        tiles[13, 18] = 1;
+        tiles[14, 18] = 1;
+        tiles[15, 18] = 1;
+        tiles[16, 18] = 1;
+        tiles[18, 18] = 1;
+        tiles[19, 18] = 1;
+        tiles[21, 18] = 1;
+        tiles[22, 18] = 1;
+        tiles[23, 18] = 1;
+
+        tiles[4, 19] = 1;
+        tiles[5, 19] = 1;
+        tiles[9, 19] = 1;
+        tiles[12, 19] = 1;
+        tiles[18, 19] = 1;
+        tiles[23, 19] = 1;
+
+        tiles[4, 20] = 1;
+        tiles[5, 20] = 1;
+        tiles[6, 20] = 1;
+        tiles[7, 20] = 1;
+        tiles[8, 20] = 1;
+        tiles[9, 20] = 1;
+        tiles[12, 20] = 1;
+        tiles[15, 20] = 1;
+        tiles[18, 20] = 1;
+        tiles[23, 20] = 1;
+
+        tiles[4, 21] = 1;
+        tiles[5, 21] = 1;
+        tiles[6, 21] = 1;
+        tiles[7, 21] = 1;
+        tiles[8, 21] = 1;
+        tiles[9, 21] = 1;
+        tiles[10, 21] = 1;
+        tiles[11, 21] = 1;
+        tiles[12, 21] = 1;
+        tiles[13, 21] = 1;
+        tiles[14, 21] = 1;
+        tiles[15, 21] = 1;
+        tiles[18, 21] = 1;
+        tiles[23, 21] = 1;
+
+        tiles[15, 22] = 1;
+        tiles[18, 22] = 1;
+        tiles[19, 22] = 1;
+        tiles[20, 22] = 1;
+        tiles[21, 22] = 1;
+        tiles[22, 22] = 1;
+        tiles[23, 22] = 1;
+
+        tiles[15, 23] = 1;
+
+        tiles[15, 24] = 1;
+        tiles[16, 24] = 1;
+        tiles[17, 24] = 1;
+        tiles[18, 24] = 1;
+        tiles[19, 24] = 1;
     }
 }

@@ -69,25 +69,29 @@ public class CameraMovement : MonoBehaviour
 
     void manageDirection()
     {
-        if (up)
-        {
-            direction = new Vector2(direction.x, 1);
-        }
         if (left)
         {
             direction = new Vector2(-1, direction.y);
         }
-        if (right)
+        else if (right)
         {
             direction = new Vector2(1, direction.y);
         }
-        if (down)
+        else
+        {
+            direction = new Vector2(0, direction.y);
+        }
+        if (up)
+        {
+            direction = new Vector2(direction.x, 1);
+        }
+        else if (down)
         {
             direction = new Vector2(direction.x, -1);
         }
-        else if(!up && !down && !left && !right)
+        else
         {
-            direction = new Vector2(0,0);
+            direction = new Vector2(direction.x, 0);
         }
     }
 }
