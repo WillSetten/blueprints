@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviour
                 {
                     timer = 0;
                     setTimer = rnd.Next(2, 10);
-                    Debug.Log("New AI Path created");
+                    //Debug.Log("New AI Path created");
                     map.GeneratePathTo(rnd.Next(0, map.mapSizeX),
                         rnd.Next(0, map.mapSizeY),
                         unit);

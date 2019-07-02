@@ -7,7 +7,7 @@ public class Tile : MonoBehaviour
     public int tileX;
     public int tileY;
     public TileMap map;
-
+    public Room room;
     void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(1))
