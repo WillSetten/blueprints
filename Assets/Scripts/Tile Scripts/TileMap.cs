@@ -103,18 +103,30 @@ public class TileMap : MonoBehaviour
     //Generates the actual tiles from the given map
     void GenerateMapVisuals()
     {
-        for (int x= 0; x< mapSizeX; x++)
+        //Map Design - When making a map, hardcode the values then when you are happy, press play and move the tiles so they are children of the map.
+        //If the map has children (saved tiles), simply set their map to this object, however if the map does not have children, generate tile objects accordingly
+        if (transform.childCount > 0)
         {
-            for (int y = 0; y < mapSizeY; y++)
+            foreach(Tile ct in GetComponentsInChildren<Tile>())
             {
-                TileType tt = tileTypes[tileMatrix[x , y]];
-                GameObject go = (GameObject)Instantiate(tt.tileVisualPrefab, new Vector3(x, y, 1), Quaternion.identity);
-
-                Tile ct = go.GetComponent<Tile>();
-                ct.tileX = x ;
-                ct.tileY = y;
                 ct.map = this;
-                tiles[x, y] = ct;
+            }
+        }
+        else
+        {
+            for (int x = 0; x < mapSizeX; x++)
+            {
+                for (int y = 0; y < mapSizeY; y++)
+                {
+                    TileType tt = tileTypes[tileMatrix[x, y]];
+                    GameObject go = (GameObject)Instantiate(tt.tileVisualPrefab, new Vector3(x, y, 1), Quaternion.identity);
+
+                    Tile ct = go.GetComponent<Tile>();
+                    ct.tileX = x;
+                    ct.tileY = y;
+                    ct.map = this;
+                    tiles[x, y] = ct;
+                }
             }
         }
     }
