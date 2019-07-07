@@ -72,6 +72,7 @@ public class Unit : MonoBehaviour
             if (currentPath.Count == 1)
             {
                 transform.position = map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y);
+                rigidbody2D.velocity = new Vector2(0, 0);
                 tileX = currentPath[0].x;
                 tileY = currentPath[0].y;
                 currentPath = null;
@@ -95,13 +96,14 @@ public class Unit : MonoBehaviour
                     //setRotation();
                     animator.SetFloat("Move X", directionX);
                     animator.SetFloat("Move Y", directionY);
+                    rigidbody2D.velocity = new Vector2(directionX*2.5f, directionY*2.5f);
                 }
             }
         }
         //Move as long as there are nodes in the path
-        if (currentPath!=null) {
-            transform.position = incrementPosition(transform.position);
-        }
+        //if (currentPath!=null) {
+            //transform.position = incrementPosition(transform.position);
+        //}
     }
 
     public Vector3 incrementPosition(Vector3 position)

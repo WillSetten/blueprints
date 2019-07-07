@@ -14,9 +14,9 @@ TagManager:
   - UI
   - 
   - 
-  - Selectable Tiles
-  - 
-  - 
+  - Units
+  - Doors
+  - Tiles
   - 
   - 
   - 
@@ -41,4 +41,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Tiles
+    uniqueID: 4130267723
     locked: 0

@@ -6,10 +6,13 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     System.Random rnd;
+    //How frequently the unit is given a new path
     float setTimer;
     float timer=0;
     public List<Unit> units;
     private TileMap map;
+    //Enemy Controller can be toggled
+    public bool active;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +20,13 @@ public class EnemyController : MonoBehaviour
         map = GameObject.Find("Map").GetComponent<TileMap>();
         rnd = new System.Random();
         setTimer = rnd.Next(2,10);
+        active = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!map.paused)
+        if (!map.paused && active)
         {
             foreach (Unit unit in units)
             {
