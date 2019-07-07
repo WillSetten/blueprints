@@ -6,6 +6,8 @@ public class CameraMovement : MonoBehaviour
 {
     public Camera viewingCamera;
     public Vector2 direction;
+    public Resolution res;
+    TileMap map;
     float moveSpeed = 5f;
     bool up = false;
     bool down = false;
@@ -15,12 +17,21 @@ public class CameraMovement : MonoBehaviour
     void Start()
     {
         viewingCamera = GetComponent<Camera>();
+        viewingCamera.orthographicSize = (float)Screen.height / 64;
+        res = Screen.currentResolution;
+        Debug.Log(viewingCamera.orthographicSize);
         direction = new Vector2(0, 0);
+        map = GameObject.Find("Map").GetComponent<TileMap>();
     }
-
     // Update is called once per frame
     void Update()
     {
+        //If the resolution of the screen has changed, change the camera size appropriately
+        if (!Screen.currentResolution.Equals(res))
+        {
+            viewingCamera.orthographicSize = (float)Screen.height / 64;
+            res = Screen.currentResolution;
+        }
         checkInput();
         manageDirection();
         moveCam();
@@ -65,15 +76,25 @@ public class CameraMovement : MonoBehaviour
         {
             right = false;
         }
+        //Zoom in
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && viewingCamera.orthographicSize > Screen.height / 128)
+        {
+            viewingCamera.orthographicSize -= 0.4f;
+        }
+        //Zoom out
+        if (Input.GetAxis("Mouse ScrollWheel") < 0 && viewingCamera.orthographicSize < Screen.height / 64)
+        {
+            viewingCamera.orthographicSize += 0.4f;
+        }
     }
 
     void manageDirection()
     {
-        if (left)
+        if (left && transform.position.x>0)
         {
             direction = new Vector2(-1, direction.y);
         }
-        else if (right)
+        else if (right && transform.position.x < map.mapSizeY)
         {
             direction = new Vector2(1, direction.y);
         }
@@ -81,11 +102,11 @@ public class CameraMovement : MonoBehaviour
         {
             direction = new Vector2(0, direction.y);
         }
-        if (up)
+        if (up && transform.position.y < map.mapSizeY)
         {
             direction = new Vector2(direction.x, 1);
         }
-        else if (down)
+        else if (down && transform.position.y > 0)
         {
             direction = new Vector2(direction.x, -1);
         }
