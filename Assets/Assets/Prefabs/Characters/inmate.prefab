@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3662318051941725373}
   - component: {fileID: 6842016487478810291}
+  - component: {fileID: 6499396441076015103}
   - component: {fileID: 8007350306369267304}
   - component: {fileID: 6348214700342276882}
   - component: {fileID: 462732770898714956}
@@ -52,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 257ec5b3706e57a45950a9a3147008c1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,6 +85,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6499396441076015103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4257362992100389051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dd06d3236bdbb64892414ee31a3ab82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0.43529412, g: 1, b: 0.28773582, a: 0.6784314}
+  outlineSize: 0
 --- !u!114 &8007350306369267304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Inmate
   selectable: 1
+  selected: 0
   tileX: 0
   tileY: 0
   directionX: 0

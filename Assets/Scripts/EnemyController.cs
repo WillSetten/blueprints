@@ -54,7 +54,7 @@ public class EnemyController : MonoBehaviour
             //If game is getting unpaused, start up all unit animations again
             foreach (Unit u in units)
             {
-                u.GetComponent<Animator>().enabled = true;
+                u.togglePause();
             }
         }
         else
@@ -62,7 +62,7 @@ public class EnemyController : MonoBehaviour
             //If game is getting paused, stop all unit animations
             foreach (Unit u in units)
             {
-                u.GetComponent<Animator>().enabled = false;
+                u.togglePause();
             }
         }
     }

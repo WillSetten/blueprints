@@ -10,8 +10,9 @@ public class TileMap : MonoBehaviour
     public List<GameObject> units;
     public EnemyController enemyController;
     public TileType[] tileTypes;
-    public bool paused = false;
+    public bool paused = false; //True when game is paused, false when it is not
 
+    GameObject[] doors; //List of Doors
     List<Room> rooms; //List of Rooms
     int[,] tileMatrix; //2D Integer array for showing which tiles are passable and which aren't
     Node[,] graph; //2D Array of Nodes for pathfinding
@@ -31,8 +32,11 @@ public class TileMap : MonoBehaviour
         GenerateMapVisuals();
         pathCache = new Dictionary<string, string>();
         rooms = new List<Room>();
+        doors = GameObject.FindGameObjectsWithTag("Door");
         mapSizeX = 26;
         mapSizeY = 26;
+        selectedUnit.GetComponent<Unit>().selected = true;
+        selectedUnit.GetComponent<Unit>().changeHighlight();
     }
 
     private void Update()
@@ -43,22 +47,30 @@ public class TileMap : MonoBehaviour
             if(paused)
             {
                 //If game is getting unpaused, start up all unit animations again
+                paused = false;
                 foreach (GameObject u in units)
                 {
-                    u.GetComponent<Animator>().enabled = true;
+                    u.GetComponent<Unit>().togglePause();
+                }
+                foreach(GameObject door in doors)
+                {
+                    door.GetComponent<Door>().togglePause(paused);
                 }
                 enemyController.togglePause();
-                paused = false;
             }
             else
             {
                 //If game is getting paused, stop all unit animations
-                foreach(GameObject u in units)
+                paused = true;
+                foreach (GameObject u in units)
                 {
-                    u.GetComponent<Animator>().enabled = false;
+                    u.GetComponent<Unit>().togglePause();
+                }
+                foreach (GameObject door in doors)
+                {
+                    door.GetComponent<Door>().togglePause(paused);
                 }
                 enemyController.togglePause();
-                paused = true;
             }
         }
         if (Input.GetKeyUp(KeyCode.Alpha1)|| Input.GetKeyUp(KeyCode.Keypad1))
@@ -373,6 +385,10 @@ public class TileMap : MonoBehaviour
 
     public void setSelectedUnit(GameObject newUnit)
     {
+        selectedUnit.GetComponent<Unit>().selected = false;
+        selectedUnit.GetComponent<Unit>().changeHighlight();
+        newUnit.GetComponent<Unit>().selected = true;
+        newUnit.GetComponent<Unit>().changeHighlight();
         selectedUnit = newUnit;
     }
 

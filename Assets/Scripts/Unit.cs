@@ -6,13 +6,15 @@ public class Unit : MonoBehaviour
 {
     public string name;
     public bool selectable = true;
+    public bool selected = false;
     public int tileX;
     public int tileY;
     public int directionX;
     public int directionY;
-    public int moveRate=5;
+    public float moveRate;
     public TileMap map;
     Animator animator;
+    SpriteRenderer spriteRenderer;
     Rigidbody2D rigidbody2D;
 
     public List<Node> currentPath = null;
@@ -21,12 +23,30 @@ public class Unit : MonoBehaviour
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         tileX = (int)transform.position.x;
         tileY = (int)transform.position.y;
         map = GameObject.Find("Map").GetComponent<TileMap>();
         transform.position = map.TileCoordToWorldCoord(tileX, tileY);
         Debug.Log(transform.gameObject.name);
         name = transform.gameObject.name;
+        moveRate = 2.5f;
+    }
+
+    private void OnMouseOver()
+    {
+        if (selectable&&!selected)
+        {
+            spriteRenderer.color = Color.green;
+        }
+    }
+
+    private void OnMouseExit()
+    {
+        if (selectable)
+        {
+            spriteRenderer.color = Color.white;
+        }
     }
 
     void OnMouseUp()
@@ -38,11 +58,22 @@ public class Unit : MonoBehaviour
         }
     }
 
+    public void changeHighlight()
+    {
+        if (selected)
+        {
+            GetComponent<SpriteOutline>().outlineSize = 1;
+        }
+        else
+        {
+            GetComponent<SpriteOutline>().outlineSize = 0;
+        }
+    }
+
     void Update()
     {
         if (currentPath !=null && !map.paused)
         {
-            int moveCounter = moveRate;
             int currNode = 0;
             while(currNode < currentPath.Count-1)
             {
@@ -52,6 +83,20 @@ public class Unit : MonoBehaviour
                 currNode = currNode + 1;
             }
         MoveNextTile();
+        }
+    }
+
+    public void togglePause()
+    {
+        if(map.paused)
+        {
+            animator.enabled = false;
+            rigidbody2D.velocity = new Vector2(0, 0);
+        }
+        else
+        {
+            animator.enabled = true;
+            rigidbody2D.velocity = new Vector2(directionX * moveRate, directionY * moveRate);
         }
     }
 
@@ -96,19 +141,10 @@ public class Unit : MonoBehaviour
                     //setRotation();
                     animator.SetFloat("Move X", directionX);
                     animator.SetFloat("Move Y", directionY);
-                    rigidbody2D.velocity = new Vector2(directionX*2.5f, directionY*2.5f);
+                    rigidbody2D.velocity = new Vector2(directionX*moveRate, directionY*moveRate);
                 }
             }
         }
-        //Move as long as there are nodes in the path
-        //if (currentPath!=null) {
-            //transform.position = incrementPosition(transform.position);
-        //}
-    }
-
-    public Vector3 incrementPosition(Vector3 position)
-    {
-        return map.TileCoordToWorldCoord(position.x + directionX*2.5f*Time.deltaTime, position.y + directionY *2.5f* Time.deltaTime);
     }
 
     //Redundant method
