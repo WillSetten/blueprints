@@ -19,6 +19,7 @@ public class Unit : MonoBehaviour
 
     public List<Node> currentPath = null;
 
+    //Initialization
     private void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -31,8 +32,10 @@ public class Unit : MonoBehaviour
         Debug.Log(transform.gameObject.name);
         name = transform.gameObject.name;
         moveRate = 2.5f;
+        map.tiles[tileX,tileY].occupied = true;
     }
 
+    //Highlight the unit in green when the mouse hovers over it
     private void OnMouseOver()
     {
         if (selectable&&!selected)
@@ -41,6 +44,7 @@ public class Unit : MonoBehaviour
         }
     }
 
+    //Remove the highlight on the unit when the mouse stops hovering over it
     private void OnMouseExit()
     {
         if (selectable)

@@ -7,13 +7,13 @@ public class TileMap : MonoBehaviour
 {
     //Each unit should have a click handler which, when selected, should make this variable equal to that unit.
     public GameObject selectedUnit;
-    public List<GameObject> units;
+    public List<GameObject> units; //List of selectable units
     public EnemyController enemyController;
     public TileType[] tileTypes;
     public bool paused = false; //True when game is paused, false when it is not
 
     GameObject[] doors; //List of Doors
-    List<Room> rooms; //List of Rooms
+    Room[] rooms; //List of Rooms
     int[,] tileMatrix; //2D Integer array for showing which tiles are passable and which aren't
     Node[,] graph; //2D Array of Nodes for pathfinding
     public Tile[,] tiles; //2D Array of tiles
@@ -27,14 +27,21 @@ public class TileMap : MonoBehaviour
     private void Start()
     {
         enemyController = GameObject.Find("Enemy Controller").GetComponent<EnemyController>();
+        mapSizeX = 26;
+        mapSizeY = 26;
+        tiles = new Tile[mapSizeX, mapSizeY];
         GenerateMapData();
         GeneratePathfindingGraph();
         GenerateMapVisuals();
         pathCache = new Dictionary<string, string>();
-        rooms = new List<Room>();
+
+        rooms = GetComponentsInChildren<Room>();
+        foreach(Room r in rooms)
+        {
+            r.map = this;
+        }
+
         doors = GameObject.FindGameObjectsWithTag("Door");
-        mapSizeX = 26;
-        mapSizeY = 26;
         selectedUnit.GetComponent<Unit>().selected = true;
         selectedUnit.GetComponent<Unit>().changeHighlight();
     }
@@ -122,6 +129,7 @@ public class TileMap : MonoBehaviour
             foreach(Tile ct in GetComponentsInChildren<Tile>())
             {
                 ct.map = this;
+                tiles[ct.tileX,ct.tileY] = ct;
             }
         }
         else
@@ -132,7 +140,7 @@ public class TileMap : MonoBehaviour
                 {
                     TileType tt = tileTypes[tileMatrix[x, y]];
                     GameObject go = (GameObject)Instantiate(tt.tileVisualPrefab, new Vector3(x, y, 1), Quaternion.identity);
-
+                    go.transform.parent = transform;
                     Tile ct = go.GetComponent<Tile>();
                     ct.tileX = x;
                     ct.tileY = y;
@@ -153,6 +161,10 @@ public class TileMap : MonoBehaviour
     //Takes in an x and y to move the selected unit to. This method currently uses basic Dyikstra
     public void GeneratePathTo(int x, int y, Unit unit)
     {
+        //Set origin tile to no longer occupied
+        tiles[unit.tileX,unit.tileY].occupied = false;
+        //Set destination tile to occupied
+        tiles[x,y].occupied = true;
         //If the units current destination is the same as the one thats been clicked on, return
         if (unit.currentPath != null) {
             Node currentDestination = unit.currentPath[unit.currentPath.Count - 1];
