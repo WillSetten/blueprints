@@ -413,8 +413,14 @@ public class TileMap : MonoBehaviour
     public void setSelectedUnit(GameObject newUnit)
     {
         multipleUnitsSelected = false;
+        
+        foreach (GameObject u in selectedUnits)
+        {
+            u.GetComponent<Unit>().selected = false;
+            u.GetComponent<Unit>().changeHighlight();
+        }
+        selectedUnits.Clear();
 
-        selectedUnits = new List<GameObject>();
         //If there is another single unit selected
         if (selectedUnit != null)
         {

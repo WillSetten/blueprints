@@ -16,6 +16,7 @@ public class Unit : MonoBehaviour
     Animator animator;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigidbody2D;
+    Color color;
 
     public List<Node> currentPath = null;
 
@@ -25,6 +26,7 @@ public class Unit : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        color = spriteRenderer.color;
         tileX = (int)transform.position.x;
         tileY = (int)transform.position.y;
         map = GameObject.Find("Map").GetComponent<TileMap>();
@@ -38,7 +40,7 @@ public class Unit : MonoBehaviour
     //Highlight the unit in green when the mouse hovers over it
     private void OnMouseOver()
     {
-        if (selectable&&!selected)
+        if (selectable)
         {
             spriteRenderer.color = Color.green;
         }
@@ -49,7 +51,7 @@ public class Unit : MonoBehaviour
     {
         if (selectable)
         {
-            spriteRenderer.color = Color.white;
+            spriteRenderer.color = color;
         }
     }
 
