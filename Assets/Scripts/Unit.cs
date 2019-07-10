@@ -34,7 +34,7 @@ public class Unit : MonoBehaviour
         moveRate = 2.5f;
         map.tiles[tileX,tileY].occupied = true;
     }
-
+   
     //Highlight the unit in green when the mouse hovers over it
     private void OnMouseOver()
     {

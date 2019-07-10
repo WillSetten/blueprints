@@ -26,10 +26,10 @@ public class TileMap : MonoBehaviour
     //Initialisation
     private void Start()
     {
-        enemyController = GameObject.Find("Enemy Controller").GetComponent<EnemyController>();
         mapSizeX = 26;
         mapSizeY = 26;
         tiles = new Tile[mapSizeX, mapSizeY];
+        enemyController = GameObject.Find("Enemy Controller").GetComponent<EnemyController>();
         GenerateMapData();
         GeneratePathfindingGraph();
         GenerateMapVisuals();
@@ -44,6 +44,15 @@ public class TileMap : MonoBehaviour
         doors = GameObject.FindGameObjectsWithTag("Door");
         selectedUnit.GetComponent<Unit>().selected = true;
         selectedUnit.GetComponent<Unit>().changeHighlight();
+
+        /*foreach (GameObject u in units)
+        {
+            tiles[u.GetComponent<Unit>().tileX, u.GetComponent<Unit>().tileY].occupied = true;
+        }
+        foreach(Unit u in enemyController.units)
+        {
+            tiles[u.tileX, u.tileY].occupied = true;
+        }*/
     }
 
     private void Update()
@@ -161,10 +170,6 @@ public class TileMap : MonoBehaviour
     //Takes in an x and y to move the selected unit to. This method currently uses basic Dyikstra
     public void GeneratePathTo(int x, int y, Unit unit)
     {
-        //Set origin tile to no longer occupied
-        tiles[unit.tileX,unit.tileY].occupied = false;
-        //Set destination tile to occupied
-        tiles[x,y].occupied = true;
         //If the units current destination is the same as the one thats been clicked on, return
         if (unit.currentPath != null) {
             Node currentDestination = unit.currentPath[unit.currentPath.Count - 1];
@@ -178,6 +183,20 @@ public class TileMap : MonoBehaviour
         {
             return;
         }
+
+        //If the units destination tile is occupied, recall this method with the closest tile to the target in the same room
+        if (tiles[x, y].occupied)
+        {
+            Tile newDestinationTile = tiles[x, y].room.findBestNextTile(tiles[x, y]);
+            GeneratePathTo(newDestinationTile.tileX, newDestinationTile.tileY, selectedUnit.GetComponent<Unit>());
+            return;
+        }
+
+        //Set the units destination tile as occupied
+        tiles[x, y].occupied = true;
+        //Set the units source tile as unoccupied
+        tiles[unit.tileX, unit.tileY].occupied = false;
+
         List<Node> currentPath = new List<Node>();
         Dictionary<string, Node> open = new Dictionary<string,Node>();
         Dictionary<string, Node> close = new Dictionary<string, Node>();
@@ -294,9 +313,11 @@ public class TileMap : MonoBehaviour
             //Debug.Log("Path length: " + currentPath.Count);
         }
 
-        // If the unit had a path, clear it and move the unit to the tile it is meant to be on.
+        // If the unit had a path, set its old destination tile to unoccupied, clear the path and move the unit to the tile it is meant to be on.
         if (unit.currentPath != null)
         {
+            Node last = unit.currentPath[unit.currentPath.Count - 1];
+            tiles[last.x, last.y].occupied = false;
             //If the unit is currently not moving in the correct direction, reset its position then replace its path
             if (unit.currentPath[0] != currentPath[1])
             {
