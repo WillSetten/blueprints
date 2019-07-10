@@ -18,8 +18,18 @@ public class Tile : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
+            if (!map.multipleUnitsSelected)
+            {
                 map.GeneratePathTo(tileX, tileY, map.selectedUnit.GetComponent<Unit>());
                 Debug.Log("Goal Tile :" + tileX + "," + tileY);
+            }
+            else
+            {
+                foreach(GameObject u in map.selectedUnits)
+                {
+                    map.GeneratePathTo(tileX, tileY, u.GetComponent<Unit>());
+                }
+            }
         }
     }
 }

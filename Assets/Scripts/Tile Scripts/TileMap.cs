@@ -6,11 +6,13 @@ using System.Linq;
 public class TileMap : MonoBehaviour
 {
     //Each unit should have a click handler which, when selected, should make this variable equal to that unit.
-    public GameObject selectedUnit;
+    public GameObject selectedUnit; //Currently selected unit
+    public List<GameObject> selectedUnits; //When multiple units are selected, they are put into this list
     public List<GameObject> units; //List of selectable units
     public EnemyController enemyController;
     public TileType[] tileTypes;
     public bool paused = false; //True when game is paused, false when it is not
+    public bool multipleUnitsSelected = true; //True when multiple units are selected.
 
     GameObject[] doors; //List of Doors
     Room[] rooms; //List of Rooms
@@ -42,17 +44,9 @@ public class TileMap : MonoBehaviour
         }
 
         doors = GameObject.FindGameObjectsWithTag("Door");
-        selectedUnit.GetComponent<Unit>().selected = true;
-        selectedUnit.GetComponent<Unit>().changeHighlight();
-
-        /*foreach (GameObject u in units)
-        {
-            tiles[u.GetComponent<Unit>().tileX, u.GetComponent<Unit>().tileY].occupied = true;
-        }
-        foreach(Unit u in enemyController.units)
-        {
-            tiles[u.tileX, u.tileY].occupied = true;
-        }*/
+        selectedUnits = new List<GameObject>();
+        //setSelectedUnit(selectedUnit);
+        setMultipleSelectedUnits(units);
     }
 
     private void Update()
@@ -188,7 +182,7 @@ public class TileMap : MonoBehaviour
         if (tiles[x, y].occupied)
         {
             Tile newDestinationTile = tiles[x, y].room.findBestNextTile(tiles[x, y]);
-            GeneratePathTo(newDestinationTile.tileX, newDestinationTile.tileY, selectedUnit.GetComponent<Unit>());
+            GeneratePathTo(newDestinationTile.tileX, newDestinationTile.tileY, unit.GetComponent<Unit>());
             return;
         }
 
@@ -418,11 +412,36 @@ public class TileMap : MonoBehaviour
 
     public void setSelectedUnit(GameObject newUnit)
     {
-        selectedUnit.GetComponent<Unit>().selected = false;
-        selectedUnit.GetComponent<Unit>().changeHighlight();
+        multipleUnitsSelected = false;
+
+        selectedUnits = new List<GameObject>();
+        //If there is another single unit selected
+        if (selectedUnit != null)
+        {
+            selectedUnit.GetComponent<Unit>().selected = false;
+            selectedUnit.GetComponent<Unit>().changeHighlight();
+        }
         newUnit.GetComponent<Unit>().selected = true;
         newUnit.GetComponent<Unit>().changeHighlight();
         selectedUnit = newUnit;
+    }
+
+    public void setMultipleSelectedUnits(List<GameObject> newUnits)
+    {
+        multipleUnitsSelected = true;
+        selectedUnit = null;
+        foreach (GameObject u in selectedUnits)
+        {
+            u.GetComponent<Unit>().selected = false;
+            u.GetComponent<Unit>().changeHighlight();
+        }
+        selectedUnits = new List<GameObject>();
+        foreach(GameObject u in newUnits)
+        {
+            u.GetComponent<Unit>().selected = true;
+            u.GetComponent<Unit>().changeHighlight();
+            selectedUnits.Add(u);
+        }
     }
 
     //Converts a path to string for easy storage

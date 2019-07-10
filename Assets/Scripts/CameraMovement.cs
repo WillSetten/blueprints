@@ -13,7 +13,7 @@ public class CameraMovement : MonoBehaviour
     bool down = false;
     bool left = false;
     bool right = false;
-    // Start is called before the first frame update
+
     void Start()
     {
         viewingCamera = GetComponent<Camera>();
@@ -23,7 +23,7 @@ public class CameraMovement : MonoBehaviour
         direction = new Vector2(0, 0);
         map = GameObject.Find("Map").GetComponent<TileMap>();
     }
-    // Update is called once per frame
+
     void Update()
     {
         //If the resolution of the screen has changed, change the camera size appropriately
