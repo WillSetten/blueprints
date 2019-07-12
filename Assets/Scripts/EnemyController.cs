@@ -20,7 +20,6 @@ public class EnemyController : MonoBehaviour
         map = GameObject.Find("Map").GetComponent<TileMap>();
         rnd = new System.Random();
         setTimer = rnd.Next(2,10);
-        active = true;
     }
 
     // Update is called once per frame

@@ -13,15 +13,15 @@ public class TileMap : MonoBehaviour
     public TileType[] tileTypes;
     public bool paused = false; //True when game is paused, false when it is not
     public bool multipleUnitsSelected = true; //True when multiple units are selected.
+    public Tile[,] tiles; //2D Array of tiles
+    public int mapSizeX;
+    public int mapSizeY;
+    public Tile lastSelectedTile; //Tile stored to make sure the user spamming tiles doesn't make the unit skip tiles
 
     GameObject[] doors; //List of Doors
     Room[] rooms; //List of Rooms
     int[,] tileMatrix; //2D Integer array for showing which tiles are passable and which aren't
     Node[,] graph; //2D Array of Nodes for pathfinding
-    public Tile[,] tiles; //2D Array of tiles
-
-    public int mapSizeX;
-    public int mapSizeY;
 
     Dictionary<string,string> pathCache;
 
@@ -31,6 +31,7 @@ public class TileMap : MonoBehaviour
         mapSizeX = 26;
         mapSizeY = 26;
         tiles = new Tile[mapSizeX, mapSizeY];
+        lastSelectedTile = null;
         enemyController = GameObject.Find("Enemy Controller").GetComponent<EnemyController>();
         GenerateMapData();
         GeneratePathfindingGraph();
@@ -181,7 +182,7 @@ public class TileMap : MonoBehaviour
         //If the units destination tile is occupied, recall this method with the closest tile to the target in the same room
         if (tiles[x, y].occupied)
         {
-            Tile newDestinationTile = tiles[x, y].room.findBestNextTile(tiles[x, y]);
+            Tile newDestinationTile = tiles[x, y].room.findBestNextTile(tiles[x, y], unit);
             GeneratePathTo(newDestinationTile.tileX, newDestinationTile.tileY, unit.GetComponent<Unit>());
             return;
         }
