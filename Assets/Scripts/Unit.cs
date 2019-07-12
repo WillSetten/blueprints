@@ -9,6 +9,8 @@ public class Unit : MonoBehaviour
     public bool selected = false;
     public int tileX;
     public int tileY;
+    public int previousTileX;
+    public int previousTileY;
     public int directionX;
     public int directionY;
     public float moveRate;
@@ -124,6 +126,8 @@ public class Unit : MonoBehaviour
             {
                 transform.position = map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y);
                 rigidbody2D.velocity = new Vector2(0, 0);
+                previousTileX = tileX;
+                previousTileY = tileY;
                 tileX = currentPath[0].x;
                 tileY = currentPath[0].y;
                 currentPath = null;
@@ -135,6 +139,8 @@ public class Unit : MonoBehaviour
             //If the unit has hit a node but has more nodes to visit
             else
             {
+                previousTileX = tileX;
+                previousTileY = tileY;
                 tileX = currentPath[0].x;
                 tileY = currentPath[0].y;
                 currentPath.RemoveAt(0);
@@ -142,7 +148,15 @@ public class Unit : MonoBehaviour
                 int oldDirectionY = directionY;
                 directionX = currentPath[0].x - tileX;
                 directionY = currentPath[0].y - tileY;
-                if (oldDirectionX != directionX || oldDirectionY != directionY)
+
+                //If the direction that the unit is moving in is greater in magnitude than 1 in any direction, re-place the unit and reset it's path
+                //This if statement is intended to solve a bug where unity randomly moves the unit great distances for a reason I've had trouble determining
+                if(directionX<0 && directionX<-1 || directionX>0 && directionX > 1 || directionY < 0 && directionY < -1 || directionY > 0 && directionY > 1)
+                {
+                    transform.position = map.TileCoordToWorldCoord(previousTileX, previousTileY);
+                    map.GeneratePathTo(currentPath[currentPath.Count-1].x, currentPath[currentPath.Count - 1].y, this);
+                }
+                else if (oldDirectionX != directionX || oldDirectionY != directionY)
                 {
                     //setRotation();
                     animator.SetFloat("Move X", directionX);
@@ -190,6 +204,7 @@ public class Unit : MonoBehaviour
         }
     }
 
+    //True if 
     bool checkIfOverMoved()
     {
         Vector3 position = transform.position;
