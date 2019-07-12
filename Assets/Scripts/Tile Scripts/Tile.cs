@@ -16,16 +16,15 @@ public class Tile : MonoBehaviour
     public bool occupied=false;
     void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0))
+        /*if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Clicked on Tile " + tileX + "," + tileY);
-        }
+        }*/
         if (Input.GetMouseButtonDown(1) && this!=map.lastSelectedTile)
         {
             if (!map.multipleUnitsSelected)
             {
                 map.GeneratePathTo(tileX, tileY, map.selectedUnit.GetComponent<Unit>());
-                //Debug.Log("Goal Tile :" + tileX + "," + tileY);
             }
             else
             {

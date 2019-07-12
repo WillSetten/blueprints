@@ -159,7 +159,7 @@ public class TileMap : MonoBehaviour
     //a Vector3. Any scaling issues will probably have to be fixed in this method.
     public Vector3 TileCoordToWorldCoord(float x, float y)
     {
-        return new Vector3(x, y, 0);
+        return new Vector3((int)x, (int)y, 0);
     }
 
     //Takes in an x and y to move the selected unit to. This method currently uses basic Dyikstra
@@ -186,7 +186,7 @@ public class TileMap : MonoBehaviour
             GeneratePathTo(newDestinationTile.tileX, newDestinationTile.tileY, unit.GetComponent<Unit>());
             return;
         }
-
+        Debug.Log("Goal Tile :" + x + "," + y);
         //Set the units destination tile as occupied
         tiles[x, y].occupied = true;
         //Set the units source tile as unoccupied
@@ -210,7 +210,7 @@ public class TileMap : MonoBehaviour
 
             if (UnitCanEnterTile(x, y) == false)
             {
-                // We probably clicked on a mountain or something, so just quit out.
+                // We probably clicked on an impassable tile, so return
                 return;
             }
 
@@ -316,6 +316,7 @@ public class TileMap : MonoBehaviour
             //If the unit is currently not moving in the correct direction, reset its position then replace its path
             if (unit.currentPath[0] != currentPath[1])
             {
+                Debug.Log("Unit is not moving in the correct direction, teleporting unit to tile " + TileCoordToWorldCoord(unit.tileX, unit.tileY));
                 unit.transform.position = TileCoordToWorldCoord(
                     unit.tileX,
                     unit.tileY);
