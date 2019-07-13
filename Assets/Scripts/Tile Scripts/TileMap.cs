@@ -7,6 +7,7 @@ public class TileMap : MonoBehaviour
 {
     //Each unit should have a click handler which, when selected, should make this variable equal to that unit.
     public GameObject selectedUnit; //Currently selected unit
+    public Camera viewingCamera; //The camera used to observe the map
     public List<GameObject> selectedUnits; //When multiple units are selected, they are put into this list
     public List<GameObject> units; //List of selectable units
     public EnemyController enemyController;
@@ -22,8 +23,10 @@ public class TileMap : MonoBehaviour
     Room[] rooms; //List of Rooms
     int[,] tileMatrix; //2D Integer array for showing which tiles are passable and which aren't
     Node[,] graph; //2D Array of Nodes for pathfinding
-
-    Dictionary<string,string> pathCache;
+    Dictionary<string,string> pathCache; //Dictionary of paths. Since the pathfinding algorithm is quite processor intensive,
+    //storing any calculated paths for later use makes the game run smoother
+    private Vector2 srtBoxPos = Vector2.zero; //Where the unit selection box begins
+    private Vector2 endBoxPos = Vector2.zero; //Where the unit selection box ends
 
     //Initialisation
     private void Start()
@@ -37,13 +40,12 @@ public class TileMap : MonoBehaviour
         GeneratePathfindingGraph();
         GenerateMapVisuals();
         pathCache = new Dictionary<string, string>();
-
+        viewingCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         rooms = GetComponentsInChildren<Room>();
         foreach(Room r in rooms)
         {
             r.map = this;
         }
-
         doors = GameObject.FindGameObjectsWithTag("Door");
         selectedUnits = new List<GameObject>();
         //setSelectedUnit(selectedUnit);
@@ -52,6 +54,26 @@ public class TileMap : MonoBehaviour
 
     private void Update()
     {
+        // Called while the user is holding the mouse down.
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            // Called on the first update where the user has pressed the mouse button.
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+                srtBoxPos = Input.mousePosition;
+            else  // Else we must be in "drag" mode.
+                endBoxPos = Input.mousePosition;
+        }
+        else
+        {
+            // Handle the case where the player had been drawing a box but has now released.
+            if (endBoxPos != Vector2.zero && srtBoxPos != Vector2.zero)
+            {
+                handleUnitSelection();
+                Debug.Log("Start: " + srtBoxPos + ", End: " + endBoxPos);
+            }
+            // Reset box positions.
+            endBoxPos = srtBoxPos = Vector2.zero;
+        }
         if (Input.GetKeyUp(KeyCode.Space))
         {
             Debug.Log("Space Pressed");
@@ -103,6 +125,21 @@ public class TileMap : MonoBehaviour
         {
             Debug.Log("4 pressed");
             setSelectedUnit(units[3]);
+        }
+    }
+
+    void OnGUI()
+    {
+        // If we are in the middle of a selection draw the texture.
+        if (srtBoxPos != Vector2.zero && endBoxPos != Vector2.zero)
+        {
+            // Create a rectangle object out of the start and end position while transforming it
+            // to the screen's cordinates.
+            var rect = new Rect(srtBoxPos.x, Screen.height - srtBoxPos.y,
+                                endBoxPos.x - srtBoxPos.x,
+                                -1 * (endBoxPos.y - srtBoxPos.y));
+            // Draw the texture.
+            GUI.Box(rect,"");
         }
     }
 
@@ -165,28 +202,39 @@ public class TileMap : MonoBehaviour
     //Takes in an x and y to move the selected unit to. This method currently uses basic Dyikstra
     public void GeneratePathTo(int x, int y, Unit unit)
     {
+        Debug.Log("Origin Tile: " + unit.tileX + "," + unit.tileY + " Goal Tile: " + x + "," + y);
         //If the units current destination is the same as the one thats been clicked on, return
         if (unit.currentPath != null) {
             Node currentDestination = unit.currentPath[unit.currentPath.Count - 1];
             if (currentDestination.x == x && currentDestination.y == y)
             {
+                Debug.Log(unit.name + " tried travelling to the same tile more than once!");
                 return;
             }
         }
+
+        //If the unit is attempting to travel to a tile that is impassable, return
+        if (UnitCanEnterTile(x, y) == false)
+        {
+            Debug.Log("Unit cannot enter that tile");
+            return;
+        }
+
         //If the unit is attempting to travel to the same tile
         if (x == unit.tileX && y == unit.tileY)
         {
+            Debug.Log(unit.name + " tried travelling to the tile it was already on!");
             return;
         }
 
         //If the units destination tile is occupied, recall this method with the closest tile to the target in the same room
         if (tiles[x, y].occupied)
         {
+            Debug.Log("The tile that " + unit.name + " was trying to get to is occupied, attempting to find another path");
             Tile newDestinationTile = tiles[x, y].room.findBestNextTile(tiles[x, y], unit);
             GeneratePathTo(newDestinationTile.tileX, newDestinationTile.tileY, unit.GetComponent<Unit>());
             return;
         }
-        Debug.Log("Goal Tile :" + x + "," + y);
         //Set the units destination tile as occupied
         tiles[x, y].occupied = true;
         //Set the units source tile as unoccupied
@@ -202,18 +250,12 @@ public class TileMap : MonoBehaviour
         if (pathCache.ContainsKey(pathname))
         {
             currentPath = pathFromString(pathCache[pathname]);
+            Debug.Log("Loaded path " + pathname + " from path cache!");
         }
         //If we haven't previously calculated the path, proceed as normal
         else
         {
             Node goal = graph[x, y];
-
-            if (UnitCanEnterTile(x, y) == false)
-            {
-                // We probably clicked on an impassable tile, so return
-                return;
-            }
-
             source.f = source.DistanceTo(goal);
             source.g = 0;
             open[string.Concat(source.x +","+ source.y)] = source;
@@ -277,6 +319,7 @@ public class TileMap : MonoBehaviour
             //If the goal was not found, return
             if (currentNode != goal)
             {
+                Debug.Log("No path was found");
                 return;
             }
 
@@ -316,7 +359,7 @@ public class TileMap : MonoBehaviour
             //If the unit is currently not moving in the correct direction, reset its position then replace its path
             if (unit.currentPath[0] != currentPath[1])
             {
-                Debug.Log("Unit is not moving in the correct direction, teleporting unit to tile " + TileCoordToWorldCoord(unit.tileX, unit.tileY));
+                Debug.Log(unit.name + " is not moving in the correct direction, teleporting unit to tile " + TileCoordToWorldCoord(unit.tileX, unit.tileY));
                 unit.transform.position = TileCoordToWorldCoord(
                     unit.tileX,
                     unit.tileY);
@@ -504,6 +547,56 @@ public class TileMap : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void handleUnitSelection()
+    {
+        List<GameObject> newUnits = new List<GameObject>();
+        Rect rect = new Rect();
+        if(srtBoxPos.x < endBoxPos.x)
+        {
+            rect.xMin = srtBoxPos.x;
+            rect.xMax = endBoxPos.x;
+        }
+        else
+        {
+            rect.xMin = endBoxPos.x;
+            rect.xMax = srtBoxPos.x;
+        }
+        if (srtBoxPos.y < endBoxPos.y)
+        {
+            rect.yMin = srtBoxPos.y;
+            rect.yMax = endBoxPos.y;
+        }
+        else
+        {
+            rect.yMin = endBoxPos.y;
+            rect.yMax = srtBoxPos.y;
+        }
+        foreach (GameObject u  in units)
+        {
+            Vector2 unitScreenPosition = viewingCamera.WorldToScreenPoint(new Vector2(u.transform.position.x, u.transform.position.y));
+            Debug.Log(u.name + " Screen position is " + unitScreenPosition);
+            if (rect.Contains(unitScreenPosition))
+            {
+                Debug.Log(u.name + " was selected");
+                newUnits.Add(u);
+            }
+        }
+        //If no units were found in the drawn area, do not change what units are selected
+        if(newUnits.Count == 0)
+        {
+            return;
+        }
+        //If only one unit was selected, set that unit as the sole selected unit
+        else if(newUnits.Count == 1)
+        {
+            setSelectedUnit(newUnits.ElementAt(0));
+        }
+        else
+        {
+            setMultipleSelectedUnits(newUnits);
+        }
     }
 
     public void harvestAndTrustee()

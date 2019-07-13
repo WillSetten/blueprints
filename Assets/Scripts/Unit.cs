@@ -42,18 +42,30 @@ public class Unit : MonoBehaviour
     //Highlight the unit in green when the mouse hovers over it
     private void OnMouseOver()
     {
-        if (selectable)
+        if (spriteRenderer.color!=Color.green)
         {
-            spriteRenderer.color = Color.green;
+            toggleHighlight();
         }
     }
 
     //Remove the highlight on the unit when the mouse stops hovering over it
     private void OnMouseExit()
     {
+        toggleHighlight();
+    }
+
+    public void toggleHighlight()
+    {
         if (selectable)
         {
-            spriteRenderer.color = color;
+            if (spriteRenderer.color == color)
+            {
+                spriteRenderer.color = Color.green;
+            }
+            else
+            {
+                spriteRenderer.color = color;
+            }
         }
     }
 
@@ -80,6 +92,10 @@ public class Unit : MonoBehaviour
 
     void Update()
     {
+        if (selectable)
+        {
+            //Debug.Log(name + ": Tile co-ordinates: "+ tileX + "," + tileY + " Actual Co-ordinates: " + transform.position.x +","+ transform.position.y);
+        }
         if (currentPath !=null && !map.paused)
         {
             int currNode = 0;
