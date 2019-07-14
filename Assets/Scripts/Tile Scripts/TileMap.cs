@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+[System.Serializable]
 public class TileMap : MonoBehaviour
 {
     //Each unit should have a click handler which, when selected, should make this variable equal to that unit.
@@ -18,12 +19,14 @@ public class TileMap : MonoBehaviour
     public int mapSizeX;
     public int mapSizeY;
     public Tile lastSelectedTile; //Tile stored to make sure the user spamming tiles doesn't make the unit skip tiles
+    public Shader blueprintShader;
 
     GameObject[] doors; //List of Doors
     Room[] rooms; //List of Rooms
     int[,] tileMatrix; //2D Integer array for showing which tiles are passable and which aren't
     Node[,] graph; //2D Array of Nodes for pathfinding
     Dictionary<string,string> pathCache; //Dictionary of paths. Since the pathfinding algorithm is quite processor intensive,
+    Rect rect;
     //storing any calculated paths for later use makes the game run smoother
     private Vector2 srtBoxPos = Vector2.zero; //Where the unit selection box begins
     private Vector2 endBoxPos = Vector2.zero; //Where the unit selection box ends
@@ -50,6 +53,8 @@ public class TileMap : MonoBehaviour
         selectedUnits = new List<GameObject>();
         //setSelectedUnit(selectedUnit);
         setMultipleSelectedUnits(units);
+        blueprintShader = Shader.Find("Custom/Edge Highlight");
+        rect = new Rect();
     }
 
     private void Update()
@@ -81,6 +86,7 @@ public class TileMap : MonoBehaviour
             {
                 //If game is getting unpaused, start up all unit animations again
                 paused = false;
+                viewingCamera.SetReplacementShader(blueprintShader, "blueprint");
                 foreach (GameObject u in units)
                 {
                     u.GetComponent<Unit>().togglePause();
@@ -95,6 +101,7 @@ public class TileMap : MonoBehaviour
             {
                 //If game is getting paused, stop all unit animations
                 paused = true;
+                viewingCamera.ResetReplacementShader();
                 foreach (GameObject u in units)
                 {
                     u.GetComponent<Unit>().togglePause();
@@ -131,13 +138,46 @@ public class TileMap : MonoBehaviour
     void OnGUI()
     {
         // If we are in the middle of a selection draw the texture.
-        if (srtBoxPos != Vector2.zero && endBoxPos != Vector2.zero)
+        if (srtBoxPos != Vector2.zero && endBoxPos != Vector2.zero && Vector2.Distance(srtBoxPos,endBoxPos)>10)
         {
             // Create a rectangle object out of the start and end position while transforming it
             // to the screen's cordinates.
-            var rect = new Rect(srtBoxPos.x, Screen.height - srtBoxPos.y,
-                                endBoxPos.x - srtBoxPos.x,
-                                -1 * (endBoxPos.y - srtBoxPos.y));
+            if (srtBoxPos.x < endBoxPos.x)
+            {
+                rect.xMin = srtBoxPos.x;
+                rect.xMax = endBoxPos.x;
+            }
+            else
+            {
+                rect.xMin = endBoxPos.x;
+                rect.xMax = srtBoxPos.x;
+            }
+            if (srtBoxPos.y < endBoxPos.y)
+            {
+                rect.yMin = srtBoxPos.y;
+                rect.yMax = endBoxPos.y;
+            }
+            else
+            {
+                rect.yMin = endBoxPos.y;
+                rect.yMax = srtBoxPos.y;
+            }
+            foreach (GameObject u in units)
+            {
+                Vector2 unitScreenPosition = viewingCamera.WorldToScreenPoint(new Vector2(u.transform.position.x, u.transform.position.y));
+                Debug.Log(u.name + " Screen position is " + unitScreenPosition);
+                if (rect.Contains(unitScreenPosition))
+                {
+                    u.GetComponent<Unit>().turnOnPreSelectionHighlight();
+                }
+                else
+                {
+                    u.GetComponent<Unit>().turnOffPreSelectionHighlight();
+                }
+            }
+            rect = new Rect(srtBoxPos.x, Screen.height - srtBoxPos.y,
+                               endBoxPos.x - srtBoxPos.x,
+                               -1 * (endBoxPos.y - srtBoxPos.y));
             // Draw the texture.
             GUI.Box(rect,"");
         }
@@ -549,6 +589,7 @@ public class TileMap : MonoBehaviour
         return false;
     }
 
+    //Called when a selection box has been released
     public void handleUnitSelection()
     {
         List<GameObject> newUnits = new List<GameObject>();
@@ -581,6 +622,7 @@ public class TileMap : MonoBehaviour
             {
                 Debug.Log(u.name + " was selected");
                 newUnits.Add(u);
+                u.GetComponent<Unit>().turnOffPreSelectionHighlight();
             }
         }
         //If no units were found in the drawn area, do not change what units are selected

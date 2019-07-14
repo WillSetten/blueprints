@@ -18,7 +18,6 @@ public class Unit : MonoBehaviour
     Animator animator;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigidbody2D;
-    Color color;
 
     public List<Node> currentPath = null;
 
@@ -28,7 +27,6 @@ public class Unit : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        color = spriteRenderer.color;
         tileX = (int)transform.position.x;
         tileY = (int)transform.position.y;
         map = GameObject.Find("Map").GetComponent<TileMap>();
@@ -42,31 +40,29 @@ public class Unit : MonoBehaviour
     //Highlight the unit in green when the mouse hovers over it
     private void OnMouseOver()
     {
-        if (spriteRenderer.color!=Color.green)
+        if (selectable&&!selected)
         {
-            toggleHighlight();
+            turnOnPreSelectionHighlight();
         }
     }
 
     //Remove the highlight on the unit when the mouse stops hovering over it
     private void OnMouseExit()
     {
-        toggleHighlight();
+        if (selectable&&!selected)
+        {
+            turnOffPreSelectionHighlight();
+        }
     }
 
-    public void toggleHighlight()
+    public void turnOnPreSelectionHighlight()
     {
-        if (selectable)
-        {
-            if (spriteRenderer.color == color)
-            {
-                spriteRenderer.color = Color.green;
-            }
-            else
-            {
-                spriteRenderer.color = color;
-            }
-        }
+        GetComponent<Renderer>().material.SetColor("_SpriteColor", Color.green);
+    }
+
+    public void turnOffPreSelectionHighlight()
+    {
+        GetComponent<Renderer>().material.SetColor("_SpriteColor", Color.white);
     }
 
     void OnMouseUp()
@@ -82,11 +78,12 @@ public class Unit : MonoBehaviour
     {
         if (selected)
         {
-            GetComponent<SpriteOutline>().outlineSize = 1;
+            GetComponent<Renderer>().material.SetFloat("_OutlineThickness", 1);
+            GetComponent<Renderer>().material.SetColor("_SpriteColor", Color.white);
         }
         else
         {
-            GetComponent<SpriteOutline>().outlineSize = 0;
+            GetComponent<Renderer>().material.SetFloat("_OutlineThickness", 0);
         }
     }
 

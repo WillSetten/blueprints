@@ -7,8 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SpriteOutline
-  m_Shader: {fileID: 4800000, guid: f3249b1fb839f3d4789fe0adefd67438, type: 3}
+  m_Name: Inmate Outline
+  m_Shader: {fileID: -6465566751694194690, guid: ab493eaa5c63b6349b3bd70642a45deb,
+    type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA PIXELSNAP_ON
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
@@ -47,6 +48,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MainTexture:
+        m_Texture: {fileID: 2800000, guid: 017c0288135a61542998a2d16672c198, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -62,6 +67,7 @@ Material:
     m_Floats:
     - Outline: 0
     - PixelSnap: 1
+    - _Alpha: 0
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -73,7 +79,9 @@ Material:
     - _OcclusionStrength: 1
     - _Outline: 0
     - _OutlineSize: 1
+    - _OutlineThickness: 1
     - _Parallax: 0.02
+    - _ShowOutline: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
@@ -82,4 +90,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColour: {r: 0.2827225, g: 1, b: 0, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Sensitivity: {r: 1, g: 1, b: 0, a: 0}
+    - _SpriteColor: {r: 1, g: 1, b: 1, a: 0}

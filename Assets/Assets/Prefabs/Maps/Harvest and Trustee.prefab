@@ -58958,6 +58958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedUnit: {fileID: 0}
+  viewingCamera: {fileID: 0}
   selectedUnits: []
   units:
   - {fileID: 0}
@@ -58978,6 +58979,8 @@ MonoBehaviour:
   multipleUnitsSelected: 1
   mapSizeX: 26
   mapSizeY: 26
+  lastSelectedTile: {fileID: 0}
+  blueprintShader: {fileID: 0}
 --- !u!1 &6292699228238593881
 GameObject:
   m_ObjectHideFlags: 0

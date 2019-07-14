@@ -116,6 +116,8 @@ MonoBehaviour:
   selected: 0
   tileX: 0
   tileY: 0
+  previousTileX: 0
+  previousTileY: 0
   directionX: 0
   directionY: 0
   moveRate: 0
