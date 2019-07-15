@@ -7,6 +7,7 @@ public class Unit : MonoBehaviour
     public string name;
     public bool selectable = true;
     public bool selected = false;
+    public bool combatant;
     public int tileX;
     public int tileY;
     public int previousTileX;

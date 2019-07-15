@@ -9,9 +9,12 @@ public class Room : MonoBehaviour
     public TileMap map;
     //An array to keep track of which tiles are occupied
     Tile[] tiles;
+    //Random number generator 
+    System.Random random;
 
     private void Start()
     {
+        random = new System.Random();
         tiles = GetComponentsInChildren<Tile>();
         foreach(Tile t in tiles)
         {
@@ -51,5 +54,23 @@ public class Room : MonoBehaviour
             }
         }
         return currentNextBestTile;
+    }
+
+    //Method which returns another unoccupied tile in the same room. Created to make sure that location-based civilians (staff, customers)
+    //stay in their respective areas
+    public Tile randomTileInRoom()
+    {
+        int tileIndex = 0;
+        //Will iterate the same number of times as there are tiles. This is to prevent an infinite loop occuring if all
+        //tiles are occupied
+        for (int i=0; i < tiles.Length - 1; i++)
+        {
+            tileIndex = random.Next(0, tiles.Length - 1);
+            if (!tiles[tileIndex].occupied)
+            {
+                return tiles[tileIndex];
+            }
+        }
+        return null;
     }
 }
