@@ -137,6 +137,8 @@ public class TileMap : MonoBehaviour
 
     void OnGUI()
     {
+        //**All box-drawing code will need to be rewritten for optimization. Research usage of a box collider rather than
+        //iterating through all units**
         // If we are in the middle of a selection draw the texture.
         if (srtBoxPos != Vector2.zero && endBoxPos != Vector2.zero && Vector2.Distance(srtBoxPos,endBoxPos)>10)
         {
@@ -592,6 +594,8 @@ public class TileMap : MonoBehaviour
     //Called when a selection box has been released
     public void handleUnitSelection()
     {
+        //**All box-drawing code will need to be rewritten for optimization. Research usage of a box collider rather than
+        //iterating through all units**
         List<GameObject> newUnits = new List<GameObject>();
         Rect rect = new Rect();
         if(srtBoxPos.x < endBoxPos.x)

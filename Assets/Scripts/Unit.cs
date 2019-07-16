@@ -5,9 +5,9 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
     public string name;
-    public bool selectable = true;
+    public bool selectable = false;
     public bool selected = false;
-    public bool combatant;
+    public bool combatant = false;
     public int tileX;
     public int tileY;
     public int previousTileX;
@@ -16,6 +16,8 @@ public class Unit : MonoBehaviour
     public int directionY;
     public float moveRate;
     public TileMap map;
+    public int hp;
+    public int interactionRadius = 3;
     Animator animator;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigidbody2D;
@@ -36,6 +38,10 @@ public class Unit : MonoBehaviour
         name = transform.gameObject.name;
         moveRate = 2.5f;
         map.tiles[tileX,tileY].occupied = true;
+        if (combatant)
+        {
+            hp = 5;
+        }
     }
    
     //Highlight the unit in green when the mouse hovers over it
@@ -106,6 +112,7 @@ public class Unit : MonoBehaviour
             }
         MoveNextTile();
         }
+        detectNearbyUnits();
     }
 
     public void togglePause()
@@ -181,8 +188,59 @@ public class Unit : MonoBehaviour
         }
     }
 
+    //True if the unit has moved past the desired point
+    bool checkIfOverMoved()
+    {
+        Vector3 position = transform.position;
+        //If moving right and has an X co-ordinate greater than that of the destination
+        if (directionX > 0 && position.x>map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y).x)
+        {
+            return true;
+        }
+        //If moving left and has an X co-ordinate less than that of the destination
+        if (directionX < 0 && position.x < map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y).x)
+        {
+            return true;
+        }
+        //If moving up and has an Y co-ordinate greater than that of the destination
+        if (directionY > 0 && position.y > map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y).y)
+        {
+            return true;
+        }
+        //If moving down and has an Y co-ordinate less than that of the destination
+        if (directionY < 0 && position.y < map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y).y)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    void detectNearbyUnits()
+    {
+        Collider2D[] nearbyUnits = Physics2D.OverlapCircleAll((Vector2)transform.position, interactionRadius, 1<<8);
+        Unit u = null;
+        foreach (Collider2D c in nearbyUnits)
+        {
+            u = c.gameObject.GetComponent<Unit>();
+            //If the unit has detected itself, skip
+            if (u == this)
+            {
+                continue;
+            }
+            //If the unit in range is a combatant and is on the other side, attempt to attack
+            if (u.combatant && ((selectable && !u.selectable) || (!selectable && u.selectable)))
+            {
+                Debug.Log("Unit " + name + "has enemy combatant " + u.name + " in range");
+            }
+            //If unit is a civilian, attempt to pacify
+            if (!u.combatant)
+            {
+                Debug.Log("Unit " + name + "has civilian " + u.name + " in range");
+            }
+        }
+    }
     //Redundant method
-    public void setRotation()
+    /*public void setRotation()
     {
         if (directionX == 1 && directionY == -1)
         {
@@ -217,31 +275,5 @@ public class Unit : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
-
-    //True if 
-    bool checkIfOverMoved()
-    {
-        Vector3 position = transform.position;
-        //If moving right and has an X co-ordinate greater than that of the destination
-        if (directionX > 0 && position.x>map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y).x)
-        {
-            return true;
-        }
-        //If moving left and has an X co-ordinate less than that of the destination
-        if (directionX < 0 && position.x < map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y).x)
-        {
-            return true;
-        }
-        //If moving up and has an Y co-ordinate greater than that of the destination
-        if (directionY > 0 && position.y > map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y).y)
-        {
-            return true;
-        }
-        //If moving down and has an Y co-ordinate less than that of the destination
-        if (directionY < 0 && position.y < map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y).y)
-        {
-            return true;
-        }
-        return false;
-    }
+    */
 }
