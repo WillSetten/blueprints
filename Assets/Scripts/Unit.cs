@@ -17,7 +17,7 @@ public class Unit : MonoBehaviour
     public float moveRate;
     public TileMap map;
     public int hp;
-    public int interactionRadius = 3;
+    public int interactionRadius = 2;
     Animator animator;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigidbody2D;
@@ -230,14 +230,22 @@ public class Unit : MonoBehaviour
             //If the unit in range is a combatant and is on the other side, attempt to attack
             if (u.combatant && ((selectable && !u.selectable) || (!selectable && u.selectable)))
             {
-                Debug.Log("Unit " + name + "has enemy combatant " + u.name + " in range");
+                //if (selectable)
+                    //Debug.Log("Unit " + name + " has enemy combatant " + u.name + " in range");
             }
             //If unit is a civilian, attempt to pacify
-            if (!u.combatant)
+            else if (!u.combatant)
             {
-                Debug.Log("Unit " + name + "has civilian " + u.name + " in range");
+                //Debug.Log("Unit " + name + "has civilian " + u.name + " in range");
             }
         }
+
+        void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.white;
+            Gizmos.DrawSphere(transform.position, 3);
+        }
+
     }
     //Redundant method
     /*public void setRotation()
