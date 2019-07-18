@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7442252469175204205}
   m_Layer: 8
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6402980f0896957419a07e36a07b0008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
   name: 
   selectable: 0
   selected: 0
@@ -160,7 +161,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.006472349}

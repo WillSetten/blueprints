@@ -32,7 +32,7 @@ namespace UnityEngine
 
         public Sprite m_DefaultSprite;
         public GameObject m_DefaultGameObject;
-        public Tile.ColliderType m_DefaultColliderType = Tile.ColliderType.Sprite;
+        public UnityEngine.Tilemaps.Tile.ColliderType m_DefaultColliderType = UnityEngine.Tilemaps.Tile.ColliderType.Sprite;
         public TileBase m_Self
         {
             get { return m_OverrideSelf ? m_OverrideSelf : this; }
@@ -53,7 +53,7 @@ namespace UnityEngine
             public float m_PerlinScale;
             public Transform m_RuleTransform;
             public OutputSprite m_Output;
-            public Tile.ColliderType m_ColliderType;
+            public UnityEngine.Tilemaps.Tile.ColliderType m_ColliderType;
             public Transform m_RandomTransform;
 
             public TilingRule()
@@ -64,7 +64,7 @@ namespace UnityEngine
                 m_GameObject = null;
                 m_AnimationSpeed = 1f;
                 m_PerlinScale = 0.5f;
-                m_ColliderType = Tile.ColliderType.Sprite;
+                m_ColliderType = UnityEngine.Tilemaps.Tile.ColliderType.Sprite;
 
                 for (int i = 0; i < m_Neighbors.Length; i++)
                     m_Neighbors[i] = Neighbor.DontCare;

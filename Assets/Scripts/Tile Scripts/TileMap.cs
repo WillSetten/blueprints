@@ -413,6 +413,7 @@ public class TileMap : MonoBehaviour
             }
         }
         unit.setPath(currentPath);
+        unit.currentState = Unit.state.Moving;
     }
 
     //Generates a series of nodes from the graph which define which tiles are connected to which tiles.

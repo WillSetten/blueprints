@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Door
+  - Tile
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -17,8 +19,8 @@ TagManager:
   - 
   - Units
   - Doors
+  - Walls
   - Tiles
-  - 
   - 
   - 
   - 

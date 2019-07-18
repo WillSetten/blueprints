@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
+    public enum state { Idle, Moving, Attacking };
+    public state currentState;
     public string name;
     public bool selectable = false;
     public bool selected = false;
@@ -42,6 +44,7 @@ public class Unit : MonoBehaviour
         {
             hp = 5;
         }
+        currentState = state.Idle;
     }
    
     //Highlight the unit in green when the mouse hovers over it
@@ -138,7 +141,9 @@ public class Unit : MonoBehaviour
     {
         //If there is no path to follow, return.
         if (currentPath == null)
+        {
             return;
+        }
         //If the unit is close enough to its next destination
         if (Vector2.Distance(transform.position, map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y)) < 0.1f || checkIfOverMoved())
         {
@@ -156,6 +161,7 @@ public class Unit : MonoBehaviour
                 directionY = 0;
                 animator.SetFloat("Move X", directionX);
                 animator.SetFloat("Move Y", directionY);
+                currentState = state.Idle;
             }
             //If the unit has hit a node but has more nodes to visit
             else
@@ -169,10 +175,9 @@ public class Unit : MonoBehaviour
                 int oldDirectionY = directionY;
                 directionX = currentPath[0].x - tileX;
                 directionY = currentPath[0].y - tileY;
-
                 //If the direction that the unit is moving in is greater in magnitude than 1 in any direction, re-place the unit and reset it's path
                 //This if statement is intended to solve a bug where unity randomly moves the unit great distances for a reason I've had trouble determining
-                if(directionX<0 && directionX<-1 || directionX>0 && directionX > 1 || directionY < 0 && directionY < -1 || directionY > 0 && directionY > 1)
+                if (directionX<0 && directionX<-1 || directionX>0 && directionX > 1 || directionY < 0 && directionY < -1 || directionY > 0 && directionY > 1)
                 {
                     transform.position = map.TileCoordToWorldCoord(previousTileX, previousTileY);
                     map.GeneratePathTo(currentPath[currentPath.Count-1].x, currentPath[currentPath.Count - 1].y, this);
@@ -215,6 +220,7 @@ public class Unit : MonoBehaviour
         return false;
     }
 
+    //Detects any nearby units
     void detectNearbyUnits()
     {
         Collider2D[] nearbyUnits = Physics2D.OverlapCircleAll((Vector2)transform.position, interactionRadius, 1<<8);
@@ -223,29 +229,43 @@ public class Unit : MonoBehaviour
         {
             u = c.gameObject.GetComponent<Unit>();
             //If the unit has detected itself, skip
-            if (u == this)
+            if (Object.Equals(u,this))
             {
                 continue;
             }
-            //If the unit in range is a combatant and is on the other side, attempt to attack
-            if (u.combatant && ((selectable && !u.selectable) || (!selectable && u.selectable)))
+            //If the unit in range is a combatant and is on the other side, attempt to attack if this unit is also idle
+            if (u.combatant && ((selectable && !u.selectable) || (!selectable && u.selectable)) && currentState == state.Idle)
             {
+                if (hasLOS(u))
+                {
+                    Debug.Log(name + " can attack " + u.name);
+                    Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
+                }
                 //if (selectable)
                     //Debug.Log("Unit " + name + " has enemy combatant " + u.name + " in range");
             }
-            //If unit is a civilian, attempt to pacify
-            else if (!u.combatant)
+            //If unit is a civilian, attempt to pacify if this unit is also idle
+            else if (!u.combatant && currentState == state.Idle)
             {
                 //Debug.Log("Unit " + name + "has civilian " + u.name + " in range");
             }
         }
+    }
 
-        void OnDrawGizmosSelected()
+    private bool hasLOS(Unit u)
+    {
+        RaycastHit2D sightTest = Physics2D.Raycast(transform.position, u.transform.position - transform.position, interactionRadius, 11<<9);
+        if (sightTest.collider == null)
         {
-            Gizmos.color = Color.white;
-            Gizmos.DrawSphere(transform.position, 3);
+            //Debug.Log(name + " LOS hasn't collided with anything");
+            return true;
         }
-
+        if(sightTest.collider.CompareTag("Wall") || sightTest.collider.CompareTag("Door"))
+        {
+            //Debug.Log(name + " LOS has collided with object with tag " + sightTest.collider.tag);
+            return false;
+        }
+        return true;
     }
     //Redundant method
     /*public void setRotation()

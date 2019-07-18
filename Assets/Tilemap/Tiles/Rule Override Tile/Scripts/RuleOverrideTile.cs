@@ -115,7 +115,7 @@ namespace UnityEngine
                 return new RuleTile.TilingRule()
                 {
                     m_Sprites = new Sprite[] { m_Tile != null ? m_Tile.m_DefaultSprite : null },
-                    m_ColliderType = m_Tile != null ? m_Tile.m_DefaultColliderType : Tile.ColliderType.None,
+                    m_ColliderType = m_Tile != null ? m_Tile.m_DefaultColliderType : UnityEngine.Tilemaps.Tile.ColliderType.None,
                 };
             }
         }
