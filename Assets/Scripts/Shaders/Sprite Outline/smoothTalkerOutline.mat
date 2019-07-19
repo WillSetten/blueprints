@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Inmate Outline
+  m_Name: smoothTalkerOutline
   m_Shader: {fileID: -6465566751694194690, guid: ab493eaa5c63b6349b3bd70642a45deb,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA PIXELSNAP_ON
@@ -49,7 +49,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: 017c0288135a61542998a2d16672c198, type: 3}
+        m_Texture: {fileID: 2800000, guid: db289164fc9d45e48932a38847f6fe0e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:

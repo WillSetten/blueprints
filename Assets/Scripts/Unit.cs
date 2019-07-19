@@ -225,30 +225,59 @@ public class Unit : MonoBehaviour
     {
         Collider2D[] nearbyUnits = Physics2D.OverlapCircleAll((Vector2)transform.position, interactionRadius, 1<<8);
         Unit u = null;
-        foreach (Collider2D c in nearbyUnits)
+        if (currentState == state.Idle)
         {
-            u = c.gameObject.GetComponent<Unit>();
-            //If the unit has detected itself, skip
-            if (Object.Equals(u,this))
+            //If there are no nearby units, return
+            if (nearbyUnits.Length == 0)
             {
-                continue;
+                return;
             }
-            //If the unit in range is a combatant and is on the other side, attempt to attack if this unit is also idle
-            if (u.combatant && ((selectable && !u.selectable) || (!selectable && u.selectable)) && currentState == state.Idle)
+            foreach (Collider2D c in nearbyUnits)
             {
-                if (hasLOS(u))
+                u = c.gameObject.GetComponent<Unit>();
+                //If the unit has detected itself, skip
+                if (Object.Equals(u, this))
                 {
-                    Debug.Log(name + " can attack " + u.name);
-                    Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
+                    continue;
                 }
-                //if (selectable)
+                //If the unit in range is a combatant and is on the other side, attempt to attack if this unit is also idle
+                if (u.combatant && ((selectable && !u.selectable) || (!selectable && u.selectable)))
+                {
+                    if (hasLOS(u))
+                    {
+                        Debug.Log(name + " can attack " + u.name);
+                        Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
+                        currentState = state.Attacking;
+                    }
+                    //if (selectable)
                     //Debug.Log("Unit " + name + " has enemy combatant " + u.name + " in range");
+                }
+                //If unit is a civilian, attempt to pacify if this unit is also idle
+                else if (!u.combatant && currentState == state.Idle)
+                {
+                    //Debug.Log("Unit " + name + "has civilian " + u.name + " in range");
+                }
             }
-            //If unit is a civilian, attempt to pacify if this unit is also idle
-            else if (!u.combatant && currentState == state.Idle)
+        }
+        else if (currentState == state.Attacking)
+        {
+            //If there are no nearby units, set the current state to not be attacking.
+            if (nearbyUnits.Length == 0)
             {
-                //Debug.Log("Unit " + name + "has civilian " + u.name + " in range");
+                if (rigidbody2D.velocity==Vector2.zero)
+                {
+                    currentState = state.Idle;
+                }
+                else
+                {
+                    currentState = state.Moving;
+                }
+                return;
             }
+        }
+        else
+        {
+            return;
         }
     }
 
@@ -267,41 +296,4 @@ public class Unit : MonoBehaviour
         }
         return true;
     }
-    //Redundant method
-    /*public void setRotation()
-    {
-        if (directionX == 1 && directionY == -1)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 45);
-        }
-        else if (directionX == 1 && directionY == 0)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 90);
-        }
-        else if (directionX == 1 && directionY == 1)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 135);
-        }
-        else if (directionX == 0 && directionY == 1)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 180);
-        }
-        else if (directionX == -1 && directionY == 1)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, -135);
-        }
-        else if (directionX == -1 && directionY == 0)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, -90);
-        }
-        else if (directionX == -1 && directionY == -1)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, -45);
-        }
-        else
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-    }
-    */
 }
