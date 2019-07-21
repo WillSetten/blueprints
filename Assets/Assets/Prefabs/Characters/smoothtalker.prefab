@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 257ec5b3706e57a45950a9a3147008c1, type: 2}
+  - {fileID: 2100000, guid: 3a8ea16b8117b6e4a80c5da294704abf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -71,9 +71,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 5434754322505968937, guid: db289164fc9d45e48932a38847f6fe0e,
-    type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 7518189609231777, guid: db289164fc9d45e48932a38847f6fe0e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  name: Inmate
+  name: Smooth Talker
   selectable: 1
   selected: 0
   combatant: 1
@@ -107,10 +106,13 @@ MonoBehaviour:
   previousTileY: 0
   directionX: 0
   directionY: 0
-  moveRate: 0
+  moveRate: 3.5
   map: {fileID: 0}
-  hp: 0
+  hp: 4
   interactionRadius: 2
+  attackCooldownCap: 3
+  bulletType: {fileID: 3593746333718814036, guid: a4a090a46841b0b4fb2306f88634324d,
+    type: 3}
 --- !u!95 &6348214700342276882
 Animator:
   serializedVersion: 3

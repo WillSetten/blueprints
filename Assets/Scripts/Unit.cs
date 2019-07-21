@@ -20,11 +20,13 @@ public class Unit : MonoBehaviour
     public TileMap map;
     public int hp;
     public int interactionRadius = 2;
+    public float attackCooldownCap;
     Animator animator;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigidbody2D;
-
+    private float attackCooldown;
     public List<Node> currentPath = null;
+    public GameObject bulletType;
 
     //Initialization
     private void Start()
@@ -38,13 +40,13 @@ public class Unit : MonoBehaviour
         transform.position = map.TileCoordToWorldCoord(tileX, tileY);
         Debug.Log(transform.gameObject.name);
         name = transform.gameObject.name;
-        moveRate = 2.5f;
         map.tiles[tileX,tileY].occupied = true;
         if (combatant)
         {
             hp = 5;
         }
         currentState = state.Idle;
+        attackCooldown = attackCooldownCap;
     }
    
     //Highlight the unit in green when the mouse hovers over it
@@ -223,43 +225,40 @@ public class Unit : MonoBehaviour
     //Detects any nearby units
     void detectNearbyUnits()
     {
-        Collider2D[] nearbyUnits = Physics2D.OverlapCircleAll((Vector2)transform.position, interactionRadius, 1<<8);
+        Collider2D[] nearbyUnits = Physics2D.OverlapCircleAll((Vector2)transform.position, interactionRadius, LayerMask.GetMask("Units"));
         Unit u = null;
-        if (currentState == state.Idle)
+        //If there are no nearby units, return
+        if (nearbyUnits.Length == 0)
         {
-            //If there are no nearby units, return
-            if (nearbyUnits.Length == 0)
+            return;
+        }
+        foreach (Collider2D c in nearbyUnits)
+        {
+            u = c.gameObject.GetComponent<Unit>();
+            //If the unit has detected itself, skip
+            if (Object.Equals(u, this))
             {
-                return;
+                continue;
             }
-            foreach (Collider2D c in nearbyUnits)
+            //If the unit in range is a combatant and is on the other side, attempt to attack if this unit is also idle
+            if (u.combatant && ((selectable && !u.selectable) || (!selectable && u.selectable)))
             {
-                u = c.gameObject.GetComponent<Unit>();
-                //If the unit has detected itself, skip
-                if (Object.Equals(u, this))
+                if (hasLOS(u))
                 {
-                    continue;
+                    Debug.Log(name + " can attack " + u.name);
+                    Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
+                    currentState = state.Attacking;
                 }
-                //If the unit in range is a combatant and is on the other side, attempt to attack if this unit is also idle
-                if (u.combatant && ((selectable && !u.selectable) || (!selectable && u.selectable)))
-                {
-                    if (hasLOS(u))
-                    {
-                        Debug.Log(name + " can attack " + u.name);
-                        Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
-                        currentState = state.Attacking;
-                    }
-                    //if (selectable)
-                    //Debug.Log("Unit " + name + " has enemy combatant " + u.name + " in range");
-                }
-                //If unit is a civilian, attempt to pacify if this unit is also idle
-                else if (!u.combatant && currentState == state.Idle)
-                {
-                    //Debug.Log("Unit " + name + "has civilian " + u.name + " in range");
-                }
+                //if (selectable)
+                //Debug.Log("Unit " + name + " has enemy combatant " + u.name + " in range");
+            }
+            //If unit is a civilian, attempt to pacify if this unit is also idle
+            else if (!u.combatant && currentState == state.Idle)
+            {
+                //Debug.Log("Unit " + name + "has civilian " + u.name + " in range");
             }
         }
-        else if (currentState == state.Attacking)
+        if (currentState == state.Attacking)
         {
             //If there are no nearby units, set the current state to not be attacking.
             if (nearbyUnits.Length == 0)
@@ -274,6 +273,38 @@ public class Unit : MonoBehaviour
                 }
                 return;
             }
+            //If there are nearby units, check if this unit can attack
+            else
+            {
+                //If attackcooldown is still below the units cap, increase it
+                if (attackCooldown < attackCooldownCap)
+                {
+                    attackCooldown += Time.deltaTime;
+                }
+                //Attack if the cooldown is above the cap, shoot a bullet at the enemy with the least health and reset the cooldown
+                else
+                {
+                    Collider2D closestUnit = nearestUnitFromOtherTeam(nearbyUnits);
+                    if (closestUnit == null)
+                    {
+                        currentState = state.Idle;
+                    }
+                    else
+                    {
+                        Vector2 bulletDirection = (closestUnit.transform.position - transform.position).normalized;
+                        var angle = Mathf.Atan2(bulletDirection.y, bulletDirection.x) * Mathf.Rad2Deg;
+                        Quaternion bulletrotation = Quaternion.AngleAxis(angle-90, Vector3.forward);
+                        GameObject bulletClone = Instantiate(bulletType, (Vector2)transform.position + bulletDirection.normalized*3/5, bulletrotation, transform);
+
+                        bulletClone.GetComponent<Rigidbody2D>().velocity = bulletDirection * 5;
+                        Debug.Log(name + " is firing a bullet in direction " + bulletDirection.x + "," + bulletDirection.y +
+                            " from tile " + transform.position.x + "," + transform.position.y + " to tile " +
+                            closestUnit.transform.position.x + "," + closestUnit.transform.position.y +
+                            ". Bullet has direction ");
+                        attackCooldown = 0;
+                    }
+                }
+            }
         }
         else
         {
@@ -281,9 +312,43 @@ public class Unit : MonoBehaviour
         }
     }
 
+    Collider2D nearestUnitFromOtherTeam(Collider2D[] nearbyUnits)
+    {
+        Collider2D nearestUnit=null;
+        Unit u;
+        foreach (Collider2D c in nearbyUnits)
+        {
+            //If this unit is the first unit in the array, continue
+            if(c.gameObject == gameObject)
+            {
+                continue;
+            }
+            u = c.GetComponent<Unit>();
+            if (nearestUnit == null)
+            {
+                //If there is no current nearest unit and we have a line of sight to that unit, set it as the nearest enemy unit
+                if (hasLOS(c.GetComponent<Unit>())&& ((selectable && !u.selectable) || (!selectable && u.selectable)))
+                {
+                    nearestUnit = c;
+                }
+                //If there is no assigned unit and we do not have a line of sight to that unit or the unit is not an enemy unit, skip
+                else
+                {
+                    continue;
+                }
+            }
+            else if (Vector2.Distance(transform.position, c.transform.position) < Vector2.Distance(transform.position, nearestUnit.transform.position)
+                && hasLOS(c.GetComponent<Unit>()) && ((selectable && !u.selectable) || (!selectable && u.selectable)))
+            {
+                nearestUnit = c;
+            }
+        }
+        return nearestUnit;
+    }
+
     private bool hasLOS(Unit u)
     {
-        RaycastHit2D sightTest = Physics2D.Raycast(transform.position, u.transform.position - transform.position, interactionRadius, 11<<9);
+        RaycastHit2D sightTest = Physics2D.Raycast(transform.position, u.transform.position - transform.position, interactionRadius, LayerMask.GetMask("Walls","Doors"));
         if (sightTest.collider == null)
         {
             //Debug.Log(name + " LOS hasn't collided with anything");
