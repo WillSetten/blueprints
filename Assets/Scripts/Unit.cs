@@ -101,23 +101,42 @@ public class Unit : MonoBehaviour
 
     void Update()
     {
-        if (selectable)
+        if (!map.paused)
         {
-            //Debug.Log(name + ": Tile co-ordinates: "+ tileX + "," + tileY + " Actual Co-ordinates: " + transform.position.x +","+ transform.position.y);
-        }
-        if (currentPath !=null && !map.paused)
-        {
-            int currNode = 0;
-            while(currNode < currentPath.Count-1)
+            if (currentPath != null)
             {
-                Vector3 start = map.TileCoordToWorldCoord(currentPath[currNode].x, currentPath[currNode].y);
-                Vector3 end = map.TileCoordToWorldCoord(currentPath[currNode + 1].x, currentPath[currNode + 1].y);
-                Debug.DrawLine(start, end);
-                currNode = currNode + 1;
+                int currNode = 0;
+                while (currNode < currentPath.Count - 1)
+                {
+                    Vector3 start = map.TileCoordToWorldCoord(currentPath[currNode].x, currentPath[currNode].y);
+                    Vector3 end = map.TileCoordToWorldCoord(currentPath[currNode + 1].x, currentPath[currNode + 1].y);
+                    Debug.DrawLine(start, end);
+                    currNode = currNode + 1;
+                }
+                MoveNextTile();
             }
-        MoveNextTile();
+            detectNearbyUnits();
+            //If health is zero (or somehow below)
+            if (hp <= 0)
+            {
+                die();
+            }
         }
-        detectNearbyUnits();
+    }
+
+    //Method which gets rid of the unit from the world
+    void die()
+    {
+        Debug.Log(name + " has died!");
+        if (currentPath == null)
+        {
+            map.tiles[tileX, tileY].occupied = false;
+        }
+        else
+        {
+            map.tiles[currentPath[currentPath.Count-1].x, currentPath[currentPath.Count - 1].y].occupied = false;
+        }
+        Destroy(gameObject);
     }
 
     public void togglePause()
@@ -225,7 +244,7 @@ public class Unit : MonoBehaviour
     //Detects any nearby units
     void detectNearbyUnits()
     {
-        Collider2D[] nearbyUnits = Physics2D.OverlapCircleAll((Vector2)transform.position, interactionRadius, LayerMask.GetMask("Units"));
+        Collider2D[] nearbyUnits = Physics2D.OverlapCircleAll((Vector2)transform.position, interactionRadius, LayerMask.GetMask("EnemyUnits", "PlayerUnits"));
         Unit u = null;
         //If there are no nearby units, return
         if (nearbyUnits.Length == 0)
@@ -245,7 +264,7 @@ public class Unit : MonoBehaviour
             {
                 if (hasLOS(u))
                 {
-                    Debug.Log(name + " can attack " + u.name);
+                    //Debug.Log(name + " can attack " + u.name);
                     Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
                     currentState = state.Attacking;
                 }
@@ -291,17 +310,7 @@ public class Unit : MonoBehaviour
                     }
                     else
                     {
-                        Vector2 bulletDirection = (closestUnit.transform.position - transform.position).normalized;
-                        var angle = Mathf.Atan2(bulletDirection.y, bulletDirection.x) * Mathf.Rad2Deg;
-                        Quaternion bulletrotation = Quaternion.AngleAxis(angle-90, Vector3.forward);
-                        GameObject bulletClone = Instantiate(bulletType, (Vector2)transform.position + bulletDirection.normalized*3/5, bulletrotation, transform);
-
-                        bulletClone.GetComponent<Rigidbody2D>().velocity = bulletDirection * 5;
-                        Debug.Log(name + " is firing a bullet in direction " + bulletDirection.x + "," + bulletDirection.y +
-                            " from tile " + transform.position.x + "," + transform.position.y + " to tile " +
-                            closestUnit.transform.position.x + "," + closestUnit.transform.position.y +
-                            ". Bullet has direction ");
-                        attackCooldown = 0;
+                        shootBullet(closestUnit);
                     }
                 }
             }
@@ -310,6 +319,20 @@ public class Unit : MonoBehaviour
         {
             return;
         }
+    }
+
+    void shootBullet(Collider2D closestUnit)
+    {
+        Vector2 bulletDirection = (closestUnit.transform.position - transform.position).normalized;
+        var angle = Mathf.Atan2(bulletDirection.y, bulletDirection.x) * Mathf.Rad2Deg;
+        Quaternion bulletrotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+        attackCooldown = 0;
+        GameObject bulletClone = Instantiate(bulletType, (Vector2)transform.position, bulletrotation, transform);
+        bulletClone.GetComponent<Rigidbody2D>().velocity = bulletDirection * 5;
+        Debug.Log(name + " is firing a bullet in direction " + bulletDirection.x + "," + bulletDirection.y +
+            " from tile " + transform.position.x + "," + transform.position.y + " to tile " +
+            closestUnit.transform.position.x + "," + closestUnit.transform.position.y +
+            ". Bullet has direction ");
     }
 
     Collider2D nearestUnitFromOtherTeam(Collider2D[] nearbyUnits)

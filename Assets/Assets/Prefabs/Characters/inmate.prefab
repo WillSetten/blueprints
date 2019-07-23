@@ -109,7 +109,7 @@ MonoBehaviour:
   directionY: 0
   moveRate: 2.5
   map: {fileID: 0}
-  hp: 6
+  hp: 15
   interactionRadius: 2
   attackCooldownCap: 2
   bulletType: {fileID: 3593746333718814036, guid: a4a090a46841b0b4fb2306f88634324d,

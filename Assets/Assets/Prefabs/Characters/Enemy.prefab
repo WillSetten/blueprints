@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8595569544542375387}
   - component: {fileID: 5569696726613730339}
   - component: {fileID: 7442252469175204205}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ MonoBehaviour:
   hp: 5
   interactionRadius: 3
   attackCooldownCap: 2
-  bulletType: {fileID: 3593746333718814036, guid: a4a090a46841b0b4fb2306f88634324d,
+  bulletType: {fileID: 3593746333718814036, guid: 33266410e4e1f7646958726bef429db9,
     type: 3}
 --- !u!95 &8595569544542375387
 Animator:

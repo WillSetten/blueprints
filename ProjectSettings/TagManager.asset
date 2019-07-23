@@ -17,10 +17,10 @@ TagManager:
   - UI
   - 
   - 
-  - Units
-  - Effects
-  - Bullets
-  - 
+  - PlayerUnits
+  - EnemyUnits
+  - PlayerBullets
+  - EnemyBullets
   - 
   - 
   - 
@@ -50,4 +50,7 @@ TagManager:
     locked: 0
   - name: Effects
     uniqueID: 944972623
+    locked: 0
+  - name: UI
+    uniqueID: 704389607
     locked: 0
