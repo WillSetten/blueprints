@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
         Debug.Log("Bullet hit " + collision.gameObject.name);
         if (collision.gameObject.GetComponent<Unit>())
         {
-            collision.gameObject.GetComponent<Unit>().hp = collision.gameObject.GetComponent<Unit>().hp - bulletDamage;
+            collision.gameObject.GetComponent<Unit>().takeBulletDamage(this);
         }
         Destroy(gameObject);
     }

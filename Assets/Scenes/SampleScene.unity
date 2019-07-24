@@ -13410,6 +13410,11 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 395550577268581686, guid: c234bd6d49cd7f943ace873985e15c22,
+        type: 3}
+      propertyPath: m_Name
+      value: healthBar
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c234bd6d49cd7f943ace873985e15c22, type: 3}
 --- !u!1001 &7700775218131371641

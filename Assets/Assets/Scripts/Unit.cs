@@ -25,9 +25,9 @@ public class Unit : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigidbody2D;
     private float attackCooldown;
+    public HealthBar healthBar;
     public List<Node> currentPath = null;
     public GameObject bulletType;
-
     //Initialization
     private void Start()
     {
@@ -47,6 +47,7 @@ public class Unit : MonoBehaviour
         }
         currentState = state.Idle;
         attackCooldown = attackCooldownCap;
+        healthBar = GetComponentInChildren<HealthBar>();
     }
    
     //Highlight the unit in green when the mouse hovers over it
@@ -135,6 +136,10 @@ public class Unit : MonoBehaviour
         else
         {
             map.tiles[currentPath[currentPath.Count-1].x, currentPath[currentPath.Count - 1].y].occupied = false;
+        }
+        if (selectable)
+        {
+            map.units.Remove(gameObject);
         }
         Destroy(gameObject);
     }
@@ -383,5 +388,12 @@ public class Unit : MonoBehaviour
             return false;
         }
         return true;
+    }
+
+    public void takeBulletDamage(Bullet bullet)
+    {
+        hp = hp - bullet.bulletDamage;
+        healthBar.UpdateHealth();
+        Debug.Log(healthBar.localScale);
     }
 }
