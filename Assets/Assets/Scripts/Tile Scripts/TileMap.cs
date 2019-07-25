@@ -41,7 +41,6 @@ public class TileMap : MonoBehaviour
         enemyController = GameObject.Find("Enemy Controller").GetComponent<EnemyController>();
         GenerateMapData();
         GeneratePathfindingGraph();
-        GenerateMapVisuals();
         pathCache = new Dictionary<string, string>();
         viewingCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         rooms = GetComponentsInChildren<Room>();
@@ -55,6 +54,7 @@ public class TileMap : MonoBehaviour
         setMultipleSelectedUnits(units);
         blueprintShader = Shader.Find("Custom/Edge Highlight");
         rect = new Rect();
+        viewingCamera.transform.position = new Vector3(units[0].transform.position.x, units[0].transform.position.y, -10);
     }
 
     private void Update()
@@ -192,43 +192,81 @@ public class TileMap : MonoBehaviour
         tileMatrix = new int[mapSizeX, mapSizeY];
         tiles = new Tile[mapSizeX,mapSizeY];
         //Initialize map
-        for (int x= 0; x< mapSizeX; x++)
+        /*for (int x= 0; x< mapSizeX; x++)
         {
             for (int y = 0; y < mapSizeY; y++)
             {
                 tileMatrix[x, y] = 0;
             }
         }
-        harvestAndTrustee();
+        harvestAndTrustee();*/
+        foreach (Tile t in GetComponentsInChildren<Tile>())
+        {
+            t.tileX = Mathf.RoundToInt(t.transform.position.x);
+            t.tileY = Mathf.RoundToInt(t.transform.position.y);
+            t.map = this;
+            tiles[t.tileX, t.tileY] = t;
+            if (t.impassable) {
+                tileMatrix[t.tileX, t.tileY] = 1;
+            }
+            else
+            {
+                tileMatrix[t.tileX, t.tileY] = 0;
+            }
+            Debug.Log("Tile " +  t.tileX + "," + t.tileY + " is a wall? " + tileTypes[tileMatrix[t.tileX, t.tileY]].isWalkable);
+        }
     }
 
-    //Generates the actual tiles from the given map
-    void GenerateMapVisuals()
+    //Generates a series of nodes from the graph which define which tiles are connected to which tiles.
+    public void GeneratePathfindingGraph()
     {
-        //Map Design - When making a map, hardcode the values then when you are happy, press play and move the tiles so they are children of the map.
-        //If the map has children (saved tiles), simply set their map to this object, however if the map does not have children, generate tile objects accordingly
-        if (transform.childCount > 0)
+        // Initialize the array
+        graph = new Node[mapSizeX, mapSizeY];
+
+        // Initialize a Node for each spot in the array
+        for (int x = 0; x < mapSizeX; x++)
         {
-            foreach(Tile ct in GetComponentsInChildren<Tile>())
+            for (int y = 0; y < mapSizeX; y++)
             {
-                ct.map = this;
-                tiles[ct.tileX,ct.tileY] = ct;
+                graph[x, y] = new Node();
+                graph[x, y].x = x;
+                graph[x, y].y = y;
             }
         }
-        else
+
+        // Calculate neighbours
+        for (int x = 0; x < mapSizeX; x++)
         {
-            for (int x = 0; x < mapSizeX; x++)
+            for (int y = 0; y < mapSizeX; y++)
             {
-                for (int y = 0; y < mapSizeY; y++)
+                if (UnitCanEnterTile(x, y))
                 {
-                    TileType tt = tileTypes[tileMatrix[x, y]];
-                    GameObject go = (GameObject)Instantiate(tt.tileVisualPrefab, new Vector3(x, y, 1), Quaternion.identity);
-                    go.transform.parent = transform;
-                    Tile ct = go.GetComponent<Tile>();
-                    ct.tileX = x;
-                    ct.tileY = y;
-                    ct.map = this;
-                    tiles[x, y] = ct;
+                    // Try left
+                    if (x > 0)
+                    {
+                        if (y > 0 && tileMatrix[x - 1, y] != 1 && tileMatrix[x, y - 1] != 1)
+                            graph[x, y].neighbours.Add(graph[x - 1, y - 1]);
+                        if (y < mapSizeY - 1 && tileMatrix[x - 1, y] != 1 && tileMatrix[x, y + 1] != 1)
+                            graph[x, y].neighbours.Add(graph[x - 1, y + 1]);
+                        graph[x, y].neighbours.Add(graph[x - 1, y]);
+                    }
+
+                    // Try Right
+                    if (x < mapSizeX - 1)
+                    {
+                        if (y > 0 && tileMatrix[x + 1, y] != 1 && tileMatrix[x, y - 1] != 1)
+                            graph[x, y].neighbours.Add(graph[x + 1, y - 1]);
+                        if (y < mapSizeY - 1 && tileMatrix[x + 1, y] != 1 && tileMatrix[x, y + 1] != 1)
+                            graph[x, y].neighbours.Add(graph[x + 1, y + 1]);
+
+                        graph[x, y].neighbours.Add(graph[x + 1, y]);
+                    }
+
+                    // Try straight up and down
+                    if (y > 0)
+                        graph[x, y].neighbours.Add(graph[x, y - 1]);
+                    if (y < mapSizeY - 1)
+                        graph[x, y].neighbours.Add(graph[x, y + 1]);
                 }
             }
         }
@@ -416,59 +454,6 @@ public class TileMap : MonoBehaviour
         unit.currentState = Unit.state.Moving;
     }
 
-    //Generates a series of nodes from the graph which define which tiles are connected to which tiles.
-    public void GeneratePathfindingGraph()
-    {
-        // Initialize the array
-        graph = new Node[mapSizeX, mapSizeY];
-
-        // Initialize a Node for each spot in the array
-        for (int x = 0; x < mapSizeX; x++)
-        {
-            for (int y = 0; y < mapSizeX; y++)
-            {
-                graph[x, y] = new Node();
-                graph[x, y].x = x;
-                graph[x, y].y = y;
-            }
-        }
-
-        // Calculate neighbours
-        for (int x = 0; x < mapSizeX; x++)
-        {
-            for (int y = 0; y < mapSizeX; y++)
-            {
-                if (UnitCanEnterTile(x,y)) {
-                    // Try left
-                    if (x > 0)
-                    {
-                        if (y > 0 && tileMatrix[x - 1, y] != 1 && tileMatrix[x, y - 1] != 1)
-                            graph[x, y].neighbours.Add(graph[x - 1, y - 1]);
-                        if (y < mapSizeY - 1 && tileMatrix[x - 1, y] != 1 && tileMatrix[x, y + 1] != 1)
-                            graph[x, y].neighbours.Add(graph[x - 1, y + 1]);
-                        graph[x, y].neighbours.Add(graph[x - 1, y]);
-                    }
-
-                    // Try Right
-                    if (x < mapSizeX - 1)
-                    {
-                        if (y > 0 && tileMatrix[x + 1, y] != 1 && tileMatrix[x, y - 1] != 1)
-                            graph[x, y].neighbours.Add(graph[x + 1, y - 1]);
-                        if (y < mapSizeY - 1 && tileMatrix[x + 1, y] != 1 && tileMatrix[x, y + 1] != 1)
-                            graph[x, y].neighbours.Add(graph[x + 1, y + 1]);
-
-                        graph[x, y].neighbours.Add(graph[x + 1, y]);
-                    }
-
-                    // Try straight up and down
-                    if (y > 0)
-                        graph[x, y].neighbours.Add(graph[x, y - 1]);
-                    if (y < mapSizeY - 1)
-                        graph[x, y].neighbours.Add(graph[x, y + 1]);
-                }
-            }
-        }
-    }
 
     //Determines the cost to enter a tile in position x,y
     public float CostToEnterTile(int sourceX, int sourceY, int targetX, int targetY)
@@ -644,182 +629,5 @@ public class TileMap : MonoBehaviour
         {
             setMultipleSelectedUnits(newUnits);
         }
-    }
-
-    public void harvestAndTrustee()
-    {
-        tileMatrix[5, 2] = 1;
-        tileMatrix[6, 2] = 1;
-        tileMatrix[7, 2] = 1;
-        tileMatrix[8, 2] = 1;
-        tileMatrix[9, 2] = 1;
-        tileMatrix[10, 2] = 1;
-        tileMatrix[11, 2] = 1;
-        tileMatrix[14, 2] = 1;
-        tileMatrix[15, 2] = 1;
-
-        tileMatrix[5, 3] = 1;
-        tileMatrix[15, 3] = 1;
-
-        tileMatrix[5, 4] = 1;
-        tileMatrix[15, 4] = 1;
-
-        tileMatrix[5, 5] = 1;
-        tileMatrix[15, 5] = 1;
-
-        tileMatrix[5, 6] = 1;
-        tileMatrix[8, 6] = 1;
-        tileMatrix[10, 6] = 1;
-        tileMatrix[15, 6] = 1;
-
-        tileMatrix[5, 7] = 1;
-        tileMatrix[8, 7] = 1;
-        tileMatrix[10, 7] = 1;
-        tileMatrix[15, 7] = 1;
-        
-        tileMatrix[8, 8] = 1;
-        tileMatrix[10, 8] = 1;
-        tileMatrix[15, 8] = 1;
-        tileMatrix[16, 8] = 1;
-        tileMatrix[17, 8] = 1;
-        tileMatrix[18, 8] = 1;
-        tileMatrix[19, 8] = 1;
-        tileMatrix[20, 8] = 1;
-        tileMatrix[21, 8] = 1;
-
-        tileMatrix[5, 9] = 1;
-        tileMatrix[8, 9] = 1;
-        tileMatrix[10, 9] = 1;
-        tileMatrix[21, 9] = 1;
-
-        tileMatrix[2, 10] = 1;
-        tileMatrix[3, 10] = 1;
-        tileMatrix[4, 10] = 1;
-        tileMatrix[5, 10] = 1;
-        tileMatrix[21, 10] = 1;
-
-        tileMatrix[2, 11] = 1;
-        tileMatrix[21, 11] = 1;
-
-        tileMatrix[2, 12] = 1;
-        tileMatrix[5, 12] = 1;
-        tileMatrix[12, 12] = 1;
-        tileMatrix[14, 12] = 1;
-        tileMatrix[15, 12] = 1;
-        tileMatrix[21, 12] = 1;
-
-
-        tileMatrix[2, 13] = 1;
-        tileMatrix[3, 13] = 1;
-        tileMatrix[4, 13] = 1;
-        tileMatrix[5, 13] = 1;
-        tileMatrix[6, 13] = 1;
-        tileMatrix[7, 13] = 1;
-        tileMatrix[8, 13] = 1;
-        tileMatrix[9, 13] = 1;
-        tileMatrix[10, 13] = 1;
-        tileMatrix[11, 13] = 1;
-        tileMatrix[12, 13] = 1;
-        tileMatrix[15, 13] = 1;
-        tileMatrix[21, 13] = 1;
-
-        tileMatrix[4, 14] = 1;
-        tileMatrix[5, 14] = 1;
-        tileMatrix[6, 14] = 1;
-        tileMatrix[7, 14] = 1;
-        tileMatrix[8, 14] = 1;
-        tileMatrix[9, 14] = 1;
-        tileMatrix[12, 14] = 1;
-        tileMatrix[21, 14] = 1;
-
-        tileMatrix[4, 15] = 1;
-        tileMatrix[5, 15] = 1;
-        tileMatrix[9, 15] = 1;
-        tileMatrix[12, 15] = 1;
-        tileMatrix[13, 15] = 1;
-        tileMatrix[15, 15] = 1;
-        tileMatrix[16, 15] = 1;
-        tileMatrix[21, 15] = 1;
-
-        tileMatrix[4, 16] = 1;
-        tileMatrix[5, 16] = 1;
-        tileMatrix[9, 16] = 1;
-        tileMatrix[12, 16] = 1;
-        tileMatrix[21, 16] = 1;
-
-        tileMatrix[4, 17] = 1;
-        tileMatrix[5, 17] = 1;
-        tileMatrix[21, 17] = 1;
-
-        tileMatrix[4, 18] = 1;
-        tileMatrix[5, 18] = 1;
-        tileMatrix[9, 18] = 1;
-        tileMatrix[12, 18] = 1;
-        tileMatrix[13, 18] = 1;
-        tileMatrix[14, 18] = 1;
-        tileMatrix[15, 18] = 1;
-        tileMatrix[16, 18] = 1;
-        tileMatrix[18, 18] = 1;
-        tileMatrix[19, 18] = 1;
-        tileMatrix[21, 18] = 1;
-        tileMatrix[22, 18] = 1;
-        tileMatrix[23, 18] = 1;
-
-        tileMatrix[4, 19] = 1;
-        tileMatrix[5, 19] = 1;
-        tileMatrix[9, 19] = 1;
-        tileMatrix[12, 19] = 1;
-        tileMatrix[18, 19] = 1;
-        tileMatrix[23, 19] = 1;
-
-        tileMatrix[4, 20] = 1;
-        tileMatrix[5, 20] = 1;
-        tileMatrix[6, 20] = 1;
-        tileMatrix[7, 20] = 1;
-        tileMatrix[8, 20] = 1;
-        tileMatrix[9, 20] = 1;
-        tileMatrix[12, 20] = 1;
-        tileMatrix[15, 20] = 1;
-        tileMatrix[18, 20] = 1;
-        tileMatrix[23, 20] = 1;
-
-        tileMatrix[4, 21] = 1;
-        tileMatrix[5, 21] = 1;
-        tileMatrix[6, 21] = 1;
-        tileMatrix[7, 21] = 1;
-        tileMatrix[8, 21] = 1;
-        tileMatrix[9, 21] = 1;
-        tileMatrix[10, 21] = 1;
-        tileMatrix[11, 21] = 1;
-        tileMatrix[12, 21] = 1;
-        tileMatrix[13, 21] = 1;
-        tileMatrix[14, 21] = 1;
-        tileMatrix[15, 21] = 1;
-        tileMatrix[18, 21] = 1;
-        tileMatrix[23, 21] = 1;
-
-        tileMatrix[15, 22] = 1;
-        tileMatrix[18, 22] = 1;
-        tileMatrix[19, 22] = 1;
-        tileMatrix[20, 22] = 1;
-        tileMatrix[21, 22] = 1;
-        tileMatrix[22, 22] = 1;
-        tileMatrix[23, 22] = 1;
-
-        tileMatrix[15, 23] = 1;
-
-        tileMatrix[15, 24] = 1;
-        tileMatrix[16, 24] = 1;
-        tileMatrix[17, 24] = 1;
-        tileMatrix[18, 24] = 1;
-        tileMatrix[19, 24] = 1;
-
-        /*rooms.Add(new Room(this, 2, 2, 3, 11));
-        rooms.Add(new Room(this, 2, 2, 13, 13));
-        rooms.Add(new Room(this, 4, 3, 19, 19));
-        rooms.Add(new Room(this, 2, 2, 13, 19));
-        rooms.Add(new Room(this, 2, 5, 16, 11));
-        rooms.Add(new Room(this, 3, 5, 6, 15));
-        rooms.Add(new Room(this, 2, 7, 10, 14));*/
     }
 }

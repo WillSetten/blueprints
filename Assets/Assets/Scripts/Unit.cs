@@ -394,6 +394,5 @@ public class Unit : MonoBehaviour
     {
         hp = hp - bullet.bulletDamage;
         healthBar.UpdateHealth();
-        Debug.Log(healthBar.localScale);
     }
 }

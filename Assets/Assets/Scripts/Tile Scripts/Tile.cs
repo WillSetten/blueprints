@@ -14,6 +14,8 @@ public class Tile : MonoBehaviour
     public Room room;
     //Whether the tile is occupied or not.
     public bool occupied=false;
+    //Is passable
+    public bool impassable;
     void OnMouseOver()
     {
         /*if (Input.GetMouseButtonDown(0))

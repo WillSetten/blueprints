@@ -17,7 +17,7 @@ public class CameraMovement : MonoBehaviour
     void Start()
     {
         viewingCamera = GetComponent<Camera>();
-        viewingCamera.orthographicSize = (float)Screen.height / 64;
+        viewingCamera.orthographicSize = (float)Screen.height / 128;
         res = Screen.currentResolution;
         Debug.Log(viewingCamera.orthographicSize);
         direction = new Vector2(0, 0);
@@ -29,7 +29,7 @@ public class CameraMovement : MonoBehaviour
         //If the resolution of the screen has changed, change the camera size appropriately
         if (!Screen.currentResolution.Equals(res))
         {
-            viewingCamera.orthographicSize = (float)Screen.height / 64;
+            viewingCamera.orthographicSize = (float)Screen.height / 128;
             res = Screen.currentResolution;
         }
         checkInput();
@@ -77,12 +77,12 @@ public class CameraMovement : MonoBehaviour
             right = false;
         }
         //Zoom in
-        if (Input.GetAxis("Mouse ScrollWheel") > 0 && viewingCamera.orthographicSize > Screen.height / 128)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && viewingCamera.orthographicSize > Screen.height / 256)
         {
             viewingCamera.orthographicSize -= 0.4f;
         }
         //Zoom out
-        if (Input.GetAxis("Mouse ScrollWheel") < 0 && viewingCamera.orthographicSize < Screen.height / 64)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0 && viewingCamera.orthographicSize < Screen.height / 96)
         {
             viewingCamera.orthographicSize += 0.4f;
         }

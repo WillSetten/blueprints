@@ -4,19 +4,36 @@ using UnityEngine;
 
 public class HealthBar : MonoBehaviour
 {
-    public Vector3 localScale;
+    Vector3 localScale;
+    Color color;
     float unitMaxHealth;
+    Unit unit;
+    SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
         localScale = transform.localScale;
-        unitMaxHealth = GetComponentInParent<Unit>().hp;
+        unit = GetComponentInParent<Unit>();
+        unitMaxHealth = unit.hp;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void UpdateHealth()
     {
-        localScale.x = (float)GetComponentInParent<Unit>().hp / unitMaxHealth;
+        localScale.x = (float)unit.hp / unitMaxHealth;
         transform.localScale = localScale;
+    }
+
+    public void toggleHealthBar(bool on)
+    {
+        if (on)
+        {
+            spriteRenderer.color = color;
+        }
+        else
+        {
+            spriteRenderer.color = Color.clear;
+        }
     }
 }

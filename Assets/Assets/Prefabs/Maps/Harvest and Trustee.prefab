@@ -98,6 +98,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &88571793294702066
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -222,6 +223,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6635872012112391977
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -346,6 +348,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2068606439291794793
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -470,6 +473,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6597874379038542590
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -594,6 +598,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7572089285697878002
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -718,6 +723,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &5638208179975222644
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -842,6 +848,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &4665145506436277832
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -966,6 +973,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5129521435451424810
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1090,6 +1098,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2751917615466402997
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1214,6 +1223,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &1202719630736726123
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1338,6 +1348,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7001601138206732200
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1462,6 +1473,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7284009597869119764
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1586,6 +1598,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3631209487778347084
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1710,6 +1723,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8926598740093091983
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1834,6 +1848,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3211173228300142351
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1958,6 +1973,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4877177457775143803
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2082,6 +2098,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &255076832533201284
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2206,6 +2223,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8217147208033091164
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2330,6 +2348,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6688758678053759874
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2454,6 +2473,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &9012051226947853222
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2578,6 +2598,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6995903611422682993
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2702,6 +2723,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4678381684160151119
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2826,6 +2848,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7764140653290454865
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2950,6 +2973,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4792601491853995591
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3074,6 +3098,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6999598484555988642
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3198,6 +3223,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7125492224966832031
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3322,6 +3348,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6996031843933290484
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3446,6 +3473,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7916842896390780293
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3570,6 +3598,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &855890643271958030
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3694,6 +3723,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &3509746243520434296
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3818,6 +3848,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &351662946263390183
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3942,6 +3973,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2961957042669519759
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4066,6 +4098,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8353432252441988222
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4190,6 +4223,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &198104544698088793
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4314,6 +4348,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6637563140735844907
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4438,6 +4473,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8732149954534228892
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4562,6 +4598,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8607515592042360583
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4686,6 +4723,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5783214768360104565
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4810,6 +4848,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1625400202612596456
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4934,6 +4973,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &5265617689073307904
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5058,6 +5098,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &352194533237926938
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5182,6 +5223,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1328786316820281912
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5306,6 +5348,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6547699989634944278
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5430,6 +5473,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4376248967452383846
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5554,6 +5598,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &1773264618632530909
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5729,6 +5774,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6776996636045967617
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5853,6 +5899,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &3567773562768411073
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5977,6 +6024,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6147203651508760084
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6101,6 +6149,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1445052433076596594
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6225,6 +6274,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &701593301241847054
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6349,6 +6399,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &3842734413082378445
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6473,6 +6524,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8800868913313422383
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6597,6 +6649,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1677763078490948193
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6721,6 +6774,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &2272115051149777578
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6845,6 +6899,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &9077921288867257013
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6969,6 +7024,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1474837628986200370
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7093,6 +7149,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &788520194048021132
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7217,6 +7274,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &8783666838899127206
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7341,6 +7399,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5457604114060948652
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7465,6 +7524,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &5092686115850293344
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7589,6 +7649,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3554620901033953171
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7713,6 +7774,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &8285201430826100763
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7837,6 +7899,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6233001873812592432
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7961,6 +8024,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7286273414758883447
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8085,6 +8149,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6921700285162127088
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8209,6 +8274,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &4343218339959464994
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8333,6 +8399,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2479461973388254678
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8457,6 +8524,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6441116103643767955
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8581,6 +8649,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7201955101694355598
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8705,6 +8774,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4740085113299557077
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8829,6 +8899,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1915300433961568944
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8953,6 +9024,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3991126547249002286
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9077,6 +9149,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &3386630561662004542
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9201,6 +9274,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &5200527343872987810
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9325,6 +9399,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &3469525636316504198
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9449,6 +9524,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &8008667895076392373
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9573,6 +9649,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7989108307141020058
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9697,6 +9774,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2282636531472511811
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9821,6 +9899,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4921976020150994721
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9945,6 +10024,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1079278204975386417
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10069,6 +10149,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &4353764391752873092
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10193,6 +10274,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8291881546083062723
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10317,6 +10399,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7479726216539077420
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10441,6 +10524,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &9031142613664741844
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10565,6 +10649,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2309167054384068790
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10689,6 +10774,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5914141562303437843
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10813,6 +10899,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1330140546036341098
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10937,6 +11024,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8832635954614843203
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11061,6 +11149,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &1974724908331202480
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11185,6 +11274,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &3157790609409400515
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11495,6 +11585,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5553492239705615901
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11619,6 +11710,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1203536701919852338
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11743,6 +11835,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &222659838669108852
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11867,6 +11960,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1814796379607638846
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11991,6 +12085,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7895509091196464352
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12115,6 +12210,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2109437693053807245
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12239,6 +12335,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4735496336807485080
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12363,6 +12460,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &624741997308901684
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12487,6 +12585,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &112474034182053955
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12611,6 +12710,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &7706244232738213531
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12735,6 +12835,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5885848103472186329
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12859,6 +12960,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5759101133380136442
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12983,6 +13085,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &6963335882346675856
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13107,6 +13210,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &5172050802033335053
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13231,6 +13335,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7919118918647359160
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13355,6 +13460,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &5895231545103362000
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13479,6 +13585,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6666003265290265151
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13603,6 +13710,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5913553204626292733
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13727,6 +13835,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8112697286334785403
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13851,6 +13960,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &453298655552733503
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13975,6 +14085,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3250522340624563481
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14099,6 +14210,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7932317752598380295
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14223,6 +14335,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7314735179891064486
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14347,6 +14460,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2878022875028467085
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14471,6 +14585,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &7556115581121685457
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14595,6 +14710,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &95735542097084302
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14719,6 +14835,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &5415660243759986698
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14843,6 +14960,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6886201128714994846
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14967,6 +15085,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3998855046849692657
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15091,6 +15210,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8242418861178859746
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15215,6 +15335,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5970653874093626489
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15339,6 +15460,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7792673324150064217
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15463,6 +15585,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &907458091211983868
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15587,6 +15710,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2251552647797817047
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15711,6 +15835,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2770337067124132109
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15835,6 +15960,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2829884533647400207
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15959,6 +16085,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &225122563897716164
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16083,6 +16210,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &609222744156499965
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16207,6 +16335,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1331390576349068842
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16331,6 +16460,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5385384856240912013
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16455,6 +16585,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1566682371472868183
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16579,6 +16710,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7039603558853119571
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16703,6 +16835,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5284893171303369440
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16827,6 +16960,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &4762055693465134079
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16951,6 +17085,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7297709574176738840
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17075,6 +17210,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &9158239807659544621
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17199,6 +17335,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6357942417560304346
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17323,6 +17460,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1574120636457513181
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17447,6 +17585,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &164498533895544134
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17571,6 +17710,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &6689704160953114795
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17695,6 +17835,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2145614560082485170
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17819,6 +17960,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &3032555675230339788
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17943,6 +18085,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2832373196708485469
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18067,6 +18210,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3454545223008907255
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18191,6 +18335,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &531540556341804460
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18315,6 +18460,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &2653350670807666990
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18439,6 +18585,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4075541245493732002
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18563,6 +18710,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8168905373603230267
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18687,6 +18835,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4415162154782956290
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18811,6 +18960,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1337074614512452005
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18935,6 +19085,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4938758978804934618
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19059,6 +19210,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7363549812002173452
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19183,6 +19335,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5389699916660461732
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19307,6 +19460,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4420629118035510501
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19431,6 +19585,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6674351547293014812
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19555,6 +19710,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &3986228899286403245
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19679,6 +19835,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7822573979537981061
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19803,6 +19960,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4510028290866696000
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19927,6 +20085,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5546204209983418306
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20051,6 +20210,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &3026228377450028613
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20175,6 +20335,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7471192977347599486
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20299,6 +20460,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7052695062041059383
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20423,6 +20585,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &4887660428431749272
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20547,6 +20710,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7113895316540298495
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20671,6 +20835,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1195052070672682852
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20795,6 +20960,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4744762315916750825
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20979,6 +21145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8551108755702977694
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21103,6 +21270,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8451165857153665661
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21227,6 +21395,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &680133242854248053
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21351,6 +21520,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2770397912046508344
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21475,6 +21645,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &4129462572897677875
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21599,6 +21770,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &1017970611336407257
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21723,6 +21895,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7563601238591229692
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21847,6 +22020,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3137682144262405019
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21971,6 +22145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6250044758620128242
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22095,6 +22270,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7034346381918549497
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22219,6 +22395,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8752940788388549365
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22343,6 +22520,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7793238575098659924
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22467,6 +22645,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8467190566638557804
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22591,6 +22770,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &5618930291341221013
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22715,6 +22895,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &5516498917667367268
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22839,6 +23020,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &1598668640754330426
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22963,6 +23145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2818845266764711661
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23087,6 +23270,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8347481086390586559
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23211,6 +23395,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &4232766509514433803
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23335,6 +23520,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &6983430592660339658
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23459,6 +23645,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6972215881835860627
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23583,6 +23770,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6433278214229763309
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23707,6 +23895,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3805790917080913682
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23831,6 +24020,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4749846952355042910
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23955,6 +24145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1182498434448167824
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24079,6 +24270,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &5864515269036884832
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24203,6 +24395,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4650415285716071804
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24327,6 +24520,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &192557526903936896
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24451,6 +24645,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7320286013728048311
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24575,6 +24770,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8967320944141200038
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24699,6 +24895,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5358325922803761581
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24823,6 +25020,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2214459136770892424
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24947,6 +25145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1735889301593282768
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25071,6 +25270,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &495281042655181727
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25195,6 +25395,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &237644287699030723
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25319,6 +25520,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6348263445986205704
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25443,6 +25645,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6152774884180058787
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25567,6 +25770,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6957531322324885118
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25691,6 +25895,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5558250640697228750
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25815,6 +26020,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2656194556456439118
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25939,6 +26145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7473209187026423968
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26063,6 +26270,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &238717297839112947
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26187,6 +26395,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8765541133809188509
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26311,6 +26520,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &645758005648669888
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26435,6 +26645,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5317419884511404078
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26559,6 +26770,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1541654278791534793
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26683,6 +26895,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &640462415952186052
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26807,6 +27020,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8032285549905491934
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26860,7 +27074,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3027942382430267498}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.026001, y: -12, z: 0}
+  m_LocalPosition: {x: -20, y: -12, z: 0}
   m_LocalScale: {x: 0.949, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7054911220471654317}
@@ -26931,6 +27145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &4978725523622945152
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27055,6 +27270,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1335171532028748910
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27179,6 +27395,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &903331611285977009
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27303,6 +27520,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2188845065667742496
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27427,6 +27645,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7542700150071204066
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27551,6 +27770,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7971681439273536048
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27675,6 +27895,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6458583831821139149
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27799,6 +28020,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4871095593346906006
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27923,6 +28145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6212982428178038162
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28047,6 +28270,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6504938692677877124
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28171,6 +28395,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3701599628896406903
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28295,6 +28520,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5549180179476960078
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28419,6 +28645,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1338318393844023209
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28543,6 +28770,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5408388027895743772
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28667,6 +28895,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2852435684949752245
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28791,6 +29020,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3465420503771386407
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28915,6 +29145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5494895565431878913
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29039,6 +29270,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6304751948801019089
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29163,6 +29395,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &1528844263956262067
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29287,6 +29520,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3806857898480640747
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29411,6 +29645,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &9069996164045319456
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29535,6 +29770,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7005050004210258558
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29659,6 +29895,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5730064773826914814
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29783,6 +30020,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7672079775050668498
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29907,6 +30145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &3685791120775390706
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30031,6 +30270,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &212276914039011905
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30155,6 +30395,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &6268853924433289409
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30279,6 +30520,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2288241387142181179
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30403,6 +30645,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3527105931373638044
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30527,6 +30770,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6196081685747609926
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30651,6 +30895,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3112820393956878422
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30775,6 +31020,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &9208198551818315146
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30899,6 +31145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6683248636425292204
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31023,6 +31270,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5463022590815837982
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31147,6 +31395,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &9101002788022631837
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31271,6 +31520,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5180898925186190139
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31395,6 +31645,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &9032755039609373561
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31519,6 +31770,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4145304167290263396
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31643,6 +31895,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &8583906715366446626
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31767,6 +32020,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7202644161656147270
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31891,6 +32145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4721961357403471331
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32015,6 +32270,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2890273816450146836
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32139,6 +32395,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3476169982866607165
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32263,6 +32520,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &8107836524609058415
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32387,6 +32645,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3916482926194859073
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32511,6 +32770,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &121080072073545506
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32635,6 +32895,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6274847776413838648
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32759,6 +33020,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6237943920676333584
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32883,6 +33145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7921979885829707115
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33007,6 +33270,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &2663338934580658750
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33131,6 +33395,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8540718416518468285
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33255,6 +33520,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1397293899595608617
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33379,6 +33645,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3555383957958479283
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33503,6 +33770,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &914551036342894994
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33627,6 +33895,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6600712566415030178
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33751,6 +34020,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3163297632388039159
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33875,6 +34145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4414097572308364914
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33999,6 +34270,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8798932851809273049
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34123,6 +34395,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4045110378638261638
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34247,6 +34520,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6863346163331921235
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34371,6 +34645,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5678694079590032027
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34495,6 +34770,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3556647933816591723
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34619,6 +34895,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &3085781890782572685
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34743,6 +35020,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8118400530364410009
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34867,6 +35145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &2568520456362365475
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34991,6 +35270,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3504498387298360752
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35115,6 +35395,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1130021134301107297
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35239,6 +35520,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8193898548720242708
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35363,6 +35645,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5565085490734004471
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35487,6 +35770,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2979637980084471607
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35611,6 +35895,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3506322000803410220
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35735,6 +36020,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5051440754376925971
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35859,6 +36145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1908210995376007495
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35983,6 +36270,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3070513034732306179
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36107,6 +36395,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2741585960621176645
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36231,6 +36520,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8238420996040681967
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36355,6 +36645,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4711859289196280809
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36479,6 +36770,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &5841915039564199768
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36603,6 +36895,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &4998371753462313941
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36727,6 +37020,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2251295249244397058
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36851,6 +37145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &2078313607955757917
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36975,6 +37270,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &5578098984007110449
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37099,6 +37395,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5307235132129347792
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37223,6 +37520,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4646658674022811840
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37347,6 +37645,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1514240287066408961
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37471,6 +37770,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &6419404600757398797
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37595,6 +37895,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3493256373794507851
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37719,6 +38020,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &352872228700649124
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37843,6 +38145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5932562606994336310
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37967,6 +38270,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &298828386108198057
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38091,6 +38395,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4596517986490169713
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38215,6 +38520,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &9136510308705578756
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38339,6 +38645,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7301170613581356284
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38463,6 +38770,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8347715279000110465
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38587,6 +38895,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3287186179317681975
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38711,6 +39020,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3155291535898234326
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38835,6 +39145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8364725358953309211
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38959,6 +39270,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7147034478429437886
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39083,6 +39395,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2477802506647592496
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39207,6 +39520,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7880355406085337964
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39331,6 +39645,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3448339722673332084
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39455,6 +39770,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2035235107285802225
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39579,6 +39895,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7664648869695918164
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39703,6 +40020,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4570453008588896057
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39827,6 +40145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2609718450009394530
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39951,6 +40270,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6707209524420630343
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40075,6 +40395,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5483286385319646834
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40199,6 +40520,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1259590662153606357
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40323,6 +40645,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &636564661354219158
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40447,6 +40770,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7389319330356205403
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40571,6 +40895,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8608338179547226907
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40695,6 +41020,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &4204730942170360423
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40819,6 +41145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1802410220177995194
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40943,6 +41270,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &3382617887736368834
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41067,6 +41395,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &8815006451987117110
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41191,6 +41520,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7878598492857634606
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41315,6 +41645,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3590431465425228384
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41439,6 +41770,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &7334331795356225098
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41563,6 +41895,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6580840461389128690
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41687,6 +42020,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &9047913513279517928
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41811,6 +42145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6079820089088686456
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41935,6 +42270,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1170175382955758501
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42059,6 +42395,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &195996513210048826
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42183,6 +42520,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6448259118951400284
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42307,6 +42645,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2096988277404835890
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42528,6 +42867,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3905940426851216690
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42652,6 +42992,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5692742444861985661
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42776,6 +43117,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4606845486509825847
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42900,6 +43242,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1783863385790821382
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43024,6 +43367,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &6878557841646613619
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43148,6 +43492,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1836305900663508701
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43272,6 +43617,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &1670431081281383859
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43396,6 +43742,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7425858091808356893
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43520,6 +43867,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5259015837910866355
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43644,6 +43992,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6007331209301575934
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43768,6 +44117,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &167393272807386602
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43892,6 +44242,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7721714779648222520
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44016,6 +44367,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3416088066279459829
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44140,6 +44492,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &656083211204281521
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44264,6 +44617,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4553766481557076958
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44388,6 +44742,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1195080680391457150
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44512,6 +44867,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8708876839064909719
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44636,6 +44992,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3736338841849896964
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44760,6 +45117,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1149929408683135865
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44884,6 +45242,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &1561267408005833818
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45008,6 +45367,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7400665668761240076
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45132,6 +45492,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &519586649055459069
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45256,6 +45617,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7428883025397930780
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45380,6 +45742,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5779054585604572481
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45504,6 +45867,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1378520856170945682
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45628,6 +45992,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1124312448107299068
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45752,6 +46117,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4173722226123866740
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45876,6 +46242,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &362406974437559828
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46000,6 +46367,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &8193381383691169875
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46173,6 +46541,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4906457384456317450
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46297,6 +46666,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &3176569136924150302
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46421,6 +46791,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2258111213572150994
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46545,6 +46916,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &6643605911268914782
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46669,6 +47041,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &5531968144638264095
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46793,6 +47166,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4146777960060166177
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46917,6 +47291,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4845906325950723439
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47041,6 +47416,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7092887564786928331
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47165,6 +47541,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7522023177125538121
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47346,6 +47723,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2528893260318060374
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47470,6 +47848,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &7789557053527750685
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47594,6 +47973,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2589070098009357217
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47718,6 +48098,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2700717637024806683
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47842,6 +48223,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4519742440633525127
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47966,6 +48348,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &7035026962847739065
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48090,6 +48473,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &970452947058432703
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48214,6 +48598,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5304558429555984287
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48338,6 +48723,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &1830157160309033327
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48462,6 +48848,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3969032724088413972
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48586,6 +48973,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5119163939170872960
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48710,6 +49098,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1806972859234591076
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48834,6 +49223,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2486460003905035000
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48958,6 +49348,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &9072334017681467831
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49082,6 +49473,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5108472952261920047
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49206,6 +49598,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3786093088021967672
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49330,6 +49723,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2509952043033257979
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49454,6 +49848,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &5316901956857150626
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49578,6 +49973,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1837336472949195805
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49702,6 +50098,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6774656714245953779
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49826,6 +50223,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6561175501356918552
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49950,6 +50348,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8157172930043437365
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50074,6 +50473,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7237283640670147385
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50198,6 +50598,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &594765879893896375
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50322,6 +50723,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5924403027026918497
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50446,6 +50848,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7614032936671497620
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50570,6 +50973,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6590008765618618275
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50694,6 +51098,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6918174934858260779
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50818,6 +51223,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &913009500444344865
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50942,6 +51348,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &6402766133648697436
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51066,6 +51473,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2581873008693794105
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51190,6 +51598,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1175369766025847387
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51314,6 +51723,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &537456309273971038
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51438,6 +51848,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &3499085390469621981
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51562,6 +51973,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4142764812460098105
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51686,6 +52098,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6600690428659763792
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51810,6 +52223,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2142394301460354492
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51934,6 +52348,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8589568894792214498
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52058,6 +52473,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8392120476209179792
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52182,6 +52598,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &5875807783111538493
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52306,6 +52723,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8613360274298907004
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52430,6 +52848,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7925747817957017434
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52554,6 +52973,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4253309612050530189
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52678,6 +53098,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1571899166138807452
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52802,6 +53223,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &2782030064336287923
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52926,6 +53348,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &3214808533089192485
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53050,6 +53473,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &498091385300483884
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53174,6 +53598,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &824997261525529556
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53298,6 +53723,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &3072787164468328677
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53422,6 +53848,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &6806256874899521507
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53546,6 +53973,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &6049559547221295553
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53670,6 +54098,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7564505645315074524
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53794,6 +54223,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &4533879197841960019
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53918,6 +54348,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2799592695629564025
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54042,6 +54473,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2472526995421333030
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54166,6 +54598,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &6489295019756983018
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54290,6 +54723,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3626140628091613246
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54414,6 +54848,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7249264418123581332
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54538,6 +54973,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7974172530048370746
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54662,6 +55098,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &1645018629051151944
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54786,6 +55223,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &439333301973050969
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54910,6 +55348,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6523183512741071546
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55034,6 +55473,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4265659704111454184
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55158,6 +55598,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6320419604796298392
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55282,6 +55723,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1186878017953395644
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55406,6 +55848,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &1887161053747521717
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55530,6 +55973,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &4851925080885407117
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55654,6 +56098,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2171813999881436122
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55778,6 +56223,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8295107446718993841
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55902,6 +56348,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5237898731029229444
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56026,6 +56473,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8149596689067928444
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56150,6 +56598,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4959766313638166052
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56274,6 +56723,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5765613931452848183
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56398,6 +56848,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8544825187250905644
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56522,6 +56973,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6758070584222809724
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56646,6 +57098,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4654916698622684765
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56770,6 +57223,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7839479313270518278
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56894,6 +57348,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &8302375584072047699
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57018,6 +57473,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8225311177397756526
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57142,6 +57598,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1052358225363818680
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57266,6 +57723,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &8784487277028521428
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57390,6 +57848,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8177154560512311098
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57514,6 +57973,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6522149555491884536
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58007,6 +58467,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &8653811125027143537
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58131,6 +58592,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &5906439451412403512
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58255,6 +58717,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5487875282225777797
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58379,6 +58842,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2243980879460086668
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58503,6 +58967,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7240626881477128736
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58627,6 +59092,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4346797939967744585
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58751,6 +59217,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &2736620472650447080
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58875,6 +59342,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5141104942798344463
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59079,6 +59547,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3501301380251847012
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59203,6 +59672,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &5764885433443696039
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59327,6 +59797,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &4447371948472456699
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59451,6 +59922,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8503744043329835828
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59575,6 +60047,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1592949556022744317
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59699,6 +60172,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8422981080404245990
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59823,6 +60297,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2087509980160369620
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59947,6 +60422,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6581153292114118573
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -60071,6 +60547,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6246421396910501210
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -60195,6 +60672,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2039909108382508640
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -60319,6 +60797,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3178580312628143505
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -60443,6 +60922,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8754642592559397462
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -60567,6 +61047,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1005569181004262009
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -60691,6 +61172,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7028998343753303331
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -60815,6 +61297,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &8190070304121983971
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -60939,6 +61422,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &6740963214298669321
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -61063,6 +61547,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &5033923263702766227
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -61187,6 +61672,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7123291303427620565
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -61311,6 +61797,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2121250637045398249
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -61435,6 +61922,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &494936170744694960
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -61559,6 +62047,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6109405972895343767
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -61683,6 +62172,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &9021490222265567280
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -61807,6 +62297,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &4298487599146793432
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -61931,6 +62422,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7338033797124378091
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -62055,6 +62547,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &612595105892894692
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -62179,6 +62672,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6900098102925853771
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -62303,6 +62797,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3584568976973438657
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -62427,6 +62922,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3999290988478929375
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -62551,6 +63047,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5064195192503947052
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -62675,6 +63172,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5988746542892318310
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -62799,6 +63297,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5188560177096032072
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -62923,6 +63422,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &312594085875432113
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -63047,6 +63547,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &639975395374681359
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -63171,6 +63672,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &9072794962699839540
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -63295,6 +63797,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &7275246680630693414
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -63419,6 +63922,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5524400362045148478
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -63543,6 +64047,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &9075869735877060309
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -63667,6 +64172,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8018742159494086863
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -63791,6 +64297,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8534333375214806313
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -63915,6 +64422,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &376233675918131418
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -64039,6 +64547,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7054638076102173146
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -64163,6 +64672,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1845625506088531751
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -64287,6 +64797,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4922727564125882832
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -64411,6 +64922,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &433368766030526662
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -64535,6 +65047,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &1704263390653749739
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -64659,6 +65172,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1689412851155659296
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -64783,6 +65297,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4502614174631753423
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -64907,6 +65422,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7829739399393791769
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65079,6 +65595,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1082111487244797929
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65203,6 +65720,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1502995186490623883
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65327,6 +65845,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3571212296215027123
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65451,6 +65970,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4116323570605186573
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65575,6 +66095,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1635833800838268182
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65699,6 +66220,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3033738245788849569
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65823,6 +66345,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4386857418962834027
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65947,6 +66470,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &5529053232989411
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -66071,6 +66595,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2758406099772994815
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -66195,6 +66720,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &5464088351512856543
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -66319,6 +66845,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4222026855158724712
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -66443,6 +66970,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &9215078292170486103
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -66567,6 +67095,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &1241849167436244108
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -66691,6 +67220,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &4484829917885886890
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -66815,6 +67345,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &4982613365730729555
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -66939,6 +67470,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &7738115861887146540
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -67063,6 +67595,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3692092182232836703
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -67187,6 +67720,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &4923758938153118227
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -67311,6 +67845,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5014246818041540227
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -67435,6 +67970,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2869616768959362225
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -67559,6 +68095,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6091488361305126131
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -67683,6 +68220,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4212638126987682571
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -67807,6 +68345,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8061291465659473679
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -67931,6 +68470,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &223818910256698857
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -68055,6 +68595,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1420544402138087038
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -68179,6 +68720,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &1023996494822246389
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -68303,6 +68845,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5770125147370419393
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -68427,6 +68970,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &808466952658987819
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -68551,6 +69095,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2098239604257388482
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -68675,6 +69220,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7310673509119780178
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -68799,6 +69345,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8518685803967135282
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -68923,6 +69470,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3569240715829765440
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -69047,6 +69595,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6288895750969785323
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -69171,6 +69720,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7880623976165048929
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -69295,6 +69845,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &9176195790319763930
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -69419,6 +69970,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &8816484801851415480
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -69543,6 +70095,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7314124440896266674
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -69667,6 +70220,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6386222036301385449
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -69791,6 +70345,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8368800518850098404
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -69915,6 +70470,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6068708837674423831
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -70039,6 +70595,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2822300456064800139
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -70163,6 +70720,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1216231689497944014
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -70287,6 +70845,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6287555058198174794
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -70411,6 +70970,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3198663914480117945
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -70535,6 +71095,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6620327314401860750
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -70659,6 +71220,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7806213169905252217
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -70783,6 +71345,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &7959653377730839796
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -70907,6 +71470,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2644781416107189368
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -71031,6 +71595,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4069335476147984199
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -71155,6 +71720,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &9142656627347867260
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -71279,6 +71845,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7963943139559480413
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -71403,6 +71970,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2817081780311632058
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -71527,6 +72095,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &4307118238459941940
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -71651,6 +72220,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &3768825132333351595
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -71775,6 +72345,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &2726494775258334407
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -71899,6 +72470,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &283701932097153014
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -72023,6 +72595,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4752745620662210292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -72147,6 +72720,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4241779743338351098
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -72271,6 +72845,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8085273689836149620
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -72454,6 +73029,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3416752645228905549
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -72578,6 +73154,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4869211599809737757
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -72702,6 +73279,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3749418614397400287
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -72826,6 +73404,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &215460479758304247
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -72950,6 +73529,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4982478507980059111
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -73074,6 +73654,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &6188447556721964727
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -73198,6 +73779,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &1626980803469351064
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -73322,6 +73904,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &390905866124104520
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -73446,6 +74029,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7898199806024860831
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -73570,6 +74154,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1677151743835582038
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -73694,6 +74279,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8016688317312646112
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -73818,6 +74404,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3635944345349954751
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -73942,6 +74529,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7070608561858526790
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -74115,6 +74703,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6957130870966133374
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -74239,6 +74828,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8397973978052530204
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -74363,6 +74953,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3004404506455605982
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -74487,6 +75078,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5711514127000711224
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -74611,6 +75203,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7015516465110539289
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -74735,6 +75328,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &766345584763492330
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -74859,6 +75453,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3480717928826310396
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -74983,6 +75578,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1226672918578987558
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -75107,6 +75703,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &3220255872787201781
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -75231,6 +75828,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5580245776726040330
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -75355,6 +75953,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8786551999799888559
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -75479,6 +76078,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2833190700207965220
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -75603,6 +76203,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &3634304900695746971
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -75727,6 +76328,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &6964291630304003672
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -75851,6 +76453,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3413725298894573456
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -75975,6 +76578,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4581868411461461518
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -76099,6 +76703,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5708837974778091155
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -76223,6 +76828,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6458057711179133998
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -76347,6 +76953,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3649528549297591309
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -76593,6 +77200,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8623934919235309142
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -76717,6 +77325,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &7782819889343751609
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -76841,6 +77450,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &4948472954371497356
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -76965,6 +77575,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2099256576145065439
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -77089,6 +77700,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2298403475002692544
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -77213,6 +77825,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1212234930789274789
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -77337,6 +77950,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1687722493359737229
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -77461,6 +78075,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &115300508506170577
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -77585,6 +78200,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4275907415764876785
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -77709,6 +78325,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &7929263523485011772
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -77833,6 +78450,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &6212982392067228493
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -77957,6 +78575,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7102834258705885088
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -78081,6 +78700,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &503325722844051842
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -78205,6 +78825,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3973917987135883644
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -78329,6 +78950,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &3227273491863744062
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -78453,6 +79075,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &4203449870399961694
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -78577,6 +79200,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &177765129146303380
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -78701,6 +79325,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6305413007733311535
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -78825,6 +79450,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4478504821999652012
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -78949,6 +79575,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &6506226087805176580
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -79073,6 +79700,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7841530596742997877
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -79197,6 +79825,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6046288840420119351
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -79321,6 +79950,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2974358185001244968
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -79445,6 +80075,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7377629645304727167
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -79569,6 +80200,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &918899001795427452
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -79693,6 +80325,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6836326762667363972
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -79817,6 +80450,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &3130539880624120355
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -79941,6 +80575,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7155997292604971637
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80065,6 +80700,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &6026207213732332089
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80189,6 +80825,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &3685298554586440460
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80313,6 +80950,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4572615710254112335
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80437,6 +81075,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &761575426143073697
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80561,6 +81200,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &4022158182620287806
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80685,6 +81325,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1920632356551064791
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80809,6 +81450,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4621341967572609439
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80933,6 +81575,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &1626927090299539974
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -81057,6 +81700,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7017754187033587410
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -81181,6 +81825,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1296945584757300596
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -81305,6 +81950,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5713477125271029339
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -81429,6 +82075,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4641584337336726471
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -81553,6 +82200,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &7619709938753180319
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -81677,6 +82325,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5938551668945837682
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -81801,6 +82450,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4192918622679053819
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -81925,6 +82575,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4608485246178913173
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -82092,6 +82743,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2975853882059203420
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -82273,6 +82925,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7254285871522149126
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -82397,6 +83050,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7917331509272002992
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -82521,6 +83175,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &192407339160401246
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -82645,6 +83300,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5938952556317609460
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -82769,6 +83425,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8548600641530857485
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -82893,6 +83550,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4435813970265424743
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -83017,6 +83675,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 1
 --- !u!61 &2211850041807872297
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -83141,6 +83800,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4516129349293762529
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -83265,6 +83925,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1600799682229686167
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -83389,6 +84050,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1023582545710694140
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -83513,6 +84175,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5268095261901563214
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -83637,6 +84300,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8708418439673083753
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -83761,6 +84425,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5422898584841755159
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -83885,6 +84550,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6585073531483905937
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -84009,6 +84675,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &4749053523715402243
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -84133,6 +84800,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1440135872488701038
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -84257,6 +84925,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &598500293771054792
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -84381,6 +85050,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &8432689408864992505
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -84505,6 +85175,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &1122496366813581981
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -84629,6 +85300,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7788929133280451258
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -84753,6 +85425,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &6914223615404501539
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -84877,6 +85550,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &2087784567135271151
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -85001,6 +85675,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &7357484446822498463
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -85125,6 +85800,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  impassable: 0
 --- !u!61 &5485909538002046621
 BoxCollider2D:
   m_ObjectHideFlags: 0
