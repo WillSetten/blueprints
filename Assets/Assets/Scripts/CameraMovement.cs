@@ -79,12 +79,12 @@ public class CameraMovement : MonoBehaviour
         //Zoom in
         if (Input.GetAxis("Mouse ScrollWheel") > 0 && viewingCamera.orthographicSize > Screen.height / 256)
         {
-            viewingCamera.orthographicSize -= 0.4f;
+            viewingCamera.orthographicSize = viewingCamera.orthographicSize*0.9f;
         }
         //Zoom out
-        if (Input.GetAxis("Mouse ScrollWheel") < 0 && viewingCamera.orthographicSize < Screen.height / 96)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0 && viewingCamera.orthographicSize < Screen.height / 128)
         {
-            viewingCamera.orthographicSize += 0.4f;
+            viewingCamera.orthographicSize = viewingCamera.orthographicSize * 1.1f;
         }
     }
 
