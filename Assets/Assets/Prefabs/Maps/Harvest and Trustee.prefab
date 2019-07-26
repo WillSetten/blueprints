@@ -59428,9 +59428,7 @@ MonoBehaviour:
   selectedUnit: {fileID: 0}
   viewingCamera: {fileID: 0}
   selectedUnits: []
-  units:
-  - {fileID: 0}
-  - {fileID: 0}
+  units: []
   enemyController: {fileID: 0}
   tileTypes:
   - name: Passable

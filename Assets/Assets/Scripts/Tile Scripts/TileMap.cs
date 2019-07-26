@@ -23,6 +23,7 @@ public class TileMap : MonoBehaviour
 
     GameObject[] doors; //List of Doors
     Room[] rooms; //List of Rooms
+    Loot[] loot; //List of Loot
     int[,] tileMatrix; //2D Integer array for showing which tiles are passable and which aren't
     Node[,] graph; //2D Array of Nodes for pathfinding
     Dictionary<string,string> pathCache; //Dictionary of paths. Since the pathfinding algorithm is quite processor intensive,
@@ -30,6 +31,8 @@ public class TileMap : MonoBehaviour
     //storing any calculated paths for later use makes the game run smoother
     private Vector2 srtBoxPos = Vector2.zero; //Where the unit selection box begins
     private Vector2 endBoxPos = Vector2.zero; //Where the unit selection box ends
+    private Collider2D[] containedColliders; //The colliders inside the selection square
+    private Unit[] containedUnits; //The units inside the selection square
 
     //Initialisation
     private void Start()
@@ -43,11 +46,20 @@ public class TileMap : MonoBehaviour
         GeneratePathfindingGraph();
         pathCache = new Dictionary<string, string>();
         viewingCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+
         rooms = GetComponentsInChildren<Room>();
         foreach(Room r in rooms)
         {
             r.map = this;
         }
+
+        loot = GetComponentsInChildren<Loot>();
+        foreach (Loot l in loot)
+        {
+            l.map = this;
+            tiles[l.tileX, l.tileY].occupied = true;
+        }
+
         doors = GameObject.FindGameObjectsWithTag("Door");
         selectedUnits = new List<GameObject>();
         //setSelectedUnit(selectedUnit);
@@ -213,7 +225,6 @@ public class TileMap : MonoBehaviour
             {
                 tileMatrix[t.tileX, t.tileY] = 0;
             }
-            Debug.Log("Tile " +  t.tileX + "," + t.tileY + " is a wall? " + tileTypes[tileMatrix[t.tileX, t.tileY]].isWalkable);
         }
     }
 
@@ -453,8 +464,6 @@ public class TileMap : MonoBehaviour
         unit.setPath(currentPath);
         unit.currentState = Unit.state.Moving;
     }
-
-
     //Determines the cost to enter a tile in position x,y
     public float CostToEnterTile(int sourceX, int sourceY, int targetX, int targetY)
     {
