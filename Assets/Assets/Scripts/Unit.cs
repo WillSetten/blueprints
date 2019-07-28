@@ -22,6 +22,7 @@ public class Unit : MonoBehaviour
     public int hp;
     public int interactionRadius = 2;
     public float attackCooldownCap;
+    public bool hasLoot;
     Animator animator;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigidbody2D;
@@ -50,6 +51,7 @@ public class Unit : MonoBehaviour
         currentState = state.Idle;
         attackCooldown = attackCooldownCap;
         healthBar = GetComponentInChildren<HealthBar>();
+        hasLoot = false;
     }
    
     //Highlight the unit in green when the mouse hovers over it
@@ -161,7 +163,13 @@ public class Unit : MonoBehaviour
         else
         {
             animator.enabled = true;
-            rigidbody2D.velocity = new Vector2(directionX * moveRate, directionY * moveRate);
+            if (hasLoot) {
+                rigidbody2D.velocity = new Vector2(directionX * lootMoveRate, directionY * lootMoveRate);
+            }
+            else
+            {
+                rigidbody2D.velocity = new Vector2(directionX * moveRate, directionY * moveRate);
+            }
         }
     }
 
@@ -220,7 +228,14 @@ public class Unit : MonoBehaviour
                     //setRotation();
                     animator.SetFloat("Move X", directionX);
                     animator.SetFloat("Move Y", directionY);
-                    rigidbody2D.velocity = new Vector2(directionX*moveRate, directionY*moveRate);
+                    if (hasLoot)
+                    {
+                        rigidbody2D.velocity = new Vector2(directionX * lootMoveRate, directionY * lootMoveRate);
+                    }
+                    else
+                    {
+                        rigidbody2D.velocity = new Vector2(directionX * moveRate, directionY * moveRate);
+                    }
                 }
             }
         }

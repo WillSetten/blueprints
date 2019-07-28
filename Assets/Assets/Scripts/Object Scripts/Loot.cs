@@ -30,10 +30,11 @@ public class Loot : MonoBehaviour
                 if (remainingTime==totalTime) {
                     GetComponentInChildren<LootBar>().showLootBar();
                 }
-                //If the loot progress timer has finished, the unit bags up the loot (and does another round)
+                //If the loot progress timer has finished, the unit bags up the loot
                 if (remainingTime < 0)
                 {
                     Debug.Log(name + " has been bagged up! Lets do another round");
+                    lootingUnit.hasLoot = true;
                     map.loot.Remove(this);
                     Destroy(gameObject);
                 }

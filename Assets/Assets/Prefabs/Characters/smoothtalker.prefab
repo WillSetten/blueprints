@@ -187,11 +187,13 @@ MonoBehaviour:
   previousTileY: 0
   directionX: 0
   directionY: 0
-  moveRate: 3.5
+  moveRate: 3
+  lootMoveRate: 2
   map: {fileID: 0}
   hp: 8
   interactionRadius: 2
   attackCooldownCap: 3
+  hasLoot: 0
   healthBar: {fileID: 2044993760062670695}
   bulletType: {fileID: 3593746333718814036, guid: a4a090a46841b0b4fb2306f88634324d,
     type: 3}
