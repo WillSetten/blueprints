@@ -532,6 +532,32 @@ public class TileMap : MonoBehaviour
         }
     }
 
+    public void deselectUnit(GameObject unit)
+    {
+        if (multipleUnitsSelected)
+        {
+            if (selectedUnits.Contains(unit)) {
+                unit.GetComponent<Unit>().selected = false;
+                unit.GetComponent<Unit>().changeHighlight();
+                selectedUnits.Remove(unit);
+            }
+            if (selectedUnits.Count==1)
+            {
+                multipleUnitsSelected = false;
+                setSelectedUnit(selectedUnits[0]);
+                selectedUnits = null;
+            }
+        }
+        else
+        {
+            if (unit.Equals(selectedUnit)) {
+                unit.GetComponent<Unit>().selected = false;
+                unit.GetComponent<Unit>().changeHighlight();
+                selectedUnit = null;
+            }
+        }
+    }
+
     //Converts a path to string for easy storage
     public string pathToString(List<Node> path)
     {

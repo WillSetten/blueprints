@@ -137,9 +137,10 @@ public class Unit : MonoBehaviour
         {
             map.tiles[currentPath[currentPath.Count-1].x, currentPath[currentPath.Count - 1].y].occupied = false;
         }
-        if (selectable)
+        if (selectable&&selected)
         {
             map.units.Remove(gameObject);
+            map.deselectUnit(gameObject);
         }
         Destroy(gameObject);
     }
