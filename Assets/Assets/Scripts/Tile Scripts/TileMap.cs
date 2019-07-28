@@ -20,10 +20,10 @@ public class TileMap : MonoBehaviour
     public int mapSizeY;
     public Tile lastSelectedTile; //Tile stored to make sure the user spamming tiles doesn't make the unit skip tiles
     public Shader blueprintShader;
+    public List<Loot> loot; //List of Loot
 
     GameObject[] doors; //List of Doors
     Room[] rooms; //List of Rooms
-    Loot[] loot; //List of Loot
     int[,] tileMatrix; //2D Integer array for showing which tiles are passable and which aren't
     Node[,] graph; //2D Array of Nodes for pathfinding
     Dictionary<string,string> pathCache; //Dictionary of paths. Since the pathfinding algorithm is quite processor intensive,
@@ -53,7 +53,7 @@ public class TileMap : MonoBehaviour
             r.map = this;
         }
 
-        loot = GetComponentsInChildren<Loot>();
+        loot = new List<Loot>(GetComponentsInChildren<Loot>());
         foreach (Loot l in loot)
         {
             l.map = this;

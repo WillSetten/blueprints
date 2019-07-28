@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    public enum state { Idle, Moving, Attacking };
+    public enum state { Idle, Moving, Attacking, Looting };
     public state currentState;
     public string name;
     public bool selectable = false;
@@ -17,6 +17,7 @@ public class Unit : MonoBehaviour
     public int directionX;
     public int directionY;
     public float moveRate;
+    public float lootMoveRate;
     public TileMap map;
     public int hp;
     public int interactionRadius = 2;
@@ -28,6 +29,7 @@ public class Unit : MonoBehaviour
     public HealthBar healthBar;
     public List<Node> currentPath = null;
     public GameObject bulletType;
+    public float lootRate;
     //Initialization
     private void Start()
     {
@@ -116,11 +118,15 @@ public class Unit : MonoBehaviour
                 }
                 MoveNextTile();
             }
+            //Detect any nearby units and perform the appropriate action
             detectNearbyUnits();
             //If health is zero (or somehow below)
             if (hp <= 0)
             {
                 die();
+            }
+            if (currentState == state.Looting)
+            {
             }
         }
     }

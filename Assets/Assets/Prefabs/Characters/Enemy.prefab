@@ -196,6 +196,7 @@ MonoBehaviour:
   healthBar: {fileID: 5948901280611496970}
   bulletType: {fileID: 3593746333718814036, guid: 33266410e4e1f7646958726bef429db9,
     type: 3}
+  lootRate: 1
 --- !u!95 &8595569544542375387
 Animator:
   serializedVersion: 3
