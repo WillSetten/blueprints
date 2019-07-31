@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
     //If the alarm variable is true, all units should attempt to neutralize the players units
     public bool alarm = false;
     //If an enemy has detected a player unit, the enemy will take 4 seconds to raise the alarm
-    public float alarmTimer = 4;
+    public float alarmTimer = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,7 +70,7 @@ public class EnemyController : MonoBehaviour
                 alarmTimer = alarmTimer - Time.deltaTime;
             }
             //if the unit has not detected a player unit and the alarm
-            else if (alarmTimer < 4)
+            else if (!enemyHasDetectedaPlayerUnit && alarmTimer < 5)
             {
                 alarmTimer = alarmTimer + Time.deltaTime;
             }

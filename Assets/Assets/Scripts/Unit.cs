@@ -148,6 +148,9 @@ public class Unit : MonoBehaviour
             map.units.Remove(gameObject);
             map.deselectUnit(gameObject);
         }
+        if (!selectable) {
+            map.enemyController.units.Remove(this);
+        }
         Destroy(gameObject);
     }
 
@@ -321,6 +324,13 @@ public class Unit : MonoBehaviour
                                 detectedPlayerUnit = true;
                             }
                         }
+                    }
+                }
+                else
+                {
+                    if (!selectable&&detectionTimer<2)
+                    {
+                        detectionTimer = detectionTimer + Time.deltaTime;
                     }
                 }
             }

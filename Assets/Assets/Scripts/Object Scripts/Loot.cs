@@ -21,7 +21,7 @@ public class Loot : MonoBehaviour
     void Update()
     {
         //If there is a unit attached to this loot
-        if (lootingUnit!=null)
+        if (!map.paused&&lootingUnit!=null)
         {
             //And if that unit is actually in a looting state and is still next to the loot
             if (lootingUnit.currentState == Unit.state.Looting && isUnitAdjacent(lootingUnit))
