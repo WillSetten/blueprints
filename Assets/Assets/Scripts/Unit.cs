@@ -6,7 +6,6 @@ public class Unit : MonoBehaviour
 {
     public enum state { Idle, Moving, Attacking, Looting };
     public state currentState;
-    public string name;
     public bool selectable = false;
     public bool selected = false;
     public bool combatant = false;
@@ -16,21 +15,23 @@ public class Unit : MonoBehaviour
     public int previousTileY;
     public int directionX;
     public int directionY;
-    public float moveRate;
-    public float lootMoveRate;
+    public float moveRate; //Speed at which the unit moves
+    public float lootMoveRate; //Speed at which the unit moves whilst carrying loot
     public TileMap map;
     public int hp;
     public int interactionRadius = 2;
     public float attackCooldownCap;
-    public bool hasLoot;
+    public bool hasLoot; //True if the unit is carrying loot
     Animator animator;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigidbody2D;
-    private float attackCooldown;
+    private float attackCooldown; //The time inbetween the units attacks
     public HealthBar healthBar;
     public List<Node> currentPath = null;
     public GameObject bulletType;
-    public float lootRate;
+    public float lootRate; //The rate at which the unit can bag up loot
+    public bool detectedPlayerUnit = false;
+    public float detectionTimer = 2;
     //Initialization
     private void Start()
     {
@@ -126,9 +127,6 @@ public class Unit : MonoBehaviour
             if (hp <= 0)
             {
                 die();
-            }
-            if (currentState == state.Looting)
-            {
             }
         }
     }
@@ -291,12 +289,40 @@ public class Unit : MonoBehaviour
             {
                 if (hasLOS(u))
                 {
-                    //Debug.Log(name + " can attack " + u.name);
-                    Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
-                    currentState = state.Attacking;
+                    //CODE FOR PLAYER UNITS
+                    if (selectable)
+                    {
+                        //Debug.Log(name + " can attack " + u.name);
+                        Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
+                        currentState = state.Attacking;
+                    }
+                    //CODE FOR AI UNITS
+                    else
+                    {
+                        //If the alarm has been triggered or this unit has detected a player, attack the nearby unit
+                        if(map.enemyController.alarm || detectedPlayerUnit)
+                        {
+                            //Debug.Log(name + " can attack " + u.name);
+                            Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
+                            currentState = state.Attacking;
+                        }
+                        //Increase the detection meter
+                        else
+                        {
+                            //Unit takes time to react to seeing a player unit
+                            if (detectionTimer>0)
+                            {
+                                detectionTimer = detectionTimer - Time.deltaTime;
+                            }
+                            //When this time has expired, the unit will be detected
+                            else
+                            {
+                                Debug.Log(name + " has detected " + u.name);
+                                detectedPlayerUnit = true;
+                            }
+                        }
+                    }
                 }
-                //if (selectable)
-                //Debug.Log("Unit " + name + " has enemy combatant " + u.name + " in range");
             }
             //If unit is a civilian, attempt to pacify if this unit is also idle
             else if (!u.combatant && currentState == state.Idle)

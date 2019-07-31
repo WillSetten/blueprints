@@ -86,7 +86,7 @@ public class TileMap : MonoBehaviour
             if (endBoxPos != Vector2.zero && srtBoxPos != Vector2.zero)
             {
                 handleUnitSelection();
-                Debug.Log("Start: " + srtBoxPos + ", End: " + endBoxPos);
+                //Debug.Log("Start: " + srtBoxPos + ", End: " + endBoxPos);
             }
             // Reset box positions.
             endBoxPos = srtBoxPos = Vector2.zero;
@@ -293,13 +293,13 @@ public class TileMap : MonoBehaviour
     //Takes in an x and y to move the selected unit to. This method currently uses basic Dyikstra
     public void GeneratePathTo(int x, int y, Unit unit)
     {
-        Debug.Log("Origin Tile: " + unit.tileX + "," + unit.tileY + " Goal Tile: " + x + "," + y);
+        //Debug.Log("Origin Tile: " + unit.tileX + "," + unit.tileY + " Goal Tile: " + x + "," + y);
         //If the units current destination is the same as the one thats been clicked on, return
         if (unit.currentPath != null) {
             Node currentDestination = unit.currentPath[unit.currentPath.Count - 1];
             if (currentDestination.x == x && currentDestination.y == y)
             {
-                Debug.Log(unit.name + " tried travelling to the same tile more than once!");
+                //Debug.Log(unit.name + " tried travelling to the same tile more than once!");
                 return;
             }
         }
@@ -307,21 +307,21 @@ public class TileMap : MonoBehaviour
         //If the unit is attempting to travel to a tile that is impassable, return
         if (UnitCanEnterTile(x, y) == false)
         {
-            Debug.Log("Unit cannot enter that tile");
+            //Debug.Log("Unit cannot enter that tile");
             return;
         }
 
         //If the unit is attempting to travel to the same tile
         if (x == unit.tileX && y == unit.tileY)
         {
-            Debug.Log(unit.name + " tried travelling to the tile it was already on!");
+            //Debug.Log(unit.name + " tried travelling to the tile it was already on!");
             return;
         }
 
         //If the units destination tile is occupied, recall this method with the closest tile to the target in the same room
         if (tiles[x, y].occupied)
         {
-            Debug.Log("The tile that " + unit.name + " was trying to get to is occupied, attempting to find another path");
+            //Debug.Log("The tile that " + unit.name + " was trying to get to is occupied, attempting to find another path");
             Tile newDestinationTile = tiles[x, y].room.findBestNextTile(tiles[x, y], unit);
             GeneratePathTo(newDestinationTile.tileX, newDestinationTile.tileY, unit.GetComponent<Unit>());
             return;
@@ -341,7 +341,7 @@ public class TileMap : MonoBehaviour
         if (pathCache.ContainsKey(pathname))
         {
             currentPath = pathFromString(pathCache[pathname]);
-            Debug.Log("Loaded path " + pathname + " from path cache!");
+            //Debug.Log("Loaded path " + pathname + " from path cache!");
         }
         //If we haven't previously calculated the path, proceed as normal
         else
@@ -410,7 +410,7 @@ public class TileMap : MonoBehaviour
             //If the goal was not found, return
             if (currentNode != goal)
             {
-                Debug.Log("No path was found");
+                //Debug.Log("No path was found");
                 return;
             }
 
@@ -450,7 +450,7 @@ public class TileMap : MonoBehaviour
             //If the unit is currently not moving in the correct direction, reset its position then replace its path
             if (unit.currentPath[0] != currentPath[1])
             {
-                Debug.Log(unit.name + " is not moving in the correct direction, teleporting unit to tile " + TileCoordToWorldCoord(unit.tileX, unit.tileY));
+                //Debug.Log(unit.name + " is not moving in the correct direction, teleporting unit to tile " + TileCoordToWorldCoord(unit.tileX, unit.tileY));
                 unit.transform.position = TileCoordToWorldCoord(
                     unit.tileX,
                     unit.tileY);

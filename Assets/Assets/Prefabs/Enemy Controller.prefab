@@ -44,4 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   units: []
-  active: 0
+  active: 1
+  alarm: 0
+  alarmTimer: 4
