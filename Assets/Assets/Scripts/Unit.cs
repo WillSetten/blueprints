@@ -31,7 +31,8 @@ public class Unit : MonoBehaviour
     public GameObject bulletType;
     public float lootRate; //The rate at which the unit can bag up loot
     public bool detectedPlayerUnit = false;
-    public float detectionTimer = 2;
+    public float detectionTimer = 0;
+    public DetectionIndicator detectionIndicator;
     //Initialization
     private void Start()
     {
@@ -53,6 +54,10 @@ public class Unit : MonoBehaviour
         attackCooldown = attackCooldownCap;
         healthBar = GetComponentInChildren<HealthBar>();
         hasLoot = false;
+        if (combatant&&!selectable)
+        {
+            detectionIndicator = GetComponentInChildren<DetectionIndicator>();
+        }
     }
    
     //Highlight the unit in green when the mouse hovers over it
@@ -272,14 +277,30 @@ public class Unit : MonoBehaviour
     //Detects any nearby units
     void detectNearbyUnits()
     {
-        Collider2D[] nearbyUnits = Physics2D.OverlapCircleAll((Vector2)transform.position, interactionRadius, LayerMask.GetMask("EnemyUnits", "PlayerUnits"));
+        //Close units are the units which fall within the range of the circle around the units
+        Collider2D[] closeUnits = Physics2D.OverlapCircleAll((Vector2)transform.position, interactionRadius, LayerMask.GetMask("EnemyUnits", "PlayerUnits"));
+        //Seen units are the units which the unit has a line of sight to and is in the desired range
+        List<Collider2D> seenUnits = new List<Collider2D>();
+        foreach (Collider2D c in closeUnits)
+        {
+            //If the unit has a line of sight to the unit and that unit is not itself, add to seen units
+            if (hasLOS(c.GetComponent<Unit>())&&!c.Equals(GetComponent<Collider2D>())) {
+                seenUnits.Add(c);
+            }
+        }
         Unit u = null;
         //If there are no nearby units, return
-        if (nearbyUnits.Length == 0)
+        if (seenUnits.Count == 0)
         {
+            //If this unit is an AI unit and has no nearby units, update the timer
+            if (!selectable && detectionTimer > 0)
+            {
+                detectionTimer = detectionTimer - Time.deltaTime;
+                detectionIndicator.animator.SetFloat("DetectionLevel", detectionTimer / 2);
+            }
             return;
         }
-        foreach (Collider2D c in nearbyUnits)
+        foreach (Collider2D c in seenUnits)
         {
             u = c.gameObject.GetComponent<Unit>();
             //If the unit has detected itself, skip
@@ -290,14 +311,14 @@ public class Unit : MonoBehaviour
             //If the unit in range is a combatant and is on the other side, attempt to attack if this unit is also idle
             if (u.combatant && ((selectable && !u.selectable) || (!selectable && u.selectable)))
             {
-                if (hasLOS(u))
-                {
                     //CODE FOR PLAYER UNITS
                     if (selectable)
                     {
                         //Debug.Log(name + " can attack " + u.name);
                         Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
-                        currentState = state.Attacking;
+                        if (currentState!=state.Moving) {
+                            currentState = state.Attacking;
+                        }
                     }
                     //CODE FOR AI UNITS
                     else
@@ -307,15 +328,19 @@ public class Unit : MonoBehaviour
                         {
                             //Debug.Log(name + " can attack " + u.name);
                             Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
-                            currentState = state.Attacking;
+                            if (currentState != state.Moving)
+                            {
+                                currentState = state.Attacking;
+                            }
                         }
-                        //Increase the detection meter
+                        //Increase the detection timer
                         else
                         {
                             //Unit takes time to react to seeing a player unit
-                            if (detectionTimer>0)
+                            if (detectionTimer<2)
                             {
-                                detectionTimer = detectionTimer - Time.deltaTime;
+                                detectionTimer = detectionTimer + Time.deltaTime;
+                                detectionIndicator.animator.SetFloat("DetectionLevel",detectionTimer/2);
                             }
                             //When this time has expired, the unit will be detected
                             else
@@ -325,14 +350,6 @@ public class Unit : MonoBehaviour
                             }
                         }
                     }
-                }
-                else
-                {
-                    if (!selectable&&detectionTimer<2)
-                    {
-                        detectionTimer = detectionTimer + Time.deltaTime;
-                    }
-                }
             }
             //If unit is a civilian, attempt to pacify if this unit is also idle
             else if (!u.combatant && currentState == state.Idle)
@@ -343,7 +360,7 @@ public class Unit : MonoBehaviour
         if (currentState == state.Attacking)
         {
             //If there are no nearby units, set the current state to not be attacking.
-            if (nearbyUnits.Length == 0)
+            if (seenUnits.Count == 0)
             {
                 if (rigidbody2D.velocity==Vector2.zero)
                 {
@@ -366,7 +383,7 @@ public class Unit : MonoBehaviour
                 //Attack if the cooldown is above the cap, shoot a bullet at the enemy with the least health and reset the cooldown
                 else
                 {
-                    Collider2D closestUnit = nearestUnitFromOtherTeam(nearbyUnits);
+                    Collider2D closestUnit = nearestUnitFromOtherTeam(seenUnits);
                     if (closestUnit == null)
                     {
                         currentState = state.Idle;
@@ -398,7 +415,7 @@ public class Unit : MonoBehaviour
             ". Bullet has direction ");
     }
 
-    Collider2D nearestUnitFromOtherTeam(Collider2D[] nearbyUnits)
+    Collider2D nearestUnitFromOtherTeam(List<Collider2D> nearbyUnits)
     {
         Collider2D nearestUnit=null;
         Unit u;

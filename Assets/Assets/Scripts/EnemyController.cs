@@ -62,7 +62,12 @@ public class EnemyController : MonoBehaviour
             //if a unit has detected a player unit and the alarm has been given enough time to go off, set the alarm off
             if (enemyHasDetectedaPlayerUnit && alarmTimer <= 0)
             {
-                alarm = true;
+                foreach (Unit unit in units)
+                {
+                    unit.detectionTimer = 2;
+                    unit.detectedPlayerUnit = true;
+                }
+                    alarm = true;
             }
             //if a unit has detected a player unit but the alarm has not been given enough time to go off, decrease the amount of time left
             else if (enemyHasDetectedaPlayerUnit)
