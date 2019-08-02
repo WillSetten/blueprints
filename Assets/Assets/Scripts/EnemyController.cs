@@ -15,15 +15,17 @@ public class EnemyController : MonoBehaviour
     public bool active;
     //If the alarm variable is true, all units should attempt to neutralize the players units
     public bool alarm = false;
-    //If an enemy has detected a player unit, the enemy will take 4 seconds to raise the alarm
-    public float alarmTimer = 5;
+    //If an enemy has detected a player unit, the enemy will take several seconds to raise the alarm
+    public float alarmTimer = 0;
+
+    public AlarmBar alarmBar;
     // Start is called before the first frame update
     void Start()
     {
         units.AddRange(gameObject.GetComponentsInChildren<Unit>());
         map = GetComponentInParent<TileMap>();
-        rnd = new System.Random();
-        setTimer = rnd.Next(2,10);
+        setTimer = 2;
+        alarmBar = map.viewingCamera.GetComponentInChildren<AlarmBar>();
     }
 
     // Update is called once per frame
@@ -41,7 +43,6 @@ public class EnemyController : MonoBehaviour
                 if (timer > setTimer && (alarm||unit.detectedPlayerUnit))
                 {
                     timer = 0;
-                    setTimer = rnd.Next(2, 10);
                     foreach (GameObject g in map.units)
                     {
                         Unit playerUnit = g.GetComponent<Unit>();
@@ -60,7 +61,7 @@ public class EnemyController : MonoBehaviour
             }
             //ALARM HANDLING
             //if a unit has detected a player unit and the alarm has been given enough time to go off, set the alarm off
-            if (enemyHasDetectedaPlayerUnit && alarmTimer <= 0)
+            if (enemyHasDetectedaPlayerUnit && alarmTimer > 5)
             {
                 foreach (Unit unit in units)
                 {
@@ -69,15 +70,17 @@ public class EnemyController : MonoBehaviour
                 }
                     alarm = true;
             }
-            //if a unit has detected a player unit but the alarm has not been given enough time to go off, decrease the amount of time left
+            //if a unit has detected a player unit but the alarm has not been given enough time to go off, increase the alarm timer
             else if (enemyHasDetectedaPlayerUnit)
             {
-                alarmTimer = alarmTimer - Time.deltaTime;
-            }
-            //if the unit has not detected a player unit and the alarm
-            else if (!enemyHasDetectedaPlayerUnit && alarmTimer < 5)
-            {
                 alarmTimer = alarmTimer + Time.deltaTime;
+                alarmBar.updateFill(new Vector3(alarmTimer / 5, 1, 1));
+            }
+            //if the unit has not detected a player unit and the alarm is above zero, decrease the alarm timer
+            else if (!enemyHasDetectedaPlayerUnit && alarmTimer > 0)
+            {
+                alarmTimer = alarmTimer - Time.deltaTime;
+                alarmBar.updateFill(new Vector3(alarmTimer / 5, 1, 1));
             }
         }
     }

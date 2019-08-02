@@ -46,4 +46,5 @@ MonoBehaviour:
   units: []
   active: 1
   alarm: 0
-  alarmTimer: 4
+  alarmTimer: 0
+  alarmBar: {fileID: 0}
