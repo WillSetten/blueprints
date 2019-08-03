@@ -67,6 +67,7 @@ public class EnemyController : MonoBehaviour
                 {
                     unit.detectionTimer = 2;
                     unit.detectedPlayerUnit = true;
+                    unit.detectionIndicator.animator.SetBool("HasDetectedUnit", true);
                 }
                     alarm = true;
             }

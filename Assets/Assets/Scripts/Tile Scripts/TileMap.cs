@@ -57,7 +57,6 @@ public class TileMap : MonoBehaviour
         foreach (Loot l in loot)
         {
             l.map = this;
-            tiles[l.tileX, l.tileY].occupied = true;
         }
 
         doors = GameObject.FindGameObjectsWithTag("Door");
@@ -178,6 +177,10 @@ public class TileMap : MonoBehaviour
             }
             foreach (GameObject u in units)
             {
+                if (u == null)
+                {
+                    continue;
+                }
                 Vector2 unitScreenPosition = viewingCamera.WorldToScreenPoint(new Vector2(u.transform.position.x, u.transform.position.y));
                 Debug.Log(u.name + " Screen position is " + unitScreenPosition);
                 if (rect.Contains(unitScreenPosition))
@@ -319,17 +322,13 @@ public class TileMap : MonoBehaviour
         }
 
         //If the units destination tile is occupied, recall this method with the closest tile to the target in the same room
-        if (tiles[x, y].occupied)
+        if (tiles[x, y].occupied || tiles[x,y].isDestination)
         {
             //Debug.Log("The tile that " + unit.name + " was trying to get to is occupied, attempting to find another path");
             Tile newDestinationTile = tiles[x, y].room.findBestNextTile(tiles[x, y], unit);
             GeneratePathTo(newDestinationTile.tileX, newDestinationTile.tileY, unit.GetComponent<Unit>());
             return;
         }
-        //Set the units destination tile as occupied
-        tiles[x, y].occupied = true;
-        //Set the units source tile as unoccupied
-        tiles[unit.tileX, unit.tileY].occupied = false;
 
         List<Node> currentPath = new List<Node>();
         Dictionary<string, Node> open = new Dictionary<string,Node>();
@@ -435,7 +434,7 @@ public class TileMap : MonoBehaviour
             {
                 currentPath.Reverse();
             }
-
+            tiles[x, y].isDestination = true;
             //Debug.Log("Close list size: " + close.Count);
             //Debug.Log("Open list size: " + open.Count);
             //Debug.Log("Prev list size: " + prev.Count);

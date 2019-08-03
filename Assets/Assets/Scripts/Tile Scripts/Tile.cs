@@ -16,6 +16,8 @@ public class Tile : MonoBehaviour
     public bool occupied=false;
     //Is passable
     public bool impassable;
+    //If a unit is currently travelling to this tile
+    public bool isDestination = false;
     void OnMouseOver()
     {
         /*if (Input.GetMouseButtonDown(0))
@@ -36,6 +38,21 @@ public class Tile : MonoBehaviour
                 }
             }
             map.lastSelectedTile = this;
+        }
+    }
+
+    private void Update()
+    {
+        //if there is not a unit on this tile
+        if (Physics2D.OverlapCircleAll((Vector2)transform.position, 0.1f, LayerMask.GetMask("EnemyUnits", "PlayerUnits")).Length==0)
+        {
+            occupied = false;
+        }
+        //If there is a unit on this tile
+        else
+        {
+            occupied = true;
+            isDestination = false;
         }
     }
 }

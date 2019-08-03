@@ -36,7 +36,7 @@ public class Room : MonoBehaviour
         foreach (Tile t in tiles)
         {
             //If the tile is not occupied
-            if (!t.occupied)
+            if (!t.occupied&&!t.isDestination)
             {
                 //If currentNextBestTile is set to null and the current tile is unoccupied, this tile is the next best tile.
                 if (currentNextBestTile == null)

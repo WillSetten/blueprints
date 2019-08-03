@@ -140,14 +140,6 @@ public class Unit : MonoBehaviour
     void die()
     {
         Debug.Log(name + " has died!");
-        if (currentPath == null)
-        {
-            map.tiles[tileX, tileY].occupied = false;
-        }
-        else
-        {
-            map.tiles[currentPath[currentPath.Count-1].x, currentPath[currentPath.Count - 1].y].occupied = false;
-        }
         if (selectable&&selected)
         {
             map.units.Remove(gameObject);
@@ -303,11 +295,6 @@ public class Unit : MonoBehaviour
         foreach (Collider2D c in seenUnits)
         {
             u = c.gameObject.GetComponent<Unit>();
-            //If the unit has detected itself, skip
-            if (Object.Equals(u, this))
-            {
-                continue;
-            }
             //If the unit in range is a combatant and is on the other side, attempt to attack if this unit is also idle
             if (u.combatant && ((selectable && !u.selectable) || (!selectable && u.selectable)))
             {
@@ -339,7 +326,7 @@ public class Unit : MonoBehaviour
                             //Unit takes time to react to seeing a player unit
                             if (detectionTimer<2)
                             {
-                                detectionTimer = detectionTimer + Time.deltaTime;
+                                detectionTimer = detectionTimer + Time.deltaTime*3/Vector2.Distance(transform.position, c.transform.position);
                                 detectionIndicator.animator.SetFloat("DetectionLevel",detectionTimer/2);
                             }
                             //When this time has expired, the unit will be detected
@@ -347,6 +334,7 @@ public class Unit : MonoBehaviour
                             {
                                 Debug.Log(name + " has detected " + u.name);
                                 detectedPlayerUnit = true;
+                                detectionIndicator.animator.SetBool("HasDetectedUnit", true);
                             }
                         }
                     }
