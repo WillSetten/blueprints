@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4476769706150045011}
   - component: {fileID: 886731187836633829}
   - component: {fileID: 9003336609209567123}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: lootBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 7154955212381456593}
   - component: {fileID: 8310619008495482583}
   - component: {fileID: 6430057114865426683}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Money Stack
   m_TagString: Untagged
   m_Icon: {fileID: 0}

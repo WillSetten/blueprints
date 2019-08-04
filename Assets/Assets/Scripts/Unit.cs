@@ -33,6 +33,7 @@ public class Unit : MonoBehaviour
     public bool detectedPlayerUnit = false;
     public float detectionTimer = 0;
     public DetectionIndicator detectionIndicator;
+    public bool isDetected = false;
     //Initialization
     private void Start()
     {
@@ -140,10 +141,13 @@ public class Unit : MonoBehaviour
     void die()
     {
         Debug.Log(name + " has died!");
-        if (selectable&&selected)
+        if (selectable)
         {
             map.units.Remove(gameObject);
-            map.deselectUnit(gameObject);
+            if (selected)
+            {
+                map.deselectUnit(gameObject);
+            }
         }
         if (!selectable) {
             map.enemyController.units.Remove(this);
@@ -276,7 +280,7 @@ public class Unit : MonoBehaviour
         foreach (Collider2D c in closeUnits)
         {
             //If the unit has a line of sight to the unit and that unit is not itself, add to seen units
-            if (hasLOS(c.GetComponent<Unit>())&&!c.Equals(GetComponent<Collider2D>())) {
+            if (hasLOS(c.gameObject)&&!c.Equals(GetComponent<Collider2D>())) {
                 seenUnits.Add(c);
             }
         }
@@ -335,6 +339,7 @@ public class Unit : MonoBehaviour
                                 Debug.Log(name + " has detected " + u.name);
                                 detectedPlayerUnit = true;
                                 detectionIndicator.animator.SetBool("HasDetectedUnit", true);
+                                u.isDetected = true;
                             }
                         }
                     }
@@ -418,7 +423,7 @@ public class Unit : MonoBehaviour
             if (nearestUnit == null)
             {
                 //If there is no current nearest unit and we have a line of sight to that unit, set it as the nearest enemy unit
-                if (hasLOS(c.GetComponent<Unit>())&& ((selectable && !u.selectable) || (!selectable && u.selectable)))
+                if (hasLOS(c.gameObject)&& ((selectable && !u.selectable) || (!selectable && u.selectable)))
                 {
                     nearestUnit = c;
                 }
@@ -429,7 +434,7 @@ public class Unit : MonoBehaviour
                 }
             }
             else if (Vector2.Distance(transform.position, c.transform.position) < Vector2.Distance(transform.position, nearestUnit.transform.position)
-                && hasLOS(c.GetComponent<Unit>()) && ((selectable && !u.selectable) || (!selectable && u.selectable)))
+                && hasLOS(c.gameObject) && ((selectable && !u.selectable) || (!selectable && u.selectable)))
             {
                 nearestUnit = c;
             }
@@ -437,9 +442,10 @@ public class Unit : MonoBehaviour
         return nearestUnit;
     }
 
-    private bool hasLOS(Unit u)
+    private bool hasLOS(GameObject u)
     {
-        RaycastHit2D sightTest = Physics2D.Raycast(transform.position, u.transform.position - transform.position, interactionRadius, LayerMask.GetMask("Walls","Doors"));
+        RaycastHit2D sightTest = Physics2D.Raycast(transform.position, u.transform.position - transform.position, 
+            Vector2.Distance(transform.position, u.transform.position), LayerMask.GetMask("Walls","Doors"));
         if (sightTest.collider == null)
         {
             //Debug.Log(name + " LOS hasn't collided with anything");

@@ -36,10 +36,12 @@ public class EnemyController : MonoBehaviour
             bool enemyHasDetectedaPlayerUnit=false;
             foreach (Unit unit in units)
             {
+                //If the alarm could be raised in this update, make this variable true
                 if (unit.detectedPlayerUnit)
                 {
                     enemyHasDetectedaPlayerUnit = true;
                 }
+                //Move units if the alarm is on or if this specific unit has detected a player unit
                 if (timer > setTimer && (alarm||unit.detectedPlayerUnit))
                 {
                     timer = 0;
@@ -47,11 +49,14 @@ public class EnemyController : MonoBehaviour
                     {
                         Unit playerUnit = g.GetComponent<Unit>();
                         //If the unit has detected a player unit or the alarm has been raised and this unit is idle, move towards this unit and attack
-                        Debug.Log("Enemy unit is moving towards player unit");
-                        if (Vector2.Distance(new Vector2(unit.tileX,unit.tileY), new Vector2(playerUnit.tileX,playerUnit.tileY))>1) {
+                        if (Vector2.Distance(new Vector2(unit.tileX,unit.tileY), new Vector2(playerUnit.tileX,playerUnit.tileY))>1 && 
+                            playerUnit.isDetected &&
+                            unit.currentState!= Unit.state.Attacking) {
+
                             map.GeneratePathTo(playerUnit.tileX, playerUnit.tileY, unit);
+                            Debug.Log("Enemy unit " + gameObject.name + " is moving towards player unit " + g.name);
+                            break;
                         }
-                        break;
                     }
                 }
                 else if(timer<setTimer)
@@ -68,6 +73,9 @@ public class EnemyController : MonoBehaviour
                     unit.detectionTimer = 2;
                     unit.detectedPlayerUnit = true;
                     unit.detectionIndicator.animator.SetBool("HasDetectedUnit", true);
+                }
+                foreach (GameObject g in map.units) {
+                    g.GetComponent<Unit>().isDetected = true;
                 }
                     alarm = true;
             }

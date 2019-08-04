@@ -192,7 +192,7 @@ MonoBehaviour:
   lootMoveRate: 2
   map: {fileID: 0}
   hp: 5
-  interactionRadius: 3
+  interactionRadius: 5
   attackCooldownCap: 2
   hasLoot: 0
   healthBar: {fileID: 5948901280611496970}
@@ -325,8 +325,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 704389607
-  m_SortingLayer: 5
+  m_SortingLayerID: 944972623
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -2166316946622615620, guid: 17340376acc028e4487dfbca6169ac21,
     type: 3}
@@ -438,8 +438,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 704389607
-  m_SortingLayer: 5
+  m_SortingLayerID: 944972623
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b58a81d4e489b804c8c777388173e4e6, type: 3}
   m_Color: {r: 1, g: 0.33490568, b: 0.33490568, a: 1}
