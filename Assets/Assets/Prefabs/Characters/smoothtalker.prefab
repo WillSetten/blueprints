@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8387888979727593355}
   - component: {fileID: 4232553989855483318}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,6 +200,7 @@ MonoBehaviour:
   detectedPlayerUnit: 0
   detectionTimer: 0
   detectionIndicator: {fileID: 0}
+  isDetected: 0
 --- !u!95 &6348214700342276882
 Animator:
   serializedVersion: 3
@@ -267,7 +268,7 @@ GameObject:
   - component: {fileID: 7092252188944989736}
   - component: {fileID: 4662110635757415078}
   - component: {fileID: 2044993760062670695}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: healthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

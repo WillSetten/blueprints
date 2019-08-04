@@ -76,7 +76,7 @@ public class CameraMovement : MonoBehaviour
         {
             right = false;
         }
-        //Zoom in
+        /*//Zoom in
         if (Input.GetAxis("Mouse ScrollWheel") > 0 && viewingCamera.orthographicSize > Screen.height / 256)
         {
             viewingCamera.orthographicSize = viewingCamera.orthographicSize*0.9f;
@@ -85,7 +85,7 @@ public class CameraMovement : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") < 0 && viewingCamera.orthographicSize < 6)
         {
             viewingCamera.orthographicSize = viewingCamera.orthographicSize * 1.1f;
-        }
+        }*/
     }
 
     void manageDirection()
