@@ -305,6 +305,10 @@ public class TileMap : MonoBehaviour
                 //Debug.Log(unit.name + " tried travelling to the same tile more than once!");
                 return;
             }
+            else
+            {
+                tiles[currentDestination.x, currentDestination.y].isDestination = false; ;
+            }
         }
 
         //If the unit is attempting to travel to a tile that is impassable, return
@@ -321,12 +325,14 @@ public class TileMap : MonoBehaviour
             return;
         }
 
-        //If the units destination tile is occupied, recall this method with the closest tile to the target in the same room
+        //If the units destination tile is occupied or another unit is moving to it, recall this method with the closest tile to the target in the same room
         if (tiles[x, y].occupied || tiles[x,y].isDestination)
         {
             //Debug.Log("The tile that " + unit.name + " was trying to get to is occupied, attempting to find another path");
             Tile newDestinationTile = tiles[x, y].room.findBestNextTile(tiles[x, y], unit);
-            GeneratePathTo(newDestinationTile.tileX, newDestinationTile.tileY, unit.GetComponent<Unit>());
+            if (newDestinationTile!=null) {
+                GeneratePathTo(newDestinationTile.tileX, newDestinationTile.tileY, unit.GetComponent<Unit>());
+            }
             return;
         }
 

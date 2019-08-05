@@ -33,13 +33,13 @@ public class EnemyController : MonoBehaviour
     {
         if (!map.paused && active)
         {
-            bool enemyHasDetectedaPlayerUnit=false;
+            bool hasDetectedaPlayerUnit=false;
             foreach (Unit unit in units)
             {
                 //If the alarm could be raised in this update, make this variable true
                 if (unit.detectedPlayerUnit)
                 {
-                    enemyHasDetectedaPlayerUnit = true;
+                    hasDetectedaPlayerUnit = true;
                 }
                 //Move units if the alarm is on or if this specific unit has detected a player unit
                 if (timer > setTimer && (alarm||unit.detectedPlayerUnit))
@@ -66,7 +66,7 @@ public class EnemyController : MonoBehaviour
             }
             //ALARM HANDLING
             //if a unit has detected a player unit and the alarm has been given enough time to go off, set the alarm off
-            if (enemyHasDetectedaPlayerUnit && alarmTimer > 5)
+            if (hasDetectedaPlayerUnit && alarmTimer > 5)
             {
                 foreach (Unit unit in units)
                 {
@@ -80,13 +80,13 @@ public class EnemyController : MonoBehaviour
                     alarm = true;
             }
             //if a unit has detected a player unit but the alarm has not been given enough time to go off, increase the alarm timer
-            else if (enemyHasDetectedaPlayerUnit)
+            else if (hasDetectedaPlayerUnit)
             {
                 alarmTimer = alarmTimer + Time.deltaTime;
                 alarmBar.updateFill(new Vector3(alarmTimer / 5, 1, 1));
             }
             //if the unit has not detected a player unit and the alarm is above zero, decrease the alarm timer
-            else if (!enemyHasDetectedaPlayerUnit && alarmTimer > 0)
+            else if (!hasDetectedaPlayerUnit && alarmTimer > 0)
             {
                 alarmTimer = alarmTimer - Time.deltaTime;
                 alarmBar.updateFill(new Vector3(alarmTimer / 5, 1, 1));

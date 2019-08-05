@@ -350,7 +350,7 @@ public class Unit : MonoBehaviour
                 //Debug.Log("Unit " + name + "has civilian " + u.name + " in range");
             }
         }
-        if (currentState == state.Attacking)
+        if (u.combatant && currentState == state.Attacking)
         {
             //If there are no nearby units, set the current state to not be attacking.
             if (seenUnits.Count == 0)
