@@ -406,6 +406,8 @@ public class Unit : MonoBehaviour
             " from tile " + transform.position.x + "," + transform.position.y + " to tile " +
             closestUnit.transform.position.x + "," + closestUnit.transform.position.y +
             ". Bullet has direction ");
+        animator.SetFloat("Move X", bulletDirection.x / 2);
+        animator.SetFloat("Move Y", bulletDirection.y / 2);
     }
 
     Collider2D nearestUnitFromOtherTeam(List<Collider2D> nearbyUnits)
