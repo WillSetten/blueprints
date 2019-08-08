@@ -32,6 +32,7 @@ public class Unit : MonoBehaviour
     public float lootRate; //The rate at which the unit can bag up loot
     public bool detectedPlayerUnit = false;
     public float detectionTimer = 0;
+    public float detectionTimerMax;
     public DetectionIndicator detectionIndicator;
     public bool isDetected = false;
     //Initialization
@@ -285,14 +286,14 @@ public class Unit : MonoBehaviour
             }
         }
         Unit u = null;
-        //If there are no nearby units, return
-        if (seenUnits.Count == 0)
+        //If there are no nearby units and there are no civilians who have seen player units, return
+        if (seenUnits.Count == 0 && !map.civilianController.hasDetectedaPlayerUnit)
         {
             //If this unit is an AI unit and has no nearby units, update the timer
             if (!selectable && detectionTimer > 0)
             {
                 detectionTimer = detectionTimer - Time.deltaTime;
-                detectionIndicator.animator.SetFloat("DetectionLevel", detectionTimer / 2);
+                detectionIndicator.animator.SetFloat("DetectionLevel", detectionTimer / detectionTimerMax);
             }
             return;
         }
@@ -328,10 +329,16 @@ public class Unit : MonoBehaviour
                         else
                         {
                             //Unit takes time to react to seeing a player unit
-                            if (detectionTimer<2)
+                            if (detectionTimer<detectionTimerMax)
                             {
-                                detectionTimer = detectionTimer + Time.deltaTime*3/Vector2.Distance(transform.position, c.transform.position);
-                                detectionIndicator.animator.SetFloat("DetectionLevel",detectionTimer/2);
+                                if (combatant)
+                                {
+                                   increaseDetectionTimer(Vector2.Distance(transform.position, c.transform.position));
+                                }
+                                else
+                                {
+                                    increaseDetectionTimer(2*Vector2.Distance(transform.position, c.transform.position));
+                                }
                             }
                             //When this time has expired, the unit will be detected
                             else
@@ -350,7 +357,7 @@ public class Unit : MonoBehaviour
                 //Debug.Log("Unit " + name + "has civilian " + u.name + " in range");
             }
         }
-        if (u.combatant && currentState == state.Attacking)
+        if (combatant && currentState == state.Attacking)
         {
             //If there are no nearby units, set the current state to not be attacking.
             if (seenUnits.Count == 0)
@@ -391,6 +398,18 @@ public class Unit : MonoBehaviour
         else
         {
             return;
+        }
+    }
+
+    public void increaseDetectionTimer(float rate)
+    {
+        if (detectionTimer<detectionTimerMax) {
+            detectionTimer = detectionTimer + Time.deltaTime * 3 / rate;
+            detectionIndicator.animator.SetFloat("DetectionLevel", detectionTimer / 2);
+        }
+        else
+        {
+            detectedPlayerUnit = true;
         }
     }
 

@@ -3410,6 +3410,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1087868262 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4025683572705964511, guid: 664daf06d5902f04d8bec820988972e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1154463750}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fcb5b65a72bdfe48b2d01f21d94505e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1105095313 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1393167123716258896, guid: 515116aceda8f0243b74437b2630cdb3,
@@ -5629,6 +5641,11 @@ PrefabInstance:
       propertyPath: units.Array.data[2]
       value: 
       objectReference: {fileID: 120572252}
+    - target: {fileID: 6268957151353516879, guid: 515116aceda8f0243b74437b2630cdb3,
+        type: 3}
+      propertyPath: civilianController
+      value: 
+      objectReference: {fileID: 1087868262}
     - target: {fileID: 2494022016284151060, guid: 515116aceda8f0243b74437b2630cdb3,
         type: 3}
       propertyPath: m_Layer

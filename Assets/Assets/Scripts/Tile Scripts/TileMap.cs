@@ -12,6 +12,7 @@ public class TileMap : MonoBehaviour
     public List<GameObject> selectedUnits; //When multiple units are selected, they are put into this list
     public List<GameObject> units; //List of selectable units
     public EnemyController enemyController;
+    public CivilianController civilianController;
     public TileType[] tileTypes;
     public bool paused = false; //True when game is paused, false when it is not
     public bool multipleUnitsSelected = true; //True when multiple units are selected.

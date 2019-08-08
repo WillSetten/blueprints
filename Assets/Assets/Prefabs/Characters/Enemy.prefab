@@ -201,6 +201,7 @@ MonoBehaviour:
   lootRate: 1
   detectedPlayerUnit: 0
   detectionTimer: 0
+  detectionTimerMax: 2
   detectionIndicator: {fileID: 2197200266104735140}
   isDetected: 0
 --- !u!95 &8595569544542375387

@@ -11,6 +11,7 @@ public class CivilianController : MonoBehaviour
     float setTimer;
     float timer = 0;
     public bool active;
+    public bool hasDetectedaPlayerUnit;
 
     // Start is called before the first frame update
     void Start()
@@ -26,15 +27,35 @@ public class CivilianController : MonoBehaviour
     {
         if (!map.paused && active)
         {
-            bool hasDetectedaPlayerUnit = false;
+            hasDetectedaPlayerUnit = false;
             foreach (Unit u in units)
             {
-                //If the alarm could be raised in this update, make this variable true
-                if (u.detectedPlayerUnit)
+                if (map.enemyController.alarm)
                 {
-                    hasDetectedaPlayerUnit = true;
+                    //Not sure what to put here yet, ask Jay and Kyle
                 }
-                if (setTimer < timer && u.currentState==Unit.state.Idle)
+                //If the alarm could be raised in this update, make this variable true
+                else if (u.detectedPlayerUnit)
+                {
+                    //If the unit has detected a player unit
+                    hasDetectedaPlayerUnit = true;
+
+                    //If the unit has detected a player unit
+                    Unit nearestGuard = FindNearestGuard(u);
+                    if (nearestGuard!=null) {
+                        //and this civilian is close enough to raise the detection of the guard, raise it
+                        if (Vector3.Distance(u.transform.position, nearestGuard.transform.position) < 2)
+                        {
+                            nearestGuard.increaseDetectionTimer(8);
+                        }
+                        //and this civilian is too far away to warn the guard, move towards it
+                        else
+                        {
+                            map.GeneratePathTo(nearestGuard.tileX, nearestGuard.tileY, u);
+                        }
+                    }
+                }
+                else if (setTimer < timer && u.currentState==Unit.state.Idle)
                 {
                     timer = 0;
                     setTimer = rnd.Next(4, 8);
@@ -47,5 +68,22 @@ public class CivilianController : MonoBehaviour
                 }
             }
         }
+    }
+
+    Unit FindNearestGuard(Unit unit)
+    {
+        Unit nearestUnit=null;
+        foreach (Unit guard in map.enemyController.units)
+        {
+            if (nearestUnit == null)
+            {
+                nearestUnit = guard;
+            }
+            else if (Vector3.Distance(unit.transform.position, guard.transform.position) < Vector3.Distance(unit.transform.position, nearestUnit.transform.position))
+            {
+                nearestUnit = guard;
+            }
+        }
+        return nearestUnit;
     }
 }
