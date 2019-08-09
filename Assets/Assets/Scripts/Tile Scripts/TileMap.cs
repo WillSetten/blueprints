@@ -66,7 +66,7 @@ public class TileMap : MonoBehaviour
         setMultipleSelectedUnits(units);
         blueprintShader = Shader.Find("Custom/Edge Highlight");
         rect = new Rect();
-        viewingCamera.transform.position = new Vector3(units[0].transform.position.x, units[0].transform.position.y, -10);
+        viewingCamera.transform.parent.transform.position = new Vector3(units[0].transform.position.x, units[0].transform.position.y, -10);
     }
 
     private void Update()
@@ -108,6 +108,7 @@ public class TileMap : MonoBehaviour
                     door.GetComponent<Door>().togglePause(paused);
                 }
                 enemyController.togglePause();
+                civilianController.togglePause();
             }
             else
             {
@@ -123,6 +124,7 @@ public class TileMap : MonoBehaviour
                     door.GetComponent<Door>().togglePause(paused);
                 }
                 enemyController.togglePause();
+                civilianController.togglePause();
             }
         }
         if (Input.GetKeyUp(KeyCode.Alpha1)|| Input.GetKeyUp(KeyCode.Keypad1))
@@ -308,7 +310,7 @@ public class TileMap : MonoBehaviour
             }
             else
             {
-                tiles[currentDestination.x, currentDestination.y].isDestination = false; ;
+                tiles[currentDestination.x, currentDestination.y].isDestination = false;
             }
         }
 

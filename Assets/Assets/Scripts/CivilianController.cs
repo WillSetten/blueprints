@@ -75,15 +75,35 @@ public class CivilianController : MonoBehaviour
         Unit nearestUnit=null;
         foreach (Unit guard in map.enemyController.units)
         {
-            if (nearestUnit == null)
+            if (nearestUnit == null && !guard.detectedPlayerUnit)
             {
                 nearestUnit = guard;
             }
-            else if (Vector3.Distance(unit.transform.position, guard.transform.position) < Vector3.Distance(unit.transform.position, nearestUnit.transform.position))
+            else if (Vector3.Distance(unit.transform.position, guard.transform.position) < Vector3.Distance(unit.transform.position, nearestUnit.transform.position) && !guard.detectedPlayerUnit)
             {
                 nearestUnit = guard;
             }
         }
         return nearestUnit;
+    }
+
+    public void togglePause()
+    {
+        if (map.paused)
+        {
+            //If game is getting unpaused, start up all unit animations again
+            foreach (Unit u in units)
+            {
+                u.togglePause();
+            }
+        }
+        else
+        {
+            //If game is getting paused, stop all unit animations
+            foreach (Unit u in units)
+            {
+                u.togglePause();
+            }
+        }
     }
 }

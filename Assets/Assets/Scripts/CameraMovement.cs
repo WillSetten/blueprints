@@ -39,7 +39,7 @@ public class CameraMovement : MonoBehaviour
 
     void moveCam()
     {
-        transform.Translate(direction * Time.deltaTime * moveSpeed);
+        transform.parent.transform.Translate(direction * Time.deltaTime * moveSpeed);
     }
 
     void checkInput()
@@ -86,6 +86,25 @@ public class CameraMovement : MonoBehaviour
         {
             viewingCamera.orthographicSize = viewingCamera.orthographicSize * 1.1f;
         }*/
+    }
+
+    public IEnumerator Shake(float duration, float magnitude)
+    {
+        Vector3 originalPos=transform.localPosition;
+        float elapsed = 0.0f;
+
+        while (elapsed < duration)
+        {
+            float x = Random.Range(-1f,1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
+
+            transform.localPosition = new Vector3(x,y,originalPos.z);
+
+            elapsed += Time.deltaTime;
+
+            yield return null;
+        }
+        transform.localPosition = originalPos;
     }
 
     void manageDirection()

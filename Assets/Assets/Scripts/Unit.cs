@@ -47,7 +47,6 @@ public class Unit : MonoBehaviour
         transform.position = map.TileCoordToWorldCoord(tileX, tileY);
         Debug.Log(transform.gameObject.name);
         name = transform.gameObject.name;
-        map.tiles[tileX,tileY].occupied = true;
         if (combatant)
         {
             hp = 5;
@@ -200,6 +199,7 @@ public class Unit : MonoBehaviour
                 previousTileY = tileY;
                 tileX = currentPath[0].x;
                 tileY = currentPath[0].y;
+                map.tiles[tileX, tileY].isDestination = false;
                 currentPath = null;
                 directionX = 0;
                 directionY = 0;
@@ -427,6 +427,7 @@ public class Unit : MonoBehaviour
             ". Bullet has direction ");
         animator.SetFloat("Move X", bulletDirection.x / 2);
         animator.SetFloat("Move Y", bulletDirection.y / 2);
+        StartCoroutine(map.viewingCamera.GetComponent<CameraMovement>().Shake(.02f,.04f));
     }
 
     Collider2D nearestUnitFromOtherTeam(List<Collider2D> nearbyUnits)
