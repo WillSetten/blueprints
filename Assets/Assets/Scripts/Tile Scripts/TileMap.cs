@@ -308,9 +308,11 @@ public class TileMap : MonoBehaviour
                 //Debug.Log(unit.name + " tried travelling to the same tile more than once!");
                 return;
             }
+            //If the path of the unit is changing, make sure that the previous destination tile is no longer listed as a destination
             else
             {
                 tiles[currentDestination.x, currentDestination.y].isDestination = false;
+                tiles[currentDestination.x, currentDestination.y].GetComponent<SpriteRenderer>().color = Color.white;
             }
         }
 
@@ -321,7 +323,7 @@ public class TileMap : MonoBehaviour
             return;
         }
 
-        //If the unit is attempting to travel to the same tile
+        //If the unit is attempting to travel to the same tile again
         if (x == unit.tileX && y == unit.tileY)
         {
             //Debug.Log(unit.name + " tried travelling to the tile it was already on!");
@@ -338,7 +340,13 @@ public class TileMap : MonoBehaviour
             }
             return;
         }
-
+        if (unit.selectable) {
+            tiles[x, y].GetComponent<SpriteRenderer>().color = Color.blue;
+        }
+        else if (unit.combatant)
+        {
+            tiles[x, y].GetComponent<SpriteRenderer>().color = Color.red;
+        }
         List<Node> currentPath = new List<Node>();
         Dictionary<string, Node> open = new Dictionary<string,Node>();
         Dictionary<string, Node> close = new Dictionary<string, Node>();

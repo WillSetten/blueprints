@@ -44,15 +44,23 @@ public class Tile : MonoBehaviour
     private void Update()
     {
         //if there is not a unit on this tile
-        if (Physics2D.OverlapCircleAll((Vector2)transform.position, 0.1f, LayerMask.GetMask("EnemyUnits", "PlayerUnits", "Loot")).Length==0)
+        if (Physics2D.OverlapCircleAll((Vector2)transform.position, 0.1f, LayerMask.GetMask("EnemyUnits", "PlayerUnits", "CivilianUnits", "Loot")).Length==0)
         {
             occupied = false;
         }
-        //If there is a unit on this tile
+        //If there is a unit over this tile
         else
         {
-            occupied = true;
-            isDestination = false;
+            Collider2D collider = Physics2D.OverlapCircleAll((Vector2)transform.position, 0.1f, LayerMask.GetMask("EnemyUnits", "PlayerUnits", "CivilianUnits", "Loot"))[0];
+            if (collider.GetComponent<Loot>())
+            {
+                occupied = true;
+            }
+            else if (collider.GetComponent<Rigidbody2D>().velocity == Vector2.zero) {
+                occupied = true;
+                isDestination = false;
+                GetComponent<SpriteRenderer>().color = Color.white;
+            }
         }
     }
     

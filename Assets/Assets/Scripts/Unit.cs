@@ -49,10 +49,6 @@ public class Unit : MonoBehaviour
         transform.position = map.TileCoordToWorldCoord(tileX, tileY);
         Debug.Log(transform.gameObject.name);
         name = transform.gameObject.name;
-        if (combatant)
-        {
-            hp = 5;
-        }
         currentState = state.Idle;
         attackCooldown = attackCooldownCap;
         healthBar = GetComponentInChildren<HealthBar>();
@@ -427,7 +423,7 @@ public class Unit : MonoBehaviour
 
         GameObject bulletClone = Instantiate(bulletType, (Vector2)transform.position, bulletrotation, transform);
 
-        bulletClone.GetComponent<Rigidbody2D>().velocity = bulletDirection * 5;
+        bulletClone.GetComponent<Rigidbody2D>().velocity = bulletDirection * 10;
         Debug.Log(name + " is firing a bullet in direction " + bulletDirection.x + "," + bulletDirection.y +
             " from tile " + transform.position.x + "," + transform.position.y + " to tile " +
             closestUnit.transform.position.x + "," + closestUnit.transform.position.y +
