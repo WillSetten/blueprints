@@ -73,4 +73,35 @@ public class Room : MonoBehaviour
         }
         return null;
     }
+
+    //Returns the number of player units that are present in the room
+    public int numberOfPlayerUnits()
+    {
+        int count = 0;
+        foreach (Tile t in tiles)
+        {
+            if (t.occupied || t.isDestination)
+            {
+                if(Physics2D.OverlapCircleAll((Vector3)t.transform.position, 0.1f, LayerMask.GetMask("EnemyUnits", "PlayerUnits", "Loot"))[0].gameObject.GetComponent<Unit>().selectable)
+                {
+                    count = count + 1;
+                }
+            }
+        }
+        return count;
+    }
+
+    //Returns the number of available tiles there are in a room
+    public int numberOfAvailableTiles()
+    {
+        int count = 0;
+        foreach (Tile t in tiles)
+        {
+            if (!t.occupied && !t.isDestination)
+            {
+                count = count + 1;
+            }
+        }
+        return count;
+    }
 }

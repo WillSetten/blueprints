@@ -35,6 +35,8 @@ public class Unit : MonoBehaviour
     public float detectionTimerMax;
     public DetectionIndicator detectionIndicator;
     public bool isDetected = false;
+    public AudioSource audioSource;
+    public AudioClip bulletSound;
     //Initialization
     private void Start()
     {
@@ -59,6 +61,8 @@ public class Unit : MonoBehaviour
         {
             detectionIndicator = GetComponentInChildren<DetectionIndicator>();
         }
+
+        audioSource = GetComponent<AudioSource>();
     }
    
     //Highlight the unit in green when the mouse hovers over it
@@ -417,17 +421,23 @@ public class Unit : MonoBehaviour
     {
         Vector2 bulletDirection = (closestUnit.transform.position - transform.position).normalized;
         var angle = Mathf.Atan2(bulletDirection.y, bulletDirection.x) * Mathf.Rad2Deg;
+
         Quaternion bulletrotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         attackCooldown = 0;
+
         GameObject bulletClone = Instantiate(bulletType, (Vector2)transform.position, bulletrotation, transform);
+
         bulletClone.GetComponent<Rigidbody2D>().velocity = bulletDirection * 5;
         Debug.Log(name + " is firing a bullet in direction " + bulletDirection.x + "," + bulletDirection.y +
             " from tile " + transform.position.x + "," + transform.position.y + " to tile " +
             closestUnit.transform.position.x + "," + closestUnit.transform.position.y +
             ". Bullet has direction ");
+
         animator.SetFloat("Move X", bulletDirection.x / 2);
         animator.SetFloat("Move Y", bulletDirection.y / 2);
+
         StartCoroutine(map.viewingCamera.GetComponent<CameraMovement>().Shake(.02f,.04f));
+        playSound(bulletSound);
     }
 
     Collider2D nearestUnitFromOtherTeam(List<Collider2D> nearbyUnits)
@@ -485,5 +495,10 @@ public class Unit : MonoBehaviour
     {
         hp = hp - bullet.bulletDamage;
         healthBar.UpdateHealth();
+    }
+
+    public void playSound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }
