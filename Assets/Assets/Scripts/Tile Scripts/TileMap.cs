@@ -398,7 +398,7 @@ public class TileMap : MonoBehaviour
                 //A* algorithm
                 foreach (Node n in currentNode.neighbours)
                 {
-                    if (!containsNode(close,n))
+                    if (!containsNode(close,n)&& !tiles[n.x,n.y].occupied)
                     {
                         n.g = currentNode.g + CostToEnterTile(n.x, n.y, currentNode.x, currentNode.y);
                         n.f = n.g + n.DistanceTo(goal);

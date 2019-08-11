@@ -23,6 +23,7 @@ TagManager:
   - EnemyBullets
   - Loot
   - CivilianUnits
+  - Vehicles
   - 
   - 
   - 
@@ -33,8 +34,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - TruckDoors
   - Doors
   - Walls
   - Tiles
