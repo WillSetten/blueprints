@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 2890935041740609318}
   - component: {fileID: 2890935041740609319}
   - component: {fileID: 5539415497401937882}
+  - component: {fileID: 4980970592881288388}
   m_Layer: 25
   m_Name: Truck Door
   m_TagString: Door
@@ -176,7 +177,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.35128495, y: 0.0026902556}
+  m_Offset: {x: 0.34647605, y: 0.0012533218}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.05555555, y: 0.5}
@@ -187,7 +188,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7064938, y: 0.07992852}
+  m_Size: {x: 0.7161116, y: 0.09387067}
   m_EdgeRadius: 0
 --- !u!50 &2890935041740609319
 Rigidbody2D:
@@ -221,6 +222,18 @@ ConstantForce2D:
   m_Force: {x: 0, y: 0}
   m_RelativeForce: {x: 0, y: 0}
   m_Torque: 0
+--- !u!114 &4980970592881288388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2890935041740609337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c02695b5d4958e4b934ab6ccf06b556, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6375751887639566680
 GameObject:
   m_ObjectHideFlags: 0

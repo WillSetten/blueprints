@@ -223,6 +223,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.0000005
       objectReference: {fileID: 0}
+    - target: {fileID: 5539415497401937882, guid: e7f0b4eb8a4ab6142a6c0cc9fd5373d5,
+        type: 3}
+      propertyPath: m_RelativeForce.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539415497401937882, guid: e7f0b4eb8a4ab6142a6c0cc9fd5373d5,
+        type: 3}
+      propertyPath: m_Force.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539415497401937882, guid: e7f0b4eb8a4ab6142a6c0cc9fd5373d5,
+        type: 3}
+      propertyPath: m_Force.y
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 6570890353722472434, guid: e7f0b4eb8a4ab6142a6c0cc9fd5373d5,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -232,6 +247,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConnectedAnchor.y
       value: -0.002000808
+      objectReference: {fileID: 0}
+    - target: {fileID: 6570890353722472434, guid: e7f0b4eb8a4ab6142a6c0cc9fd5373d5,
+        type: 3}
+      propertyPath: m_AngleLimits.m_UpperAngle
+      value: 140
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7f0b4eb8a4ab6142a6c0cc9fd5373d5, type: 3}
@@ -324,6 +344,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.0000005
       objectReference: {fileID: 0}
+    - target: {fileID: 5539415497401937882, guid: e7f0b4eb8a4ab6142a6c0cc9fd5373d5,
+        type: 3}
+      propertyPath: m_RelativeForce.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539415497401937882, guid: e7f0b4eb8a4ab6142a6c0cc9fd5373d5,
+        type: 3}
+      propertyPath: m_Force.x
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539415497401937882, guid: e7f0b4eb8a4ab6142a6c0cc9fd5373d5,
+        type: 3}
+      propertyPath: m_Force.y
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 6570890353722472434, guid: e7f0b4eb8a4ab6142a6c0cc9fd5373d5,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -338,6 +373,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AngleLimits.m_UpperAngle
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6570890353722472434, guid: e7f0b4eb8a4ab6142a6c0cc9fd5373d5,
+        type: 3}
+      propertyPath: m_AngleLimits.m_LowerAngle
+      value: -140
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7f0b4eb8a4ab6142a6c0cc9fd5373d5, type: 3}
