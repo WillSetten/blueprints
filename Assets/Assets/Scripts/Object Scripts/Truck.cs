@@ -9,6 +9,7 @@ public class Truck : MonoBehaviour
     AudioSource audioSource;
     public AudioClip doorOpen;
     public AudioClip doorClose;
+    public int lootCount;
     bool open = false;
 
     private void Start()
@@ -21,22 +22,53 @@ public class Truck : MonoBehaviour
     }
 
     //When the van is clicked on, check if there are units in the escape area.
-    //If there are units in the escape area, open the doors.
     private void OnMouseUp()
     {
-        if (escapeArea.unitsInEscapeArea()) {
+        List<Unit> units = escapeArea.unitsInEscapeArea();
+        if (units.Count>0) {
+            bool hasLoot=false;
+            //Iterate through all the units in the escape area to see if any of them have any loot.
+            foreach (Unit u in units)
+            {
+                if (u.hasLoot)
+                {
+                    hasLoot = true;
+                }
+            }
+
             if (open)
             {
-                open = false;
+                //If there are units in the escape area, the doors are open and one or more of the units has loot on them, unload the loot into the van
+                if (hasLoot) {
+                    Debug.Log("Unloading loot into van!");
+                    foreach (Unit u in units)
+                    {
+                        if (u.hasLoot)
+                        {
+                            u.hasLoot = false;
+                            lootCount = lootCount + 1;
+                        }
+                    }
+                }
+                //If there are units in the escape area and the doors are open, close the doors
+                else
+                {
+                    open = false;
+                    foreach (GameObject d in doors)
+                    {
+                        d.GetComponent<TruckDoor>().toggleOpen(open);
+                    }
+                }
             }
+            //If there are units in the escape area and the doors are closed, open the doors
             else
             {
                 open = true;
                 playSound(doorOpen);
-            }
-            foreach (GameObject d in doors)
-            {
-                d.GetComponent<TruckDoor>().toggleOpen(open);
+                foreach (GameObject d in doors)
+                {
+                    d.GetComponent<TruckDoor>().toggleOpen(open);
+                }
             }
         }
     }

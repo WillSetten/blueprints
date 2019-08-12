@@ -13,15 +13,16 @@ public class EscapeArea : MonoBehaviour
     }
 
     //Returns true if there are units present in the escape area
-    public bool unitsInEscapeArea()
+    public List<Unit> unitsInEscapeArea()
     {
+        List<Unit> units = new List<Unit>();
         foreach (GameObject r in escapeSquares) {
             if (Physics2D.OverlapCircleAll(r.transform.position, 0.1f, LayerMask.GetMask("PlayerUnits")).Length != 0)
             {
-                return true;
-            }
+                units.Add(Physics2D.OverlapCircleAll(r.transform.position, 0.1f, LayerMask.GetMask("PlayerUnits"))[0].GetComponent<Unit>());
+            } 
         }
-        return false;
+        return units;
     }
 
     //Shows or hides the escape squares
