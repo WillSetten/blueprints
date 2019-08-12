@@ -49,31 +49,17 @@ public class Loot : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (map.multipleUnitsSelected)
-        {
             foreach (GameObject g in map.selectedUnits)
             {
                 if (isUnitAdjacent(g.GetComponent<Unit>()))
                 {
-                    Debug.Log("Unit " + g.name + " is adjacent to " + gameObject.name);
+                    //Debug.Log("Unit " + g.name + " is adjacent to " + gameObject.name);
                     //Set state of unit to looting
                     g.GetComponent<Unit>().currentState = Unit.state.Looting;
                     lootingUnit = g.GetComponent<Unit>();
                     return;
                 }
             }
-        }
-        else
-        {
-            if (isUnitAdjacent(map.selectedUnit.GetComponent<Unit>()))
-            {
-                Debug.Log("Unit " + map.selectedUnit.name + " is adjacent to " + gameObject.name);
-                //Set state of unit to looting
-                map.selectedUnit.GetComponent<Unit>().currentState = Unit.state.Looting;
-                lootingUnit = map.selectedUnit.GetComponent<Unit>();
-                return;
-            }
-        }
     }
 
     //Returns true if the given unit is

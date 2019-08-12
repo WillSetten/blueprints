@@ -223,6 +223,7 @@ public class Unit : MonoBehaviour
                 //This if statement is intended to solve a bug where unity randomly moves the unit great distances for a reason I've had trouble determining
                 if (directionX<0 && directionX<-1 || directionX>0 && directionX > 1 || directionY < 0 && directionY < -1 || directionY > 0 && directionY > 1)
                 {
+                    Debug.Log("Unit position is being reset due to over-moving");
                     transform.position = map.TileCoordToWorldCoord(previousTileX, previousTileY);
                     map.GeneratePathTo(currentPath[currentPath.Count-1].x, currentPath[currentPath.Count - 1].y, this);
                 }
@@ -233,11 +234,11 @@ public class Unit : MonoBehaviour
                     animator.SetFloat("Move Y", directionY);
                     if (hasLoot)
                     {
-                        rigidbody2D.velocity = new Vector2(directionX * lootMoveRate, directionY * lootMoveRate);
+                        rigidbody2D.velocity = new Vector2(directionX, directionY).normalized * lootMoveRate;
                     }
                     else
                     {
-                        rigidbody2D.velocity = new Vector2(directionX * moveRate, directionY * moveRate);
+                        rigidbody2D.velocity = new Vector2(directionX, directionY).normalized * moveRate;
                     }
                 }
             }
@@ -424,10 +425,10 @@ public class Unit : MonoBehaviour
         GameObject bulletClone = Instantiate(bulletType, (Vector2)transform.position, bulletrotation, transform);
 
         bulletClone.GetComponent<Rigidbody2D>().velocity = bulletDirection * 10;
-        Debug.Log(name + " is firing a bullet in direction " + bulletDirection.x + "," + bulletDirection.y +
+        /*Debug.Log(name + " is firing a bullet in direction " + bulletDirection.x + "," + bulletDirection.y +
             " from tile " + transform.position.x + "," + transform.position.y + " to tile " +
             closestUnit.transform.position.x + "," + closestUnit.transform.position.y +
-            ". Bullet has direction ");
+            ". Bullet has direction ");*/
 
         animator.SetFloat("Move X", bulletDirection.x / 2);
         animator.SetFloat("Move Y", bulletDirection.y / 2);

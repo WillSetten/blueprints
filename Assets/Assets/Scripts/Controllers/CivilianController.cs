@@ -42,7 +42,7 @@ public class CivilianController : MonoBehaviour
 
                     //If the unit has detected a player unit
                     Unit nearestGuard = FindNearestGuard(u);
-                    if (nearestGuard!=null) {
+                    if (nearestGuard!=null&&u.currentState==Unit.state.Idle) {
                         //and this civilian is close enough to raise the detection of the guard, raise it
                         if (Vector3.Distance(u.transform.position, nearestGuard.transform.position) < 2)
                         {

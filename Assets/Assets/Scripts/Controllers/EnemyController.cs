@@ -51,10 +51,10 @@ public class EnemyController : MonoBehaviour
                         //If the unit has detected a player unit or the alarm has been raised and this unit is idle, move towards this unit and attack
                         if (Vector2.Distance(new Vector2(unit.tileX,unit.tileY), new Vector2(playerUnit.tileX,playerUnit.tileY))>1 && 
                             playerUnit.isDetected &&
-                            unit.currentState!= Unit.state.Attacking) {
+                            unit.currentState== Unit.state.Idle) {
 
                             map.GeneratePathTo(playerUnit.tileX, playerUnit.tileY, unit);
-                            Debug.Log("Enemy unit " + gameObject.name + " is moving towards player unit " + g.name);
+                            //Debug.Log("Enemy unit " + gameObject.name + " is moving towards player unit " + g.name);
                             break;
                         }
                     }

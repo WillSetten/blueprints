@@ -7,7 +7,6 @@ using System.Linq;
 public class TileMap : MonoBehaviour
 {
     //Each unit should have a click handler which, when selected, should make this variable equal to that unit.
-    public GameObject selectedUnit; //Currently selected unit
     public Camera viewingCamera; //The camera used to observe the map
     public List<GameObject> selectedUnits; //When multiple units are selected, they are put into this list
     public List<GameObject> units; //List of selectable units
@@ -15,19 +14,16 @@ public class TileMap : MonoBehaviour
     public CivilianController civilianController;
     public TileType[] tileTypes;
     public bool paused = false; //True when game is paused, false when it is not
-    public bool multipleUnitsSelected = true; //True when multiple units are selected.
     public Tile[,] tiles; //2D Array of tiles
     public int mapSizeX;
     public int mapSizeY;
     public Tile lastSelectedTile; //Tile stored to make sure the user spamming tiles doesn't make the unit skip tiles
     public Shader blueprintShader;
     public List<Loot> loot; //List of Loot
-
-    GameObject[] doors; //List of Doors
+    Door[] doors; //List of Doors
     Room[] rooms; //List of Rooms
     int[,] tileMatrix; //2D Integer array for showing which tiles are passable and which aren't
     Node[,] graph; //2D Array of Nodes for pathfinding
-    Dictionary<string,string> pathCache; //Dictionary of paths. Since the pathfinding algorithm is quite processor intensive,
     Rect rect;
     //storing any calculated paths for later use makes the game run smoother
     private Vector2 srtBoxPos = Vector2.zero; //Where the unit selection box begins
@@ -45,7 +41,6 @@ public class TileMap : MonoBehaviour
         enemyController = GameObject.Find("Enemy Controller").GetComponent<EnemyController>();
         GenerateMapData();
         GeneratePathfindingGraph();
-        pathCache = new Dictionary<string, string>();
         viewingCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
 
         rooms = GetComponentsInChildren<Room>();
@@ -60,13 +55,12 @@ public class TileMap : MonoBehaviour
             l.map = this;
         }
 
-        doors = GameObject.FindGameObjectsWithTag("Door");
-        selectedUnits = new List<GameObject>();
-        //setSelectedUnit(selectedUnit);
-        setMultipleSelectedUnits(units);
+        doors = GetComponentsInChildren<Door>();
         blueprintShader = Shader.Find("Custom/Edge Highlight");
         rect = new Rect();
         viewingCamera.transform.parent.transform.position = new Vector3(units[0].transform.position.x, units[0].transform.position.y, -10);
+
+        setSelectedUnits(units);
     }
 
     private void Update()
@@ -103,9 +97,9 @@ public class TileMap : MonoBehaviour
                 {
                     u.GetComponent<Unit>().togglePause();
                 }
-                foreach(GameObject door in doors)
+                foreach(Door door in doors)
                 {
-                    door.GetComponent<Door>().togglePause(paused);
+                    door.togglePause(paused);
                 }
                 enemyController.togglePause();
                 civilianController.togglePause();
@@ -119,9 +113,9 @@ public class TileMap : MonoBehaviour
                 {
                     u.GetComponent<Unit>().togglePause();
                 }
-                foreach (GameObject door in doors)
+                foreach (Door door in doors)
                 {
-                    door.GetComponent<Door>().togglePause(paused);
+                    door.togglePause(paused);
                 }
                 enemyController.togglePause();
                 civilianController.togglePause();
@@ -185,7 +179,7 @@ public class TileMap : MonoBehaviour
                     continue;
                 }
                 Vector2 unitScreenPosition = viewingCamera.WorldToScreenPoint(new Vector2(u.transform.position.x, u.transform.position.y));
-                Debug.Log(u.name + " Screen position is " + unitScreenPosition);
+                //Debug.Log(u.name + " Screen position is " + unitScreenPosition);
                 if (rect.Contains(unitScreenPosition))
                 {
                     u.GetComponent<Unit>().turnOnPreSelectionHighlight();
@@ -333,41 +327,24 @@ public class TileMap : MonoBehaviour
         //If the units destination tile is occupied or another unit is moving to it, recall this method with the closest tile to the target in the same room
         if (tiles[x, y].occupied || tiles[x,y].isDestination)
         {
-            //Debug.Log("The tile that " + unit.name + " was trying to get to is occupied, attempting to find another path");
+            Debug.Log("The tile that " + unit.name + " was trying to get to is occupied, attempting to find another path");
             Tile newDestinationTile = tiles[x, y].room.findBestNextTile(tiles[x, y], unit);
             if (newDestinationTile!=null) {
                 GeneratePathTo(newDestinationTile.tileX, newDestinationTile.tileY, unit.GetComponent<Unit>());
             }
             return;
         }
-        if (unit.selectable) {
-            tiles[x, y].GetComponent<SpriteRenderer>().color = Color.blue;
-        }
-        else if (unit.combatant)
-        {
-            tiles[x, y].GetComponent<SpriteRenderer>().color = Color.red;
-        }
         List<Node> currentPath = new List<Node>();
         Dictionary<string, Node> open = new Dictionary<string,Node>();
         Dictionary<string, Node> close = new Dictionary<string, Node>();
         Dictionary<Node, Node> prev = new Dictionary<Node, Node>();
         Node source = graph[unit.tileX, unit.tileY];
-        string pathname = string.Concat(source.x, ",", source.y, ",", x, ",", y);
-        //Check the pathCache for this path, we may have already calculated it!
-        if (pathCache.ContainsKey(pathname))
-        {
-            currentPath = pathFromString(pathCache[pathname]);
-            //Debug.Log("Loaded path " + pathname + " from path cache!");
-        }
-        //If we haven't previously calculated the path, proceed as normal
-        else
-        {
-            Node goal = graph[x, y];
-            source.f = source.DistanceTo(goal);
-            source.g = 0;
-            open[string.Concat(source.x +","+ source.y)] = source;
-            prev[source] = null;
-            Node currentNode = source;
+        Node goal = graph[x, y];
+        source.f = source.DistanceTo(goal);
+        source.g = 0;
+        open[string.Concat(source.x +","+ source.y)] = source;
+        prev[source] = null;
+        Node currentNode = source;
 
             while (open.Count > 0)
             {
@@ -430,33 +407,29 @@ public class TileMap : MonoBehaviour
                 return;
             }
 
-            // Step through the "prev" chain and add it to our path
-            while (currentNode != null)
+            //Now that we know the goal can be reached, change the colour of the tile to indicate that our unit will be travelling there
+            if (unit.selectable)
+            {
+                tiles[x, y].GetComponent<SpriteRenderer>().color = Color.blue;
+            }
+            else if (unit.combatant)
+            {
+                tiles[x, y].GetComponent<SpriteRenderer>().color = Color.red;
+            }
+
+        // Step through the "prev" chain and add it to our path
+        while (currentNode != null)
             {
                 //Debug.Log("-> Tile " + currentNode.x + "," + currentNode.y);
                 currentPath.Add(currentNode);
                 currentNode = prev[currentNode];
             }
-            //Add both the path and it's inverse to the path cache to make future traversals faster
-            //This uses slightly more memory but should massively cut down on CPU load later on
-            if (!pathCache.ContainsKey(pathname))
-            {
-                pathCache.Add(string.Concat(x, ",", y, ",", currentPath[currentPath.Count - 1].x,
-                    ",", currentPath[currentPath.Count - 1].y), 
-                    pathToString(currentPath));
-                currentPath.Reverse();
-                pathCache.Add(pathname, pathToString(currentPath));
-            }
-            else
-            {
-                currentPath.Reverse();
-            }
+            currentPath.Reverse();
             tiles[x, y].isDestination = true;
             //Debug.Log("Close list size: " + close.Count);
             //Debug.Log("Open list size: " + open.Count);
             //Debug.Log("Prev list size: " + prev.Count);
             //Debug.Log("Path length: " + currentPath.Count);
-        }
 
         // If the unit had a path, set its old destination tile to unoccupied, clear the path and move the unit to the tile it is meant to be on.
         if (unit.currentPath != null)
@@ -466,10 +439,9 @@ public class TileMap : MonoBehaviour
             //If the unit is currently not moving in the correct direction, reset its position then replace its path
             if (unit.currentPath[0] != currentPath[1])
             {
-                //Debug.Log(unit.name + " is not moving in the correct direction, teleporting unit to tile " + TileCoordToWorldCoord(unit.tileX, unit.tileY));
-                unit.transform.position = TileCoordToWorldCoord(
-                    unit.tileX,
-                    unit.tileY);
+                currentPath.Reverse();
+                currentPath.Add(unit.currentPath[0]);
+                currentPath.Reverse();
             }
             //If the unit is currently moving in the correct direction, remove the first node of the path as it will have already gone past that tile
             else
@@ -508,70 +480,42 @@ public class TileMap : MonoBehaviour
         return tileTypes[tileMatrix[x, y]].isWalkable;
     }
 
-    public void setSelectedUnit(GameObject newUnit)
+    public void setSelectedUnit(GameObject unit)
     {
-        multipleUnitsSelected = false;
-        
         foreach (GameObject u in selectedUnits)
         {
             u.GetComponent<Unit>().selected = false;
             u.GetComponent<Unit>().changeHighlight();
         }
         selectedUnits.Clear();
-
-        //If there is another single unit selected
-        if (selectedUnit != null)
-        {
-            selectedUnit.GetComponent<Unit>().selected = false;
-            selectedUnit.GetComponent<Unit>().changeHighlight();
-        }
-        newUnit.GetComponent<Unit>().selected = true;
-        newUnit.GetComponent<Unit>().changeHighlight();
-        selectedUnit = newUnit;
+        selectedUnits.Add(unit);
+        unit.GetComponent<Unit>().selected = true;
+        unit.GetComponent<Unit>().changeHighlight();
     }
 
-    public void setMultipleSelectedUnits(List<GameObject> newUnits)
+    public void setSelectedUnits(List<GameObject> newUnits)
     {
-        multipleUnitsSelected = true;
-        selectedUnit = null;
         foreach (GameObject u in selectedUnits)
         {
             u.GetComponent<Unit>().selected = false;
             u.GetComponent<Unit>().changeHighlight();
         }
-        selectedUnits = new List<GameObject>();
+        selectedUnits.Clear();
         foreach(GameObject u in newUnits)
         {
+            selectedUnits.Add(u);
             u.GetComponent<Unit>().selected = true;
             u.GetComponent<Unit>().changeHighlight();
-            selectedUnits.Add(u);
         }
     }
 
     public void deselectUnit(GameObject unit)
     {
-        if (multipleUnitsSelected)
-        {
             if (selectedUnits.Contains(unit)) {
                 unit.GetComponent<Unit>().selected = false;
                 unit.GetComponent<Unit>().changeHighlight();
                 selectedUnits.Remove(unit);
             }
-            if (selectedUnits.Count==1)
-            {
-                multipleUnitsSelected = false;
-                setSelectedUnit(selectedUnits[0]);
-                selectedUnits = null;
-            }
-        }
-        else
-        {
-            if (unit.Equals(selectedUnit)) {
-                unit.GetComponent<Unit>().selected = false;
-                unit.GetComponent<Unit>().changeHighlight();
-                selectedUnit = null;
-            }
-        }
     }
 
     //Converts a path to string for easy storage
@@ -655,30 +599,37 @@ public class TileMap : MonoBehaviour
             rect.yMin = endBoxPos.y;
             rect.yMax = srtBoxPos.y;
         }
-        foreach (GameObject u  in units)
+        if (rect.size.x > 1 && rect.size.y > 1)
         {
-            Vector2 unitScreenPosition = viewingCamera.WorldToScreenPoint(new Vector2(u.transform.position.x, u.transform.position.y));
-            Debug.Log(u.name + " Screen position is " + unitScreenPosition);
-            if (rect.Contains(unitScreenPosition))
+            foreach (GameObject u in units)
             {
-                Debug.Log(u.name + " was selected");
-                newUnits.Add(u);
-                u.GetComponent<Unit>().turnOffPreSelectionHighlight();
+                Vector2 unitScreenPosition = viewingCamera.WorldToScreenPoint(new Vector2(u.transform.position.x, u.transform.position.y));
+                //Debug.Log(u.name + " Screen position is " + unitScreenPosition);
+                if (rect.Contains(unitScreenPosition))
+                {
+                    Debug.Log(u.name + " was selected");
+                    newUnits.Add(u);
+                    u.GetComponent<Unit>().turnOffPreSelectionHighlight();
+                }
             }
-        }
-        //If no units were found in the drawn area, do not change what units are selected
-        if(newUnits.Count == 0)
-        {
-            return;
-        }
-        //If only one unit was selected, set that unit as the sole selected unit
-        else if(newUnits.Count == 1)
-        {
-            setSelectedUnit(newUnits.ElementAt(0));
-        }
-        else
-        {
-            setMultipleSelectedUnits(newUnits);
+            //If no units were found in the drawn area, deselect all units
+            if (newUnits.Count == 0)
+            {
+                foreach (GameObject unit in selectedUnits)
+                {
+                    deselectUnit(unit);
+                }
+                return;
+            }
+            //If only one unit was selected, set that unit as the sole selected unit
+            else if (newUnits.Count == 1)
+            {
+                setSelectedUnit(newUnits.ElementAt(0));
+            }
+            else
+            {
+                setSelectedUnits(newUnits);
+            }
         }
     }
 }
