@@ -6,6 +6,7 @@ public class TruckDoor : MonoBehaviour
 {
     Vector2 openForce;
     Vector2 closeForce;
+    public Truck truck;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +22,14 @@ public class TruckDoor : MonoBehaviour
         {
             GetComponent<ConstantForce2D>().force = openForce;
         }
-        else {
+        else
+        {
             GetComponent<ConstantForce2D>().force = closeForce;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        truck.playSound(truck.doorClose);
     }
 }
