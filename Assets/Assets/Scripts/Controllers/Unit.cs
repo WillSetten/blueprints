@@ -37,6 +37,7 @@ public class Unit : MonoBehaviour
     public bool isDetected = false;
     public AudioSource audioSource;
     public AudioClip bulletSound;
+    public bool isLarge; //If the unit is large and blocks the tile it is on
     //Initialization
     private void Start()
     {
@@ -138,20 +139,10 @@ public class Unit : MonoBehaviour
     }
 
     //Method which gets rid of the unit from the world
-    void die()
+    public void die()
     {
         Debug.Log(name + " has died!");
-        if (selectable)
-        {
-            map.units.Remove(gameObject);
-            if (selected)
-            {
-                map.deselectUnit(gameObject);
-            }
-        }
-        if (!selectable) {
-            map.enemyController.units.Remove(this);
-        }
+        map.removeUnit(gameObject);
         Destroy(gameObject);
     }
 

@@ -14,7 +14,9 @@ public class Tile : MonoBehaviour
     public Room room;
     //Whether the tile is occupied or not.
     public bool occupied=false;
-    //Is passable
+    //Tile is currently blocked
+    public bool blocked;
+    //Is a passable tile 
     public bool impassable;
     //If a unit is currently travelling to this tile
     public bool isDestination = false;
@@ -40,16 +42,21 @@ public class Tile : MonoBehaviour
         if (Physics2D.OverlapCircleAll((Vector2)transform.position, 0.1f, LayerMask.GetMask("EnemyUnits", "PlayerUnits", "CivilianUnits", "Loot", "Vehicles")).Length==0)
         {
             occupied = false;
+            blocked = false;
         }
         //If there is a unit over this tile
         else
         {
             Collider2D collider = Physics2D.OverlapCircleAll((Vector2)transform.position, 0.1f, LayerMask.GetMask("EnemyUnits", "PlayerUnits", "CivilianUnits", "Loot","Vehicles"))[0];
-            if (collider.GetComponent<Loot>())
+            if (collider.GetComponent<Loot>()|| collider.GetComponent<Truck>())
             {
                 occupied = true;
+                blocked = true;
             }
             else if (collider.GetComponent<Rigidbody2D>().velocity == Vector2.zero) {
+                if (collider.GetComponent<Unit>().isLarge) {
+                    blocked = true;
+                }
                 occupied = true;
                 isDestination = false;
                 GetComponent<SpriteRenderer>().color = Color.white;

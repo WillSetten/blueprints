@@ -375,7 +375,7 @@ public class TileMap : MonoBehaviour
                 //A* algorithm
                 foreach (Node n in currentNode.neighbours)
                 {
-                    if (!containsNode(close,n)&& !tiles[n.x,n.y].occupied)
+                    if (!containsNode(close,n)&& !tiles[n.x,n.y].blocked)
                     {
                         n.g = currentNode.g + CostToEnterTile(n.x, n.y, currentNode.x, currentNode.y);
                         n.f = n.g + n.DistanceTo(goal);
@@ -436,7 +436,7 @@ public class TileMap : MonoBehaviour
         {
             Node last = unit.currentPath[unit.currentPath.Count - 1];
             tiles[last.x, last.y].occupied = false;
-            //If the unit is currently not moving in the correct direction, reset its position then replace its path
+            //If the unit is currently not moving in the correct direction
             if (unit.currentPath[0] != currentPath[1])
             {
                 currentPath.Reverse();
@@ -516,6 +516,22 @@ public class TileMap : MonoBehaviour
                 unit.GetComponent<Unit>().changeHighlight();
                 selectedUnits.Remove(unit);
             }
+    }
+
+    public void removeUnit(GameObject unit)
+    {
+        if (unit.GetComponent<Unit>().selectable)
+        {
+            units.Remove(unit);
+            if (unit.GetComponent<Unit>().selected)
+            {
+                deselectUnit(unit);
+            }
+        }
+        if (!unit.GetComponent<Unit>().selectable)
+        {
+            enemyController.units.Remove(unit.GetComponent<Unit>());
+        }
     }
 
     //Converts a path to string for easy storage
