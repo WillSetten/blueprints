@@ -17,7 +17,6 @@ public class EnemyController : MonoBehaviour
     public bool alarm = false;
     //If an enemy has detected a player unit, the enemy will take several seconds to raise the alarm
     public float alarmTimer = 0;
-
     public AlarmBar alarmBar;
     // Start is called before the first frame update
     void Start()
@@ -66,7 +65,11 @@ public class EnemyController : MonoBehaviour
             }
             //ALARM HANDLING
             //if a unit has detected a player unit and the alarm has been given enough time to go off, set the alarm off
-            if (hasDetectedaPlayerUnit && alarmTimer > 5)
+            if (alarm)
+            {
+
+            }
+            else if (hasDetectedaPlayerUnit && alarmTimer > 5)
             {
                 foreach (Unit unit in units)
                 {
@@ -77,7 +80,8 @@ public class EnemyController : MonoBehaviour
                 foreach (GameObject g in map.units) {
                     g.GetComponent<Unit>().isDetected = true;
                 }
-                    alarm = true;
+                map.civilianController.triggerAlarm();
+                triggerAlarm();
             }
             //if a unit has detected a player unit but the alarm has not been given enough time to go off, increase the alarm timer
             else if (hasDetectedaPlayerUnit)
@@ -91,6 +95,16 @@ public class EnemyController : MonoBehaviour
                 alarmTimer = alarmTimer - Time.deltaTime;
                 alarmBar.updateFill(new Vector3(alarmTimer / 5, 1, 1));
             }
+        }
+    }
+
+    public void triggerAlarm()
+    {
+        alarm = true;
+        DetectionIndicator[] detectionIndicators = GetComponentsInChildren<DetectionIndicator>();
+        foreach (DetectionIndicator d in detectionIndicators)
+        {
+            d.spriteRenderer.color = Color.clear;
         }
     }
 

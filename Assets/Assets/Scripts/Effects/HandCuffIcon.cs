@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DetectionIndicator : MonoBehaviour
+public class HandCuffIcon : MonoBehaviour
 {
-    public Animator animator;
+    Unit unit;
     public SpriteRenderer spriteRenderer;
-    private void Start()
+    void Start()
     {
-        animator = GetComponent<Animator>();
+        unit = GetComponentInParent<Unit>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
+    
 }

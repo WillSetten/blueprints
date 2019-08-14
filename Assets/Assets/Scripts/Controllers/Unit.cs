@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    public enum state { Idle, Moving, Attacking, Looting };
+    public enum state { Idle, Moving, Attacking, Looting, Detained};
     public state currentState;
     public bool selectable = false;
     public bool selected = false;
@@ -38,6 +38,7 @@ public class Unit : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip bulletSound;
     public bool isLarge; //If the unit is large and blocks the tile it is on
+
     //Initialization
     private void Start()
     {
@@ -97,6 +98,16 @@ public class Unit : MonoBehaviour
         {
             map.setSelectedUnit(transform.gameObject);
         }
+        else if (!selectable&&!combatant)
+        {
+            //If the alarm is on and the unit is not moving or already detained, detain the unit
+            if (map.enemyController.alarm && currentState != Unit.state.Detained && currentState != Unit.state.Moving)
+            {
+                Debug.Log(name + " has been detained");
+                currentState = Unit.state.Detained;
+                GetComponentInChildren<HandCuffIcon>().spriteRenderer.color = Color.clear;
+            }
+        }
     }
 
     public void changeHighlight()
@@ -114,7 +125,7 @@ public class Unit : MonoBehaviour
 
     void Update()
     {
-        if (!map.paused)
+        if (!map.paused && currentState!=state.Detained)
         {
             if (currentPath != null)
             {
@@ -128,8 +139,8 @@ public class Unit : MonoBehaviour
                 }
                 MoveNextTile();
             }
-            //Detect any nearby units and perform the appropriate action
-            detectNearbyUnits();
+                //Detect any nearby units and perform the appropriate action
+                detectNearbyUnits();
             //If health is zero (or somehow below)
             if (hp <= 0)
             {

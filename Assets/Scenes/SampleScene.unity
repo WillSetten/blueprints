@@ -4680,6 +4680,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: bc89db263f0948a4ebc5fa83d80d20f4, type: 2}
+    - target: {fileID: 7580326904248473337, guid: 419495e17666d2940ae4c90ca9aae8b9,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 419495e17666d2940ae4c90ca9aae8b9, type: 3}
 --- !u!1001 &1379759384
@@ -5293,6 +5298,36 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 6268957151353516879, guid: 515116aceda8f0243b74437b2630cdb3,
+        type: 3}
+      propertyPath: selectedUnits.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268957151353516879, guid: 515116aceda8f0243b74437b2630cdb3,
+        type: 3}
+      propertyPath: units.Array.data[0]
+      value: 
+      objectReference: {fileID: 64100683}
+    - target: {fileID: 6268957151353516879, guid: 515116aceda8f0243b74437b2630cdb3,
+        type: 3}
+      propertyPath: units.Array.data[1]
+      value: 
+      objectReference: {fileID: 211406977}
+    - target: {fileID: 6268957151353516879, guid: 515116aceda8f0243b74437b2630cdb3,
+        type: 3}
+      propertyPath: enemyController
+      value: 
+      objectReference: {fileID: 164572163}
+    - target: {fileID: 6268957151353516879, guid: 515116aceda8f0243b74437b2630cdb3,
+        type: 3}
+      propertyPath: units.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268957151353516879, guid: 515116aceda8f0243b74437b2630cdb3,
+        type: 3}
+      propertyPath: civilianController
+      value: 
+      objectReference: {fileID: 1087868262}
     - target: {fileID: 7253790241152191048, guid: 515116aceda8f0243b74437b2630cdb3,
         type: 3}
       propertyPath: m_Layer
@@ -5903,36 +5938,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6268957151353516879, guid: 515116aceda8f0243b74437b2630cdb3,
-        type: 3}
-      propertyPath: selectedUnits.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6268957151353516879, guid: 515116aceda8f0243b74437b2630cdb3,
-        type: 3}
-      propertyPath: units.Array.data[0]
-      value: 
-      objectReference: {fileID: 64100683}
-    - target: {fileID: 6268957151353516879, guid: 515116aceda8f0243b74437b2630cdb3,
-        type: 3}
-      propertyPath: units.Array.data[1]
-      value: 
-      objectReference: {fileID: 211406977}
-    - target: {fileID: 6268957151353516879, guid: 515116aceda8f0243b74437b2630cdb3,
-        type: 3}
-      propertyPath: enemyController
-      value: 
-      objectReference: {fileID: 164572163}
-    - target: {fileID: 6268957151353516879, guid: 515116aceda8f0243b74437b2630cdb3,
-        type: 3}
-      propertyPath: units.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6268957151353516879, guid: 515116aceda8f0243b74437b2630cdb3,
-        type: 3}
-      propertyPath: civilianController
-      value: 
-      objectReference: {fileID: 1087868262}
     - target: {fileID: 2494022016284151060, guid: 515116aceda8f0243b74437b2630cdb3,
         type: 3}
       propertyPath: m_Layer
@@ -16536,6 +16541,11 @@ PrefabInstance:
       propertyPath: alarmBar
       value: 
       objectReference: {fileID: 270605985}
+    - target: {fileID: 7700775218030499059, guid: 58b3a3de267b0ba41a1dfa1a7bd838f7,
+        type: 3}
+      propertyPath: civilianController
+      value: 
+      objectReference: {fileID: 1087868262}
     - target: {fileID: 7700775218030499058, guid: 58b3a3de267b0ba41a1dfa1a7bd838f7,
         type: 3}
       propertyPath: m_RootOrder
