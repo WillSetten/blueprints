@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class TileMap : MonoBehaviour
@@ -30,7 +31,11 @@ public class TileMap : MonoBehaviour
     private Vector2 endBoxPos = Vector2.zero; //Where the unit selection box ends
     private Collider2D[] containedColliders; //The colliders inside the selection square
     private Unit[] containedUnits; //The units inside the selection square
-
+    public Text hostageText;
+    public int hostageCount;
+    public Text lootText;
+    public int lootCount;
+    public Text alarmText;
     //Initialisation
     private void Start()
     {
@@ -42,7 +47,6 @@ public class TileMap : MonoBehaviour
         GenerateMapData();
         GeneratePathfindingGraph();
         viewingCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
-
         rooms = GetComponentsInChildren<Room>();
         foreach(Room r in rooms)
         {
@@ -647,5 +651,28 @@ public class TileMap : MonoBehaviour
                 setSelectedUnits(newUnits);
             }
         }
+    }
+
+    public void updateAlarmText(string text)
+    {
+        alarmText.text = text;
+    }
+
+    public void incrementHostageCount()
+    {
+        hostageCount = hostageCount + 1;
+        hostageText.text = hostageCount.ToString();
+    }
+
+    public void decrementHostageCount()
+    {
+        hostageCount = hostageCount - 1;
+        hostageText.text = hostageCount.ToString();
+    }
+
+    public void incrementLootCount()
+    {
+        lootCount = lootCount + 1;
+        lootText.text = lootCount.ToString();
     }
 }

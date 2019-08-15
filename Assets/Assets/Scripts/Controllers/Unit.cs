@@ -106,6 +106,7 @@ public class Unit : MonoBehaviour
                 Debug.Log(name + " has been detained");
                 currentState = Unit.state.Detained;
                 GetComponentInChildren<HandCuffIcon>().spriteRenderer.color = Color.clear;
+                map.incrementHostageCount();
             }
         }
     }
