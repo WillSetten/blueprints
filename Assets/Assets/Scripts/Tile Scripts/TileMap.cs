@@ -35,7 +35,6 @@ public class TileMap : MonoBehaviour
     public int hostageCount;
     public Text lootText;
     public int lootCount;
-    public Text alarmText;
     //Initialisation
     private void Start()
     {
@@ -651,11 +650,6 @@ public class TileMap : MonoBehaviour
                 setSelectedUnits(newUnits);
             }
         }
-    }
-
-    public void updateAlarmText(string text)
-    {
-        alarmText.text = text;
     }
 
     public void incrementHostageCount()

@@ -18,6 +18,8 @@ public class EnemyController : MonoBehaviour
     //If an enemy has detected a player unit, the enemy will take several seconds to raise the alarm
     public float alarmTimer = 0;
     public AlarmBar alarmBar;
+
+    public int waveStage = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,12 +65,33 @@ public class EnemyController : MonoBehaviour
                     timer = timer + Time.deltaTime;
                 }
             }
+            //If the alarm has gone off, the police will begin to close in on the bank. Slowly increment the alarm timer once again
+            if (waveStage>0)
+            {
+                //If the timer is still below the desired level, increase it
+                if (alarmTimer<40) {
+                    //If the player has taken multiple hostages, slow down the timer based on how many hostages they have
+                    if (map.hostageCount>1 && map.hostageCount<=5) {
+                        alarmTimer = alarmTimer + Time.deltaTime / map.hostageCount;
+                    }
+                    else if (map.hostageCount>5)
+                    {
+                        alarmTimer = alarmTimer + Time.deltaTime / 5;
+                    }
+                    else
+                    {
+                        alarmTimer = alarmTimer + Time.deltaTime;
+                    }
+                    alarmBar.updateFill(new Vector3(alarmTimer*5, 200, 64));
+                }
+                else
+                {
+                    //Spawn enemies as per the stage at which the wave is
+                    nextStage();
+                }
+            }
             //ALARM HANDLING
             //if a unit has detected a player unit and the alarm has been given enough time to go off, set the alarm off
-            if (alarm)
-            {
-
-            }
             else if (hasDetectedaPlayerUnit && alarmTimer > 5)
             {
                 foreach (Unit unit in units)
@@ -106,6 +129,14 @@ public class EnemyController : MonoBehaviour
         {
             d.spriteRenderer.color = Color.clear;
         }
+        nextStage();
+    }
+
+    public void nextStage()
+    {
+        alarmBar.nextStage(waveStage);
+        waveStage = waveStage+1;
+        alarmTimer = 0;
     }
 
     public void togglePause()
