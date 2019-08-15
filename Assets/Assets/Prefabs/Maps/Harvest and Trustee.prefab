@@ -98,6 +98,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &88571793294702066
@@ -224,6 +225,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6635872012112391977
@@ -350,6 +352,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2068606439291794793
@@ -476,6 +479,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6597874379038542590
@@ -602,6 +606,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7572089285697878002
@@ -728,6 +733,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &5638208179975222644
@@ -787,7 +793,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7054911220471654317}
-  m_RootOrder: 137
+  m_RootOrder: 135
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &577313359348206106
 SpriteRenderer:
@@ -854,6 +860,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &4665145506436277832
@@ -980,6 +987,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5129521435451424810
@@ -1106,6 +1114,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2751917615466402997
@@ -1232,6 +1241,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &1202719630736726123
@@ -1358,6 +1368,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7001601138206732200
@@ -1484,6 +1495,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7284009597869119764
@@ -1610,6 +1622,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3631209487778347084
@@ -1736,6 +1749,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8926598740093091983
@@ -1862,6 +1876,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3211173228300142351
@@ -1988,6 +2003,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4877177457775143803
@@ -2114,6 +2130,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &255076832533201284
@@ -2240,6 +2257,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8217147208033091164
@@ -2366,6 +2384,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6688758678053759874
@@ -2492,6 +2511,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &9012051226947853222
@@ -2618,6 +2638,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6995903611422682993
@@ -2744,6 +2765,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4678381684160151119
@@ -2870,6 +2892,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7764140653290454865
@@ -2996,6 +3019,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4792601491853995591
@@ -3122,6 +3146,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6999598484555988642
@@ -3248,6 +3273,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7125492224966832031
@@ -3374,6 +3400,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6996031843933290484
@@ -3500,6 +3527,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7916842896390780293
@@ -3626,6 +3654,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &855890643271958030
@@ -3685,7 +3714,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7054911220471654317}
-  m_RootOrder: 141
+  m_RootOrder: 139
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &955485341727039554
 SpriteRenderer:
@@ -3752,6 +3781,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &3509746243520434296
@@ -3878,6 +3908,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &351662946263390183
@@ -4004,6 +4035,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2961957042669519759
@@ -4130,6 +4162,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8353432252441988222
@@ -4256,6 +4289,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &198104544698088793
@@ -4382,6 +4416,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6637563140735844907
@@ -4508,6 +4543,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8732149954534228892
@@ -4634,6 +4670,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8607515592042360583
@@ -4760,6 +4797,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5783214768360104565
@@ -4886,6 +4924,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1625400202612596456
@@ -5012,6 +5051,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &5265617689073307904
@@ -5138,6 +5178,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &352194533237926938
@@ -5264,6 +5305,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1328786316820281912
@@ -5390,6 +5432,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6547699989634944278
@@ -5516,6 +5559,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4376248967452383846
@@ -5642,6 +5686,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &1773264618632530909
@@ -5819,6 +5864,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6776996636045967617
@@ -5945,6 +5991,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &3567773562768411073
@@ -6071,6 +6118,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6147203651508760084
@@ -6197,6 +6245,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1445052433076596594
@@ -6323,6 +6372,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &701593301241847054
@@ -6449,6 +6499,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &3842734413082378445
@@ -6575,6 +6626,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8800868913313422383
@@ -6701,6 +6753,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1677763078490948193
@@ -6827,6 +6880,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &2272115051149777578
@@ -6953,6 +7007,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &9077921288867257013
@@ -7079,6 +7134,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1474837628986200370
@@ -7205,6 +7261,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &788520194048021132
@@ -7264,7 +7321,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7054911220471654317}
-  m_RootOrder: 132
+  m_RootOrder: 130
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2515941878197922331
 SpriteRenderer:
@@ -7331,6 +7388,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &8783666838899127206
@@ -7457,6 +7515,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5457604114060948652
@@ -7466,132 +7525,6 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 851417766709940043}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!1 &861742340155747644
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4930837654852897335}
-  - component: {fileID: 5278901329620350099}
-  - component: {fileID: 8523376454951682166}
-  - component: {fileID: 5092686115850293344}
-  m_Layer: 10
-  m_Name: Tile Impassable(Clone)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4930837654852897335
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861742340155747644}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16, y: -6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7054911220471654317}
-  m_RootOrder: 128
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5278901329620350099
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861742340155747644}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b40c0c20dbe784d4899f8311626ad9f9, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &8523376454951682166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861742340155747644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b055ffba842986042a9444a3ca6633a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileX: 9
-  tileY: 18
-  map: {fileID: 6268957151353516879}
-  room: {fileID: 0}
-  occupied: 0
-  impassable: 1
-  isDestination: 0
---- !u!61 &5092686115850293344
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861742340155747644}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -7709,6 +7642,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3554620901033953171
@@ -7835,6 +7769,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &8285201430826100763
@@ -7961,6 +7896,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6233001873812592432
@@ -8087,6 +8023,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7286273414758883447
@@ -8213,6 +8150,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6921700285162127088
@@ -8339,6 +8277,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &4343218339959464994
@@ -8465,6 +8404,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2479461973388254678
@@ -8591,6 +8531,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6441116103643767955
@@ -8717,6 +8658,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7201955101694355598
@@ -8843,6 +8785,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4740085113299557077
@@ -8969,6 +8912,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1915300433961568944
@@ -9095,6 +9039,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3991126547249002286
@@ -9221,6 +9166,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &3386630561662004542
@@ -9347,6 +9293,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &5200527343872987810
@@ -9406,7 +9353,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7054911220471654317}
-  m_RootOrder: 133
+  m_RootOrder: 131
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7059043118495033700
 SpriteRenderer:
@@ -9473,6 +9420,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &3469525636316504198
@@ -9599,6 +9547,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &8008667895076392373
@@ -9725,6 +9674,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7989108307141020058
@@ -9851,6 +9801,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2282636531472511811
@@ -9977,6 +9928,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4921976020150994721
@@ -10103,6 +10055,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1079278204975386417
@@ -10229,6 +10182,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &4353764391752873092
@@ -10355,6 +10309,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8291881546083062723
@@ -10481,6 +10436,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7479726216539077420
@@ -10607,6 +10563,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &9031142613664741844
@@ -10733,6 +10690,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2309167054384068790
@@ -10859,6 +10817,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5914141562303437843
@@ -10985,6 +10944,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1330140546036341098
@@ -11111,6 +11071,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8832635954614843203
@@ -11237,6 +11198,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &1974724908331202480
@@ -11363,6 +11325,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &3157790609409400515
@@ -11546,8 +11509,6 @@ Transform:
   - {fileID: 4344333962621045961}
   - {fileID: 696735748371273739}
   - {fileID: 1320028905495083085}
-  - {fileID: 1410138653174944068}
-  - {fileID: 4930837654852897335}
   - {fileID: 6037002943247541561}
   - {fileID: 8325701633214889986}
   - {fileID: 6327861891308571386}
@@ -11675,6 +11636,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5553492239705615901
@@ -11801,6 +11763,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1203536701919852338
@@ -11927,6 +11890,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &222659838669108852
@@ -12053,6 +12017,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1814796379607638846
@@ -12179,6 +12144,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7895509091196464352
@@ -12305,6 +12271,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2109437693053807245
@@ -12431,6 +12398,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4735496336807485080
@@ -12557,6 +12525,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &624741997308901684
@@ -12683,6 +12652,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &112474034182053955
@@ -12809,6 +12779,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &7706244232738213531
@@ -12935,6 +12906,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5885848103472186329
@@ -13061,6 +13033,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5759101133380136442
@@ -13187,6 +13160,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &6963335882346675856
@@ -13313,6 +13287,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &5172050802033335053
@@ -13439,6 +13414,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7919118918647359160
@@ -13498,7 +13474,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7054911220471654317}
-  m_RootOrder: 138
+  m_RootOrder: 136
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5808553372937023406
 SpriteRenderer:
@@ -13565,6 +13541,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &5895231545103362000
@@ -13691,6 +13668,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6666003265290265151
@@ -13817,6 +13795,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5913553204626292733
@@ -13943,6 +13922,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8112697286334785403
@@ -14069,6 +14049,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &453298655552733503
@@ -14195,6 +14176,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3250522340624563481
@@ -14321,6 +14303,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7932317752598380295
@@ -14447,6 +14430,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7314735179891064486
@@ -14573,6 +14557,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2878022875028467085
@@ -14699,6 +14684,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &7556115581121685457
@@ -14825,6 +14811,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &95735542097084302
@@ -14951,6 +14938,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &5415660243759986698
@@ -15077,6 +15065,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6886201128714994846
@@ -15203,6 +15192,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3998855046849692657
@@ -15329,6 +15319,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8242418861178859746
@@ -15455,6 +15446,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5970653874093626489
@@ -15581,6 +15573,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7792673324150064217
@@ -15707,6 +15700,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &907458091211983868
@@ -15833,6 +15827,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2251552647797817047
@@ -15959,6 +15954,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2770337067124132109
@@ -16085,6 +16081,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2829884533647400207
@@ -16211,6 +16208,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &225122563897716164
@@ -16337,6 +16335,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &609222744156499965
@@ -16463,6 +16462,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1331390576349068842
@@ -16589,6 +16589,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5385384856240912013
@@ -16715,6 +16716,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1566682371472868183
@@ -16841,6 +16843,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7039603558853119571
@@ -16967,6 +16970,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5284893171303369440
@@ -17093,6 +17097,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &4762055693465134079
@@ -17219,6 +17224,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7297709574176738840
@@ -17345,6 +17351,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &9158239807659544621
@@ -17471,6 +17478,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6357942417560304346
@@ -17597,6 +17605,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1574120636457513181
@@ -17723,6 +17732,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &164498533895544134
@@ -17849,6 +17859,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &6689704160953114795
@@ -17975,6 +17986,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2145614560082485170
@@ -18101,6 +18113,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &3032555675230339788
@@ -18227,6 +18240,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2832373196708485469
@@ -18353,6 +18367,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3454545223008907255
@@ -18479,6 +18494,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &531540556341804460
@@ -18605,6 +18621,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &2653350670807666990
@@ -18731,6 +18748,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4075541245493732002
@@ -18857,6 +18875,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8168905373603230267
@@ -18983,6 +19002,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4415162154782956290
@@ -19109,6 +19129,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1337074614512452005
@@ -19235,6 +19256,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4938758978804934618
@@ -19361,6 +19383,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7363549812002173452
@@ -19487,6 +19510,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5389699916660461732
@@ -19613,6 +19637,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4420629118035510501
@@ -19739,6 +19764,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6674351547293014812
@@ -19865,6 +19891,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &3986228899286403245
@@ -19991,6 +20018,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7822573979537981061
@@ -20117,6 +20145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4510028290866696000
@@ -20243,6 +20272,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5546204209983418306
@@ -20369,6 +20399,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &3026228377450028613
@@ -20495,6 +20526,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7471192977347599486
@@ -20621,6 +20653,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7052695062041059383
@@ -20747,6 +20780,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &4887660428431749272
@@ -20873,6 +20907,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7113895316540298495
@@ -20999,6 +21034,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1195052070672682852
@@ -21125,6 +21161,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4744762315916750825
@@ -21197,6 +21234,8 @@ Transform:
   - {fileID: 5776776467729530705}
   - {fileID: 5721346635916805390}
   - {fileID: 2856413753588680440}
+  - {fileID: 2965881369293623380}
+  - {fileID: 550374851052969421}
   m_Father: {fileID: 6268957151353516878}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21311,6 +21350,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8551108755702977694
@@ -21437,6 +21477,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8451165857153665661
@@ -21563,6 +21604,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &680133242854248053
@@ -21689,6 +21731,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2770397912046508344
@@ -21815,6 +21858,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &4129462572897677875
@@ -21941,6 +21985,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &1017970611336407257
@@ -22067,6 +22112,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7563601238591229692
@@ -22193,6 +22239,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3137682144262405019
@@ -22319,6 +22366,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6250044758620128242
@@ -22445,6 +22493,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7034346381918549497
@@ -22571,6 +22620,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8752940788388549365
@@ -22697,6 +22747,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7793238575098659924
@@ -22823,6 +22874,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8467190566638557804
@@ -22949,6 +23001,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &5618930291341221013
@@ -23075,6 +23128,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &5516498917667367268
@@ -23201,6 +23255,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &1598668640754330426
@@ -23327,6 +23382,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2818845266764711661
@@ -23453,6 +23509,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8347481086390586559
@@ -23579,6 +23636,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &4232766509514433803
@@ -23705,6 +23763,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &6983430592660339658
@@ -23831,6 +23890,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6972215881835860627
@@ -23957,6 +24017,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6433278214229763309
@@ -24083,6 +24144,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3805790917080913682
@@ -24209,6 +24271,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4749846952355042910
@@ -24335,6 +24398,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1182498434448167824
@@ -24461,6 +24525,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &5864515269036884832
@@ -24587,6 +24652,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4650415285716071804
@@ -24713,6 +24779,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &192557526903936896
@@ -24839,6 +24906,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7320286013728048311
@@ -24965,6 +25033,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8967320944141200038
@@ -25091,6 +25160,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5358325922803761581
@@ -25217,6 +25287,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2214459136770892424
@@ -25343,6 +25414,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1735889301593282768
@@ -25469,6 +25541,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &495281042655181727
@@ -25595,6 +25668,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &237644287699030723
@@ -25721,6 +25795,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6348263445986205704
@@ -25847,6 +25922,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6152774884180058787
@@ -25973,6 +26049,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6957531322324885118
@@ -26099,6 +26176,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5558250640697228750
@@ -26225,6 +26303,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2656194556456439118
@@ -26351,6 +26430,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7473209187026423968
@@ -26477,6 +26557,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &238717297839112947
@@ -26603,6 +26684,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8765541133809188509
@@ -26729,6 +26811,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &645758005648669888
@@ -26855,6 +26938,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5317419884511404078
@@ -26981,6 +27065,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1541654278791534793
@@ -27107,6 +27192,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &640462415952186052
@@ -27233,6 +27319,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8032285549905491934
@@ -27359,6 +27446,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &4978725523622945152
@@ -27485,6 +27573,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1335171532028748910
@@ -27494,6 +27583,133 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3042810721200855990}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!1 &3046784446723645021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 550374851052969421}
+  - component: {fileID: 4224587463736642005}
+  - component: {fileID: 5129946074874637208}
+  - component: {fileID: 4192652399755031637}
+  m_Layer: 10
+  m_Name: Tile Passable(Clone) (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &550374851052969421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3046784446723645021}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9, y: 16, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 657520086272735841}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &4224587463736642005
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3046784446723645021}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 17433309f3ad84d49b6e59ebf5851c54, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &5129946074874637208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3046784446723645021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b055ffba842986042a9444a3ca6633a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileX: 9
+  tileY: 17
+  map: {fileID: 6268957151353516879}
+  room: {fileID: 0}
+  occupied: 0
+  blocked: 0
+  impassable: 0
+  isDestination: 0
+--- !u!61 &4192652399755031637
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3046784446723645021}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -27611,6 +27827,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &903331611285977009
@@ -27737,6 +27954,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2188845065667742496
@@ -27863,6 +28081,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7542700150071204066
@@ -27989,6 +28208,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7971681439273536048
@@ -28115,6 +28335,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6458583831821139149
@@ -28241,6 +28462,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4871095593346906006
@@ -28367,6 +28589,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6212982428178038162
@@ -28493,6 +28716,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6504938692677877124
@@ -28619,6 +28843,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3701599628896406903
@@ -28745,6 +28970,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5549180179476960078
@@ -28871,6 +29097,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1338318393844023209
@@ -28997,6 +29224,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5408388027895743772
@@ -29123,6 +29351,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2852435684949752245
@@ -29249,6 +29478,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3465420503771386407
@@ -29375,6 +29605,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5494895565431878913
@@ -29501,6 +29732,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6304751948801019089
@@ -29627,6 +29859,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &1528844263956262067
@@ -29753,6 +29986,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3806857898480640747
@@ -29879,6 +30113,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &9069996164045319456
@@ -30005,6 +30240,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7005050004210258558
@@ -30131,6 +30367,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5730064773826914814
@@ -30257,6 +30494,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7672079775050668498
@@ -30383,6 +30621,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &3685791120775390706
@@ -30509,6 +30748,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &212276914039011905
@@ -30635,6 +30875,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &6268853924433289409
@@ -30761,6 +31002,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2288241387142181179
@@ -30887,6 +31129,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3527105931373638044
@@ -31013,6 +31256,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6196081685747609926
@@ -31139,6 +31383,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3112820393956878422
@@ -31265,6 +31510,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &9208198551818315146
@@ -31391,6 +31637,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6683248636425292204
@@ -31517,6 +31764,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5463022590815837982
@@ -31643,6 +31891,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &9101002788022631837
@@ -31769,6 +32018,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5180898925186190139
@@ -31895,6 +32145,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &9032755039609373561
@@ -32021,6 +32272,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4145304167290263396
@@ -32147,6 +32399,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &8583906715366446626
@@ -32273,6 +32526,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7202644161656147270
@@ -32399,6 +32653,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4721961357403471331
@@ -32525,6 +32780,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2890273816450146836
@@ -32651,6 +32907,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3476169982866607165
@@ -32777,6 +33034,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &8107836524609058415
@@ -32903,6 +33161,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3916482926194859073
@@ -33029,6 +33288,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &121080072073545506
@@ -33155,6 +33415,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6274847776413838648
@@ -33281,6 +33542,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6237943920676333584
@@ -33407,6 +33669,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7921979885829707115
@@ -33533,6 +33796,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &2663338934580658750
@@ -33659,6 +33923,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8540718416518468285
@@ -33785,6 +34050,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1397293899595608617
@@ -33911,6 +34177,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3555383957958479283
@@ -34037,6 +34304,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &914551036342894994
@@ -34163,6 +34431,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6600712566415030178
@@ -34289,6 +34558,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3163297632388039159
@@ -34415,6 +34685,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4414097572308364914
@@ -34541,6 +34812,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8798932851809273049
@@ -34667,6 +34939,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4045110378638261638
@@ -34793,6 +35066,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6863346163331921235
@@ -34919,6 +35193,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5678694079590032027
@@ -35045,6 +35320,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3556647933816591723
@@ -35171,6 +35447,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &3085781890782572685
@@ -35297,6 +35574,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8118400530364410009
@@ -35423,6 +35701,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &2568520456362365475
@@ -35549,6 +35828,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3504498387298360752
@@ -35675,6 +35955,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1130021134301107297
@@ -35801,6 +36082,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8193898548720242708
@@ -35927,6 +36209,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5565085490734004471
@@ -36053,6 +36336,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2979637980084471607
@@ -36179,6 +36463,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3506322000803410220
@@ -36305,6 +36590,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5051440754376925971
@@ -36431,6 +36717,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1908210995376007495
@@ -36557,6 +36844,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3070513034732306179
@@ -36683,6 +36971,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2741585960621176645
@@ -36809,6 +37098,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8238420996040681967
@@ -36935,6 +37225,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4711859289196280809
@@ -37061,6 +37352,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &5841915039564199768
@@ -37187,6 +37479,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &4998371753462313941
@@ -37313,6 +37606,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2251295249244397058
@@ -37439,6 +37733,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &2078313607955757917
@@ -37565,6 +37860,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &5578098984007110449
@@ -37691,6 +37987,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5307235132129347792
@@ -37817,6 +38114,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4646658674022811840
@@ -37943,6 +38241,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1514240287066408961
@@ -38069,6 +38368,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &6419404600757398797
@@ -38195,6 +38495,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3493256373794507851
@@ -38321,6 +38622,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &352872228700649124
@@ -38447,6 +38749,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5932562606994336310
@@ -38573,6 +38876,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &298828386108198057
@@ -38699,6 +39003,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4596517986490169713
@@ -38825,6 +39130,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &9136510308705578756
@@ -38951,6 +39257,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7301170613581356284
@@ -39077,6 +39384,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8347715279000110465
@@ -39203,6 +39511,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3287186179317681975
@@ -39329,6 +39638,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3155291535898234326
@@ -39455,6 +39765,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8364725358953309211
@@ -39581,6 +39892,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7147034478429437886
@@ -39707,6 +40019,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2477802506647592496
@@ -39833,6 +40146,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7880355406085337964
@@ -39959,6 +40273,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3448339722673332084
@@ -40085,6 +40400,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2035235107285802225
@@ -40211,6 +40527,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7664648869695918164
@@ -40337,6 +40654,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4570453008588896057
@@ -40463,6 +40781,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2609718450009394530
@@ -40589,6 +40908,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6707209524420630343
@@ -40715,6 +41035,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5483286385319646834
@@ -40841,6 +41162,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1259590662153606357
@@ -40967,6 +41289,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &636564661354219158
@@ -41093,6 +41416,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7389319330356205403
@@ -41219,6 +41543,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8608338179547226907
@@ -41278,7 +41603,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7054911220471654317}
-  m_RootOrder: 139
+  m_RootOrder: 137
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7753224328609007894
 SpriteRenderer:
@@ -41345,6 +41670,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &4204730942170360423
@@ -41471,6 +41797,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1802410220177995194
@@ -41597,6 +41924,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &3382617887736368834
@@ -41723,6 +42051,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &8815006451987117110
@@ -41849,6 +42178,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7878598492857634606
@@ -41975,6 +42305,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3590431465425228384
@@ -42101,6 +42432,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &7334331795356225098
@@ -42227,6 +42559,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6580840461389128690
@@ -42353,6 +42686,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &9047913513279517928
@@ -42479,6 +42813,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6079820089088686456
@@ -42605,6 +42940,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1170175382955758501
@@ -42731,6 +43067,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &195996513210048826
@@ -42857,6 +43194,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6448259118951400284
@@ -42983,6 +43321,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2096988277404835890
@@ -43206,6 +43545,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3905940426851216690
@@ -43332,6 +43672,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5692742444861985661
@@ -43458,6 +43799,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4606845486509825847
@@ -43584,6 +43926,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1783863385790821382
@@ -43710,6 +44053,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &6878557841646613619
@@ -43836,6 +44180,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1836305900663508701
@@ -43962,6 +44307,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &1670431081281383859
@@ -44088,6 +44434,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7425858091808356893
@@ -44214,6 +44561,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5259015837910866355
@@ -44340,6 +44688,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6007331209301575934
@@ -44466,6 +44815,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &167393272807386602
@@ -44592,6 +44942,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7721714779648222520
@@ -44718,6 +45069,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3416088066279459829
@@ -44844,6 +45196,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &656083211204281521
@@ -44970,6 +45323,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4553766481557076958
@@ -45096,6 +45450,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1195080680391457150
@@ -45222,6 +45577,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8708876839064909719
@@ -45348,6 +45704,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3736338841849896964
@@ -45474,6 +45831,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1149929408683135865
@@ -45600,6 +45958,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &1561267408005833818
@@ -45726,6 +46085,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7400665668761240076
@@ -45852,6 +46212,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &519586649055459069
@@ -45978,6 +46339,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7428883025397930780
@@ -46104,6 +46466,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5779054585604572481
@@ -46230,6 +46593,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1378520856170945682
@@ -46356,6 +46720,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1124312448107299068
@@ -46482,6 +46847,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4173722226123866740
@@ -46608,6 +46974,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &362406974437559828
@@ -46734,6 +47101,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &8193381383691169875
@@ -46909,6 +47277,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4906457384456317450
@@ -47035,6 +47404,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &3176569136924150302
@@ -47161,6 +47531,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2258111213572150994
@@ -47287,6 +47658,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &6643605911268914782
@@ -47413,6 +47785,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &5531968144638264095
@@ -47539,6 +47912,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4146777960060166177
@@ -47665,6 +48039,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4845906325950723439
@@ -47791,6 +48166,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7092887564786928331
@@ -47917,6 +48293,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7522023177125538121
@@ -48100,6 +48477,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2528893260318060374
@@ -48226,6 +48604,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &7789557053527750685
@@ -48352,6 +48731,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2589070098009357217
@@ -48478,6 +48858,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2700717637024806683
@@ -48604,6 +48985,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4519742440633525127
@@ -48663,7 +49045,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7054911220471654317}
-  m_RootOrder: 130
+  m_RootOrder: 128
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2242510406145303449
 SpriteRenderer:
@@ -48730,6 +49112,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &7035026962847739065
@@ -48856,6 +49239,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &970452947058432703
@@ -48982,6 +49366,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5304558429555984287
@@ -49108,6 +49493,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &1830157160309033327
@@ -49234,6 +49620,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3969032724088413972
@@ -49360,6 +49747,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5119163939170872960
@@ -49486,6 +49874,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1806972859234591076
@@ -49612,6 +50001,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2486460003905035000
@@ -49738,6 +50128,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &9072334017681467831
@@ -49864,6 +50255,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5108472952261920047
@@ -49990,6 +50382,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3786093088021967672
@@ -50116,6 +50509,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2509952043033257979
@@ -50242,6 +50636,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &5316901956857150626
@@ -50368,6 +50763,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1837336472949195805
@@ -50494,6 +50890,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6774656714245953779
@@ -50620,6 +51017,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6561175501356918552
@@ -50746,6 +51144,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8157172930043437365
@@ -50872,6 +51271,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7237283640670147385
@@ -50998,6 +51398,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &594765879893896375
@@ -51124,6 +51525,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5924403027026918497
@@ -51250,6 +51652,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7614032936671497620
@@ -51376,6 +51779,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6590008765618618275
@@ -51502,6 +51906,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6918174934858260779
@@ -51628,6 +52033,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &913009500444344865
@@ -51754,6 +52160,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &6402766133648697436
@@ -51880,6 +52287,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2581873008693794105
@@ -52006,6 +52414,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1175369766025847387
@@ -52132,6 +52541,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &537456309273971038
@@ -52258,6 +52668,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &3499085390469621981
@@ -52384,6 +52795,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4142764812460098105
@@ -52510,6 +52922,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6600690428659763792
@@ -52636,6 +53049,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2142394301460354492
@@ -52762,6 +53176,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8589568894792214498
@@ -52888,6 +53303,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8392120476209179792
@@ -53014,6 +53430,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &5875807783111538493
@@ -53140,6 +53557,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8613360274298907004
@@ -53266,6 +53684,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7925747817957017434
@@ -53392,6 +53811,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4253309612050530189
@@ -53518,6 +53938,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1571899166138807452
@@ -53644,6 +54065,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &2782030064336287923
@@ -53770,6 +54192,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &3214808533089192485
@@ -53896,6 +54319,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &498091385300483884
@@ -54022,6 +54446,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &824997261525529556
@@ -54148,6 +54573,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &3072787164468328677
@@ -54274,6 +54700,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &6806256874899521507
@@ -54400,6 +54827,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &6049559547221295553
@@ -54526,6 +54954,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7564505645315074524
@@ -54652,6 +55081,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &4533879197841960019
@@ -54778,6 +55208,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2799592695629564025
@@ -54904,6 +55335,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2472526995421333030
@@ -54963,7 +55395,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7054911220471654317}
-  m_RootOrder: 136
+  m_RootOrder: 134
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4055439727059059345
 SpriteRenderer:
@@ -55030,6 +55462,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &6489295019756983018
@@ -55156,6 +55589,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3626140628091613246
@@ -55282,6 +55716,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7249264418123581332
@@ -55408,6 +55843,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7974172530048370746
@@ -55534,6 +55970,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &1645018629051151944
@@ -55660,6 +56097,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &439333301973050969
@@ -55786,6 +56224,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6523183512741071546
@@ -55912,6 +56351,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4265659704111454184
@@ -56038,6 +56478,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6320419604796298392
@@ -56164,6 +56605,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1186878017953395644
@@ -56290,6 +56732,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &1887161053747521717
@@ -56416,6 +56859,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &4851925080885407117
@@ -56542,6 +56986,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2171813999881436122
@@ -56668,6 +57113,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8295107446718993841
@@ -56794,6 +57240,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5237898731029229444
@@ -56920,6 +57367,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8149596689067928444
@@ -57046,6 +57494,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4959766313638166052
@@ -57172,6 +57621,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5765613931452848183
@@ -57298,6 +57748,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8544825187250905644
@@ -57424,6 +57875,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6758070584222809724
@@ -57550,6 +58002,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4654916698622684765
@@ -57676,6 +58129,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7839479313270518278
@@ -57802,6 +58256,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &8302375584072047699
@@ -57928,6 +58383,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8225311177397756526
@@ -58054,6 +58510,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1052358225363818680
@@ -58180,6 +58637,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &8784487277028521428
@@ -58306,6 +58764,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8177154560512311098
@@ -58432,6 +58891,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6522149555491884536
@@ -58927,6 +59387,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &8653811125027143537
@@ -59053,6 +59514,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &5906439451412403512
@@ -59179,6 +59641,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5487875282225777797
@@ -59305,6 +59768,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2243980879460086668
@@ -59431,6 +59895,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7240626881477128736
@@ -59557,6 +60022,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4346797939967744585
@@ -59683,6 +60149,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &2736620472650447080
@@ -59809,6 +60276,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5141104942798344463
@@ -59919,6 +60387,12 @@ MonoBehaviour:
   lastSelectedTile: {fileID: 0}
   blueprintShader: {fileID: 0}
   loot: []
+  hostageText: {fileID: 0}
+  hostageCount: 0
+  lootText: {fileID: 0}
+  lootCount: 0
+  lootTotalText: {fileID: 0}
+  lootTotal: 0
 --- !u!1 &6292699228238593881
 GameObject:
   m_ObjectHideFlags: 0
@@ -60017,6 +60491,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3501301380251847012
@@ -60143,6 +60618,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &5764885433443696039
@@ -60269,6 +60745,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &4447371948472456699
@@ -60395,6 +60872,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8503744043329835828
@@ -60521,6 +60999,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1592949556022744317
@@ -60647,6 +61126,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8422981080404245990
@@ -60773,6 +61253,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2087509980160369620
@@ -60899,6 +61380,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6581153292114118573
@@ -61025,6 +61507,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6246421396910501210
@@ -61151,6 +61634,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2039909108382508640
@@ -61277,6 +61761,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3178580312628143505
@@ -61403,6 +61888,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8754642592559397462
@@ -61529,6 +62015,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1005569181004262009
@@ -61655,6 +62142,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7028998343753303331
@@ -61781,6 +62269,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &8190070304121983971
@@ -61907,6 +62396,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &6740963214298669321
@@ -62033,6 +62523,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &5033923263702766227
@@ -62159,6 +62650,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7123291303427620565
@@ -62285,6 +62777,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2121250637045398249
@@ -62411,6 +62904,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &494936170744694960
@@ -62537,6 +63031,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6109405972895343767
@@ -62663,6 +63158,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &9021490222265567280
@@ -62722,7 +63218,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7054911220471654317}
-  m_RootOrder: 131
+  m_RootOrder: 129
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5567257505062478805
 SpriteRenderer:
@@ -62789,6 +63285,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &4298487599146793432
@@ -62915,6 +63412,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7338033797124378091
@@ -63041,6 +63539,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &612595105892894692
@@ -63167,6 +63666,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6900098102925853771
@@ -63293,6 +63793,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3584568976973438657
@@ -63419,6 +63920,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3999290988478929375
@@ -63545,6 +64047,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5064195192503947052
@@ -63671,6 +64174,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5988746542892318310
@@ -63797,6 +64301,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5188560177096032072
@@ -63923,6 +64428,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &312594085875432113
@@ -64049,6 +64555,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &639975395374681359
@@ -64175,6 +64682,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &9072794962699839540
@@ -64301,6 +64809,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &7275246680630693414
@@ -64427,6 +64936,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5524400362045148478
@@ -64553,6 +65063,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &9075869735877060309
@@ -64679,6 +65190,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8018742159494086863
@@ -64805,6 +65317,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8534333375214806313
@@ -64931,6 +65444,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &376233675918131418
@@ -65057,6 +65571,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7054638076102173146
@@ -65183,6 +65698,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1845625506088531751
@@ -65309,6 +65825,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4922727564125882832
@@ -65435,6 +65952,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &433368766030526662
@@ -65561,6 +66079,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &1704263390653749739
@@ -65687,6 +66206,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1689412851155659296
@@ -65813,6 +66333,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4502614174631753423
@@ -65939,6 +66460,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7829739399393791769
@@ -66113,6 +66635,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1082111487244797929
@@ -66239,6 +66762,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1502995186490623883
@@ -66365,6 +66889,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3571212296215027123
@@ -66491,6 +67016,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4116323570605186573
@@ -66617,6 +67143,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1635833800838268182
@@ -66743,6 +67270,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3033738245788849569
@@ -66869,6 +67397,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4386857418962834027
@@ -66995,6 +67524,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &5529053232989411
@@ -67121,6 +67651,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2758406099772994815
@@ -67130,132 +67661,6 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7044988693472995088}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!1 &7047260194463856171
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1410138653174944068}
-  - component: {fileID: 4930920730334115087}
-  - component: {fileID: 7975142708257557225}
-  - component: {fileID: 5464088351512856543}
-  m_Layer: 10
-  m_Name: Tile Impassable(Clone)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1410138653174944068
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7047260194463856171}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16, y: -8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7054911220471654317}
-  m_RootOrder: 127
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4930920730334115087
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7047260194463856171}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b40c0c20dbe784d4899f8311626ad9f9, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &7975142708257557225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7047260194463856171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b055ffba842986042a9444a3ca6633a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileX: 9
-  tileY: 16
-  map: {fileID: 6268957151353516879}
-  room: {fileID: 0}
-  occupied: 0
-  impassable: 1
-  isDestination: 0
---- !u!61 &5464088351512856543
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7047260194463856171}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -67373,6 +67778,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4222026855158724712
@@ -67499,6 +67905,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &9215078292170486103
@@ -67625,6 +68032,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &1241849167436244108
@@ -67751,6 +68159,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &4484829917885886890
@@ -67877,6 +68286,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &4982613365730729555
@@ -68003,6 +68413,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &7738115861887146540
@@ -68129,6 +68540,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3692092182232836703
@@ -68255,6 +68667,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &4923758938153118227
@@ -68381,6 +68794,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5014246818041540227
@@ -68507,6 +68921,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2869616768959362225
@@ -68633,6 +69048,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6091488361305126131
@@ -68759,6 +69175,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4212638126987682571
@@ -68885,6 +69302,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8061291465659473679
@@ -69011,6 +69429,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &223818910256698857
@@ -69137,6 +69556,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1420544402138087038
@@ -69263,6 +69683,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &1023996494822246389
@@ -69389,6 +69810,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5770125147370419393
@@ -69515,6 +69937,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &808466952658987819
@@ -69641,6 +70064,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2098239604257388482
@@ -69767,6 +70191,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7310673509119780178
@@ -69893,6 +70318,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8518685803967135282
@@ -70019,6 +70445,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3569240715829765440
@@ -70145,6 +70572,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6288895750969785323
@@ -70271,6 +70699,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7880623976165048929
@@ -70397,6 +70826,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &9176195790319763930
@@ -70523,6 +70953,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &8816484801851415480
@@ -70649,6 +71080,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7314124440896266674
@@ -70775,6 +71207,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6386222036301385449
@@ -70901,6 +71334,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8368800518850098404
@@ -71027,6 +71461,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6068708837674423831
@@ -71153,6 +71588,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2822300456064800139
@@ -71279,6 +71715,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1216231689497944014
@@ -71405,6 +71842,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6287555058198174794
@@ -71531,6 +71969,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3198663914480117945
@@ -71657,6 +72096,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6620327314401860750
@@ -71783,6 +72223,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7806213169905252217
@@ -71909,6 +72350,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &7959653377730839796
@@ -72035,6 +72477,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2644781416107189368
@@ -72161,6 +72604,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4069335476147984199
@@ -72287,6 +72731,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &9142656627347867260
@@ -72413,6 +72858,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7963943139559480413
@@ -72539,6 +72985,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2817081780311632058
@@ -72665,6 +73112,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &4307118238459941940
@@ -72791,6 +73239,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &3768825132333351595
@@ -72917,6 +73366,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &2726494775258334407
@@ -73043,6 +73493,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &283701932097153014
@@ -73169,6 +73620,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4752745620662210292
@@ -73295,6 +73747,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4241779743338351098
@@ -73421,6 +73874,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8085273689836149620
@@ -73606,6 +74060,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3416752645228905549
@@ -73732,6 +74187,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4869211599809737757
@@ -73858,6 +74314,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3749418614397400287
@@ -73984,6 +74441,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &215460479758304247
@@ -74110,6 +74568,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4982478507980059111
@@ -74236,6 +74695,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &6188447556721964727
@@ -74362,6 +74822,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &1626980803469351064
@@ -74488,6 +74949,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &390905866124104520
@@ -74614,6 +75076,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7898199806024860831
@@ -74740,6 +75203,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1677151743835582038
@@ -74866,6 +75330,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8016688317312646112
@@ -74992,6 +75457,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3635944345349954751
@@ -75118,6 +75584,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7070608561858526790
@@ -75293,6 +75760,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6957130870966133374
@@ -75419,6 +75887,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8397973978052530204
@@ -75545,6 +76014,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3004404506455605982
@@ -75671,6 +76141,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5711514127000711224
@@ -75797,6 +76268,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7015516465110539289
@@ -75923,6 +76395,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &766345584763492330
@@ -76049,6 +76522,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3480717928826310396
@@ -76175,6 +76649,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1226672918578987558
@@ -76301,6 +76776,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &3220255872787201781
@@ -76427,6 +76903,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5580245776726040330
@@ -76553,6 +77030,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8786551999799888559
@@ -76679,6 +77157,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2833190700207965220
@@ -76805,6 +77284,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &3634304900695746971
@@ -76931,6 +77411,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &6964291630304003672
@@ -77057,6 +77538,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3413725298894573456
@@ -77183,6 +77665,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4581868411461461518
@@ -77309,6 +77792,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5708837974778091155
@@ -77435,6 +77919,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6458057711179133998
@@ -77561,6 +78046,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3649528549297591309
@@ -77809,6 +78295,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8623934919235309142
@@ -77935,6 +78422,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &7782819889343751609
@@ -78061,6 +78549,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &4948472954371497356
@@ -78187,6 +78676,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2099256576145065439
@@ -78313,6 +78803,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2298403475002692544
@@ -78439,6 +78930,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1212234930789274789
@@ -78565,6 +79057,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1687722493359737229
@@ -78691,6 +79184,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &115300508506170577
@@ -78817,6 +79311,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4275907415764876785
@@ -78943,6 +79438,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &7929263523485011772
@@ -79069,6 +79565,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &6212982392067228493
@@ -79195,6 +79692,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7102834258705885088
@@ -79321,6 +79819,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &503325722844051842
@@ -79447,6 +79946,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3973917987135883644
@@ -79573,6 +80073,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &3227273491863744062
@@ -79632,7 +80133,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7054911220471654317}
-  m_RootOrder: 135
+  m_RootOrder: 133
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2172707238589851758
 SpriteRenderer:
@@ -79699,6 +80200,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &4203449870399961694
@@ -79825,6 +80327,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &177765129146303380
@@ -79951,6 +80454,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6305413007733311535
@@ -80077,6 +80581,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4478504821999652012
@@ -80203,6 +80708,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &6506226087805176580
@@ -80329,6 +80835,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7841530596742997877
@@ -80455,6 +80962,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6046288840420119351
@@ -80581,6 +81089,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2974358185001244968
@@ -80707,6 +81216,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7377629645304727167
@@ -80766,7 +81276,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7054911220471654317}
-  m_RootOrder: 134
+  m_RootOrder: 132
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7072968768529212470
 SpriteRenderer:
@@ -80833,6 +81343,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &918899001795427452
@@ -80959,6 +81470,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6836326762667363972
@@ -81085,6 +81597,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &3130539880624120355
@@ -81211,6 +81724,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7155997292604971637
@@ -81337,6 +81851,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &6026207213732332089
@@ -81396,7 +81911,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7054911220471654317}
-  m_RootOrder: 140
+  m_RootOrder: 138
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &693365695003953888
 SpriteRenderer:
@@ -81463,6 +81978,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &3685298554586440460
@@ -81589,6 +82105,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4572615710254112335
@@ -81715,6 +82232,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &761575426143073697
@@ -81841,6 +82359,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &4022158182620287806
@@ -81967,6 +82486,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1920632356551064791
@@ -82093,6 +82613,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4621341967572609439
@@ -82219,6 +82740,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &1626927090299539974
@@ -82345,6 +82867,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7017754187033587410
@@ -82471,6 +82994,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1296945584757300596
@@ -82597,6 +83121,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5713477125271029339
@@ -82723,6 +83248,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4641584337336726471
@@ -82782,7 +83308,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7054911220471654317}
-  m_RootOrder: 129
+  m_RootOrder: 127
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4520694032463568543
 SpriteRenderer:
@@ -82849,6 +83375,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &7619709938753180319
@@ -82975,6 +83502,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5938551668945837682
@@ -83101,6 +83629,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4192918622679053819
@@ -83227,6 +83756,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4608485246178913173
@@ -83396,6 +83926,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2975853882059203420
@@ -83579,6 +84110,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7254285871522149126
@@ -83705,6 +84237,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7917331509272002992
@@ -83831,6 +84364,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &192407339160401246
@@ -83957,6 +84491,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5938952556317609460
@@ -84083,6 +84618,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8548600641530857485
@@ -84209,6 +84745,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4435813970265424743
@@ -84335,6 +84872,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 1
   isDestination: 0
 --- !u!61 &2211850041807872297
@@ -84461,6 +84999,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4516129349293762529
@@ -84587,6 +85126,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1600799682229686167
@@ -84713,6 +85253,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1023582545710694140
@@ -84839,6 +85380,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5268095261901563214
@@ -84965,6 +85507,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8708418439673083753
@@ -85091,6 +85634,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5422898584841755159
@@ -85217,6 +85761,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6585073531483905937
@@ -85343,6 +85888,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &4749053523715402243
@@ -85469,6 +86015,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1440135872488701038
@@ -85478,6 +86025,133 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9113876815057438977}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!1 &9122570935277853556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2965881369293623380}
+  - component: {fileID: 510333915206515664}
+  - component: {fileID: 1880934471785310280}
+  - component: {fileID: 1421339631900396545}
+  m_Layer: 10
+  m_Name: Tile Passable(Clone) (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2965881369293623380
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9122570935277853556}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9, y: 18, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 657520086272735841}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &510333915206515664
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9122570935277853556}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 17433309f3ad84d49b6e59ebf5851c54, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &1880934471785310280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9122570935277853556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b055ffba842986042a9444a3ca6633a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileX: 9
+  tileY: 17
+  map: {fileID: 6268957151353516879}
+  room: {fileID: 0}
+  occupied: 0
+  blocked: 0
+  impassable: 0
+  isDestination: 0
+--- !u!61 &1421339631900396545
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9122570935277853556}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -85595,6 +86269,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &598500293771054792
@@ -85721,6 +86396,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &8432689408864992505
@@ -85847,6 +86523,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &1122496366813581981
@@ -85973,6 +86650,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7788929133280451258
@@ -86099,6 +86777,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &6914223615404501539
@@ -86225,6 +86904,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &2087784567135271151
@@ -86351,6 +87031,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &7357484446822498463
@@ -86477,6 +87158,7 @@ MonoBehaviour:
   map: {fileID: 6268957151353516879}
   room: {fileID: 0}
   occupied: 0
+  blocked: 0
   impassable: 0
   isDestination: 0
 --- !u!61 &5485909538002046621

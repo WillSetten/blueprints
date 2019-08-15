@@ -35,6 +35,10 @@ public class TileMap : MonoBehaviour
     public int hostageCount;
     public Text lootText;
     public int lootCount;
+    public Text lootTotalText;
+    public int lootTotal=0;
+    public Text pausedText;
+    public Image pausedOverlay;
     //Initialisation
     private void Start()
     {
@@ -56,7 +60,9 @@ public class TileMap : MonoBehaviour
         foreach (Loot l in loot)
         {
             l.map = this;
+            lootTotal = lootTotal + 1;
         }
+        lootTotalText.text = lootTotal.ToString();
 
         doors = GetComponentsInChildren<Door>();
         blueprintShader = Shader.Find("Custom/Edge Highlight");
@@ -106,6 +112,8 @@ public class TileMap : MonoBehaviour
                 }
                 enemyController.togglePause();
                 civilianController.togglePause();
+                pausedText.color = Color.clear;
+                pausedOverlay.color = new Color(255, 255, 255, 0);
             }
             else
             {
@@ -122,6 +130,8 @@ public class TileMap : MonoBehaviour
                 }
                 enemyController.togglePause();
                 civilianController.togglePause();
+                pausedText.color = Color.white;
+                pausedOverlay.color = new Color(255,255,255,255);
             }
         }
         if (Input.GetKeyUp(KeyCode.Alpha1)|| Input.GetKeyUp(KeyCode.Keypad1))

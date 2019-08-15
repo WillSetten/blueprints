@@ -35,7 +35,6 @@ public class Loot : MonoBehaviour
                 {
                     Debug.Log(name + " has been bagged up! Lets do another round");
                     lootingUnit.hasLoot = true;
-                    map.incrementLootCount();
                     map.loot.Remove(this);
                     Destroy(gameObject);
                 }

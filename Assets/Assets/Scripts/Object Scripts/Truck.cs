@@ -52,7 +52,7 @@ public class Truck : MonoBehaviour
                             if (u.hasLoot)
                             {
                                 u.hasLoot = false;
-                                lootCount = lootCount + 1;
+                                map.incrementLootCount();
                             }
                         }
                     }
@@ -89,7 +89,7 @@ public class Truck : MonoBehaviour
                         if (u.hasLoot)
                         {
                             u.hasLoot = false;
-                            lootCount = lootCount + 1;
+                            map.incrementLootCount();
                         }
                         //Code for when a unit escapes
                         unitsInVan.Add(u);
