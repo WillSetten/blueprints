@@ -39,7 +39,7 @@ public class Tile : MonoBehaviour
     private void Update()
     {
         //if there is not a unit on this tile
-        if (Physics2D.OverlapCircleAll((Vector2)transform.position, 0.1f, LayerMask.GetMask("EnemyUnits", "PlayerUnits", "CivilianUnits", "Loot", "Vehicles", "Vault")).Length==0)
+        if (!isTileOccupied())
         {
             occupied = false;
             blocked = false;
@@ -47,26 +47,40 @@ public class Tile : MonoBehaviour
         //If there is a unit over this tile
         else
         {
-            Collider2D collider = Physics2D.OverlapCircleAll((Vector2)transform.position, 0.5f, LayerMask.GetMask("EnemyUnits", "PlayerUnits", "CivilianUnits", "Loot", "Vehicles", "Vault"))[0];
-            if (collider.GetComponent<Loot>()|| collider.GetComponent<Truck>()|| collider.GetComponent<VaultDoor>())
-            {
-                occupied = true;
-                blocked = true;
-            }
-            else if (collider.GetComponent<Unit>()&&collider.GetComponent<Rigidbody2D>().velocity == Vector2.zero) {
-                if (collider.GetComponent<Unit>().isLarge) {
-                    blocked = true;
-                }
-                occupied = true;
-                isDestination = false;
-                GetComponent<SpriteRenderer>().color = Color.white;
-            }
-            else
-            {
-                occupied = false;
-                blocked = false;
+            Collider2D[] colliders = Physics2D.OverlapCircleAll((Vector2)transform.position, 0.5f, LayerMask.GetMask("EnemyUnits", "PlayerUnits", "CivilianUnits", "Loot", "Vehicles", "Vault"));
+            foreach (Collider2D collider in colliders) {
+                    //If there is a unit on the tile
+                    if (collider.GetComponent<Unit>()) {
+                        if (collider.GetComponent<Rigidbody2D>().velocity == Vector2.zero) {
+                            if (collider.GetComponent<Unit>().isLarge) {
+                                blocked = true;
+                            }
+                            else
+                            {
+                                blocked = false;
+                            }
+                            occupied = true;
+                            isDestination = false;
+                            GetComponent<SpriteRenderer>().color = Color.white;
+                        }  
+                    }
+                    //If there is another type of object on the tile
+                    else
+                    {
+                        occupied = true;
+                        blocked = true;
+                    }
             }
         }
     }
-    
+
+    //Returns true if there is an object on the tile
+    public bool isTileOccupied()
+    {
+        if(Physics2D.OverlapCircleAll((Vector2)transform.position, 0.1f, LayerMask.GetMask("EnemyUnits", "PlayerUnits", "CivilianUnits", "Loot", "Vehicles", "Vault")).Length == 0)
+        {
+            return false;
+        }
+        return true;
+    }
 }

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1006508965519217114}
   - component: {fileID: 3909926561386931782}
   - component: {fileID: 8300259727363186116}
-  - component: {fileID: 1129343008226814285}
   m_Layer: 15
   m_Name: Vault Door
   m_TagString: Untagged
@@ -129,18 +128,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1129343008226814285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 998382919070091591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8ecec07413f2714599ea255932429de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6671985966903536117
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,8 +141,8 @@ GameObject:
   - component: {fileID: 6903121961584361163}
   - component: {fileID: 163936439509154394}
   - component: {fileID: 609912640387393295}
-  - component: {fileID: 2264942417132210116}
-  m_Layer: 15
+  - component: {fileID: 7243289983450832792}
+  m_Layer: 16
   m_Name: Vault Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +248,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -1.2454017, y: -0.3071526}
-  m_ConnectedAnchor: {x: -1.2454021, y: 0.004247719}
+  m_ConnectedAnchor: {x: -1.2454021, y: 0.00484758}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: -10
@@ -282,7 +269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2073455839603f74b82ac1664e7f36c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &2264942417132210116
+  hinge: {fileID: 163936439509154394}
+--- !u!61 &7243289983450832792
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

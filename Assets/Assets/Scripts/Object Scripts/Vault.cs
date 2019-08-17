@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class Vault : MonoBehaviour
 {
-    VaultDoor vaultDoor;
-    HingeJoint2D hinge;
-    // Start is called before the first frame update
-    void Start()
-    {
-        vaultDoor = GetComponentInChildren<VaultDoor>();
-        hinge = GetComponentInChildren<HingeJoint2D>();
-    }
+    public HingeJoint2D hinge;
 
     private void OnMouseUp()
     {
+        Debug.Log("Opening Vault door");
         hinge.useMotor=true;
     }
 }

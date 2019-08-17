@@ -38,6 +38,7 @@ public class Unit : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip bulletSound;
     public bool isLarge; //If the unit is large and blocks the tile it is on
+    public bool isDead=false;
 
     //Initialization
     private void Start()
@@ -48,7 +49,6 @@ public class Unit : MonoBehaviour
         tileX = (int)transform.position.x;
         tileY = (int)transform.position.y;
         map = GameObject.Find("Map").GetComponent<TileMap>();
-        transform.position = map.TileCoordToWorldCoord(tileX, tileY);
         Debug.Log(transform.gameObject.name);
         name = transform.gameObject.name;
         currentState = state.Idle;
@@ -126,7 +126,7 @@ public class Unit : MonoBehaviour
 
     void Update()
     {
-        if (!map.paused && currentState!=state.Detained)
+        if (!map.paused && currentState!=state.Detained && !isDead)
         {
             if (currentPath != null)
             {
@@ -139,6 +139,13 @@ public class Unit : MonoBehaviour
                     currNode = currNode + 1;
                 }
                 MoveNextTile();
+            }
+            if (currentState == state.Idle)
+            {
+                directionX = 0;
+                directionY = 0;
+                animator.SetFloat("Move X", directionX);
+                animator.SetFloat("Move Y", directionY);
             }
                 //Detect any nearby units and perform the appropriate action
                 detectNearbyUnits();
@@ -155,7 +162,13 @@ public class Unit : MonoBehaviour
     {
         Debug.Log(name + " has died!");
         map.removeUnit(gameObject);
-        Destroy(gameObject);
+        Destroy(GetComponent<CircleCollider2D>());
+        animator.SetBool("Dead", true);
+        isDead = true;
+        if (detectionIndicator!=null) {
+            detectionIndicator.spriteRenderer.color = Color.clear;
+        }
+        spriteRenderer.sortingLayerName = "UnderUnits";
     }
 
     public void togglePause()
@@ -189,6 +202,10 @@ public class Unit : MonoBehaviour
         if (currentPath == null)
         {
             return;
+        }
+        if (map.tiles[currentPath[0].x, currentPath[0].y].isTileOccupied()) ;
+        {
+            map.GeneratePathTo(currentPath[currentPath.Count - 1].x, currentPath[currentPath.Count - 1].y, this);
         }
         //If the unit is close enough to its next destination
         if (Vector2.Distance(transform.position, map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y)) < 0.1f || checkIfOverMoved())
@@ -284,14 +301,56 @@ public class Unit : MonoBehaviour
         List<Collider2D> seenUnits = new List<Collider2D>();
         foreach (Collider2D c in closeUnits)
         {
-            //If the unit has a line of sight to the unit and that unit is not itself, add to seen units
-            if (hasLOS(c.gameObject)&&!c.Equals(GetComponent<Collider2D>())) {
+            //If the unit has a line of sight to the unit and that unit is not on the same team, add to seen units
+            if (hasLOS(c.gameObject)&&((!c.GetComponent<Unit>().selectable && selectable)|| (c.GetComponent<Unit>().selectable && !selectable))) {
                 seenUnits.Add(c);
             }
         }
         Unit u = null;
+        //If this unit is a combatant and is in the attacking state
+        if (combatant && currentState == state.Attacking)
+        {
+            //If there are no nearby units, set the current state to not be attacking.
+            if (seenUnits.Count == 0)
+            {
+                animator.SetBool("Attacking", false);
+                if (rigidbody2D.velocity == Vector2.zero)
+                {
+                    currentState = state.Idle;
+                }
+                else
+                {
+                    currentState = state.Moving;
+                }
+                return;
+            }
+            //If there are nearby units, check if this unit can attack
+            else
+            {
+                //If attackcooldown is still below the units cap, increase it
+                if (attackCooldown < attackCooldownCap)
+                {
+                    attackCooldown += Time.deltaTime;
+                }
+                //Attack if the cooldown is above the cap, shoot a bullet at the enemy with the least health and reset the cooldown
+                else
+                {
+                    Collider2D closestUnit = nearestUnitFromOtherTeam(seenUnits);
+                    if (closestUnit == null)
+                    {
+                        currentState = state.Idle;
+                        animator.SetBool("Attacking", false);
+                    }
+                    else
+                    {
+                        shootBullet(closestUnit);
+                    }
+                }
+            }
+        }
+
         //If there are no nearby units and there are no civilians who have seen player units, return
-        if (seenUnits.Count == 0 && !map.civilianController.hasDetectedaPlayerUnit)
+        if (!selectable && seenUnits.Count == 0 && !map.civilianController.hasDetectedaPlayerUnit)
         {
             //If this unit is an AI unit and has no nearby units, update the timer
             if (!selectable && detectionTimer > 0)
@@ -301,11 +360,12 @@ public class Unit : MonoBehaviour
             }
             return;
         }
+
         foreach (Collider2D c in seenUnits)
         {
             u = c.gameObject.GetComponent<Unit>();
-            //If the unit in range is a combatant and is on the other side, attempt to attack if this unit is also idle
-            if (u.combatant && ((selectable && !u.selectable) || (!selectable && u.selectable)))
+            //If the unit in range is a combatant, attempt to attack if this unit is also idle
+            if (u.combatant && currentState!=state.Attacking)
             {
                     //CODE FOR PLAYER UNITS
                     if (selectable)
@@ -314,7 +374,8 @@ public class Unit : MonoBehaviour
                         Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
                         if (currentState!=state.Moving) {
                             currentState = state.Attacking;
-                        }
+                            animator.SetBool("Attacking", true);
+                    }
                     }
                     //CODE FOR AI UNITS
                     else
@@ -327,6 +388,7 @@ public class Unit : MonoBehaviour
                             if (currentState != state.Moving)
                             {
                                 currentState = state.Attacking;
+                                animator.SetBool("Attacking", true);
                             }
                         }
                         //Increase the detection timer
@@ -361,48 +423,6 @@ public class Unit : MonoBehaviour
                 //Debug.Log("Unit " + name + "has civilian " + u.name + " in range");
             }
         }
-        if (combatant && currentState == state.Attacking)
-        {
-            //If there are no nearby units, set the current state to not be attacking.
-            if (seenUnits.Count == 0)
-            {
-                if (rigidbody2D.velocity==Vector2.zero)
-                {
-                    currentState = state.Idle;
-                }
-                else
-                {
-                    currentState = state.Moving;
-                }
-                return;
-            }
-            //If there are nearby units, check if this unit can attack
-            else
-            {
-                //If attackcooldown is still below the units cap, increase it
-                if (attackCooldown < attackCooldownCap)
-                {
-                    attackCooldown += Time.deltaTime;
-                }
-                //Attack if the cooldown is above the cap, shoot a bullet at the enemy with the least health and reset the cooldown
-                else
-                {
-                    Collider2D closestUnit = nearestUnitFromOtherTeam(seenUnits);
-                    if (closestUnit == null)
-                    {
-                        currentState = state.Idle;
-                    }
-                    else
-                    {
-                        shootBullet(closestUnit);
-                    }
-                }
-            }
-        }
-        else
-        {
-            return;
-        }
     }
 
     public void increaseDetectionTimer(float rate)
@@ -433,11 +453,18 @@ public class Unit : MonoBehaviour
             closestUnit.transform.position.x + "," + closestUnit.transform.position.y +
             ". Bullet has direction ");*/
 
-        animator.SetFloat("Move X", bulletDirection.x / 2);
-        animator.SetFloat("Move Y", bulletDirection.y / 2);
-
+        animator.SetFloat("Move X", bulletDirection.x);
+        animator.SetFloat("Move Y", bulletDirection.y);
         StartCoroutine(map.viewingCamera.GetComponent<CameraMovement>().Shake(.02f,.04f));
-        playSound(bulletSound);
+        //Will move this playSound into each units animations as an event. Only have attack animations for the police officer atm.
+        //REMEMBER TO CHANGE
+        if (selectable) {
+            playSound(bulletSound);
+        }
+        else
+        {
+            animator.SetBool("Shoot", true);
+        }
     }
 
     Collider2D nearestUnitFromOtherTeam(List<Collider2D> nearbyUnits)
@@ -500,5 +527,15 @@ public class Unit : MonoBehaviour
     public void playSound(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);
+    }
+
+    public void shootSound()
+    {
+        audioSource.PlayOneShot(bulletSound);
+    }
+
+    public void endShot()
+    {
+        animator.SetBool("Shoot",false);
     }
 }

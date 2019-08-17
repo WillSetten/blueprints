@@ -25,7 +25,7 @@ TagManager:
   - CivilianUnits
   - Vehicles
   - Vault
-  - 
+  - InteractionObjects
   - 
   - 
   - 
@@ -48,11 +48,14 @@ TagManager:
   - name: Tiles
     uniqueID: 4130267723
     locked: 0
+  - name: Under-Unit Shadow
+    uniqueID: 3830283667
+    locked: 0
   - name: UnderUnits
     uniqueID: 384379727
     locked: 0
-  - name: Under-Unit Shadow
-    uniqueID: 3830283667
+  - name: Enemy Units
+    uniqueID: 2177233495
     locked: 0
   - name: Units
     uniqueID: 4044210381
