@@ -11,5 +11,4 @@ public class HandCuffIcon : MonoBehaviour
         unit = GetComponentInParent<Unit>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    
 }

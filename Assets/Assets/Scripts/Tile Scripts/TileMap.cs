@@ -39,6 +39,7 @@ public class TileMap : MonoBehaviour
     public int lootTotal=0;
     public Text pausedText;
     public Image pausedOverlay;
+
     //Initialisation
     private void Start()
     {
@@ -484,6 +485,7 @@ public class TileMap : MonoBehaviour
 
     }
 
+    //Returns true if the unit can enter the tile specified
     public bool UnitCanEnterTile(int x, int y)
     {
 
@@ -493,6 +495,7 @@ public class TileMap : MonoBehaviour
         return tileTypes[tileMatrix[x, y]].isWalkable;
     }
 
+    //Sets a single unit as the selected unit
     public void setSelectedUnit(GameObject unit)
     {
         foreach (GameObject u in selectedUnits)
@@ -506,6 +509,7 @@ public class TileMap : MonoBehaviour
         unit.GetComponent<Unit>().changeHighlight();
     }
 
+    //Sets a list of gameobjects as the selected units
     public void setSelectedUnits(List<GameObject> newUnits)
     {
         foreach (GameObject u in selectedUnits)
@@ -522,6 +526,7 @@ public class TileMap : MonoBehaviour
         }
     }
 
+    //Removes a unit from selection
     public void deselectUnit(GameObject unit)
     {
             if (selectedUnits.Contains(unit)) {
@@ -531,6 +536,7 @@ public class TileMap : MonoBehaviour
             }
     }
 
+    //Removed this unit from the maps array of units
     public void removeUnit(GameObject unit)
     {
         if (unit.GetComponent<Unit>().selectable)
@@ -662,21 +668,47 @@ public class TileMap : MonoBehaviour
         }
     }
 
+    //Increase the number of hostages captured
     public void incrementHostageCount()
     {
         hostageCount = hostageCount + 1;
         hostageText.text = hostageCount.ToString();
     }
 
+    //Decrease the number of hostages captured. Call this when a hostage is freed.
     public void decrementHostageCount()
     {
         hostageCount = hostageCount - 1;
         hostageText.text = hostageCount.ToString();
     }
 
+    //Increase the amount of loot secured
     public void incrementLootCount()
     {
         lootCount = lootCount + 1;
         lootText.text = lootCount.ToString();
+    }
+
+    public void detainUnit(Unit unit)
+    {
+        Debug.Log(name + " has been detained");
+        unit.detained = true;
+        unit.selectable = true;
+        unit.inRangeOfSelectedUnit = false;
+        if (unit.GetComponentInChildren<DetectionIndicator>())
+        {
+            unit.GetComponentInChildren<DetectionIndicator>().spriteRenderer.color = Color.clear;
+        }
+        incrementHostageCount();
+        units.Add(unit.gameObject);
+    }
+
+    public void freeUnit(Unit unit)
+    {
+        Debug.Log(name + " has been freed");
+        unit.detained = false;
+        unit.selectable = false;
+        decrementHostageCount();
+        units.Remove(unit.gameObject);
     }
 }

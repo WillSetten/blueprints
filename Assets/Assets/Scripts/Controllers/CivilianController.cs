@@ -31,10 +31,10 @@ public class CivilianController : MonoBehaviour
             hasDetectedaPlayerUnit = false;
             foreach (Unit u in units)
             {
-                if (u.currentState != Unit.state.Detained) {
+                if (!u.detained) {
                     if (alarm)
                     {
-
+                        manageTimer(u);
                         //Not sure what to put here yet, ask Jay and Kyle
                     }
                     //If the alarm could be raised in this update, make this variable true
@@ -45,7 +45,8 @@ public class CivilianController : MonoBehaviour
 
                         //If the unit has detected a player unit
                         Unit nearestGuard = FindNearestGuard(u);
-                        if (nearestGuard != null && u.currentState == Unit.state.Idle) {
+                        if (nearestGuard != null && u.currentState == Unit.state.Idle)
+                        {
                             //and this civilian is close enough to raise the detection of the guard, raise it
                             if (Vector3.Distance(u.transform.position, nearestGuard.transform.position) < 2)
                             {
@@ -58,31 +59,49 @@ public class CivilianController : MonoBehaviour
                             }
                         }
                     }
-                    else if (setTimer < timer && u.currentState == Unit.state.Idle)
+                    //If no enemies have been detected and the alarm is not on, tell the units to just mill around the room a bit
+                    else if (u.currentState == Unit.state.Idle)
                     {
-                        timer = 0;
-                        setTimer = rnd.Next(4, 8);
-                        Tile newTile = map.tiles[u.tileX, u.tileY].room.randomTileInRoom();
-                        map.GeneratePathTo(newTile.tileX, newTile.tileY, u);
-                    }
-                    else
-                    {
-                        timer = timer + Time.deltaTime;
+                        manageTimer(u);
                     }
                 }
             }
         }
     }
 
+    //Manages the random timing of units movement.
+    void manageTimer(Unit u)
+    {
+        if(setTimer < timer)
+        {
+            timer = 0;
+            //If the alarm is not on, make the civilians move in a more sedentary manner.
+            if (!alarm) {
+                setTimer = rnd.Next(4, 8);
+            }
+            else
+            {
+                setTimer = rnd.Next(1, 2);
+            }
+            moveToRandomTileInRoom(u);
+        }
+        else
+        {
+            timer = timer + Time.deltaTime;
+        }
+    }
+
+    //Tells the unit to move to a random tile in the room they are in
+    void moveToRandomTileInRoom(Unit u)
+    {
+        Tile newTile = map.tiles[u.tileX, u.tileY].room.randomTileInRoom();
+        map.GeneratePathTo(newTile.tileX, newTile.tileY, u);
+    }
+
     //Sets all civilian handcuff icons to seeable and all detection icons to invisible
     public void triggerAlarm()
     {
         alarm = true;
-        HandCuffIcon[] handCuffIcons = GetComponentsInChildren<HandCuffIcon>();
-        foreach (HandCuffIcon h in handCuffIcons)
-        {
-            h.spriteRenderer.color = Color.white;
-        }
         DetectionIndicator[] detectionIndicators = GetComponentsInChildren<DetectionIndicator>();
         foreach (DetectionIndicator d in detectionIndicators)
         {
@@ -90,6 +109,7 @@ public class CivilianController : MonoBehaviour
         }
     }
 
+    //Returns the nearest guard to a unit.
     Unit FindNearestGuard(Unit unit)
     {
         Unit nearestUnit=null;

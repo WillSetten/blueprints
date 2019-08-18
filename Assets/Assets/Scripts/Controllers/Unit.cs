@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    public enum state { Idle, Moving, Attacking, Looting, Detained};
+    public enum state { Idle, Moving, Attacking, Looting};
     public state currentState;
+    public bool detained = false;
     public bool selectable = false;
     public bool selected = false;
     public bool combatant = false;
@@ -33,13 +34,15 @@ public class Unit : MonoBehaviour
     public bool detectedPlayerUnit = false;
     public float detectionTimer = 0;
     public float detectionTimerMax;
+    public float detainTimer = 0;
+    public float detainTimerMax;
     public DetectionIndicator detectionIndicator;
     public bool isDetected = false;
     public AudioSource audioSource;
     public AudioClip bulletSound;
     public bool isLarge; //If the unit is large and blocks the tile it is on
     public bool isDead=false;
-
+    public bool inRangeOfSelectedUnit=false;
     //Initialization
     private void Start()
     {
@@ -59,7 +62,6 @@ public class Unit : MonoBehaviour
         {
             detectionIndicator = GetComponentInChildren<DetectionIndicator>();
         }
-
         audioSource = GetComponent<AudioSource>();
     }
    
@@ -100,13 +102,10 @@ public class Unit : MonoBehaviour
         }
         else if (!selectable&&!combatant)
         {
-            //If the alarm is on and the unit is not moving or already detained, detain the unit
-            if (map.enemyController.alarm && currentState != Unit.state.Detained && currentState != Unit.state.Moving)
+            //If the unit is not already detained and is in range of a selected unit,
+            if (!detained && inRangeOfSelectedUnit && detainTimer>detainTimerMax)
             {
-                Debug.Log(name + " has been detained");
-                currentState = Unit.state.Detained;
-                GetComponentInChildren<HandCuffIcon>().spriteRenderer.color = Color.clear;
-                map.incrementHostageCount();
+                map.detainUnit(this);
             }
         }
     }
@@ -126,7 +125,7 @@ public class Unit : MonoBehaviour
 
     void Update()
     {
-        if (!map.paused && currentState!=state.Detained && !isDead)
+        if (!map.paused && !isDead)
         {
             if (currentPath != null)
             {
@@ -147,8 +146,12 @@ public class Unit : MonoBehaviour
                 animator.SetFloat("Move X", directionX);
                 animator.SetFloat("Move Y", directionY);
             }
-                //Detect any nearby units and perform the appropriate action
-                detectNearbyUnits();
+            if (!combatant&&!selectable)
+            {
+                manageDetainTimer();
+            }
+            //Detect any nearby units and perform the appropriate action
+            detectNearbyUnits();
             //If health is zero (or somehow below)
             if (hp <= 0)
             {
@@ -299,6 +302,7 @@ public class Unit : MonoBehaviour
         Collider2D[] closeUnits = Physics2D.OverlapCircleAll((Vector2)transform.position, interactionRadius, LayerMask.GetMask("EnemyUnits", "PlayerUnits"));
         //Seen units are the units which the unit has a line of sight to and is in the desired range
         List<Collider2D> seenUnits = new List<Collider2D>();
+        //This foreach loop trims the close units into units that the unit can actually see
         foreach (Collider2D c in closeUnits)
         {
             //If the unit has a line of sight to the unit and that unit is not on the same team, add to seen units
@@ -367,7 +371,7 @@ public class Unit : MonoBehaviour
             //If the unit in range is a combatant, attempt to attack if this unit is also idle
             if (u.combatant && currentState!=state.Attacking)
             {
-                    //CODE FOR PLAYER UNITS
+                    //CODE FOR COMBATANT PLAYER UNITS
                     if (selectable)
                     {
                         //Debug.Log(name + " can attack " + u.name);
@@ -377,7 +381,7 @@ public class Unit : MonoBehaviour
                             animator.SetBool("Attacking", true);
                     }
                     }
-                    //CODE FOR AI UNITS
+                    //CODE FOR COMBATANT AI UNITS
                     else
                     {
                         //If the alarm has been triggered or this unit has detected a player, attack the nearby unit
@@ -417,10 +421,23 @@ public class Unit : MonoBehaviour
                         }
                     }
             }
-            //If unit is a civilian, attempt to pacify if this unit is also idle
-            else if (!u.combatant && currentState == state.Idle)
+            //If this unit is a player combatant and can see a civilian
+            if (selectable&&combatant&&!u.combatant&&!u.selectable&&!u.detained)
             {
                 //Debug.Log("Unit " + name + "has civilian " + u.name + " in range");
+            }
+            //if this unit is a civilian and can see a player combatant
+            if (!selectable && !detained && !combatant && u.selectable && u.combatant)
+            {
+                //If this civilian is out of range of the player unit and cannot be threatened by it, set this variable to false
+                if (Vector2.Distance(u.transform.position, transform.position)>u.interactionRadius)
+                {
+                    inRangeOfSelectedUnit = false;
+                }
+                else
+                {
+                    inRangeOfSelectedUnit = true;
+                }
             }
         }
     }
@@ -481,8 +498,8 @@ public class Unit : MonoBehaviour
             u = c.GetComponent<Unit>();
             if (nearestUnit == null)
             {
-                //If there is no current nearest unit and we have a line of sight to that unit, set it as the nearest enemy unit
-                if (hasLOS(c.gameObject)&& ((selectable && !u.selectable) || (!selectable && u.selectable)))
+                //If there is no current nearest unit and we have a bullet line of sight to that unit, set it as the nearest enemy unit
+                if (hasBulletLOS(c.gameObject)&& ((selectable && !u.selectable) || (!selectable && u.selectable)))
                 {
                     nearestUnit = c;
                 }
@@ -501,16 +518,33 @@ public class Unit : MonoBehaviour
         return nearestUnit;
     }
 
-    private bool hasLOS(GameObject u)
+    private bool hasBulletLOS(GameObject u)
     {
         RaycastHit2D sightTest = Physics2D.Raycast(transform.position, u.transform.position - transform.position, 
-            Vector2.Distance(transform.position, u.transform.position), LayerMask.GetMask("Walls","Doors"));
+            Vector2.Distance(transform.position, u.transform.position), LayerMask.GetMask("Walls","Doors", "CivilianUnits"));
         if (sightTest.collider == null)
         {
             //Debug.Log(name + " LOS hasn't collided with anything");
             return true;
         }
-        if(sightTest.collider.CompareTag("Wall") || sightTest.collider.CompareTag("Door"))
+        if(sightTest.collider.CompareTag("Wall") || sightTest.collider.CompareTag("Door") || sightTest.collider.CompareTag("Civilian"))
+        {
+            //Debug.Log(name + " LOS has collided with object with tag " + sightTest.collider.tag);
+            return false;
+        }
+        return true;
+    }
+
+    private bool hasLOS(GameObject u)
+    {
+        RaycastHit2D sightTest = Physics2D.Raycast(transform.position, u.transform.position - transform.position,
+            Vector2.Distance(transform.position, u.transform.position), LayerMask.GetMask("Walls", "Doors"));
+        if (sightTest.collider == null)
+        {
+            //Debug.Log(name + " LOS hasn't collided with anything");
+            return true;
+        }
+        if (sightTest.collider.CompareTag("Wall") || sightTest.collider.CompareTag("Door"))
         {
             //Debug.Log(name + " LOS has collided with object with tag " + sightTest.collider.tag);
             return false;
@@ -520,8 +554,10 @@ public class Unit : MonoBehaviour
 
     public void takeBulletDamage(Bullet bullet)
     {
-        hp = hp - bullet.bulletDamage;
-        healthBar.UpdateHealth();
+        if (combatant) {
+            hp = hp - bullet.bulletDamage;
+            healthBar.UpdateHealth();
+        }
     }
 
     public void playSound(AudioClip clip)
@@ -537,5 +573,37 @@ public class Unit : MonoBehaviour
     public void endShot()
     {
         animator.SetBool("Shoot",false);
+    }
+
+    void manageDetainTimer()
+    {
+        if (inRangeOfSelectedUnit&&!detained)
+        {
+            if (detainTimer>detainTimerMax)
+            {
+                GetComponentInChildren<HandCuffIcon>().spriteRenderer.color = Color.white;
+                GetComponentInChildren<DetainBar>().spriteRenderer.color = Color.clear;
+                if (currentPath!=null)
+                {
+                    Node node = currentPath[0];
+                    currentPath.Clear();
+                    currentPath.Add(node);
+                }
+            }
+            else
+            {
+                GetComponentInChildren<HandCuffIcon>().spriteRenderer.color = Color.clear;
+                GetComponentInChildren<DetainBar>().spriteRenderer.color = Color.white;
+                detainTimer = detainTimer + Time.deltaTime;
+            }
+        }
+        else
+        {
+            if (detainTimer>0) {
+                GetComponentInChildren<HandCuffIcon>().spriteRenderer.color = Color.clear;
+                GetComponentInChildren<DetainBar>().spriteRenderer.color = Color.white;
+                detainTimer = detainTimer - Time.deltaTime;
+            }
+        }
     }
 }
