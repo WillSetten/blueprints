@@ -577,11 +577,12 @@ public class Unit : MonoBehaviour
 
     void manageDetainTimer()
     {
-        if (inRangeOfSelectedUnit&&!detained)
+        if (!detained && inRangeOfSelectedUnit)
         {
             if (detainTimer>detainTimerMax)
             {
                 GetComponentInChildren<HandCuffIcon>().spriteRenderer.color = Color.white;
+                GetComponentInChildren<DetectionIndicator>().spriteRenderer.color = Color.clear;
                 GetComponentInChildren<DetainBar>().spriteRenderer.color = Color.clear;
                 if (currentPath!=null)
                 {
@@ -593,6 +594,7 @@ public class Unit : MonoBehaviour
             else
             {
                 GetComponentInChildren<HandCuffIcon>().spriteRenderer.color = Color.clear;
+                GetComponentInChildren<DetectionIndicator>().spriteRenderer.color = Color.white;
                 GetComponentInChildren<DetainBar>().spriteRenderer.color = Color.white;
                 detainTimer = detainTimer + Time.deltaTime;
             }
