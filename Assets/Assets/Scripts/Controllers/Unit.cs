@@ -38,7 +38,7 @@ public class Unit : MonoBehaviour
     public float detainTimerMax;
     public DetectionIndicator detectionIndicator;
     public bool isDetected = false;
-    public AudioSource audioSource;
+    AudioSource audioSource;
     public AudioClip bulletSound;
     public bool isLarge; //If the unit is large and blocks the tile it is on
     public bool isDead=false;
@@ -106,6 +106,7 @@ public class Unit : MonoBehaviour
             if (!detained && inRangeOfSelectedUnit && detainTimer>detainTimerMax)
             {
                 map.detainUnit(this);
+                playSound(map.handCuffSound);
             }
         }
     }

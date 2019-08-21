@@ -39,6 +39,7 @@ public class TileMap : MonoBehaviour
     public int lootTotal=0;
     public Text pausedText;
     public Image pausedOverlay;
+    public AudioClip handCuffSound;
 
     //Initialisation
     private void Start()

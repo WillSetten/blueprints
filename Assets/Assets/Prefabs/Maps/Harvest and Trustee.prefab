@@ -60393,6 +60393,7 @@ MonoBehaviour:
   lootTotal: 0
   pausedText: {fileID: 0}
   pausedOverlay: {fileID: 0}
+  handCuffSound: {fileID: 8300000, guid: 2ea6330b64a8ca843b7cf98134687ad8, type: 3}
 --- !u!1 &6292699228238593881
 GameObject:
   m_ObjectHideFlags: 0
