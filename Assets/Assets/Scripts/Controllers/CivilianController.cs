@@ -36,6 +36,7 @@ public class CivilianController : MonoBehaviour
                     if ((u.tileX<2 && u.tileY < 2) || (u.tileX > map.mapSizeX-3 && u.tileY > map.mapSizeY-3))
                     {
                         map.tiles[u.tileX, u.tileY].occupied = false;
+                        map.tiles[u.tileX, u.tileY].isDestination = false;
                         units.Remove(u);
                         Destroy(u.gameObject);
                     }

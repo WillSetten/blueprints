@@ -164,6 +164,7 @@ public class Unit : MonoBehaviour
     public void die()
     {
         Debug.Log(name + " has died!");
+        rigidbody2D.velocity = Vector2.zero;
         map.removeUnit(gameObject);
         Destroy(GetComponent<CircleCollider2D>());
         animator.SetBool("Dead", true);
@@ -299,7 +300,7 @@ public class Unit : MonoBehaviour
     void detectNearbyUnits()
     {
         //Close units are the units which fall within the range of the circle around the units
-        Collider2D[] closeUnits = Physics2D.OverlapCircleAll((Vector2)transform.position, interactionRadius, LayerMask.GetMask("EnemyUnits", "PlayerUnits"));
+        Collider2D[] closeUnits = Physics2D.OverlapCircleAll((Vector2)transform.position, interactionRadius, LayerMask.GetMask("EnemyUnits", "PlayerUnits", "CivilianUnits"));
         //Seen units are the units which the unit has a line of sight to and is in the desired range
         List<Collider2D> seenUnits = new List<Collider2D>();
         //This foreach loop trims the close units into units that the unit can actually see
@@ -354,13 +355,18 @@ public class Unit : MonoBehaviour
         }
 
         //If there are no nearby units and there are no civilians who have seen player units, return
-        if (!selectable && seenUnits.Count == 0 && !map.civilianController.hasDetectedaPlayerUnit)
+        if (!selectable && seenUnits.Count == 0)
         {
             //If this unit is an AI unit and has no nearby units, update the timer
-            if (!selectable && detectionTimer > 0)
+            if (!selectable && !map.civilianController.hasDetectedaPlayerUnit && detectionTimer > 0)
             {
                 detectionTimer = detectionTimer - Time.deltaTime;
                 detectionIndicator.animator.SetFloat("DetectionLevel", detectionTimer / detectionTimerMax);
+            }
+            //If this unit is a civilian and there are no nearby player units, set the inrangeofselected unit variable to be false and return
+            if (!selectable && !combatant)
+            {
+                inRangeOfSelectedUnit = false;
             }
             return;
         }
@@ -424,20 +430,12 @@ public class Unit : MonoBehaviour
             //If this unit is a player combatant and can see a civilian
             if (selectable&&combatant&&!u.combatant&&!u.selectable&&!u.detained)
             {
+                u.inRangeOfSelectedUnit = true;
                 //Debug.Log("Unit " + name + "has civilian " + u.name + " in range");
             }
             //if this unit is a civilian and can see a player combatant
             if (!selectable && !detained && !combatant && u.selectable && u.combatant)
             {
-                //If this civilian is out of range of the player unit and cannot be threatened by it, set this variable to false
-                if (Vector2.Distance(u.transform.position, transform.position)>u.interactionRadius)
-                {
-                    inRangeOfSelectedUnit = false;
-                }
-                else
-                {
-                    inRangeOfSelectedUnit = true;
-                }
             }
         }
     }
@@ -577,7 +575,7 @@ public class Unit : MonoBehaviour
 
     void manageDetainTimer()
     {
-        if (!detained && inRangeOfSelectedUnit)
+        if (inRangeOfSelectedUnit && !detained)
         {
             if (detainTimer>detainTimerMax)
             {

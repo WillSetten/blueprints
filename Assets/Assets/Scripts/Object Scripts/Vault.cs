@@ -4,11 +4,22 @@ using UnityEngine;
 
 public class Vault : MonoBehaviour
 {
-    public HingeJoint2D hinge;
+    HingeJoint2D hinge;
+    AudioSource audioSource;
+    public AudioClip vaultOpen;
+
+    private void Start()
+    {
+        hinge = GetComponent<HingeJoint2D>();
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnMouseUp()
     {
-        Debug.Log("Opening Vault door");
-        hinge.useMotor=true;
+        if (!hinge.useMotor) {
+            Debug.Log("Opening Vault door");
+            hinge.useMotor = true;
+            audioSource.PlayOneShot(vaultOpen);
+        }
     }
 }

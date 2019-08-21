@@ -84,7 +84,7 @@ public class Truck : MonoBehaviour
                 List<Unit> units = escapeArea.unitsInEscapeArea();
                 foreach (Unit u in units)
                 {
-                    if (u.selected)
+                    if (u.selected&&u.combatant)
                     {
                         if (u.hasLoot)
                         {
