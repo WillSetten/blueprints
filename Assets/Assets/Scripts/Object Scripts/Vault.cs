@@ -8,6 +8,7 @@ public class Vault : MonoBehaviour
     AudioSource audioSource;
     public AudioClip vaultOpen;
     public Drill drill;
+    bool open = false;
 
     private void Start()
     {
@@ -18,6 +19,19 @@ public class Vault : MonoBehaviour
 
     private void OnMouseUp()
     {
-        drill.beginDrilling();
+        if (drill.unitInDrillArea()) {
+            drill.beginDrilling();
+            GetComponentInParent<TileMap>().GeneratePathTo((int)drill.transform.position.x+1,(int)drill.transform.position.y, drill.unitInDrillArea());
+        }
+    }
+
+    public void openVault()
+    {
+        if (!open)
+        {
+            open = true;
+            hinge.useMotor = true;
+            audioSource.PlayOneShot(vaultOpen);
+        }
     }
 }

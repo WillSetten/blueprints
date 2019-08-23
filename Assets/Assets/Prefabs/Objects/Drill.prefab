@@ -48,6 +48,7 @@ MonoBehaviour:
   drill: {fileID: 5348941053886673476}
   drillArea: {fileID: 5348941052480325022}
   drillWorking: 0
+  vault: {fileID: 0}
 --- !u!1 &5348941052480325022
 GameObject:
   m_ObjectHideFlags: 0

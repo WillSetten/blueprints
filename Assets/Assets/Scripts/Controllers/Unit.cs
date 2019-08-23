@@ -208,7 +208,7 @@ public class Unit : MonoBehaviour
         {
             return;
         }
-        if (map.tiles[currentPath[0].x, currentPath[0].y].isTileOccupied()) ;
+        if (map.tiles[currentPath[0].x, currentPath[0].y].isTileOccupied())
         {
             map.GeneratePathTo(currentPath[currentPath.Count - 1].x, currentPath[currentPath.Count - 1].y, this);
         }
