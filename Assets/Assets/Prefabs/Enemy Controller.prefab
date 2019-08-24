@@ -48,3 +48,6 @@ MonoBehaviour:
   alarm: 0
   alarmTimer: 0
   alarmBar: {fileID: 0}
+  enemyPrefab: {fileID: 1460796041707425394, guid: 7d592e19eadb76a4db3097428a39b9b2,
+    type: 3}
+  waveStage: 0

@@ -109,7 +109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460796041707425394}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3, y: 3, z: 0.5}
+  m_LocalPosition: {x: 3, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3543693811697340803}
@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
+  detained: 0
   selectable: 0
   selected: 0
   combatant: 1
@@ -203,12 +204,14 @@ MonoBehaviour:
   detectedPlayerUnit: 0
   detectionTimer: 0
   detectionTimerMax: 2
+  detainTimer: 0
+  detainTimerMax: 0
   detectionIndicator: {fileID: 2197200266104735140}
   isDetected: 0
-  audioSource: {fileID: 0}
   bulletSound: {fileID: 8300000, guid: 9f38eb7c8e131a749a82dc67de0d23ea, type: 3}
   isLarge: 0
   isDead: 0
+  inRangeOfSelectedUnit: 0
 --- !u!95 &8595569544542375387
 Animator:
   serializedVersion: 3

@@ -23,7 +23,7 @@ public class Unit : MonoBehaviour
     public int interactionRadius = 2;
     public float attackCooldownCap;
     public bool hasLoot; //True if the unit is carrying loot
-    Animator animator;
+    public Animator animator;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigidbody2D;
     private float attackCooldown; //The time inbetween the units attacks
@@ -208,7 +208,7 @@ public class Unit : MonoBehaviour
         {
             return;
         }
-        if (map.tiles[currentPath[0].x, currentPath[0].y].isTileOccupied())
+        if (map.tiles[currentPath[0].x, currentPath[0].y].blocked || map.tiles[currentPath[0].x, currentPath[0].y].occupied)
         {
             map.GeneratePathTo(currentPath[currentPath.Count - 1].x, currentPath[currentPath.Count - 1].y, this);
         }
@@ -517,7 +517,7 @@ public class Unit : MonoBehaviour
         return nearestUnit;
     }
 
-    private bool hasBulletLOS(GameObject u)
+    public bool hasBulletLOS(GameObject u)
     {
         RaycastHit2D sightTest = Physics2D.Raycast(transform.position, u.transform.position - transform.position, 
             Vector2.Distance(transform.position, u.transform.position), LayerMask.GetMask("Walls","Doors", "CivilianUnits"));

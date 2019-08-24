@@ -466,6 +466,7 @@ public class TileMap : MonoBehaviour
         }
         unit.setPath(currentPath);
         unit.currentState = Unit.state.Moving;
+        unit.animator.SetBool("Attacking", false);
     }
     //Determines the cost to enter a tile in position x,y
     public float CostToEnterTile(int sourceX, int sourceY, int targetX, int targetY)

@@ -20,8 +20,7 @@ public class Vault : MonoBehaviour
     private void OnMouseUp()
     {
         if (drill.unitInDrillArea()) {
-            drill.beginDrilling();
-            GetComponentInParent<TileMap>().GeneratePathTo((int)drill.transform.position.x+1,(int)drill.transform.position.y, drill.unitInDrillArea());
+            StartCoroutine(drill.setupDrill());
         }
     }
 

@@ -9,7 +9,7 @@ public class Drill : MonoBehaviour
     public bool drillWorking;
     TileMap map;
     public Vault vault;
-    private float drillTime=10;
+    private float drillTime=15;
 
     // Start is called before the first frame update
     void Start()
@@ -31,16 +31,17 @@ public class Drill : MonoBehaviour
     //Begins the drill timer
     public void beginDrilling()
     {
+        map.GeneratePathTo((int)transform.position.x + 1, (int)transform.position.y, unitInDrillArea());
         drill.GetComponent<SpriteRenderer>().color = Color.white;
         drill.GetComponent<Rigidbody2D>().simulated = true;
         drillArea.GetComponent<SpriteRenderer>().color = Color.clear;
         StartCoroutine(drillTimer());
     }
 
-    //Pauses the drill timer due to an interruption
-    public void pauseDrilling()
+    public IEnumerator setupDrill()
     {
-
+        yield return new WaitForSeconds(5);
+        beginDrilling();
     }
 
     //Ends the drilling and opens the vault, also removing the drill sprite and stopping its physics simulation
@@ -53,7 +54,6 @@ public class Drill : MonoBehaviour
 
     IEnumerator drillTimer()
     {
-        Debug.Log(Time.time);
         yield return new WaitForSeconds(drillTime);
         endDrilling();
     }

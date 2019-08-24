@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour
     //If an enemy has detected a player unit, the enemy will take several seconds to raise the alarm
     public float alarmTimer = 0;
     public AlarmBar alarmBar;
+    public GameObject enemyPrefab;
 
     public int waveStage = 0;
     // Start is called before the first frame update
@@ -49,10 +50,9 @@ public class EnemyController : MonoBehaviour
                     foreach (GameObject g in map.units)
                     {
                         Unit playerUnit = g.GetComponent<Unit>();
-                        //If the unit has detected a player unit or the alarm has been raised and this unit is idle, move towards this unit and attack
-                        if (Vector2.Distance(new Vector2(unit.tileX,unit.tileY), new Vector2(playerUnit.tileX,playerUnit.tileY))>1 && 
-                            playerUnit.isDetected &&
-                            unit.currentState== Unit.state.Idle) {
+                        //If the unit has detected a player unit, get in line of sight of the player unit
+                        if (Vector2.Distance(new Vector2(unit.tileX,unit.tileY), new Vector2(playerUnit.tileX,playerUnit.tileY))>unit.interactionRadius && !unit.hasBulletLOS(g) && 
+                            playerUnit.isDetected) {
 
                             map.GeneratePathTo(playerUnit.tileX, playerUnit.tileY, unit);
                             //Debug.Log("Enemy unit " + gameObject.name + " is moving towards player unit " + g.name);
@@ -135,7 +135,13 @@ public class EnemyController : MonoBehaviour
     public void nextStage()
     {
         alarmBar.nextStage(waveStage);
-        waveStage = waveStage+1;
+        for (int i = 0; i < waveStage * 5; i++)
+        {
+            GameObject newEnemy = Instantiate(enemyPrefab, new Vector3(Random.Range(0,map.mapSizeX),0,0), new Quaternion(0,0,0,0));
+            units.Add(newEnemy.GetComponent<Unit>());
+            newEnemy.GetComponent<Unit>().hp = newEnemy.GetComponent<Unit>().hp + waveStage;
+        }
+        waveStage = waveStage + 1;
         alarmTimer = 0;
     }
 
