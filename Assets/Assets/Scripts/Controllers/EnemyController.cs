@@ -71,10 +71,10 @@ public class EnemyController : MonoBehaviour
                 //If the timer is still below the desired level, increase it
                 if (alarmTimer<40) {
                     //If the player has taken multiple hostages, slow down the timer based on how many hostages they have
-                    if (map.hostageCount>1 && map.hostageCount<=5) {
-                        alarmTimer = alarmTimer + Time.deltaTime / map.hostageCount;
+                    if (map.UIhandler.hostageCount>1 && map.UIhandler.hostageCount<=5) {
+                        alarmTimer = alarmTimer + Time.deltaTime / map.UIhandler.hostageCount;
                     }
-                    else if (map.hostageCount>5)
+                    else if (map.UIhandler.hostageCount>5)
                     {
                         alarmTimer = alarmTimer + Time.deltaTime / 5;
                     }

@@ -431,7 +431,9 @@ public class Unit : MonoBehaviour
             //If this unit is a player combatant and can see a civilian
             if (selectable&&combatant&&!u.combatant&&!u.selectable&&!u.detained)
             {
-                u.inRangeOfSelectedUnit = true;
+                if (Vector3.Distance(u.transform.position,transform.position)>interactionRadius/2) {
+                    u.inRangeOfSelectedUnit = true;
+                }
                 //Debug.Log("Unit " + name + "has civilian " + u.name + " in range");
             }
             //if this unit is a civilian and can see a player combatant

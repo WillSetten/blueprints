@@ -31,15 +31,8 @@ public class TileMap : MonoBehaviour
     private Vector2 endBoxPos = Vector2.zero; //Where the unit selection box ends
     private Collider2D[] containedColliders; //The colliders inside the selection square
     private Unit[] containedUnits; //The units inside the selection square
-    public Text hostageText;
-    public int hostageCount;
-    public Text lootText;
-    public int lootCount;
-    public Text lootTotalText;
-    public int lootTotal=0;
-    public Text pausedText;
-    public Image pausedOverlay;
     public AudioClip handCuffSound;
+    public UIHandler UIhandler;
 
     //Initialisation
     private void Start()
@@ -62,9 +55,9 @@ public class TileMap : MonoBehaviour
         foreach (Loot l in loot)
         {
             l.map = this;
-            lootTotal = lootTotal + 1;
+            UIhandler.lootTotal = UIhandler.lootTotal + 1;
         }
-        lootTotalText.text = lootTotal.ToString();
+        UIhandler.lootTotalText.text = UIhandler.lootTotal.ToString();
 
         doors = GetComponentsInChildren<Door>();
         blueprintShader = Shader.Find("Custom/Edge Highlight");
@@ -114,8 +107,7 @@ public class TileMap : MonoBehaviour
                 }
                 enemyController.togglePause();
                 civilianController.togglePause();
-                pausedText.color = Color.clear;
-                pausedOverlay.color = new Color(255, 255, 255, 0);
+                UIhandler.togglePause(paused);
             }
             else
             {
@@ -132,8 +124,7 @@ public class TileMap : MonoBehaviour
                 }
                 enemyController.togglePause();
                 civilianController.togglePause();
-                pausedText.color = Color.white;
-                pausedOverlay.color = new Color(255,255,255,255);
+                UIhandler.togglePause(paused);
             }
         }
         if (Input.GetKeyUp(KeyCode.Alpha1)|| Input.GetKeyUp(KeyCode.Keypad1))
@@ -466,7 +457,10 @@ public class TileMap : MonoBehaviour
         }
         unit.setPath(currentPath);
         unit.currentState = Unit.state.Moving;
-        unit.animator.SetBool("Attacking", false);
+        if (unit.combatant)
+        {
+            unit.animator.SetBool("Attacking", false);
+        }
     }
     //Determines the cost to enter a tile in position x,y
     public float CostToEnterTile(int sourceX, int sourceY, int targetX, int targetY)
@@ -669,28 +663,6 @@ public class TileMap : MonoBehaviour
             }
         }
     }
-
-    //Increase the number of hostages captured
-    public void incrementHostageCount()
-    {
-        hostageCount = hostageCount + 1;
-        hostageText.text = hostageCount.ToString();
-    }
-
-    //Decrease the number of hostages captured. Call this when a hostage is freed.
-    public void decrementHostageCount()
-    {
-        hostageCount = hostageCount - 1;
-        hostageText.text = hostageCount.ToString();
-    }
-
-    //Increase the amount of loot secured
-    public void incrementLootCount()
-    {
-        lootCount = lootCount + 1;
-        lootText.text = lootCount.ToString();
-    }
-
     public void detainUnit(Unit unit)
     {
         Debug.Log(name + " has been detained");
@@ -701,7 +673,7 @@ public class TileMap : MonoBehaviour
         {
             unit.GetComponentInChildren<DetectionIndicator>().spriteRenderer.color = Color.clear;
         }
-        incrementHostageCount();
+        UIhandler.incrementHostageCount();
         units.Add(unit.gameObject);
     }
 
@@ -710,7 +682,7 @@ public class TileMap : MonoBehaviour
         Debug.Log(name + " has been freed");
         unit.detained = false;
         unit.selectable = false;
-        decrementHostageCount();
+        UIhandler.decrementHostageCount();
         units.Remove(unit.gameObject);
     }
 }

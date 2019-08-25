@@ -1276,6 +1276,57 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d592e19eadb76a4db3097428a39b9b2, type: 3}
+--- !u!1 &289138835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 289138837}
+  - component: {fileID: 289138836}
+  m_Layer: 0
+  m_Name: UI Handler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &289138836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289138835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07491012ea33c0a44b7f29508bd0810a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hostageText: {fileID: 363286248}
+  hostageCount: 0
+  lootText: {fileID: 1375664734}
+  lootCount: 0
+  lootTotalText: {fileID: 1553744511}
+  lootTotal: 0
+  pausedText: {fileID: 512154255}
+  pausedOverlay: {fileID: 880889309}
+--- !u!4 &289138837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289138835}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.923741, y: 19.315382, z: -9.221389}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &292077318 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6226009420830960602, guid: 515116aceda8f0243b74437b2630cdb3,
@@ -5672,6 +5723,11 @@ PrefabInstance:
       propertyPath: pausedOverlay
       value: 
       objectReference: {fileID: 880889309}
+    - target: {fileID: 6268957151353516879, guid: 515116aceda8f0243b74437b2630cdb3,
+        type: 3}
+      propertyPath: UIhandler
+      value: 
+      objectReference: {fileID: 289138836}
     - target: {fileID: 7253790241152191048, guid: 515116aceda8f0243b74437b2630cdb3,
         type: 3}
       propertyPath: m_Layer

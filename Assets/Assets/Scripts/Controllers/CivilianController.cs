@@ -31,7 +31,7 @@ public class CivilianController : MonoBehaviour
             hasDetectedaPlayerUnit = false;
             foreach (Unit u in units)
             {
-                if (!u.detained) {
+                if (!u.detained && !u.inRangeOfSelectedUnit) {
                     //If the civilian is in a civilian escape zone
                     if ((u.tileX<2 && u.tileY < 2) || (u.tileX > map.mapSizeX-3 && u.tileY > map.mapSizeY-3))
                     {
