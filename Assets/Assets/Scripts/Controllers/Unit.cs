@@ -511,7 +511,7 @@ public class Unit : MonoBehaviour
                 }
             }
             else if (Vector2.Distance(transform.position, c.transform.position) < Vector2.Distance(transform.position, nearestUnit.transform.position)
-                && hasLOS(c.gameObject) && ((selectable && !u.selectable) || (!selectable && u.selectable)))
+                && hasLOS(c.gameObject) && u.combatant && ((selectable && !u.selectable) || (!selectable && u.selectable)))
             {
                 nearestUnit = c;
             }

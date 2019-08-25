@@ -5,31 +5,39 @@ using UnityEngine.UI;
 
 public class AlarmBar : MonoBehaviour
 {
-    public GameObject fill;
+    public Image mainFill;
+    public Image stageFill;
     public Text alarmText;
 
-    public void updateFill(Vector3 newScale)
+    public void updateFill(float fillAmount)
     {
-        fill.transform.localScale = newScale;
+        mainFill.fillAmount = fillAmount;
     }
 
     public void nextStage(int stageNo)
     {
-        fill.transform.localScale = new Vector3(0,200,64);
-        switch (stageNo)
+        if (stageNo<4)
         {
-            case 0:
-                alarmText.text = "Police Assault";
-                break;
-            case 1:
-                alarmText.text = "SWAT Assault";
-                break;
-            case 2:
-                alarmText.text = "Agency Assault";
-                break;
-            case 3:
-                alarmText.text = "Military Assault";
-                break;
+            mainFill.fillAmount = 0;
+            switch (stageNo)
+            {
+                case 0:
+                    stageFill.fillAmount = 0.25f;
+                    alarmText.text = "Police Assault";
+                    break;
+                case 1:
+                    stageFill.fillAmount = 0.5f;
+                    alarmText.text = "SWAT Assault";
+                    break;
+                case 2:
+                    stageFill.fillAmount = 0.75f;
+                    alarmText.text = "Military Assault";
+                    break;
+                case 3:
+                    stageFill.fillAmount = 1;
+                    alarmText.text = "Deathwish";
+                    break;
+            }
         }
     }
 }

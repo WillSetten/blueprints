@@ -82,7 +82,7 @@ public class EnemyController : MonoBehaviour
                     {
                         alarmTimer = alarmTimer + Time.deltaTime;
                     }
-                    alarmBar.updateFill(new Vector3(alarmTimer*5, 200, 64));
+                    alarmBar.updateFill(alarmTimer/40);
                 }
                 else
                 {
@@ -110,13 +110,13 @@ public class EnemyController : MonoBehaviour
             else if (hasDetectedaPlayerUnit)
             {
                 alarmTimer = alarmTimer + Time.deltaTime;
-                alarmBar.updateFill(new Vector3(alarmTimer * 40, 200, 64));
+                alarmBar.updateFill(alarmTimer / 5);
             }
             //if the unit has not detected a player unit and the alarm is above zero, decrease the alarm timer
             else if (!hasDetectedaPlayerUnit && alarmTimer > 0)
             {
                 alarmTimer = alarmTimer - Time.deltaTime;
-                alarmBar.updateFill(new Vector3(alarmTimer*40, 200, 64));
+                alarmBar.updateFill(alarmTimer / 5);
             }
         }
     }

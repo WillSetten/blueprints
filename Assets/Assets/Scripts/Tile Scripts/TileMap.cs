@@ -33,6 +33,7 @@ public class TileMap : MonoBehaviour
     private Unit[] containedUnits; //The units inside the selection square
     public AudioClip handCuffSound;
     public UIHandler UIhandler;
+    public bool gameOver;
 
     //Initialisation
     private void Start()
