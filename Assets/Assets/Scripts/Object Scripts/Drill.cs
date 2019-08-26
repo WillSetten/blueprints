@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Drill : MonoBehaviour
 {
     public GameObject drill;
     public GameObject drillArea;
-    public bool drillWorking;
     TileMap map;
     public Vault vault;
     private float drillTime=15;
+    private float setupTime = 2;
+    private float timer = 0;
+    public Image loadCircle;
 
     // Start is called before the first frame update
     void Start()
@@ -35,12 +38,18 @@ public class Drill : MonoBehaviour
         drill.GetComponent<SpriteRenderer>().color = Color.white;
         drill.GetComponent<Rigidbody2D>().simulated = true;
         drillArea.GetComponent<SpriteRenderer>().color = Color.clear;
+        loadCircle.color = Color.clear;
         StartCoroutine(drillTimer());
     }
 
     public IEnumerator setupDrill()
     {
-        yield return new WaitForSeconds(5);
+        while (timer < setupTime)
+        {
+            timer = timer + Time.deltaTime;
+            loadCircle.fillAmount = timer / setupTime;
+            yield return null;
+        }
         beginDrilling();
     }
 

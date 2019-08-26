@@ -174,6 +174,7 @@ public class Unit : MonoBehaviour
             detectionIndicator.spriteRenderer.color = Color.clear;
         }
         spriteRenderer.sortingLayerName = "UnderUnits";
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0.5f);
     }
 
     public void togglePause()
@@ -533,7 +534,7 @@ public class Unit : MonoBehaviour
             //Debug.Log(name + " LOS has collided with object with tag " + sightTest.collider.tag);
             return false;
         }
-        return true;
+        return false;
     }
 
     private bool hasLOS(GameObject u)

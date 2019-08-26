@@ -47,7 +47,7 @@ public class Tile : MonoBehaviour
         //If there is a unit over this tile
         else
         {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll((Vector2)transform.position, 0.5f, LayerMask.GetMask("EnemyUnits", "PlayerUnits", "CivilianUnits", "Loot", "Vehicles", "Vault"));
+            Collider2D[] colliders = Physics2D.OverlapCircleAll((Vector2)transform.position, 0.5f, LayerMask.GetMask("EnemyUnits", "PlayerUnits", "CivilianUnits", "Loot", "Objects"));
             foreach (Collider2D collider in colliders) {
                     //If there is a unit on the tile
                     if (collider.GetComponent<Unit>()) {
@@ -77,7 +77,7 @@ public class Tile : MonoBehaviour
     //Returns true if there is an object on the tile
     public bool isTileOccupied()
     {
-        if(Physics2D.OverlapCircleAll((Vector2)transform.position, 0.1f, LayerMask.GetMask("EnemyUnits", "PlayerUnits", "CivilianUnits", "Loot", "Vehicles", "Vault")).Length == 0)
+        if(Physics2D.OverlapCircleAll((Vector2)transform.position, 0.1f, LayerMask.GetMask("EnemyUnits", "PlayerUnits", "CivilianUnits", "Loot", "Objects")).Length == 0)
         {
             return false;
         }

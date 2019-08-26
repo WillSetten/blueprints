@@ -24,7 +24,7 @@ TagManager:
   - EnemyBullets
   - Loot
   - CivilianUnits
-  - Vehicles
+  - Objects
   - Vault
   - InteractionObjects
   - 
