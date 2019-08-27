@@ -42,7 +42,7 @@ public class Unit : MonoBehaviour
     public AudioClip bulletSound;
     public bool isLarge; //If the unit is large and blocks the tile it is on
     public bool isDead=false;
-    public bool inRangeOfSelectedUnit=false;
+    public bool inDetainRange=false;
     //Initialization
     private void Start()
     {
@@ -103,7 +103,7 @@ public class Unit : MonoBehaviour
         else if (!selectable&&!combatant)
         {
             //If the unit is not already detained and is in range of a selected unit,
-            if (!detained && inRangeOfSelectedUnit && detainTimer>detainTimerMax)
+            if (!detained && inDetainRange && detainTimer>detainTimerMax)
             {
                 map.detainUnit(this);
                 playSound(map.handCuffSound);
@@ -368,7 +368,7 @@ public class Unit : MonoBehaviour
             //If this unit is a civilian and there are no nearby player units, set the inrangeofselected unit variable to be false and return
             if (!selectable && !combatant)
             {
-                inRangeOfSelectedUnit = false;
+                inDetainRange = false;
             }
             return;
         }
@@ -384,7 +384,7 @@ public class Unit : MonoBehaviour
                     {
                         //Debug.Log(name + " can attack " + u.name);
                         Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
-                        if (currentState!=state.Moving) {
+                        if (currentState!=state.Moving && combatant) {
                             currentState = state.Attacking;
                             animator.SetBool("Attacking", true);
                     }
@@ -432,8 +432,8 @@ public class Unit : MonoBehaviour
             //If this unit is a player combatant and can see a civilian
             if (selectable&&combatant&&!u.combatant&&!u.selectable&&!u.detained)
             {
-                if (!u.inRangeOfSelectedUnit && Vector3.Distance(u.transform.position,transform.position) < interactionRadius/2) {
-                    u.inRangeOfSelectedUnit = true;
+                if (!u.inDetainRange && Vector3.Distance(u.transform.position,transform.position) < interactionRadius/2) {
+                    u.inDetainRange = true;
                 }
                 //Debug.Log("Unit " + name + "has civilian " + u.name + " in range");
             }
@@ -579,8 +579,10 @@ public class Unit : MonoBehaviour
 
     void manageDetainTimer()
     {
-        if (inRangeOfSelectedUnit && !detained)
+        //If this unit is in detain range and is not already detained
+        if (inDetainRange && !detained)
         {
+            //If the detain timer has reached its max value, show the handcuff icon and dont show the other icons
             if (detainTimer>detainTimerMax)
             {
                 GetComponentInChildren<HandCuffIcon>().spriteRenderer.color = Color.white;
@@ -593,6 +595,7 @@ public class Unit : MonoBehaviour
                     currentPath.Add(node);
                 }
             }
+            //If the detain timer is under its max value, increase it
             else
             {
                 GetComponentInChildren<HandCuffIcon>().spriteRenderer.color = Color.clear;
@@ -601,6 +604,7 @@ public class Unit : MonoBehaviour
                 detainTimer = detainTimer + Time.deltaTime;
             }
         }
+        //If this unit is not in detain range
         else
         {
             if (detainTimer>0) {

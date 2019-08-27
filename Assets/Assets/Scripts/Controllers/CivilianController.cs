@@ -31,7 +31,7 @@ public class CivilianController : MonoBehaviour
             hasDetectedaPlayerUnit = false;
             foreach (Unit u in units)
             {
-                if (!u.detained && !u.inRangeOfSelectedUnit) {
+                if (!u.detained && !u.inDetainRange) {
                     //If the civilian is in a civilian escape zone
                     if ((u.tileX<2 && u.tileY < 2) || (u.tileX > map.mapSizeX-3 && u.tileY > map.mapSizeY-3))
                     {
@@ -40,20 +40,8 @@ public class CivilianController : MonoBehaviour
                         units.Remove(u);
                         Destroy(u.gameObject);
                     }
-                    if (alarm)
-                    {
-                        if (u.currentState != Unit.state.Moving) {
-                            if (u.detectedPlayerUnit) {
-                                map.GeneratePathTo(0, 0, u);
-                            }
-                            else
-                            {
-                                map.GeneratePathTo(map.mapSizeX - 1, map.mapSizeY - 1, u);
-                            }
-                        }
-                    }
                     //If the alarm could be raised in this update, make this variable true
-                    else if (u.detectedPlayerUnit)
+                    if (u.detectedPlayerUnit)
                     {
                         //If the unit has detected a player unit
                         hasDetectedaPlayerUnit = true;
@@ -71,6 +59,20 @@ public class CivilianController : MonoBehaviour
                             else
                             {
                                 map.GeneratePathTo(nearestGuard.tileX, nearestGuard.tileY, u);
+                            }
+                        }
+                    }
+                    else if (alarm)
+                    {
+                        if (u.currentState != Unit.state.Moving)
+                        {
+                            if (u.detectedPlayerUnit)
+                            {
+                                map.GeneratePathTo(0, 0, u);
+                            }
+                            else
+                            {
+                                map.GeneratePathTo(map.mapSizeX - 1, map.mapSizeY - 1, u);
                             }
                         }
                     }

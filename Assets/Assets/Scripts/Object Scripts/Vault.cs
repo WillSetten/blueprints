@@ -19,7 +19,7 @@ public class Vault : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (drill.unitInDrillArea()) {
+        if (drill.unitInDrillArea().currentState == Unit.state.Idle) {
             StartCoroutine(drill.setupDrill());
         }
     }

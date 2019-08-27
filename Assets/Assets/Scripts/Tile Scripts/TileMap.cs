@@ -33,7 +33,6 @@ public class TileMap : MonoBehaviour
     private Unit[] containedUnits; //The units inside the selection square
     public AudioClip handCuffSound;
     public UIHandler UIhandler;
-    public bool gameOver;
 
     //Initialisation
     private void Start()
@@ -93,39 +92,12 @@ public class TileMap : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             Debug.Log("Space Pressed");
-            if(paused)
-            {
-                //If game is getting unpaused, start up all unit animations again
-                paused = false;
-                viewingCamera.SetReplacementShader(blueprintShader, "blueprint");
-                foreach (GameObject u in units)
-                {
-                    u.GetComponent<Unit>().togglePause();
-                }
-                foreach(Door door in doors)
-                {
-                    door.togglePause(paused);
-                }
-                enemyController.togglePause();
-                civilianController.togglePause();
-                UIhandler.togglePause(paused);
+            if (paused) {
+                togglePause(false);
             }
             else
             {
-                //If game is getting paused, stop all unit animations
-                paused = true;
-                viewingCamera.ResetReplacementShader();
-                foreach (GameObject u in units)
-                {
-                    u.GetComponent<Unit>().togglePause();
-                }
-                foreach (Door door in doors)
-                {
-                    door.togglePause(paused);
-                }
-                enemyController.togglePause();
-                civilianController.togglePause();
-                UIhandler.togglePause(paused);
+                togglePause(true);
             }
         }
         if (Input.GetKeyUp(KeyCode.Alpha1)|| Input.GetKeyUp(KeyCode.Keypad1))
@@ -669,7 +641,7 @@ public class TileMap : MonoBehaviour
         Debug.Log(name + " has been detained");
         unit.detained = true;
         unit.selectable = true;
-        unit.inRangeOfSelectedUnit = false;
+        unit.inDetainRange = false;
         if (unit.GetComponentInChildren<DetectionIndicator>())
         {
             unit.GetComponentInChildren<DetectionIndicator>().spriteRenderer.color = Color.clear;
@@ -685,5 +657,56 @@ public class TileMap : MonoBehaviour
         unit.selectable = false;
         UIhandler.decrementHostageCount();
         units.Remove(unit.gameObject);
+    }
+
+    public void gameOver(bool win)
+    {
+        togglePause(true);
+        if (win)
+        {
+
+        }
+        else
+        {
+
+        }
+    }
+
+    public void togglePause(bool pause)
+    {
+        if (!pause)
+        {
+            //If game is getting unpaused, start up all unit animations again
+            paused = false;
+            viewingCamera.SetReplacementShader(blueprintShader, "blueprint");
+            foreach (GameObject u in units)
+            {
+                u.GetComponent<Unit>().togglePause();
+            }
+            foreach (Door door in doors)
+            {
+                door.togglePause(paused);
+            }
+            enemyController.togglePause();
+            civilianController.togglePause();
+            UIhandler.togglePause(paused);
+        }
+        else
+        {
+            //If game is getting paused, stop all unit animations
+            paused = true;
+            viewingCamera.ResetReplacementShader();
+            foreach (GameObject u in units)
+            {
+                u.GetComponent<Unit>().togglePause();
+            }
+            foreach (Door door in doors)
+            {
+                door.togglePause(paused);
+            }
+            enemyController.togglePause();
+            civilianController.togglePause();
+            UIhandler.togglePause(paused);
+        }
     }
 }
