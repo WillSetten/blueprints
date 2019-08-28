@@ -31,38 +31,46 @@ public class CivilianController : MonoBehaviour
             hasDetectedaPlayerUnit = false;
             foreach (Unit u in units)
             {
-                if (!u.detained && !u.inDetainRange) {
-                    //If the civilian is in a civilian escape zone
-                    if ((u.tileX<2 && u.tileY < 2) || (u.tileX > map.mapSizeX-3 && u.tileY > map.mapSizeY-3))
+                if (!u.detained) {
+                    if (!u.inDetainRange && !alarm)
                     {
-                        map.tiles[u.tileX, u.tileY].occupied = false;
-                        map.tiles[u.tileX, u.tileY].isDestination = false;
-                        units.Remove(u);
-                        Destroy(u.gameObject);
-                    }
-                    //If the alarm could be raised in this update, make this variable true
-                    if (u.detectedPlayerUnit)
-                    {
-                        //If the unit has detected a player unit
-                        hasDetectedaPlayerUnit = true;
-
-                        //If the unit has detected a player unit
-                        Unit nearestGuard = FindNearestGuard(u);
-                        if (nearestGuard != null && u.currentState == Unit.state.Idle)
+                        //If the civilian is in a civilian escape zone
+                        if ((u.tileX < 2 && u.tileY < 2) || (u.tileX > map.mapSizeX - 3 && u.tileY > map.mapSizeY - 3))
                         {
-                            //and this civilian is close enough to raise the detection of the guard, raise it
-                            if (Vector3.Distance(u.transform.position, nearestGuard.transform.position) < 2)
+                            map.tiles[u.tileX, u.tileY].occupied = false;
+                            map.tiles[u.tileX, u.tileY].isDestination = false;
+                            units.Remove(u);
+                            Destroy(u.gameObject);
+                        }
+                        //If the alarm could be raised in this update, make this variable true
+                        if (u.detectedPlayerUnit)
+                        {
+                            //If the unit has detected a player unit
+                            hasDetectedaPlayerUnit = true;
+
+                            //If the unit has detected a player unit
+                            Unit nearestGuard = FindNearestGuard(u);
+                            if (nearestGuard != null && u.currentState == Unit.state.Idle)
                             {
-                                nearestGuard.increaseDetectionTimer(8);
-                            }
-                            //and this civilian is too far away to warn the guard, move towards it
-                            else
-                            {
-                                map.GeneratePathTo(nearestGuard.tileX, nearestGuard.tileY, u);
+                                //and this civilian is close enough to raise the detection of the guard, raise it
+                                if (Vector3.Distance(u.transform.position, nearestGuard.transform.position) < 2)
+                                {
+                                    nearestGuard.increaseDetectionTimer(8);
+                                }
+                                //and this civilian is too far away to warn the guard, move towards it
+                                else
+                                {
+                                    map.GeneratePathTo(nearestGuard.tileX, nearestGuard.tileY, u);
+                                }
                             }
                         }
+                        //If no enemies have been detected and the alarm is not on, tell the units to just mill around the room a bit
+                        else if (u.currentState == Unit.state.Idle)
+                        {
+                            manageTimer(u);
+                        }
                     }
-                    else if (alarm)
+                    else
                     {
                         if (u.currentState != Unit.state.Moving)
                         {
@@ -75,11 +83,6 @@ public class CivilianController : MonoBehaviour
                                 map.GeneratePathTo(map.mapSizeX - 1, map.mapSizeY - 1, u);
                             }
                         }
-                    }
-                    //If no enemies have been detected and the alarm is not on, tell the units to just mill around the room a bit
-                    else if (u.currentState == Unit.state.Idle)
-                    {
-                        manageTimer(u);
                     }
                 }
             }
@@ -132,11 +135,11 @@ public class CivilianController : MonoBehaviour
         Unit nearestUnit=null;
         foreach (Unit guard in map.enemyController.units)
         {
-            if (nearestUnit == null && !guard.detectedPlayerUnit)
+            if (nearestUnit == null)
             {
                 nearestUnit = guard;
             }
-            else if (Vector3.Distance(unit.transform.position, guard.transform.position) < Vector3.Distance(unit.transform.position, nearestUnit.transform.position) && !guard.detectedPlayerUnit)
+            else if (!guard.detectedPlayerUnit || Vector3.Distance(unit.transform.position, guard.transform.position) < Vector3.Distance(unit.transform.position, nearestUnit.transform.position) && !guard.detectedPlayerUnit)
             {
                 nearestUnit = guard;
             }

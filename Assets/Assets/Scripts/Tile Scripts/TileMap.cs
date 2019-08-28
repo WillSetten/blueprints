@@ -641,7 +641,6 @@ public class TileMap : MonoBehaviour
         Debug.Log(name + " has been detained");
         unit.detained = true;
         unit.selectable = true;
-        unit.inDetainRange = false;
         if (unit.GetComponentInChildren<DetectionIndicator>())
         {
             unit.GetComponentInChildren<DetectionIndicator>().spriteRenderer.color = Color.clear;
@@ -655,6 +654,10 @@ public class TileMap : MonoBehaviour
         Debug.Log(name + " has been freed");
         unit.detained = false;
         unit.selectable = false;
+        if (unit.selected)
+        {
+            deselectUnit(unit.gameObject);
+        }
         UIhandler.decrementHostageCount();
         units.Remove(unit.gameObject);
     }

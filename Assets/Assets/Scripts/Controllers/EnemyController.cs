@@ -51,7 +51,7 @@ public class EnemyController : MonoBehaviour
                     {
                         Unit playerUnit = g.GetComponent<Unit>();
                         //If the unit has detected a player unit, get in line of sight of the player unit and attack
-                        if (unit.combatant && Vector2.Distance(new Vector2(unit.tileX,unit.tileY), new Vector2(playerUnit.tileX,playerUnit.tileY))>unit.interactionRadius && !unit.hasBulletLOS(g) && 
+                        if (Vector2.Distance(new Vector2(unit.tileX,unit.tileY), new Vector2(playerUnit.tileX,playerUnit.tileY))>unit.interactionRadius && !unit.hasBulletLOS(g) && 
                             playerUnit.isDetected) {
 
                             map.GeneratePathTo(playerUnit.tileX, playerUnit.tileY, unit);

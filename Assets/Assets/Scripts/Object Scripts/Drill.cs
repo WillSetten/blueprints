@@ -7,6 +7,8 @@ public class Drill : MonoBehaviour
 {
     public GameObject drill;
     public GameObject drillArea;
+    AudioSource audioSource;
+    public AudioClip drillSound;
     TileMap map;
     public Vault vault;
     private float drillTime=15;
@@ -19,6 +21,7 @@ public class Drill : MonoBehaviour
     {
         drill.GetComponent<SpriteRenderer>().color = Color.clear;
         map = GetComponentInParent<TileMap>();
+        audioSource = GetComponentInChildren<AudioSource>();
     }
 
     //Returns true if there are units present in the drill area

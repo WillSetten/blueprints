@@ -43,6 +43,7 @@ public class Unit : MonoBehaviour
     public bool isLarge; //If the unit is large and blocks the tile it is on
     public bool isDead=false;
     public bool inDetainRange=false;
+    public bool inFreeRange=false;
     //Initialization
     private void Start()
     {
@@ -147,10 +148,7 @@ public class Unit : MonoBehaviour
                 animator.SetFloat("Move X", directionX);
                 animator.SetFloat("Move Y", directionY);
             }
-            if (!combatant&&!selectable)
-            {
-                manageDetainTimer();
-            }
+            manageDetainTimer();
             //Detect any nearby units and perform the appropriate action
             detectNearbyUnits();
             //If health is zero (or somehow below)
@@ -308,9 +306,20 @@ public class Unit : MonoBehaviour
         //This foreach loop trims the close units into units that the unit can actually see
         foreach (Collider2D c in closeUnits)
         {
-            //If the unit has a line of sight to the unit and that unit is not on the same team, add to seen units
-            if (hasLOS(c.gameObject)&&((!c.GetComponent<Unit>().selectable && selectable)|| (c.GetComponent<Unit>().selectable && !selectable))) {
-                seenUnits.Add(c);
+            //If there is a line of sight
+            if (hasLOS(c.gameObject))
+            {
+                //If this unit is a combatant and the seen unit is not on the same team or is a civilian, add to seen units
+                if (combatant && (!c.GetComponent<Unit>().combatant || (!c.GetComponent<Unit>().selectable && selectable) || (c.GetComponent<Unit>().selectable && !selectable)))
+                {
+                    seenUnits.Add(c);
+                }
+                //If this unit is a civilian, add all close units with a line of sight to seen units
+                else if (!combatant)
+                {
+                    seenUnits.Add(c);
+                }
+
             }
         }
         Unit u = null;
@@ -365,29 +374,37 @@ public class Unit : MonoBehaviour
                 detectionTimer = detectionTimer - Time.deltaTime;
                 detectionIndicator.animator.SetFloat("DetectionLevel", detectionTimer / detectionTimerMax);
             }
-            //If this unit is a civilian and there are no nearby player units, set the inrangeofselected unit variable to be false and return
-            if (!selectable && !combatant)
+            //If this unit is a hostage and there are no nearby enemy units, set in free range to be false
+            if (!combatant && selectable)
+            {
+                inFreeRange = false;
+            }
+            //If this unit is a civilian and there are no nearby player units, set in free range to be false
+            if(!combatant && !selectable)
             {
                 inDetainRange = false;
             }
             return;
         }
 
+        bool stillInFreeRange = false;
+        bool stillInDetainRange = false;
+        //For each unit in range of this unit
         foreach (Collider2D c in seenUnits)
         {
             u = c.gameObject.GetComponent<Unit>();
             //If the unit in range is a combatant, attempt to attack if this unit is also idle
-            if (u.combatant && currentState!=state.Attacking)
+            if (u.combatant && (selectable&&!u.selectable||!selectable&&u.selectable) && currentState!=state.Attacking)
             {
                     //CODE FOR COMBATANT PLAYER UNITS
-                    if (selectable)
+                    if (combatant && selectable)
                     {
                         //Debug.Log(name + " can attack " + u.name);
                         Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
                         if (currentState!=state.Moving && combatant) {
                             currentState = state.Attacking;
                             animator.SetBool("Attacking", true);
-                    }
+                        }
                     }
                     //CODE FOR COMBATANT AI UNITS
                     else
@@ -429,19 +446,24 @@ public class Unit : MonoBehaviour
                         }
                     }
             }
-            //If this unit is a player combatant and can see a civilian
-            if (selectable&&combatant&&!u.combatant&&!u.selectable&&!u.detained)
+            //If this unit is a civilian
+            if (!combatant && u.combatant)
             {
-                if (!u.inDetainRange && Vector3.Distance(u.transform.position,transform.position) < interactionRadius/2) {
-                    u.inDetainRange = true;
+                //If the nearby unit is an enemy unit that is in range
+                if (!u.selectable && detained && Vector3.Distance(u.transform.position, transform.position) <= u.interactionRadius / 2)
+                {
+                    stillInFreeRange = true;
                 }
-                //Debug.Log("Unit " + name + "has civilian " + u.name + " in range");
-            }
-            //if this unit is a civilian and can see a player combatant
-            if (!selectable && !detained && !combatant && u.selectable && u.combatant)
-            {
+                //If the nearby unit is a player unit that is in range
+                if (u.selectable && Vector3.Distance(u.transform.position, transform.position) <= u.interactionRadius / 2)
+                {
+                    stillInDetainRange = true;
+                }
             }
         }
+
+        inDetainRange = stillInDetainRange;
+        inFreeRange = stillInFreeRange;
     }
 
     public void increaseDetectionTimer(float rate)
@@ -579,38 +601,64 @@ public class Unit : MonoBehaviour
 
     void manageDetainTimer()
     {
-        //If this unit is in detain range and is not already detained
-        if (inDetainRange && !detained)
+        if (!combatant)
         {
-            //If the detain timer has reached its max value, show the handcuff icon and dont show the other icons
-            if (detainTimer>detainTimerMax)
+            //If this unit is in detain range and is not already detained
+            if (!inFreeRange && inDetainRange && !detained)
             {
-                GetComponentInChildren<HandCuffIcon>().spriteRenderer.color = Color.white;
-                GetComponentInChildren<DetectionIndicator>().spriteRenderer.color = Color.clear;
-                GetComponentInChildren<DetainBar>().spriteRenderer.color = Color.clear;
-                if (currentPath!=null)
+                //If the detain timer has reached its max value, show the handcuff icon and dont show the other icons
+                if (detainTimer > detainTimerMax)
                 {
-                    Node node = currentPath[0];
-                    currentPath.Clear();
-                    currentPath.Add(node);
+                    GetComponentInChildren<HandCuffIcon>().spriteRenderer.color = Color.white;
+                    GetComponentInChildren<DetectionIndicator>().spriteRenderer.color = Color.clear;
+                    GetComponentInChildren<DetainBar>().spriteRenderer.color = Color.clear;
+                    if (currentPath != null)
+                    {
+                        Node node = currentPath[0];
+                        currentPath.Clear();
+                        currentPath.Add(node);
+                    }
+                }
+                //If the detain timer is under its max value, increase it
+                else
+                {
+                    GetComponentInChildren<HandCuffIcon>().spriteRenderer.color = Color.clear;
+                    GetComponentInChildren<DetectionIndicator>().spriteRenderer.color = Color.white;
+                    GetComponentInChildren<DetainBar>().spriteRenderer.color = Color.white;
+                    detainTimer = detainTimer + Time.deltaTime;
                 }
             }
-            //If the detain timer is under its max value, increase it
-            else
+            //If this unit can be freed and is detained
+            else if (!inDetainRange && inFreeRange && detained)
             {
-                GetComponentInChildren<HandCuffIcon>().spriteRenderer.color = Color.clear;
-                GetComponentInChildren<DetectionIndicator>().spriteRenderer.color = Color.white;
-                GetComponentInChildren<DetainBar>().spriteRenderer.color = Color.white;
-                detainTimer = detainTimer + Time.deltaTime;
+                if (detainTimer > 0)
+                {
+                    GetComponentInChildren<DetainBar>().spriteRenderer.color = Color.white;
+                    detainTimer = detainTimer - Time.deltaTime;
+                }
+                //If the unit has been freed, add it back to the civilian controller list
+                else
+                {
+                    GetComponentInChildren<HandCuffIcon>().spriteRenderer.color = Color.clear;
+                    map.freeUnit(this);
+                    map.civilianController.units.Add(this);
+                }
             }
-        }
-        //If this unit is not in detain range
-        else
-        {
-            if (detainTimer>0) {
-                GetComponentInChildren<HandCuffIcon>().spriteRenderer.color = Color.clear;
-                GetComponentInChildren<DetainBar>().spriteRenderer.color = Color.white;
-                detainTimer = detainTimer - Time.deltaTime;
+            //If there is a player unit in range of a hostage, the hostage cannot be freed
+            else if (inDetainRange && detained)
+            {
+                detainTimer = detainTimerMax;
+                GetComponentInChildren<DetainBar>().spriteRenderer.color = Color.clear;
+            }
+            //If this unit is not in detain range
+            else if(!inFreeRange && !inDetainRange && !detained)
+            {
+                if (detainTimer > 0)
+                {
+                    GetComponentInChildren<HandCuffIcon>().spriteRenderer.color = Color.clear;
+                    GetComponentInChildren<DetainBar>().spriteRenderer.color = Color.white;
+                    detainTimer = detainTimer - Time.deltaTime;
+                }
             }
         }
     }
