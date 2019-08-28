@@ -650,8 +650,8 @@ public class Unit : MonoBehaviour
                 detainTimer = detainTimerMax;
                 GetComponentInChildren<DetainBar>().spriteRenderer.color = Color.clear;
             }
-            //If this unit is not in detain range
-            else if(!inFreeRange && !inDetainRange && !detained)
+            //If this unit is not in detain or free range and is not detained, decrease the timer
+            else if (!inFreeRange && !inDetainRange && !detained)
             {
                 if (detainTimer > 0)
                 {

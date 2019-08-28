@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1006508965519217114}
   - component: {fileID: 3909926561386931782}
   - component: {fileID: 8300259727363186116}
-  m_Layer: 15
+  m_Layer: 14
   m_Name: Vault Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ Rigidbody2D:
   m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 100
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -271,6 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vaultOpen: {fileID: 8300000, guid: f9829e1a603cb8c49bd3045d5e892b60, type: 3}
+  drill: {fileID: 0}
 --- !u!61 &7243289983450832792
 BoxCollider2D:
   m_ObjectHideFlags: 0

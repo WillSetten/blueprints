@@ -32,18 +32,34 @@ public class CivilianController : MonoBehaviour
             foreach (Unit u in units)
             {
                 if (!u.detained) {
-                    if (!u.inDetainRange && !alarm)
+                    //If the civilian is in a civilian escape zone
+                    if ((u.tileX < 2 && u.tileY < 2) || (u.tileX > map.mapSizeX - 3 && u.tileY > map.mapSizeY - 3))
                     {
-                        //If the civilian is in a civilian escape zone
-                        if ((u.tileX < 2 && u.tileY < 2) || (u.tileX > map.mapSizeX - 3 && u.tileY > map.mapSizeY - 3))
+                        map.tiles[u.tileX, u.tileY].occupied = false;
+                        map.tiles[u.tileX, u.tileY].isDestination = false;
+                        units.Remove(u);
+                        Destroy(u.gameObject);
+                    }
+                    if (alarm && !u.inDetainRange)
+                    {
+                        if (u.currentState != Unit.state.Moving)
                         {
-                            map.tiles[u.tileX, u.tileY].occupied = false;
-                            map.tiles[u.tileX, u.tileY].isDestination = false;
-                            units.Remove(u);
-                            Destroy(u.gameObject);
+                            if (u.detectedPlayerUnit)
+                            {
+                                map.GeneratePathTo(0, 0, u);
+                            }
+                            else
+                            {
+                                map.GeneratePathTo(map.mapSizeX - 1, map.mapSizeY - 1, u);
+                            }
+                            map.tiles[0, 0].isDestination = false;
+                            map.tiles[map.mapSizeX - 1, map.mapSizeY - 1].isDestination = false;
                         }
+                    }
+                    else if (!u.inDetainRange)
+                    {
                         //If the alarm could be raised in this update, make this variable true
-                        if (u.detectedPlayerUnit)
+                        if (u.detectedPlayerUnit && !alarm)
                         {
                             //If the unit has detected a player unit
                             hasDetectedaPlayerUnit = true;
@@ -68,20 +84,6 @@ public class CivilianController : MonoBehaviour
                         else if (u.currentState == Unit.state.Idle)
                         {
                             manageTimer(u);
-                        }
-                    }
-                    else
-                    {
-                        if (u.currentState != Unit.state.Moving)
-                        {
-                            if (u.detectedPlayerUnit)
-                            {
-                                map.GeneratePathTo(0, 0, u);
-                            }
-                            else
-                            {
-                                map.GeneratePathTo(map.mapSizeX - 1, map.mapSizeY - 1, u);
-                            }
                         }
                     }
                 }

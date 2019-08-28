@@ -17666,11 +17666,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 998382919070091591, guid: 652a8f8aaa8d5bd4c849c6f093f16ac8,
-        type: 3}
-      propertyPath: m_Layer
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 6903121961584361163, guid: 652a8f8aaa8d5bd4c849c6f093f16ac8,
         type: 3}
       propertyPath: m_Constraints
@@ -17701,11 +17696,21 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.y
       value: 0.004247719
       objectReference: {fileID: 0}
+    - target: {fileID: 163936439509154394, guid: 652a8f8aaa8d5bd4c849c6f093f16ac8,
+        type: 3}
+      propertyPath: m_UseLimits
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 609912640387393295, guid: 652a8f8aaa8d5bd4c849c6f093f16ac8,
         type: 3}
       propertyPath: drill
       value: 
       objectReference: {fileID: 5348941053797504303}
+    - target: {fileID: 8300259727363186116, guid: 652a8f8aaa8d5bd4c849c6f093f16ac8,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3893237463067995496, guid: 652a8f8aaa8d5bd4c849c6f093f16ac8, type: 3}
     - {fileID: 5815487909060528267, guid: 652a8f8aaa8d5bd4c849c6f093f16ac8, type: 3}

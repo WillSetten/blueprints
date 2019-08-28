@@ -416,7 +416,7 @@ public class TileMap : MonoBehaviour
             Node last = unit.currentPath[unit.currentPath.Count - 1];
             tiles[last.x, last.y].occupied = false;
             //If the unit is currently not moving in the correct direction
-            if (unit.currentPath[0] != currentPath[1])
+            if (unit.currentPath[0] != currentPath[1] && !isAdjacent(unit.currentPath[0].x, unit.currentPath[0].y, currentPath[1].x, currentPath[1].y))
             {
                 currentPath.Reverse();
                 currentPath.Add(unit.currentPath[0]);
@@ -711,5 +711,36 @@ public class TileMap : MonoBehaviour
             civilianController.togglePause();
             UIhandler.togglePause(paused);
         }
+    }
+
+    //Used to find if two squares are adjacent
+    public bool isAdjacent(int x1, int y1, int x2, int y2)
+    {
+        //If the square is adjacent vertically return true
+        if (x1==x2)
+        {
+            if (y1 == y2+1 || y1 == y2-1)
+            {
+                return true;
+            }
+        }
+        //If the square is adjacent horizontally return true
+        if (y1 == y2)
+        {
+            if (x1 == x2 + 1 || x1 == x2 - 1)
+            {
+                return true;
+            }
+        }
+        //If the square adjacent diagonally return true
+        if (x1 == x2+1 || x1 == x2 + 1)
+        {
+            if (y1 == y2+1 || y1 == y2-1)
+            {
+                return true;
+            }
+        }
+        //else return false
+        return false;
     }
 }
