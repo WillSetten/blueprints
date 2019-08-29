@@ -26,7 +26,7 @@ public class Tile : MonoBehaviour
         {
             Debug.Log("Clicked on Tile " + tileX + "," + tileY);
         }*/
-        if (Input.GetMouseButtonDown(1) && this!=map.lastSelectedTile)
+        if (Input.GetMouseButtonDown(1) && this!=map.lastSelectedTile && !map.gameDone)
         {
                 foreach(GameObject u in map.selectedUnits)
                 {

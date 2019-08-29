@@ -139,6 +139,10 @@ public class Unit : MonoBehaviour
                     Debug.DrawLine(start, end);
                     currNode = currNode + 1;
                 }
+                if (combatant)
+                {
+                    animator.SetBool("Attacking", false);
+                }
                 MoveNextTile();
             }
             if (currentState == state.Idle)
@@ -414,11 +418,12 @@ public class Unit : MonoBehaviour
                         {
                             //Debug.Log(name + " can attack " + u.name);
                             Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
-                            if (currentState != state.Moving)
+                            if (currentState == state.Moving)
                             {
-                                currentState = state.Attacking;
-                                animator.SetBool("Attacking", true);
+                                u.stopUnit();
                             }
+                            currentState = state.Attacking;
+                            animator.SetBool("Attacking", true);
                         }
                         //Increase the detection timer
                         else
@@ -549,6 +554,10 @@ public class Unit : MonoBehaviour
         if (sightTest.collider == null)
         {
             //Debug.Log(name + " LOS hasn't collided with anything");
+            if (!selectable && combatant && currentPath!=null)
+            {
+                stopUnit();
+            }
             return true;
         }
         if(sightTest.collider.CompareTag("Wall") || sightTest.collider.CompareTag("Door") || sightTest.collider.CompareTag("Civilian"))
@@ -661,5 +670,10 @@ public class Unit : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void stopUnit()
+    {
+        map.GeneratePathTo(currentPath[0].x, currentPath[0].y, this);
     }
 }

@@ -30,7 +30,6 @@ public class Vault : MonoBehaviour
         {
             open = true;
             hinge.useMotor = true;
-            GetComponentInChildren<Rigidbody2D>().freezeRotation = false;
             audioSource.PlayOneShot(vaultOpen);
         }
     }

@@ -38,13 +38,8 @@ public class EnemyController : MonoBehaviour
             bool hasDetectedaPlayerUnit=false;
             foreach (Unit unit in units)
             {
-                //If the alarm could be raised in this update, make this variable true
-                if (unit.detectedPlayerUnit)
-                {
-                    hasDetectedaPlayerUnit = true;
-                }
                 //Move units if the alarm is on or if this specific unit has detected a player unit
-                if (timer > setTimer && (alarm||unit.detectedPlayerUnit))
+                if (alarm||unit.detectedPlayerUnit)
                 {
                     timer = 0;
                     foreach (GameObject g in map.units)
@@ -60,9 +55,10 @@ public class EnemyController : MonoBehaviour
                         }
                     }
                 }
-                else if(timer<setTimer)
+                //If the alarm could be raised in this update, make this variable true
+                if (unit.detectedPlayerUnit)
                 {
-                    timer = timer + Time.deltaTime;
+                    hasDetectedaPlayerUnit = true;
                 }
             }
             //If the alarm has gone off, the police will begin to close in on the bank. Slowly increment the alarm timer once again
@@ -103,7 +99,6 @@ public class EnemyController : MonoBehaviour
                 foreach (GameObject g in map.units) {
                     g.GetComponent<Unit>().isDetected = true;
                 }
-                map.civilianController.triggerAlarm();
                 triggerAlarm();
             }
             //if a unit has detected a player unit but the alarm has not been given enough time to go off, increase the alarm timer
@@ -129,6 +124,7 @@ public class EnemyController : MonoBehaviour
         {
             d.spriteRenderer.color = Color.clear;
         }
+        map.civilianController.triggerAlarm();
         nextStage();
     }
 

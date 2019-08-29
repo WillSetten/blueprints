@@ -42,6 +42,7 @@ public class Drill : MonoBehaviour
         drill.GetComponent<Rigidbody2D>().simulated = true;
         drillArea.GetComponent<SpriteRenderer>().color = Color.clear;
         loadCircle.color = Color.clear;
+        timer = 0;
         StartCoroutine(drillTimer());
     }
 
@@ -49,9 +50,16 @@ public class Drill : MonoBehaviour
     {
         while (timer < setupTime)
         {
-            timer = timer + Time.deltaTime;
+            if (!map.paused) {
+                timer = timer + Time.deltaTime;
+            }
             loadCircle.fillAmount = timer / setupTime;
             yield return null;
+        }
+        //If the alarm has not already been set off, set it off
+        if (!map.enemyController.alarm)
+        {
+            map.enemyController.triggerAlarm();
         }
         beginDrilling();
     }
@@ -66,7 +74,13 @@ public class Drill : MonoBehaviour
 
     IEnumerator drillTimer()
     {
-        yield return new WaitForSeconds(drillTime);
+        while (timer < drillTime) {
+            if (!map.paused)
+            {
+                timer = timer + Time.deltaTime;
+            }
+            yield return null;
+        }
         endDrilling();
     }
 }

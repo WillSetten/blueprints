@@ -51,7 +51,7 @@ public class Loot : MonoBehaviour
     {
             foreach (GameObject g in map.selectedUnits)
             {
-                if (isUnitAdjacent(g.GetComponent<Unit>()))
+                if (isUnitAdjacent(g.GetComponent<Unit>()) && g.GetComponent<Unit>().combatant)
                 {
                     //Debug.Log("Unit " + g.name + " is adjacent to " + gameObject.name);
                     //Set state of unit to looting

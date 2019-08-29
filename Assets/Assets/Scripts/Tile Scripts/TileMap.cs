@@ -33,6 +33,8 @@ public class TileMap : MonoBehaviour
     private Unit[] containedUnits; //The units inside the selection square
     public AudioClip handCuffSound;
     public UIHandler UIhandler;
+    public int aliveHeisters=0;
+    public bool gameDone=false;
 
     //Initialisation
     private void Start()
@@ -64,61 +66,71 @@ public class TileMap : MonoBehaviour
         rect = new Rect();
         viewingCamera.transform.parent.transform.position = new Vector3(units[0].transform.position.x, units[0].transform.position.y, -10);
 
+        foreach (GameObject u in units)
+        {
+            aliveHeisters++;
+        }
         setSelectedUnits(units);
     }
 
     private void Update()
     {
-        // Called while the user is holding the mouse down.
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (aliveHeisters == 0)
         {
-            // Called on the first update where the user has pressed the mouse button.
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-                srtBoxPos = Input.mousePosition;
-            else  // Else we must be in "drag" mode.
-                endBoxPos = Input.mousePosition;
+            gameOver(false);
         }
-        else
-        {
-            // Handle the case where the player had been drawing a box but has now released.
-            if (endBoxPos != Vector2.zero && srtBoxPos != Vector2.zero)
+        if (!gameDone) {
+            // Called while the user is holding the mouse down.
+            if (Input.GetKey(KeyCode.Mouse0))
             {
-                handleUnitSelection();
-                //Debug.Log("Start: " + srtBoxPos + ", End: " + endBoxPos);
-            }
-            // Reset box positions.
-            endBoxPos = srtBoxPos = Vector2.zero;
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            Debug.Log("Space Pressed");
-            if (paused) {
-                togglePause(false);
+                // Called on the first update where the user has pressed the mouse button.
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                    srtBoxPos = Input.mousePosition;
+                else  // Else we must be in "drag" mode.
+                    endBoxPos = Input.mousePosition;
             }
             else
             {
-                togglePause(true);
+                // Handle the case where the player had been drawing a box but has now released.
+                if (endBoxPos != Vector2.zero && srtBoxPos != Vector2.zero)
+                {
+                    handleUnitSelection();
+                    //Debug.Log("Start: " + srtBoxPos + ", End: " + endBoxPos);
+                }
+                // Reset box positions.
+                endBoxPos = srtBoxPos = Vector2.zero;
             }
-        }
-        if (Input.GetKeyUp(KeyCode.Alpha1)|| Input.GetKeyUp(KeyCode.Keypad1))
-        {
-            Debug.Log("1 pressed");
-            setSelectedUnit(units[0]);
-        }
-        if (Input.GetKeyUp(KeyCode.Alpha2) || Input.GetKeyUp(KeyCode.Keypad2) && (units.Count>1))
-        {
-            Debug.Log("2 pressed");
-            setSelectedUnit(units[1]);
-        }
-        if (Input.GetKeyUp(KeyCode.Alpha3) || Input.GetKeyUp(KeyCode.Keypad3) && (units.Count > 2))
-        {
-            Debug.Log("3 pressed");
-            setSelectedUnit(units[2]);
-        }
-        if (Input.GetKeyUp(KeyCode.Alpha4) || Input.GetKeyUp(KeyCode.Keypad4) && (units.Count > 3))
-        {
-            Debug.Log("4 pressed");
-            setSelectedUnit(units[3]);
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                Debug.Log("Space Pressed");
+                if (paused) {
+                    togglePause(false);
+                }
+                else
+                {
+                    togglePause(true);
+                }
+            }
+            if (Input.GetKeyUp(KeyCode.Alpha1) || Input.GetKeyUp(KeyCode.Keypad1))
+            {
+                Debug.Log("1 pressed");
+                setSelectedUnit(units[0]);
+            }
+            if (Input.GetKeyUp(KeyCode.Alpha2) || Input.GetKeyUp(KeyCode.Keypad2) && (units.Count > 1))
+            {
+                Debug.Log("2 pressed");
+                setSelectedUnit(units[1]);
+            }
+            if (Input.GetKeyUp(KeyCode.Alpha3) || Input.GetKeyUp(KeyCode.Keypad3) && (units.Count > 2))
+            {
+                Debug.Log("3 pressed");
+                setSelectedUnit(units[2]);
+            }
+            if (Input.GetKeyUp(KeyCode.Alpha4) || Input.GetKeyUp(KeyCode.Keypad4) && (units.Count > 3))
+            {
+                Debug.Log("4 pressed");
+                setSelectedUnit(units[3]);
+            }
         }
     }
 
@@ -391,10 +403,6 @@ public class TileMap : MonoBehaviour
             {
                 tiles[x, y].GetComponent<SpriteRenderer>().color = Color.blue;
             }
-            else if (unit.combatant)
-            {
-                tiles[x, y].GetComponent<SpriteRenderer>().color = Color.red;
-            }
 
         // Step through the "prev" chain and add it to our path
         while (currentNode != null)
@@ -514,6 +522,10 @@ public class TileMap : MonoBehaviour
             if (unit.GetComponent<Unit>().selected)
             {
                 deselectUnit(unit);
+            }
+            if (unit.GetComponent<Unit>().combatant)
+            {
+                aliveHeisters--;
             }
         }
         if (!unit.GetComponent<Unit>().selectable)
@@ -667,11 +679,11 @@ public class TileMap : MonoBehaviour
         togglePause(true);
         if (win)
         {
-
+            Debug.Log("You escaped");
         }
         else
         {
-
+            Debug.Log("Lol rip");
         }
     }
 

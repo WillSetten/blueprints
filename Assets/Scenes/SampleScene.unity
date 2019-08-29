@@ -17709,7 +17709,7 @@ PrefabInstance:
     - target: {fileID: 8300259727363186116, guid: 652a8f8aaa8d5bd4c849c6f093f16ac8,
         type: 3}
       propertyPath: m_Constraints
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3893237463067995496, guid: 652a8f8aaa8d5bd4c849c6f093f16ac8, type: 3}
