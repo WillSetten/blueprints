@@ -13,6 +13,8 @@ public class UIHandler : MonoBehaviour
     public int lootTotal = 0;
     public Text pausedText;
     public Image pausedOverlay;
+    public Canvas MenuCanvas;
+    public Canvas GUICanvas;
 
     public void togglePause(bool paused)
     {
@@ -33,10 +35,12 @@ public class UIHandler : MonoBehaviour
         if (paused)
         {
             Time.timeScale = 0;
+            MenuCanvas.enabled = true;
         }
         else
         {
             Time.timeScale = 1;
+            MenuCanvas.enabled = false;
         }
     }
 
@@ -73,4 +77,8 @@ public class UIHandler : MonoBehaviour
         lootText.text = lootCount.ToString();
     }
 
+    public void exitGame()
+    {
+        Application.Quit();
+    }
 }

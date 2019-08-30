@@ -26,7 +26,7 @@ public class Truck : MonoBehaviour
     private void OnMouseOver()
     {
         //When the van is clicked on, check if there are units in the escape area.
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && Time.timeScale != 0)
         {
             List<Unit> units = escapeArea.unitsInEscapeArea();
             if (units.Count > 0)
@@ -78,7 +78,7 @@ public class Truck : MonoBehaviour
                 }
             }
         }
-        else if (Input.GetMouseButtonDown(1))
+        else if (Input.GetMouseButtonDown(1) && Time.timeScale != 0)
         {
             if (open) {
                 List<Unit> units = escapeArea.unitsInEscapeArea();

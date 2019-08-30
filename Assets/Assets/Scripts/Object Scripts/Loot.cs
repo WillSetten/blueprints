@@ -49,6 +49,7 @@ public class Loot : MonoBehaviour
 
     private void OnMouseUp()
     {
+        if (Time.timeScale != 0) {
             foreach (GameObject g in map.selectedUnits)
             {
                 if (isUnitAdjacent(g.GetComponent<Unit>()) && g.GetComponent<Unit>().combatant)
@@ -60,6 +61,7 @@ public class Loot : MonoBehaviour
                     return;
                 }
             }
+        }
     }
 
     //Returns true if the given unit is

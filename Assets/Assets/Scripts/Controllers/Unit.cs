@@ -69,7 +69,7 @@ public class Unit : MonoBehaviour
     //Highlight the unit in green when the mouse hovers over it
     private void OnMouseOver()
     {
-        if (selectable&&!selected)
+        if (selectable&&!selected && Time.timeScale != 0)
         {
             turnOnPreSelectionHighlight();
         }
@@ -78,7 +78,7 @@ public class Unit : MonoBehaviour
     //Remove the highlight on the unit when the mouse stops hovering over it
     private void OnMouseExit()
     {
-        if (selectable&&!selected)
+        if (selectable&&!selected && Time.timeScale!=0)
         {
             turnOffPreSelectionHighlight();
         }
@@ -97,11 +97,11 @@ public class Unit : MonoBehaviour
     void OnMouseUp()
     {
         Debug.Log("Clicked on "+name);
-        if (selectable)
+        if (selectable && Time.timeScale != 0)
         {
             map.setSelectedUnit(transform.gameObject);
         }
-        else if (!selectable&&!combatant)
+        else if (!selectable&&!combatant && Time.timeScale != 0)
         {
             //If the unit is not already detained and is in range of a selected unit,
             if (!detained && inDetainRange && detainTimer>detainTimerMax)

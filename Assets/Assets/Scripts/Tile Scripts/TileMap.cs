@@ -71,6 +71,7 @@ public class TileMap : MonoBehaviour
             aliveHeisters++;
         }
         setSelectedUnits(units);
+        UIhandler.toggleMenu(false);
     }
 
     private void Update()
@@ -79,7 +80,18 @@ public class TileMap : MonoBehaviour
         {
             gameOver(false);
         }
-        if (!gameDone) {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            if (Time.timeScale == 0)
+            {
+                UIhandler.toggleMenu(false);
+            }
+            else
+            {
+                UIhandler.toggleMenu(true);
+            }
+        }
+        if (!gameDone && Time.timeScale!=0) {
             // Called while the user is holding the mouse down.
             if (Input.GetKey(KeyCode.Mouse0))
             {
@@ -109,17 +121,6 @@ public class TileMap : MonoBehaviour
                 else
                 {
                     togglePause(true);
-                }
-            }
-            if (Input.GetKeyUp(KeyCode.Escape))
-            {
-                if (Time.timeScale == 0)
-                {
-                    UIhandler.toggleMenu(false);
-                }
-                else
-                {
-                    UIhandler.toggleMenu(true);
                 }
             }
             if (Input.GetKeyUp(KeyCode.Alpha1) || Input.GetKeyUp(KeyCode.Keypad1))
