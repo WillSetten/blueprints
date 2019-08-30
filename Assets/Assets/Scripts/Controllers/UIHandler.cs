@@ -16,14 +16,38 @@ public class UIHandler : MonoBehaviour
 
     public void togglePause(bool paused)
     {
+        togglePauseOverlay(paused);
         if (paused)
         {
             pausedText.color = Color.white;
-            pausedOverlay.color = new Color(255, 255, 255, 255);
         }
         else
         {
             pausedText.color = Color.clear;
+        }
+    }
+
+    public void toggleMenu(bool paused)
+    {
+        togglePauseOverlay(paused);
+        if (paused)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+    }
+
+    public void togglePauseOverlay(bool paused)
+    {
+        if (paused)
+        {
+            pausedOverlay.color = new Color(255, 255, 255, 255);
+        }
+        else
+        {
             pausedOverlay.color = new Color(255, 255, 255, 0);
         }
     }

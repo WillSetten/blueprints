@@ -14,7 +14,7 @@ public class TileMap : MonoBehaviour
     public EnemyController enemyController;
     public CivilianController civilianController;
     public TileType[] tileTypes;
-    public bool paused = false; //True when game is paused, false when it is not
+    public bool paused = false; //True when game is paused, false when it is not. Using a bool because timescale does not allow for camera movement
     public Tile[,] tiles; //2D Array of tiles
     public int mapSizeX;
     public int mapSizeY;
@@ -109,6 +109,17 @@ public class TileMap : MonoBehaviour
                 else
                 {
                     togglePause(true);
+                }
+            }
+            if (Input.GetKeyUp(KeyCode.Escape))
+            {
+                if (Time.timeScale == 0)
+                {
+                    UIhandler.toggleMenu(false);
+                }
+                else
+                {
+                    UIhandler.toggleMenu(true);
                 }
             }
             if (Input.GetKeyUp(KeyCode.Alpha1) || Input.GetKeyUp(KeyCode.Keypad1))
