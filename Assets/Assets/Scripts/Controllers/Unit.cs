@@ -177,6 +177,14 @@ public class Unit : MonoBehaviour
         }
         spriteRenderer.sortingLayerName = "UnderUnits";
         transform.position = new Vector3(transform.position.x, transform.position.y, 0.5f);
+
+        if (selectable && combatant && map.aliveHeisters > 1)
+        {
+            map.aliveHeisters--;
+        }
+        else if (selectable && combatant && map.aliveHeisters == 1) {
+            map.gameOver(false);
+        }
     }
 
     public void togglePause()
@@ -674,6 +682,8 @@ public class Unit : MonoBehaviour
 
     public void stopUnit()
     {
-        map.GeneratePathTo(currentPath[0].x, currentPath[0].y, this);
+        if (currentPath != null) {
+            map.GeneratePathTo(currentPath[0].x, currentPath[0].y, this);
+        }
     }
 }

@@ -27,7 +27,6 @@ public class EnemyController : MonoBehaviour
         units.AddRange(gameObject.GetComponentsInChildren<Unit>());
         map = GetComponentInParent<TileMap>();
         setTimer = 2;
-        alarmBar = map.viewingCamera.GetComponentInChildren<AlarmBar>();
     }
 
     // Update is called once per frame

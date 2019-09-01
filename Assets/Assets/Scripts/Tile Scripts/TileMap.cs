@@ -34,7 +34,6 @@ public class TileMap : MonoBehaviour
     public AudioClip handCuffSound;
     public UIHandler UIhandler;
     public int aliveHeisters=0;
-    public bool gameDone=false;
 
     //Initialisation
     private void Start()
@@ -76,10 +75,6 @@ public class TileMap : MonoBehaviour
 
     private void Update()
     {
-        if (aliveHeisters == 0)
-        {
-            gameOver(false);
-        }
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             if (Time.timeScale == 0)
@@ -91,7 +86,7 @@ public class TileMap : MonoBehaviour
                 UIhandler.toggleMenu(true);
             }
         }
-        if (!gameDone && Time.timeScale!=0) {
+        if (Time.timeScale!=0) {
             // Called while the user is holding the mouse down.
             if (Input.GetKey(KeyCode.Mouse0))
             {
@@ -535,10 +530,6 @@ public class TileMap : MonoBehaviour
             {
                 deselectUnit(unit);
             }
-            if (unit.GetComponent<Unit>().combatant)
-            {
-                aliveHeisters--;
-            }
         }
         if (!unit.GetComponent<Unit>().selectable)
         {
@@ -689,14 +680,7 @@ public class TileMap : MonoBehaviour
     public void gameOver(bool win)
     {
         togglePause(true);
-        if (win)
-        {
-            Debug.Log("You escaped");
-        }
-        else
-        {
-            Debug.Log("Lol rip");
-        }
+        UIhandler.gameOver(win);
     }
 
     public void togglePause(bool pause)

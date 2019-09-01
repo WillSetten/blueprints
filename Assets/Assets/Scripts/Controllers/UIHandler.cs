@@ -13,8 +13,18 @@ public class UIHandler : MonoBehaviour
     public int lootTotal = 0;
     public Text pausedText;
     public Image pausedOverlay;
+    public Text DoneText;
+    public Text DoneLootText;
     public Canvas MenuCanvas;
     public Canvas GUICanvas;
+    public Canvas DoneCanvas;
+
+    private void Start()
+    {
+        MenuCanvas.enabled = false;
+        GUICanvas.enabled = true;
+        DoneCanvas.enabled = false;
+    }
 
     public void togglePause(bool paused)
     {
@@ -41,6 +51,24 @@ public class UIHandler : MonoBehaviour
         {
             Time.timeScale = 1;
             MenuCanvas.enabled = false;
+        }
+    }
+
+    public void gameOver(bool win)
+    {
+        MenuCanvas.enabled = false;
+        GUICanvas.enabled = false;
+        DoneCanvas.enabled = true;
+        Time.timeScale = 0;
+        if (win)
+        {
+            DoneText.text = "Heist Completed";
+            DoneLootText.text = "Loot Secured: " + lootCount;
+        }
+        else
+        {
+            DoneText.text = "Game Over";
+            DoneLootText.enabled = false;
         }
     }
 
