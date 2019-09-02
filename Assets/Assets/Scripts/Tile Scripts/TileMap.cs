@@ -751,4 +751,17 @@ public class TileMap : MonoBehaviour
         //else return false
         return false;
     }
+
+    public int heisterCount()
+    {
+        int heisterCount = 0;
+        foreach (GameObject g in units)
+        {
+            if (g.GetComponent<Unit>().combatant)
+            {
+                heisterCount++;
+            }
+        }
+        return heisterCount;
+    }
 }

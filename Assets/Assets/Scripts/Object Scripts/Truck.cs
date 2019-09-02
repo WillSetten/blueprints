@@ -99,7 +99,7 @@ public class Truck : MonoBehaviour
                     }
                 }
                 //If all surviving units have got in the van, close the doors and drive off
-                if (map.units.Count == 0)
+                if (map.heisterCount() == 0)
                 {
                     open = false;
                     foreach (GameObject d in doors)

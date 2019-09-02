@@ -31,13 +31,9 @@ public class TruckDoor : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         truck.playSound(truck.doorClose);
-        foreach (GameObject g in truck.map.units)
+        if (truck.map.heisterCount()==0)
         {
-            if (g.GetComponent<Unit>().combatant)
-            {
-                return;
-            }
+            truck.map.gameOver(true);
         }
-        truck.map.gameOver(true);
     }
 }

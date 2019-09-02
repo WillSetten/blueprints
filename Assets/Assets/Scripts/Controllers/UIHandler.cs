@@ -62,8 +62,15 @@ public class UIHandler : MonoBehaviour
         Time.timeScale = 0;
         if (win)
         {
-            DoneText.text = "Heist Completed";
-            DoneLootText.text = "Loot Secured: " + lootCount;
+            if (lootCount>0) {
+                DoneText.text = "Heist Completed";
+                DoneLootText.text = "Loot Secured: " + lootCount;
+            }
+            else
+            {
+                DoneText.text = "Heist Failed";
+                DoneLootText.text = "No Loot Secured";
+            }
         }
         else
         {
