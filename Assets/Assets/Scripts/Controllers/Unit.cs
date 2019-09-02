@@ -116,7 +116,7 @@ public class Unit : MonoBehaviour
     {
         if (selected)
         {
-            GetComponent<Renderer>().material.SetFloat("_OutlineThickness", 1);
+            GetComponent<Renderer>().material.SetFloat("_OutlineThickness", 0.82f);
             GetComponent<Renderer>().material.SetColor("_SpriteColor", Color.white);
         }
         else
@@ -555,6 +555,7 @@ public class Unit : MonoBehaviour
         return nearestUnit;
     }
 
+    //Returns true if this unit can fire a bullet at this gameobject
     public bool hasBulletLOS(GameObject u)
     {
         RaycastHit2D sightTest = Physics2D.Raycast(transform.position, u.transform.position - transform.position, 
@@ -576,7 +577,8 @@ public class Unit : MonoBehaviour
         return false;
     }
 
-    private bool hasLOS(GameObject u)
+    //Returns true if this unit has a line of sight to this gameobject
+    public bool hasLOS(GameObject u)
     {
         RaycastHit2D sightTest = Physics2D.Raycast(transform.position, u.transform.position - transform.position,
             Vector2.Distance(transform.position, u.transform.position), LayerMask.GetMask("Walls", "Doors"));

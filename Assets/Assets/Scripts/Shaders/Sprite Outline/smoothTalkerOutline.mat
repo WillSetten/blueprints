@@ -79,7 +79,7 @@ Material:
     - _OcclusionStrength: 1
     - _Outline: 0
     - _OutlineSize: 1
-    - _OutlineThickness: 1
+    - _OutlineThickness: 0.82
     - _Parallax: 0.02
     - _ShowOutline: 1
     - _SrcBlend: 1
