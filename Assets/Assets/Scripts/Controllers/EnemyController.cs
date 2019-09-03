@@ -19,7 +19,6 @@ public class EnemyController : MonoBehaviour
     public float alarmTimer = 0;
     public AlarmBar alarmBar;
     public GameObject enemyPrefab;
-
     public int waveStage = 0;
     // Start is called before the first frame update
     void Start()
@@ -67,11 +66,12 @@ public class EnemyController : MonoBehaviour
                 if (alarmTimer<40) {
                     //If the player has taken multiple hostages, slow down the timer based on how many hostages they have
                     if (map.UIhandler.hostageCount>1 && map.UIhandler.hostageCount<=5) {
-                        alarmTimer = alarmTimer + Time.deltaTime / map.UIhandler.hostageCount;
+                        alarmTimer = alarmTimer + Time.deltaTime * (1 - (Mathf.Log(map.UIhandler.hostageCount)/2));
                     }
-                    else if (map.UIhandler.hostageCount>5)
+                    //Since 1-log(x)/2 equals 0 at 100, make sure the timer is always increasing
+                    else if (map.UIhandler.hostageCount>99)
                     {
-                        alarmTimer = alarmTimer + Time.deltaTime / 5;
+                        alarmTimer = alarmTimer + Time.deltaTime * (1 - (Mathf.Log(map.UIhandler.hostageCount) / 2));
                     }
                     else
                     {
@@ -132,11 +132,13 @@ public class EnemyController : MonoBehaviour
     public void nextStage()
     {
         alarmBar.nextStage(waveStage);
-        for (int i = 0; i < (waveStage * 2)+map.UIhandler.hostageCount; i++)
-        {
-            GameObject newEnemy = Instantiate(enemyPrefab, new Vector3(Random.Range(0,map.mapSizeX),0,0), new Quaternion(0,0,0,0));
-            units.Add(newEnemy.GetComponent<Unit>());
-            newEnemy.GetComponent<Unit>().hp = newEnemy.GetComponent<Unit>().hp + waveStage;
+        if (waveStage>0) {
+            for (int i = 0; i < (waveStage * 2) + map.UIhandler.hostageCount; i++)
+            {
+                GameObject newEnemy = Instantiate(enemyPrefab, new Vector3(Random.Range(0, map.mapSizeX), 0, 0), new Quaternion(0, 0, 0, 0));
+                units.Add(newEnemy.GetComponent<Unit>());
+                newEnemy.GetComponent<Unit>().hp = newEnemy.GetComponent<Unit>().hp + waveStage;
+            }
         }
         waveStage = waveStage + 1;
         alarmTimer = 0;

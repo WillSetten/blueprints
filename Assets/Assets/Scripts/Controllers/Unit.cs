@@ -412,7 +412,7 @@ public class Unit : MonoBehaviour
                     if (combatant && selectable)
                     {
                         //Debug.Log(name + " can attack " + u.name);
-                        Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
+                        //Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
                         if (currentState!=state.Moving && combatant) {
                             currentState = state.Attacking;
                             animator.SetBool("Attacking", true);
