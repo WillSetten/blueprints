@@ -115,6 +115,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    //Trigger the alarm
     public void triggerAlarm()
     {
         alarm = true;
@@ -127,10 +128,11 @@ public class EnemyController : MonoBehaviour
         nextStage();
     }
 
+    //Progress the stage bar to spawn more enemies
     public void nextStage()
     {
         alarmBar.nextStage(waveStage);
-        for (int i = 0; i < waveStage * 5; i++)
+        for (int i = 0; i < (waveStage * 2)+map.UIhandler.hostageCount; i++)
         {
             GameObject newEnemy = Instantiate(enemyPrefab, new Vector3(Random.Range(0,map.mapSizeX),0,0), new Quaternion(0,0,0,0));
             units.Add(newEnemy.GetComponent<Unit>());
