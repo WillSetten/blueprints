@@ -132,8 +132,21 @@ public class EnemyController : MonoBehaviour
     public void nextStage()
     {
         alarmBar.nextStage(waveStage);
+        int enemySpawnCount = waveStage * 2;
+        if (map.UIhandler.hostageCount > 0)
+        {
+            enemySpawnCount = enemySpawnCount + 1;
+        }
+        if (map.UIhandler.hostageCount > 3)
+        {
+            enemySpawnCount = enemySpawnCount + 1;
+        }
+        if (map.UIhandler.hostageCount > 6)
+        {
+            enemySpawnCount = enemySpawnCount + 1;
+        }
         if (waveStage>0) {
-            for (int i = 0; i < (waveStage * 2) + map.UIhandler.hostageCount; i++)
+            for (int i = 0; i < enemySpawnCount; i++)
             {
                 GameObject newEnemy = Instantiate(enemyPrefab, new Vector3(Random.Range(0, map.mapSizeX), 0, 0), new Quaternion(0, 0, 0, 0));
                 units.Add(newEnemy.GetComponent<Unit>());

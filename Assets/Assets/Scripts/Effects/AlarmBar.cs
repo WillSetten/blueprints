@@ -37,6 +37,10 @@ public class AlarmBar : MonoBehaviour
                     stageFill.fillAmount = 1;
                     alarmText.text = "Deathwish";
                     break;
+                default:
+                    stageFill.fillAmount = 1;
+                    alarmText.text = "Deathwish";
+                    break;
             }
         }
     }
