@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class UnitUIMonitor : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public RectTransform rectTransform;
+    bool raised = false;
+    
+    public void raiseMonitor()
     {
-        
+        if (!raised)
+        {
+            Debug.Log("Raising Unit monitor");
+            rectTransform.localPosition = new Vector3(rectTransform.localPosition.x, rectTransform.localPosition.y + 65, rectTransform.localPosition.z);
+            raised = true;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void lowerMonitor()
     {
-        
+        if (raised)
+        {
+            Debug.Log("Lowering Unit monitor");
+            rectTransform.localPosition = new Vector3(rectTransform.localPosition.x, rectTransform.localPosition.y-65, rectTransform.localPosition.z);
+            raised = false;
+        }
     }
 }
