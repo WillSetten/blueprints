@@ -16,11 +16,9 @@ public class Unit : MonoBehaviour
     public int previousTileY;
     public int directionX;
     public int directionY;
-    public float moveRate; //Speed at which the unit moves
-    public float lootMoveRate; //Speed at which the unit moves whilst carrying loot
     public TileMap map;
     public int hp;
-    public int interactionRadius = 2;
+    public int interactionRadius;
     public float attackCooldownCap;
     public bool hasLoot; //True if the unit is carrying loot
     public Animator animator;
@@ -40,10 +38,10 @@ public class Unit : MonoBehaviour
     public bool isDetected = false;
     AudioSource audioSource;
     public AudioClip bulletSound;
-    public bool isLarge; //If the unit is large and blocks the tile it is on
     public bool isDead=false;
     public bool inDetainRange=false;
     public bool inFreeRange=false;
+    public HeisterInfo heisterInfo;
     //Initialization
     private void Start()
     {
@@ -64,6 +62,8 @@ public class Unit : MonoBehaviour
             detectionIndicator = GetComponentInChildren<DetectionIndicator>();
         }
         audioSource = GetComponent<AudioSource>();
+        heisterInfo = GetComponent<HeisterInfo>();
+        interactionRadius = heisterInfo.interactionRadius;
     }
    
     //Highlight the unit in green when the mouse hovers over it
@@ -198,11 +198,11 @@ public class Unit : MonoBehaviour
         {
             animator.enabled = true;
             if (hasLoot) {
-                rigidbody2D.velocity = new Vector2(directionX * lootMoveRate, directionY * lootMoveRate);
+                rigidbody2D.velocity = new Vector2(directionX * heisterInfo.lootMoveRate, directionY * heisterInfo.lootMoveRate);
             }
             else
             {
-                rigidbody2D.velocity = new Vector2(directionX * moveRate, directionY * moveRate);
+                rigidbody2D.velocity = new Vector2(directionX * heisterInfo.moveRate, directionY * heisterInfo.moveRate);
             }
         }
     }
@@ -270,11 +270,11 @@ public class Unit : MonoBehaviour
                     animator.SetFloat("Move Y", directionY);
                     if (hasLoot)
                     {
-                        rigidbody2D.velocity = new Vector2(directionX, directionY).normalized * lootMoveRate;
+                        rigidbody2D.velocity = new Vector2(directionX, directionY).normalized * heisterInfo.lootMoveRate;
                     }
                     else
                     {
-                        rigidbody2D.velocity = new Vector2(directionX, directionY).normalized * moveRate;
+                        rigidbody2D.velocity = new Vector2(directionX, directionY).normalized * heisterInfo.moveRate;
                     }
                 }
             }

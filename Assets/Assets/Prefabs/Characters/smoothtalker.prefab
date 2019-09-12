@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 462732770898714956}
   - component: {fileID: 2612335309046909034}
   - component: {fileID: 8779469660694431792}
+  - component: {fileID: 1108815270632807898}
   m_Layer: 8
   m_Name: smoothtalker
   m_TagString: Player
@@ -188,8 +189,6 @@ MonoBehaviour:
   previousTileY: 0
   directionX: 0
   directionY: 0
-  moveRate: 3
-  lootMoveRate: 2
   map: {fileID: 0}
   hp: 8
   interactionRadius: 6
@@ -208,9 +207,10 @@ MonoBehaviour:
   detectionIndicator: {fileID: 0}
   isDetected: 0
   bulletSound: {fileID: 8300000, guid: 9f38eb7c8e131a749a82dc67de0d23ea, type: 3}
-  isLarge: 0
   isDead: 0
-  inRangeOfSelectedUnit: 0
+  inDetainRange: 0
+  inFreeRange: 0
+  heisterInfo: {fileID: 0}
 --- !u!95 &6348214700342276882
 Animator:
   serializedVersion: 3
@@ -363,6 +363,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1108815270632807898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4257362992100389051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5109f139a9d4714bbab565d58869c27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+  isLarge: 0
+  interactionRadius: 6
+  moveRate: 3
+  lootMoveRate: 2
 --- !u!1 &5819060328232565334
 GameObject:
   m_ObjectHideFlags: 0

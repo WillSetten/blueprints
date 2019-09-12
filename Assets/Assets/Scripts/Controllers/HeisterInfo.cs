@@ -1,0 +1,17 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+//This class is designed to hold less dynamic data relevent to the player character
+public class HeisterInfo : MonoBehaviour
+{
+    public Unit unit;
+    public bool isLarge;
+    public int interactionRadius;
+    public float moveRate; //Speed at which the unit moves
+    public float lootMoveRate; //Speed at which the unit moves whilst carrying loot
+    private void Start()
+    {
+        unit = GetComponent<Unit>();
+    }
+}
