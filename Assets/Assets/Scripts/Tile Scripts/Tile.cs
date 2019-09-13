@@ -52,7 +52,7 @@ public class Tile : MonoBehaviour
                     //If there is a unit on the tile
                     if (collider.GetComponent<Unit>()) {
                         if (collider.GetComponent<Rigidbody2D>().velocity == Vector2.zero) {
-                            if (collider.GetComponent<Unit>().heisterInfo.isLarge) {
+                            if (collider.GetComponent<HeisterInfo>() && collider.GetComponent<HeisterInfo>().isLarge) {
                                 blocked = true;
                             }
                             else

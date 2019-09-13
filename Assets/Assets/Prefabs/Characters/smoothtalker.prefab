@@ -380,6 +380,8 @@ MonoBehaviour:
   interactionRadius: 6
   moveRate: 3
   lootMoveRate: 2
+  name: 
+  className: Smooth-Talker
 --- !u!1 &5819060328232565334
 GameObject:
   m_ObjectHideFlags: 0

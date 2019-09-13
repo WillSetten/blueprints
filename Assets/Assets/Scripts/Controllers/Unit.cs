@@ -18,7 +18,6 @@ public class Unit : MonoBehaviour
     public int directionY;
     public TileMap map;
     public int hp;
-    public int interactionRadius;
     public float attackCooldownCap;
     public bool hasLoot; //True if the unit is carrying loot
     public Animator animator;
@@ -42,6 +41,9 @@ public class Unit : MonoBehaviour
     public bool inDetainRange=false;
     public bool inFreeRange=false;
     public HeisterInfo heisterInfo;
+    float moveRate;
+    float lootMoveRate;
+    public int interactionRadius;
     //Initialization
     private void Start()
     {
@@ -62,8 +64,19 @@ public class Unit : MonoBehaviour
             detectionIndicator = GetComponentInChildren<DetectionIndicator>();
         }
         audioSource = GetComponent<AudioSource>();
-        heisterInfo = GetComponent<HeisterInfo>();
-        interactionRadius = heisterInfo.interactionRadius;
+        if (selectable)
+        {
+            heisterInfo = GetComponent<HeisterInfo>();
+            lootMoveRate = heisterInfo.lootMoveRate;
+            moveRate = heisterInfo.moveRate;
+            interactionRadius = heisterInfo.interactionRadius;
+        }
+        else
+        {
+            moveRate = 2.5f;
+            lootMoveRate = 2;
+            interactionRadius = 6;
+        }
     }
    
     //Highlight the unit in green when the mouse hovers over it
@@ -270,11 +283,11 @@ public class Unit : MonoBehaviour
                     animator.SetFloat("Move Y", directionY);
                     if (hasLoot)
                     {
-                        rigidbody2D.velocity = new Vector2(directionX, directionY).normalized * heisterInfo.lootMoveRate;
+                        rigidbody2D.velocity = new Vector2(directionX, directionY).normalized * lootMoveRate;
                     }
                     else
                     {
-                        rigidbody2D.velocity = new Vector2(directionX, directionY).normalized * heisterInfo.moveRate;
+                        rigidbody2D.velocity = new Vector2(directionX, directionY).normalized * moveRate;
                     }
                 }
             }

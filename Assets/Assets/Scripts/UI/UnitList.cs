@@ -2,18 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitUIMonitor : MonoBehaviour
+//Class that manages the list of monitors for different heister units
+public class UnitList : MonoBehaviour
 {
     public RectTransform rectTransform;
     bool mouseOver = false;
     float loweredHeight;
     float raisedHeight;
     float speed = 250;
+    public List<HeisterInfo> heisterList;
+    public GameObject UnitMonitor;
 
     private void Start()
     {
         loweredHeight = rectTransform.localPosition.y;
-        raisedHeight = rectTransform.localPosition.y+65;
+        raisedHeight = rectTransform.localPosition.y+55;
+        heisterList.AddRange(FindObjectsOfType<HeisterInfo>());
+        //Creates a Monitor object for each heister and fills in the correct information
+        for(int i=0; i<heisterList.Count; i++)
+        {
+            HeisterInfo h = heisterList[i];
+
+            UnitMonitor newMonitor = Instantiate(UnitMonitor,transform).GetComponent<UnitMonitor>();
+            newMonitor.className.text = h.className;
+            newMonitor.name.text = h.name;
+            newMonitor.hp.text = h.unit.hp.ToString();
+            newMonitor.sprite.sprite = h.unit.GetComponent<SpriteRenderer>().sprite;
+            //If there are an odd amount of heisters
+            if ((float)heisterList.Count % 2 != 0)
+            {
+                newMonitor.GetComponent<RectTransform>().localPosition = new Vector3(newMonitor.GetComponent<RectTransform>().rect.width * (i+1 - Mathf.Ceil((float)heisterList.Count / 2)),
+                    newMonitor.GetComponent<RectTransform>().localPosition.y,
+                    newMonitor.GetComponent<RectTransform>().localPosition.z);
+            }
+            else
+            {
+                newMonitor.GetComponent<RectTransform>().localPosition = new Vector3((newMonitor.GetComponent<RectTransform>().rect.width * i) -
+                    ((heisterList.Count-1) * newMonitor.GetComponent<RectTransform>().rect.width/2),
+                    newMonitor.GetComponent<RectTransform>().localPosition.y,
+                    newMonitor.GetComponent<RectTransform>().localPosition.z);
+            }
+        }
     }
 
     //Called when the mouse moves over the unit monitors
