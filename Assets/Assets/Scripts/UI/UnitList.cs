@@ -24,8 +24,10 @@ public class UnitList : MonoBehaviour
             HeisterInfo h = heisterList[i];
 
             UnitMonitor newMonitor = Instantiate(UnitMonitor,transform).GetComponent<UnitMonitor>();
+            newMonitor.unit = h.unit;
+            h.unit.unitMonitor = newMonitor;
             newMonitor.className.text = h.className;
-            newMonitor.name.text = h.name;
+            newMonitor.characterName.text = h.characterName;
             newMonitor.hp.text = h.unit.hp.ToString();
             newMonitor.sprite.sprite = h.unit.GetComponent<SpriteRenderer>().sprite;
             //If there are an odd amount of heisters
@@ -35,6 +37,7 @@ public class UnitList : MonoBehaviour
                     newMonitor.GetComponent<RectTransform>().localPosition.y,
                     newMonitor.GetComponent<RectTransform>().localPosition.z);
             }
+            //If there are an even amount of heisters
             else
             {
                 newMonitor.GetComponent<RectTransform>().localPosition = new Vector3((newMonitor.GetComponent<RectTransform>().rect.width * i) -

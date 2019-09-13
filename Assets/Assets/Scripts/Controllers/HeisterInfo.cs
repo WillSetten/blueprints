@@ -10,7 +10,7 @@ public class HeisterInfo : MonoBehaviour
     public int interactionRadius;
     public float moveRate; //Speed at which the unit moves
     public float lootMoveRate; //Speed at which the unit moves whilst carrying loot
-    public string name = "Dave";
+    public string characterName;
     public string className;
     private void Start()
     {

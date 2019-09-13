@@ -43,6 +43,7 @@ public class Unit : MonoBehaviour
     public HeisterInfo heisterInfo;
     float moveRate;
     float lootMoveRate;
+    public UnitMonitor unitMonitor;
     public int interactionRadius;
     //Initialization
     private void Start()
@@ -613,6 +614,9 @@ public class Unit : MonoBehaviour
         if (combatant) {
             hp = hp - bullet.bulletDamage;
             healthBar.UpdateHealth();
+            if (selectable) {
+                unitMonitor.newHp(hp);
+            }
         }
     }
 

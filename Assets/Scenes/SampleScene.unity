@@ -6713,6 +6713,11 @@ PrefabInstance:
       propertyPath: name
       value: Jeffrey Chase
       objectReference: {fileID: 0}
+    - target: {fileID: 1108815270632807898, guid: 65096626580b93347b8eb1c0cf794ebd,
+        type: 3}
+      propertyPath: characterName
+      value: Jeffrey Chase
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65096626580b93347b8eb1c0cf794ebd, type: 3}
 --- !u!4 &1380907471 stripped
@@ -18816,6 +18821,11 @@ PrefabInstance:
     - target: {fileID: 748433332705259453, guid: c234bd6d49cd7f943ace873985e15c22,
         type: 3}
       propertyPath: name
+      value: Dave Brecksit
+      objectReference: {fileID: 0}
+    - target: {fileID: 748433332705259453, guid: c234bd6d49cd7f943ace873985e15c22,
+        type: 3}
+      propertyPath: characterName
       value: Dave Brecksit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
