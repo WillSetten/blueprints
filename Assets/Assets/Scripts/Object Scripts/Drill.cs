@@ -12,7 +12,7 @@ public class Drill : MonoBehaviour
     TileMap map;
     public Vault vault;
     private float drillTime=15;
-    private float setupTime = 8;
+    private float setupTime = 2;
     private float timer = 0;
     public Image loadCircle;
 

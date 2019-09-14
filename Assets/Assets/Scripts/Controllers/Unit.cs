@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    public enum state { Idle, Moving, Attacking, Interacting};
+    public enum state { Idle, Moving, Attacking, Looting};
     public state currentState;
     public bool detained = false;
     public bool selectable = false;
@@ -146,7 +146,6 @@ public class Unit : MonoBehaviour
             if (currentPath != null)
             {
                 int currNode = 0;
-                currentState = state.Moving;
                 while (currNode < currentPath.Count - 1)
                 {
                     Vector3 start = map.TileCoordToWorldCoord(currentPath[currNode].x, currentPath[currNode].y);
@@ -213,11 +212,11 @@ public class Unit : MonoBehaviour
         {
             animator.enabled = true;
             if (hasLoot) {
-                rigidbody2D.velocity = new Vector2(directionX * lootMoveRate, directionY * lootMoveRate);
+                rigidbody2D.velocity = new Vector2(directionX * heisterInfo.lootMoveRate, directionY * heisterInfo.lootMoveRate);
             }
             else
             {
-                rigidbody2D.velocity = new Vector2(directionX * moveRate, directionY * moveRate);
+                rigidbody2D.velocity = new Vector2(directionX * heisterInfo.moveRate, directionY * heisterInfo.moveRate);
             }
         }
     }
@@ -251,7 +250,6 @@ public class Unit : MonoBehaviour
                 tileX = currentPath[0].x;
                 tileY = currentPath[0].y;
                 map.tiles[tileX, tileY].isDestination = false;
-                Debug.Log(name + " has reached the end of its path at " + tileX + "," + tileY);
                 currentPath = null;
                 directionX = 0;
                 directionY = 0;
@@ -429,8 +427,7 @@ public class Unit : MonoBehaviour
                     {
                         //Debug.Log(name + " can attack " + u.name);
                         //Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
-                        if (currentState==state.Idle) {
-                            Debug.Log(name + " has unit in range, attacking");
+                        if (currentState!=state.Moving && combatant) {
                             currentState = state.Attacking;
                             animator.SetBool("Attacking", true);
                         }

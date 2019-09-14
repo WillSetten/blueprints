@@ -24,7 +24,7 @@ public class Loot : MonoBehaviour
         if (!map.paused&&lootingUnit!=null)
         {
             //And if that unit is actually in a looting state and is still next to the loot
-            if (lootingUnit.currentState == Unit.state.Interacting && isUnitAdjacent(lootingUnit))
+            if (lootingUnit.currentState == Unit.state.Looting && isUnitAdjacent(lootingUnit))
             {
                 //Show the loot progress bar once the unit has started looting it
                 if (remainingTime==totalTime) {
@@ -56,7 +56,7 @@ public class Loot : MonoBehaviour
                 {
                     //Debug.Log("Unit " + g.name + " is adjacent to " + gameObject.name);
                     //Set state of unit to looting
-                    g.GetComponent<Unit>().currentState = Unit.state.Interacting;
+                    g.GetComponent<Unit>().currentState = Unit.state.Looting;
                     lootingUnit = g.GetComponent<Unit>();
                     return;
                 }
