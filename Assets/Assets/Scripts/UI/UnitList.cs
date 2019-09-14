@@ -24,8 +24,8 @@ public class UnitList : MonoBehaviour
             HeisterInfo h = heisterList[i];
 
             UnitMonitor newMonitor = Instantiate(UnitMonitor,transform).GetComponent<UnitMonitor>();
-            newMonitor.unit = h.unit;
             h.unit.unitMonitor = newMonitor;
+            newMonitor.unit = h.unit;
             newMonitor.className.text = h.className;
             newMonitor.characterName.text = h.characterName;
             newMonitor.hp.text = h.unit.hp.ToString();

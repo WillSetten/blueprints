@@ -12,8 +12,4 @@ public class HeisterInfo : MonoBehaviour
     public float lootMoveRate; //Speed at which the unit moves whilst carrying loot
     public string characterName;
     public string className;
-    private void Start()
-    {
-        unit = GetComponent<Unit>();
-    }
 }

@@ -191,7 +191,6 @@ MonoBehaviour:
   directionY: 0
   map: {fileID: 0}
   hp: 8
-  interactionRadius: 6
   attackCooldownCap: 3
   hasLoot: 0
   animator: {fileID: 0}
@@ -210,7 +209,9 @@ MonoBehaviour:
   isDead: 0
   inDetainRange: 0
   inFreeRange: 0
-  heisterInfo: {fileID: 0}
+  heisterInfo: {fileID: 1108815270632807898}
+  unitMonitor: {fileID: 0}
+  interactionRadius: 6
 --- !u!95 &6348214700342276882
 Animator:
   serializedVersion: 3
@@ -375,12 +376,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5109f139a9d4714bbab565d58869c27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 0}
+  unit: {fileID: 8007350306369267304}
   isLarge: 0
   interactionRadius: 6
   moveRate: 3
   lootMoveRate: 2
-  name: 
+  characterName: 
   className: Smooth-Talker
 --- !u!1 &5819060328232565334
 GameObject:

@@ -68,6 +68,7 @@ public class Unit : MonoBehaviour
         if (selectable)
         {
             heisterInfo = GetComponent<HeisterInfo>();
+            heisterInfo.unit = this;
             lootMoveRate = heisterInfo.lootMoveRate;
             moveRate = heisterInfo.moveRate;
             interactionRadius = heisterInfo.interactionRadius;
@@ -212,11 +213,11 @@ public class Unit : MonoBehaviour
         {
             animator.enabled = true;
             if (hasLoot) {
-                rigidbody2D.velocity = new Vector2(directionX * heisterInfo.lootMoveRate, directionY * heisterInfo.lootMoveRate);
+                rigidbody2D.velocity = new Vector2(directionX * lootMoveRate, directionY * lootMoveRate);
             }
             else
             {
-                rigidbody2D.velocity = new Vector2(directionX * heisterInfo.moveRate, directionY * heisterInfo.moveRate);
+                rigidbody2D.velocity = new Vector2(directionX * moveRate, directionY * moveRate);
             }
         }
     }
