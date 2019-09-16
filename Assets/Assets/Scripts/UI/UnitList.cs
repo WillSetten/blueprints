@@ -53,7 +53,6 @@ public class UnitList : MonoBehaviour
     {
         if (!mouseOver) {
             mouseOver = true;
-            Debug.Log("Raising Unit monitor");
             StartCoroutine(changeHeight());
         }
     }
@@ -63,7 +62,6 @@ public class UnitList : MonoBehaviour
     {
         if (mouseOver) {
             mouseOver = false;
-            Debug.Log("Lowering Unit monitor");
             StartCoroutine(changeHeight());
         }
     }

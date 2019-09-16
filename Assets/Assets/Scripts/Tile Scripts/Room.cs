@@ -26,12 +26,6 @@ public class Room : MonoBehaviour
     public Tile findBestNextTile(Tile tile, Unit unit)
     {
         Tile currentNextBestTile = null;
-        //If the unit has a path, set the currentNextBestTile as the units current destination.
-        if (unit.currentPath!=null)
-        {
-            Node currentDestination = unit.currentPath[unit.currentPath.Count - 1];
-            currentNextBestTile = map.tiles[currentDestination.x,currentDestination.y];
-        }
         //For each tile in the room
         foreach (Tile t in tiles)
         {

@@ -323,13 +323,10 @@ public class TileMap : MonoBehaviour
         }
 
         //If the units destination tile is occupied or another unit is moving to it, recall this method with the closest tile to the target in the same room
-        if (tiles[x, y].occupied || tiles[x,y].isDestination)
+        if (tiles[x, y].occupied)
         {
             Debug.Log("The tile that " + unit.name + " was trying to get to is occupied, attempting to find another path");
-            Tile newDestinationTile = tiles[x, y].room.findBestNextTile(tiles[x, y], unit);
-            if (newDestinationTile!=null) {
-                GeneratePathTo(newDestinationTile.tileX, newDestinationTile.tileY, unit.GetComponent<Unit>());
-            }
+            GeneratePathToNextBestTile(x, y, unit);
             return;
         }
         List<Node> currentPath = new List<Node>();
@@ -763,5 +760,13 @@ public class TileMap : MonoBehaviour
             }
         }
         return heisterCount;
+    }
+
+    public void GeneratePathToNextBestTile(int x, int y, Unit unit) {
+        Tile newDestinationTile = tiles[x, y].room.findBestNextTile(tiles[x, y], unit);
+        if (newDestinationTile != null)
+        {
+            GeneratePathTo(newDestinationTile.tileX, newDestinationTile.tileY, unit);
+        }
     }
 }

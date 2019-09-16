@@ -146,6 +146,7 @@ public class Unit : MonoBehaviour
         {
             if (currentPath != null)
             {
+
                 int currNode = 0;
                 while (currNode < currentPath.Count - 1)
                 {
@@ -158,6 +159,7 @@ public class Unit : MonoBehaviour
                 {
                     animator.SetBool("Attacking", false);
                 }
+                checkDestination();
                 MoveNextTile();
             }
             if (currentState == state.Idle)
@@ -303,21 +305,25 @@ public class Unit : MonoBehaviour
         //If moving right and has an X co-ordinate greater than that of the destination
         if (directionX > 0 && position.x>map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y).x)
         {
+            Debug.Log(name + " over moved!");
             return true;
         }
         //If moving left and has an X co-ordinate less than that of the destination
         if (directionX < 0 && position.x < map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y).x)
         {
+            Debug.Log(name + " over moved!");
             return true;
         }
         //If moving up and has an Y co-ordinate greater than that of the destination
         if (directionY > 0 && position.y > map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y).y)
         {
+            Debug.Log(name + " over moved!");
             return true;
         }
         //If moving down and has an Y co-ordinate less than that of the destination
         if (directionY < 0 && position.y < map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y).y)
         {
+            Debug.Log(name + " over moved!");
             return true;
         }
         return false;
@@ -704,6 +710,15 @@ public class Unit : MonoBehaviour
     {
         if (currentPath != null) {
             map.GeneratePathTo(currentPath[0].x, currentPath[0].y, this);
+        }
+    }
+
+    //Checks to see if this units destination is occupied. If it is, redirect the unit.
+    void checkDestination()
+    {
+        if(map.tiles[currentPath[currentPath.Count - 1].x, currentPath[currentPath.Count - 1].y].occupied)
+        {
+            map.GeneratePathToNextBestTile(currentPath[currentPath.Count - 1].x, currentPath[currentPath.Count - 1].y, this);
         }
     }
 }
