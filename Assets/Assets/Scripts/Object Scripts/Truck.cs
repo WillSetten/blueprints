@@ -13,16 +13,57 @@ public class Truck : MonoBehaviour
     bool open = false;
     public TileMap map;
     public List<Unit> unitsInVan;
+    Vector3 heistStartPos;
 
     private void Start()
     {
+        map = FindObjectOfType<TileMap>();
         audioSource = GetComponent<AudioSource>();
-        foreach (GameObject door in doors)
+        foreach (GameObject d in doors)
         {
-            door.GetComponent<TruckDoor>().truck = this;
+            d.GetComponent<TruckDoor>().truck = this;
+            d.SetActive(false);
         }
+        escapeArea.toggleEscapeSquares(false);
+        heistStartPos = new Vector3(transform.position.x, transform.position.y-7);
+        foreach (GameObject u in map.units)
+        {
+            u.SetActive(false);
+        }
+        StartCoroutine(moveTruckIn());
     }
     
+    IEnumerator moveTruckIn()
+    {
+        while (transform.position.y > heistStartPos.y)
+        {
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            GetComponent<Rigidbody2D>().velocity = new Vector3(0, -5, 0);
+            map.viewingCamera.transform.parent.transform.position = new Vector3(transform.position.x, transform.position.y,-10);
+            yield return null;
+        }
+        transform.position = heistStartPos;
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        escapeArea.toggleEscapeSquares(true);
+        foreach(GameObject u in map.units)
+        {
+            u.SetActive(true);
+        }
+        open = true;
+        foreach (GameObject d in doors)
+        {
+            d.SetActive(true);
+            d.GetComponent<TruckDoor>().toggleOpen(open);
+        }
+        foreach(GameObject g in map.units)
+        {
+            Unit u = g.GetComponent<Unit>();
+            u.tileX = (int)g.transform.position.x;
+            u.tileY = (int)g.transform.position.y;
+            map.GeneratePathTo((int)escapeArea.escapeSquares[0].transform.position.x, (int)escapeArea.escapeSquares[0].transform.position.y, u);
+        }
+    }
+
     private void OnMouseOver()
     {
         //When the van is clicked on, check if there are units in the escape area.

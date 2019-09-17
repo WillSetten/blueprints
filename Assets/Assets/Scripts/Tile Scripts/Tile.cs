@@ -28,10 +28,17 @@ public class Tile : MonoBehaviour
         }*/
         if (Input.GetMouseButtonDown(1) && this!=map.lastSelectedTile && Time.timeScale!=0)
         {
-                foreach(GameObject u in map.selectedUnits)
+            map.GeneratePathTo(tileX, tileY, map.selectedUnits[0].GetComponent<Unit>());
+
+            foreach (GameObject u in map.selectedUnits)
+            {
+                if (u.Equals(map.selectedUnits[0]))
                 {
-                    map.GeneratePathTo(tileX, tileY, u.GetComponent<Unit>());
+                    continue;
                 }
+                map.GeneratePathToNextBestTile(tileX, tileY, u.GetComponent<Unit>());
+            }
+
             map.lastSelectedTile = this;
         }
     }

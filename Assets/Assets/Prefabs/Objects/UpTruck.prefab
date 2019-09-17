@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7750856797316210932}
   - component: {fileID: 733260896015097194}
   m_Layer: 14
-  m_Name: Truck
+  m_Name: UpTruck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -250756915
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 78eea05fe7b2ff343835eb2176221850, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -151,6 +151,9 @@ MonoBehaviour:
   escapeArea: {fileID: 3156645551119868617}
   doorOpen: {fileID: 8300000, guid: 2bff17d6152c218499216b3888c0aa3a, type: 3}
   doorClose: {fileID: 8300000, guid: 4db68706225ac13468e7ff41af49e197, type: 3}
+  lootCount: 0
+  map: {fileID: 0}
+  unitsInVan: []
 --- !u!82 &733260896015097194
 AudioSource:
   m_ObjectHideFlags: 0
@@ -538,12 +541,12 @@ PrefabInstance:
     - target: {fileID: 5539415497401937882, guid: e7f0b4eb8a4ab6142a6c0cc9fd5373d5,
         type: 3}
       propertyPath: m_Force.x
-      value: 15
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 5539415497401937882, guid: e7f0b4eb8a4ab6142a6c0cc9fd5373d5,
         type: 3}
       propertyPath: m_Force.y
-      value: -10
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6570890353722472434, guid: e7f0b4eb8a4ab6142a6c0cc9fd5373d5,
         type: 3}
@@ -664,12 +667,12 @@ PrefabInstance:
     - target: {fileID: 5539415497401937882, guid: e7f0b4eb8a4ab6142a6c0cc9fd5373d5,
         type: 3}
       propertyPath: m_Force.x
-      value: -15
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5539415497401937882, guid: e7f0b4eb8a4ab6142a6c0cc9fd5373d5,
         type: 3}
       propertyPath: m_Force.y
-      value: -10
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6570890353722472434, guid: e7f0b4eb8a4ab6142a6c0cc9fd5373d5,
         type: 3}

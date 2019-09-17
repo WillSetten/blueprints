@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    public enum state { Idle, Moving, Attacking, Looting};
+    public enum state { Idle, Moving, Attacking, Looting };
     public state currentState;
     public bool detained = false;
     public bool selectable = false;
@@ -37,9 +37,9 @@ public class Unit : MonoBehaviour
     public bool isDetected = false;
     AudioSource audioSource;
     public AudioClip bulletSound;
-    public bool isDead=false;
-    public bool inDetainRange=false;
-    public bool inFreeRange=false;
+    public bool isDead = false;
+    public bool inDetainRange = false;
+    public bool inFreeRange = false;
     public HeisterInfo heisterInfo;
     float moveRate;
     float lootMoveRate;
@@ -60,7 +60,7 @@ public class Unit : MonoBehaviour
         attackCooldown = attackCooldownCap;
         healthBar = GetComponentInChildren<HealthBar>();
         hasLoot = false;
-        if (combatant&&!selectable)
+        if (combatant && !selectable)
         {
             detectionIndicator = GetComponentInChildren<DetectionIndicator>();
         }
@@ -80,11 +80,11 @@ public class Unit : MonoBehaviour
             interactionRadius = 6;
         }
     }
-   
+
     //Highlight the unit in green when the mouse hovers over it
     private void OnMouseOver()
     {
-        if (selectable&&!selected && Time.timeScale != 0)
+        if (selectable && !selected && Time.timeScale != 0)
         {
             turnOnPreSelectionHighlight();
         }
@@ -93,7 +93,7 @@ public class Unit : MonoBehaviour
     //Remove the highlight on the unit when the mouse stops hovering over it
     private void OnMouseExit()
     {
-        if (selectable&&!selected && Time.timeScale!=0)
+        if (selectable && !selected && Time.timeScale != 0)
         {
             turnOffPreSelectionHighlight();
         }
@@ -111,15 +111,15 @@ public class Unit : MonoBehaviour
 
     void OnMouseUp()
     {
-        Debug.Log("Clicked on "+name);
+        Debug.Log("Clicked on " + name);
         if (selectable && Time.timeScale != 0)
         {
             map.setSelectedUnit(transform.gameObject);
         }
-        else if (!selectable&&!combatant && Time.timeScale != 0)
+        else if (!selectable && !combatant && Time.timeScale != 0)
         {
             //If the unit is not already detained and is in range of a selected unit,
-            if (!detained && inDetainRange && detainTimer>detainTimerMax)
+            if (!detained && inDetainRange && detainTimer > detainTimerMax)
             {
                 map.detainUnit(this);
                 playSound(map.handCuffSound);
@@ -189,7 +189,7 @@ public class Unit : MonoBehaviour
         Destroy(GetComponent<CircleCollider2D>());
         animator.SetBool("Dead", true);
         isDead = true;
-        if (detectionIndicator!=null) {
+        if (detectionIndicator != null) {
             detectionIndicator.spriteRenderer.color = Color.clear;
         }
         spriteRenderer.sortingLayerName = "UnderUnits";
@@ -206,7 +206,7 @@ public class Unit : MonoBehaviour
 
     public void togglePause()
     {
-        if(map.paused)
+        if (map.paused)
         {
             animator.enabled = false;
             rigidbody2D.velocity = new Vector2(0, 0);
@@ -224,7 +224,7 @@ public class Unit : MonoBehaviour
         }
     }
 
-    public void setPath(List<Node> newPath) 
+    public void setPath(List<Node> newPath)
     {
         currentPath = newPath;
     }
@@ -274,11 +274,11 @@ public class Unit : MonoBehaviour
                 directionY = currentPath[0].y - tileY;
                 //If the direction that the unit is moving in is greater in magnitude than 1 in any direction, re-place the unit and reset it's path
                 //This if statement is intended to solve a bug where unity randomly moves the unit great distances for a reason I've had trouble determining
-                if (directionX<0 && directionX<-1 || directionX>0 && directionX > 1 || directionY < 0 && directionY < -1 || directionY > 0 && directionY > 1)
+                if (directionX < 0 && directionX < -1 || directionX > 0 && directionX > 1 || directionY < 0 && directionY < -1 || directionY > 0 && directionY > 1)
                 {
                     Debug.Log("Unit position is being reset due to over-moving");
                     transform.position = map.TileCoordToWorldCoord(previousTileX, previousTileY);
-                    map.GeneratePathTo(currentPath[currentPath.Count-1].x, currentPath[currentPath.Count - 1].y, this);
+                    map.GeneratePathTo(currentPath[currentPath.Count - 1].x, currentPath[currentPath.Count - 1].y, this);
                 }
                 else if (oldDirectionX != directionX || oldDirectionY != directionY)
                 {
@@ -303,7 +303,7 @@ public class Unit : MonoBehaviour
     {
         Vector3 position = transform.position;
         //If moving right and has an X co-ordinate greater than that of the destination
-        if (directionX > 0 && position.x>map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y).x)
+        if (directionX > 0 && position.x > map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y).x)
         {
             Debug.Log(name + " over moved!");
             return true;
@@ -413,7 +413,7 @@ public class Unit : MonoBehaviour
                 inFreeRange = false;
             }
             //If this unit is a civilian and there are no nearby player units, set in free range to be false
-            if(!combatant && !selectable)
+            if (!combatant && !selectable)
             {
                 inDetainRange = false;
             }
@@ -427,58 +427,58 @@ public class Unit : MonoBehaviour
         {
             u = c.gameObject.GetComponent<Unit>();
             //If the unit in range is a combatant, attempt to attack if this unit is also idle
-            if (u.combatant && (selectable&&!u.selectable||!selectable&&u.selectable) && currentState!=state.Attacking)
+            if (u.combatant && (selectable && !u.selectable || !selectable && u.selectable) && currentState != state.Attacking)
             {
-                    //CODE FOR COMBATANT PLAYER UNITS
-                    if (combatant && selectable)
+                //CODE FOR COMBATANT PLAYER UNITS
+                if (combatant && selectable)
+                {
+                    //Debug.Log(name + " can attack " + u.name);
+                    //Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
+                    if (currentState != state.Moving && combatant) {
+                        currentState = state.Attacking;
+                        animator.SetBool("Attacking", true);
+                    }
+                }
+                //CODE FOR COMBATANT AI UNITS
+                else
+                {
+                    //If the alarm has been triggered or this unit has detected a player, attack the nearby unit
+                    if (map.enemyController.alarm || detectedPlayerUnit)
                     {
                         //Debug.Log(name + " can attack " + u.name);
-                        //Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
-                        if (currentState!=state.Moving && combatant) {
-                            currentState = state.Attacking;
-                            animator.SetBool("Attacking", true);
+                        Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
+                        if (currentState == state.Moving)
+                        {
+                            u.stopUnit();
                         }
+                        currentState = state.Attacking;
+                        animator.SetBool("Attacking", true);
                     }
-                    //CODE FOR COMBATANT AI UNITS
+                    //Increase the detection timer
                     else
                     {
-                        //If the alarm has been triggered or this unit has detected a player, attack the nearby unit
-                        if(map.enemyController.alarm || detectedPlayerUnit)
+                        //Unit takes time to react to seeing a player unit
+                        if (detectionTimer < detectionTimerMax)
                         {
-                            //Debug.Log(name + " can attack " + u.name);
-                            Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
-                            if (currentState == state.Moving)
+                            if (combatant)
                             {
-                                u.stopUnit();
+                                increaseDetectionTimer(Vector2.Distance(transform.position, c.transform.position));
                             }
-                            currentState = state.Attacking;
-                            animator.SetBool("Attacking", true);
-                        }
-                        //Increase the detection timer
-                        else
-                        {
-                            //Unit takes time to react to seeing a player unit
-                            if (detectionTimer<detectionTimerMax)
-                            {
-                                if (combatant)
-                                {
-                                   increaseDetectionTimer(Vector2.Distance(transform.position, c.transform.position));
-                                }
-                                else
-                                {
-                                    increaseDetectionTimer(2*Vector2.Distance(transform.position, c.transform.position));
-                                }
-                            }
-                            //When this time has expired, the unit will be detected
                             else
                             {
-                                Debug.Log(name + " has detected " + u.name);
-                                detectedPlayerUnit = true;
-                                detectionIndicator.animator.SetBool("HasDetectedUnit", true);
-                                u.isDetected = true;
+                                increaseDetectionTimer(2 * Vector2.Distance(transform.position, c.transform.position));
                             }
                         }
+                        //When this time has expired, the unit will be detected
+                        else
+                        {
+                            Debug.Log(name + " has detected " + u.name);
+                            detectedPlayerUnit = true;
+                            detectionIndicator.animator.SetBool("HasDetectedUnit", true);
+                            u.isDetected = true;
+                        }
                     }
+                }
             }
             //If this unit is a civilian
             if (!combatant && u.combatant)
@@ -502,7 +502,7 @@ public class Unit : MonoBehaviour
 
     public void increaseDetectionTimer(float rate)
     {
-        if (detectionTimer<detectionTimerMax) {
+        if (detectionTimer < detectionTimerMax) {
             detectionTimer = detectionTimer + Time.deltaTime * 3 / rate;
             detectionIndicator.animator.SetFloat("DetectionLevel", detectionTimer / 2);
         }
@@ -530,7 +530,7 @@ public class Unit : MonoBehaviour
 
         animator.SetFloat("Move X", bulletDirection.x);
         animator.SetFloat("Move Y", bulletDirection.y);
-        StartCoroutine(map.viewingCamera.GetComponent<CameraMovement>().Shake(.02f,.04f));
+        StartCoroutine(map.viewingCamera.GetComponent<CameraMovement>().Shake(.02f, .04f));
         //Will move this playSound into each units animations as an event. Only have attack animations for the police officer atm.
         //REMEMBER TO CHANGE
         if (selectable) {
@@ -544,12 +544,12 @@ public class Unit : MonoBehaviour
 
     Collider2D nearestUnitFromOtherTeam(List<Collider2D> nearbyUnits)
     {
-        Collider2D nearestUnit=null;
+        Collider2D nearestUnit = null;
         Unit u;
         foreach (Collider2D c in nearbyUnits)
         {
             //If this unit is the first unit in the array, continue
-            if(c.gameObject == gameObject)
+            if (c.gameObject == gameObject)
             {
                 continue;
             }
@@ -557,7 +557,7 @@ public class Unit : MonoBehaviour
             if (nearestUnit == null)
             {
                 //If there is no current nearest unit and we have a bullet line of sight to that unit, set it as the nearest enemy unit
-                if (hasBulletLOS(c.gameObject)&& ((selectable && !u.selectable) || (!selectable && u.selectable)))
+                if (hasBulletLOS(c.gameObject) && ((selectable && !u.selectable) || (!selectable && u.selectable)))
                 {
                     nearestUnit = c;
                 }
@@ -579,18 +579,18 @@ public class Unit : MonoBehaviour
     //Returns true if this unit can fire a bullet at this gameobject
     public bool hasBulletLOS(GameObject u)
     {
-        RaycastHit2D sightTest = Physics2D.Raycast(transform.position, u.transform.position - transform.position, 
-            Vector2.Distance(transform.position, u.transform.position), LayerMask.GetMask("Walls","Doors", "CivilianUnits"));
+        RaycastHit2D sightTest = Physics2D.Raycast(transform.position, u.transform.position - transform.position,
+            Vector2.Distance(transform.position, u.transform.position), LayerMask.GetMask("Walls", "Doors", "CivilianUnits"));
         if (sightTest.collider == null)
         {
             //Debug.Log(name + " LOS hasn't collided with anything");
-            if (!selectable && combatant && currentPath!=null)
+            if (!selectable && combatant && currentPath != null)
             {
                 stopUnit();
             }
             return true;
         }
-        if(sightTest.collider.CompareTag("Wall") || sightTest.collider.CompareTag("Door") || sightTest.collider.CompareTag("Civilian"))
+        if (sightTest.collider.CompareTag("Wall") || sightTest.collider.CompareTag("Door") || sightTest.collider.CompareTag("Civilian"))
         {
             //Debug.Log(name + " LOS has collided with object with tag " + sightTest.collider.tag);
             return false;
@@ -639,7 +639,7 @@ public class Unit : MonoBehaviour
 
     public void endShot()
     {
-        animator.SetBool("Shoot",false);
+        animator.SetBool("Shoot", false);
     }
 
     void manageDetainTimer()
@@ -716,7 +716,7 @@ public class Unit : MonoBehaviour
     //Checks to see if this units destination is occupied. If it is, redirect the unit.
     void checkDestination()
     {
-        if(map.tiles[currentPath[currentPath.Count - 1].x, currentPath[currentPath.Count - 1].y].occupied)
+        if (map.tiles[currentPath[currentPath.Count - 1].x, currentPath[currentPath.Count - 1].y].occupied)
         {
             map.GeneratePathToNextBestTile(currentPath[currentPath.Count - 1].x, currentPath[currentPath.Count - 1].y, this);
         }
