@@ -456,6 +456,7 @@ MonoBehaviour:
   escapeSquares:
   - {fileID: 3447142939765322887}
   - {fileID: 6018344902715726140}
+  squareColor: {r: 0.5058824, g: 1, b: 0, a: 1}
 --- !u!1001 &3451521423076311983
 PrefabInstance:
   m_ObjectHideFlags: 0

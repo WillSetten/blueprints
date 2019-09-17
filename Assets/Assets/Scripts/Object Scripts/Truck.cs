@@ -44,19 +44,17 @@ public class Truck : MonoBehaviour
         }
         transform.position = heistStartPos;
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-        escapeArea.toggleEscapeSquares(true);
-        foreach(GameObject u in map.units)
-        {
-            u.SetActive(true);
-        }
         open = true;
         foreach (GameObject d in doors)
         {
             d.SetActive(true);
             d.GetComponent<TruckDoor>().toggleOpen(open);
         }
-        foreach(GameObject g in map.units)
+        yield return new WaitForSeconds(0.5f);
+        escapeArea.toggleEscapeSquares(true);
+        foreach (GameObject g in map.units)
         {
+            g.SetActive(true);
             Unit u = g.GetComponent<Unit>();
             u.tileX = (int)g.transform.position.x;
             u.tileY = (int)g.transform.position.y;

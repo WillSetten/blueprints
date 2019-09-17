@@ -5,12 +5,7 @@ using UnityEngine;
 public class EscapeArea : MonoBehaviour
 {
     public List<GameObject> escapeSquares;
-    Color squareColor;
-
-    private void Start()
-    {
-        squareColor = escapeSquares[0].GetComponent<SpriteRenderer>().color;
-    }
+    public Color squareColor;
 
     //Returns true if there are units present in the escape area
     public List<Unit> unitsInEscapeArea()
