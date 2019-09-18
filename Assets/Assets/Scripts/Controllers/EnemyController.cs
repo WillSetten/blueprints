@@ -47,7 +47,7 @@ public class EnemyController : MonoBehaviour
                         if (Vector2.Distance(new Vector2(unit.tileX,unit.tileY), new Vector2(playerUnit.tileX,playerUnit.tileY))>unit.interactionRadius && !unit.hasLOS(g) && 
                             playerUnit.isDetected && unit.currentState==Unit.state.Idle) {
 
-                            map.GeneratePathTo(playerUnit.tileX, playerUnit.tileY, unit);
+                            map.GeneratePathToNextBestTile(playerUnit.tileX, playerUnit.tileY, unit);
                             //Debug.Log("Enemy unit " + gameObject.name + " is moving towards player unit " + g.name);
                             break;
                         }
