@@ -33,6 +33,7 @@ public class Truck : MonoBehaviour
         StartCoroutine(moveTruckIn());
     }
     
+    //Moves the truck into position, then activates the units inside, opens the truck doors and moves them out
     IEnumerator moveTruckIn()
     {
         while (transform.position.y > heistStartPos.y)

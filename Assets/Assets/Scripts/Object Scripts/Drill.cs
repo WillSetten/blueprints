@@ -11,7 +11,7 @@ public class Drill : MonoBehaviour
     public AudioClip drillSound;
     TileMap map;
     public Vault vault;
-    private float drillTime=15;
+    private float drillTime = 15;
     private float setupTime = 8;
     private float timer = 0;
     public Image loadCircle;
@@ -19,7 +19,7 @@ public class Drill : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        drill.GetComponent<SpriteRenderer>().color = Color.clear;
+        drill.SetActive(false);
         map = GetComponentInParent<TileMap>();
         audioSource = GetComponentInChildren<AudioSource>();
     }
@@ -37,11 +37,10 @@ public class Drill : MonoBehaviour
     //Begins the drill timer
     public void beginDrilling()
     {
+        Debug.Log("Drill starting! Moving units out the way");
         map.GeneratePathTo((int)transform.position.x + 1, (int)transform.position.y, unitInDrillArea());
-        drill.GetComponent<SpriteRenderer>().color = Color.white;
-        drill.GetComponent<Rigidbody2D>().simulated = true;
-        drillArea.GetComponent<SpriteRenderer>().color = Color.clear;
-        loadCircle.color = Color.clear;
+        drill.SetActive(true);
+        drillArea.SetActive(false);
         timer = 0;
         StartCoroutine(drillTimer());
     }
@@ -50,10 +49,18 @@ public class Drill : MonoBehaviour
     {
         while (timer < setupTime)
         {
-            if (!map.paused) {
+            //If there is a unit still present to set up the drill, increase the timer
+            if (!map.paused && unitInDrillArea() && unitInDrillArea().currentState == Unit.state.Interacting) {
                 timer = timer + Time.deltaTime;
             }
-            loadCircle.fillAmount = timer / setupTime;
+            //If there is no unit
+            else if (!map.paused && (unitInDrillArea()==null || unitInDrillArea().currentState != Unit.state.Interacting) && timer > 0)
+            {
+                timer = timer - Time.deltaTime;
+            }
+            if (timer>0) {
+                loadCircle.fillAmount = timer / setupTime;
+            }
             yield return null;
         }
         //If the alarm has not already been set off, set it off
@@ -67,8 +74,8 @@ public class Drill : MonoBehaviour
     //Ends the drilling and opens the vault, also removing the drill sprite and stopping its physics simulation
     void endDrilling()
     {
-        drill.GetComponent<Rigidbody2D>().simulated = false;
-        drill.GetComponent<SpriteRenderer>().color = Color.clear;
+        loadCircle.enabled = false;
+        drill.SetActive(false);
         vault.openVault();
     }
 
@@ -79,6 +86,7 @@ public class Drill : MonoBehaviour
             {
                 timer = timer + Time.deltaTime;
             }
+            loadCircle.fillAmount = timer / drillTime;
             yield return null;
         }
         endDrilling();

@@ -18,8 +18,6 @@ public class Tile : MonoBehaviour
     public bool blocked;
     //Is a passable tile 
     public bool impassable;
-    //If a unit is currently travelling to this tile
-    public bool isDestination = false;
     void OnMouseOver()
     {
         /*if (Input.GetMouseButtonDown(0))
@@ -54,7 +52,7 @@ public class Tile : MonoBehaviour
         //If there is a unit over this tile
         else
         {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll((Vector2)transform.position, 0.5f, LayerMask.GetMask("EnemyUnits", "PlayerUnits", "CivilianUnits", "Loot", "Objects"));
+            Collider2D[] colliders = Physics2D.OverlapCircleAll((Vector2)transform.position, 0.3f, LayerMask.GetMask("EnemyUnits", "PlayerUnits", "CivilianUnits", "Loot", "Objects"));
             foreach (Collider2D collider in colliders) {
                     //If there is a unit on the tile
                     if (collider.GetComponent<Unit>()) {
@@ -67,7 +65,6 @@ public class Tile : MonoBehaviour
                                 blocked = false;
                             }
                             occupied = true;
-                            isDestination = false;
                             GetComponent<SpriteRenderer>().color = Color.white;
                         }  
                     }

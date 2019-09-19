@@ -303,7 +303,6 @@ public class TileMap : MonoBehaviour
             //If the path of the unit is changing, make sure that the previous destination tile is no longer listed as a destination
             else
             {
-                tiles[currentDestination.x, currentDestination.y].isDestination = false;
                 tiles[currentDestination.x, currentDestination.y].GetComponent<SpriteRenderer>().color = Color.white;
             }
         }
@@ -398,13 +397,14 @@ public class TileMap : MonoBehaviour
             //If the goal was not found, return
             if (currentNode != goal)
             {
-                //Debug.Log("No path was found");
+                Debug.Log("No path was found for unit " + unit.name + " to destination " + x + "," + y);
                 return;
             }
 
             //Now that we know the goal can be reached, change the colour of the tile to indicate that our unit will be travelling there
             if (unit.selectable)
             {
+                Debug.Log("Path was found for " + unit.name + " to destination " + x + "," + y);
                 tiles[x, y].GetComponent<SpriteRenderer>().color = Color.blue;
             }
 
@@ -416,7 +416,6 @@ public class TileMap : MonoBehaviour
                 currentNode = prev[currentNode];
             }
             currentPath.Reverse();
-            tiles[x, y].isDestination = true;
             //Debug.Log("Close list size: " + close.Count);
             //Debug.Log("Open list size: " + open.Count);
             //Debug.Log("Prev list size: " + prev.Count);

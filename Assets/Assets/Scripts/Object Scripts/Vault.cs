@@ -9,18 +9,23 @@ public class Vault : MonoBehaviour
     public AudioClip vaultOpen;
     public Drill drill;
     bool open = false;
+    IEnumerator drillSetup;
 
     private void Start()
     {
         hinge = GetComponent<HingeJoint2D>();
         audioSource = GetComponent<AudioSource>();
         drill.vault = this;
+        drillSetup = null;
     }
 
     private void OnMouseUp()
     {
         if (drill.unitInDrillArea().currentState == Unit.state.Idle && Time.timeScale != 0) {
-            StartCoroutine(drill.setupDrill());
+            drill.unitInDrillArea().currentState = Unit.state.Interacting;
+            if (drillSetup == null) {
+                StartCoroutine(drill.setupDrill());
+            }
         }
     }
 

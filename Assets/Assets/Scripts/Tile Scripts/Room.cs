@@ -30,7 +30,7 @@ public class Room : MonoBehaviour
         foreach (Tile t in tiles)
         {
             //If the tile is not occupied
-            if (!t.occupied && !t.isDestination && !t.Equals(tile))
+            if (!t.occupied && !t.blocked && !t.Equals(tile))
             {
                 //If currentNextBestTile is set to null and the current tile is unoccupied, this tile is the next best tile.
                 if (currentNextBestTile == null)
@@ -60,7 +60,7 @@ public class Room : MonoBehaviour
         for (int i=0; i < tiles.Length - 1; i++)
         {
             tileIndex = random.Next(0, tiles.Length - 1);
-            if (!tiles[tileIndex].occupied && !tiles[tileIndex].isDestination)
+            if (!tiles[tileIndex].occupied && !tiles[tileIndex].blocked)
             {
                 return tiles[tileIndex];
             }
@@ -74,7 +74,7 @@ public class Room : MonoBehaviour
         int count = 0;
         foreach (Tile t in tiles)
         {
-            if (t.occupied || t.isDestination)
+            if (t.occupied || t.blocked)
             {
                 if(Physics2D.OverlapCircleAll((Vector3)t.transform.position, 0.1f, LayerMask.GetMask("EnemyUnits", "PlayerUnits", "Loot"))[0].gameObject.GetComponent<Unit>().selectable)
                 {
@@ -91,7 +91,7 @@ public class Room : MonoBehaviour
         int count = 0;
         foreach (Tile t in tiles)
         {
-            if (!t.occupied && !t.isDestination)
+            if (!t.occupied && !t.blocked)
             {
                 count = count + 1;
             }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    public enum state { Idle, Moving, Attacking, Looting };
+    public enum state { Idle, Moving, Attacking, Interacting};
     public state currentState;
     public bool detained = false;
     public bool selectable = false;
@@ -236,8 +236,9 @@ public class Unit : MonoBehaviour
         {
             return;
         }
-        if (map.tiles[currentPath[0].x, currentPath[0].y].blocked || map.tiles[currentPath[0].x, currentPath[0].y].occupied)
+        if (map.tiles[currentPath[0].x, currentPath[0].y].blocked)
         {
+            Debug.Log(name + " was attempting to travel to blocked tile " + currentPath[0].x + "," + currentPath[0].y);
             map.GeneratePathTo(currentPath[currentPath.Count - 1].x, currentPath[currentPath.Count - 1].y, this);
         }
         //If the unit is close enough to its next destination
@@ -252,7 +253,6 @@ public class Unit : MonoBehaviour
                 previousTileY = tileY;
                 tileX = currentPath[0].x;
                 tileY = currentPath[0].y;
-                map.tiles[tileX, tileY].isDestination = false;
                 currentPath = null;
                 directionX = 0;
                 directionY = 0;
@@ -303,27 +303,39 @@ public class Unit : MonoBehaviour
     {
         Vector3 position = transform.position;
         //If moving right and has an X co-ordinate greater than that of the destination
-        if (directionX > 0 && position.x > map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y).x)
+        if (directionX > 0 && position.x > currentPath[0].x)
         {
-            Debug.Log(name + " over moved!");
+            if (selectable)
+            {
+                Debug.Log(name + " over moved! Went past destination tile " + currentPath[0].x + "," + currentPath[0].y);
+            }
             return true;
         }
         //If moving left and has an X co-ordinate less than that of the destination
-        if (directionX < 0 && position.x < map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y).x)
+        if (directionX < 0 && position.x < currentPath[0].x)
         {
-            Debug.Log(name + " over moved!");
+            if (selectable)
+            {
+                Debug.Log(name + " over moved! Went past destination tile " + currentPath[0].x + "," + currentPath[0].y);
+            }
             return true;
         }
         //If moving up and has an Y co-ordinate greater than that of the destination
-        if (directionY > 0 && position.y > map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y).y)
+        if (directionY > 0 && position.y > currentPath[0].y)
         {
-            Debug.Log(name + " over moved!");
+            if (selectable)
+            {
+                Debug.Log(name + " over moved! Went past destination tile " + currentPath[0].x + "," + currentPath[0].y);
+            }
             return true;
         }
         //If moving down and has an Y co-ordinate less than that of the destination
-        if (directionY < 0 && position.y < map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y).y)
+        if (directionY < 0 && position.y < currentPath[0].y)
         {
-            Debug.Log(name + " over moved!");
+            if (selectable)
+            {
+                Debug.Log(name + " over moved! Went past destination tile " + currentPath[0].x + "," + currentPath[0].y);
+            }
             return true;
         }
         return false;
@@ -426,7 +438,7 @@ public class Unit : MonoBehaviour
         foreach (Collider2D c in seenUnits)
         {
             u = c.gameObject.GetComponent<Unit>();
-            //If the unit in range is a combatant, attempt to attack if this unit is also idle
+            //If the unit in range is a combatant, attempt to attack if this unit is not already attacking
             if (u.combatant && (selectable && !u.selectable || !selectable && u.selectable) && currentState != state.Attacking)
             {
                 //CODE FOR COMBATANT PLAYER UNITS
@@ -434,13 +446,13 @@ public class Unit : MonoBehaviour
                 {
                     //Debug.Log(name + " can attack " + u.name);
                     //Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
-                    if (currentState != state.Moving && combatant) {
+                    if (currentState==state.Idle && combatant) {
                         currentState = state.Attacking;
                         animator.SetBool("Attacking", true);
                     }
                 }
                 //CODE FOR COMBATANT AI UNITS
-                else
+                else if(combatant && !selectable)
                 {
                     //If the alarm has been triggered or this unit has detected a player, attack the nearby unit
                     if (map.enemyController.alarm || detectedPlayerUnit)
@@ -449,7 +461,7 @@ public class Unit : MonoBehaviour
                         Debug.DrawRay(transform.position, u.transform.position - transform.position, Color.white, interactionRadius);
                         if (currentState == state.Moving)
                         {
-                            u.stopUnit();
+                            stopUnit();
                         }
                         currentState = state.Attacking;
                         animator.SetBool("Attacking", true);
@@ -718,6 +730,7 @@ public class Unit : MonoBehaviour
     {
         if (map.tiles[currentPath[currentPath.Count - 1].x, currentPath[currentPath.Count - 1].y].occupied)
         {
+            Debug.Log("Tile " + currentPath[currentPath.Count - 1].x + "," + currentPath[currentPath.Count - 1].y + " is occupied, finding a new path for " + name);
             map.GeneratePathToNextBestTile(currentPath[currentPath.Count - 1].x, currentPath[currentPath.Count - 1].y, this);
         }
     }

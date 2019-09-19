@@ -36,7 +36,7 @@ public class CivilianController : MonoBehaviour
                     if ((u.tileX < 2 && u.tileY < 2) || (u.tileX > map.mapSizeX - 3 && u.tileY > map.mapSizeY - 3))
                     {
                         map.tiles[u.tileX, u.tileY].occupied = false;
-                        map.tiles[u.tileX, u.tileY].isDestination = false;
+                        map.tiles[u.tileX, u.tileY].blocked = false;
                         units.Remove(u);
                         Destroy(u.gameObject);
                     }
@@ -52,8 +52,6 @@ public class CivilianController : MonoBehaviour
                             {
                                 map.GeneratePathTo(map.mapSizeX - 1, map.mapSizeY - 1, u);
                             }
-                            map.tiles[0, 0].isDestination = false;
-                            map.tiles[map.mapSizeX - 1, map.mapSizeY - 1].isDestination = false;
                         }
                     }
                     else if (!u.inDetainRange)
@@ -76,7 +74,7 @@ public class CivilianController : MonoBehaviour
                                 //and this civilian is too far away to warn the guard, move towards it
                                 else
                                 {
-                                    map.GeneratePathTo(nearestGuard.tileX, nearestGuard.tileY, u);
+                                    map.GeneratePathToNextBestTile(nearestGuard.tileX, nearestGuard.tileY, u);
                                 }
                             }
                         }
