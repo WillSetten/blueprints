@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class CivilianController : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class CivilianController : MonoBehaviour
         if (!map.paused && active)
         {
             hasDetectedaPlayerUnit = false;
-            foreach (Unit u in units)
+            foreach (Unit u in units.ToList())
             {
                 if (!u.detained) {
                     //If the civilian is in a civilian escape zone
@@ -133,7 +134,7 @@ public class CivilianController : MonoBehaviour
     Unit FindNearestGuard(Unit unit)
     {
         Unit nearestUnit=null;
-        foreach (Unit guard in map.enemyController.units)
+        foreach (Unit guard in map.enemyController.units.ToList())
         {
             if (nearestUnit == null)
             {

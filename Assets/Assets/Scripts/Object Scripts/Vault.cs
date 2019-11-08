@@ -23,7 +23,7 @@ public class Vault : MonoBehaviour
     {
         if (drill.unitInDrillArea().currentState == Unit.state.Idle && Time.timeScale != 0) {
             drill.unitInDrillArea().currentState = Unit.state.Interacting;
-            if (drillSetup == null) {
+            if (drillSetup == null && !drill.enabled) {
                 StartCoroutine(drill.setupDrill());
             }
         }

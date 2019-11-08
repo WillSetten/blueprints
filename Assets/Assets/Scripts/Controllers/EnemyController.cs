@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 [System.Serializable]
 public class EnemyController : MonoBehaviour
@@ -34,13 +35,13 @@ public class EnemyController : MonoBehaviour
         if (!map.paused && active)
         {
             bool hasDetectedaPlayerUnit=false;
-            foreach (Unit unit in units)
+            foreach (Unit unit in units.ToList())
             {
                 //Move units if the alarm is on or if this specific unit has detected a player unit
                 if (alarm||unit.detectedPlayerUnit)
                 {
                     timer = 0;
-                    foreach (GameObject g in map.units)
+                    foreach (GameObject g in map.units.ToList())
                     {
                         Unit playerUnit = g.GetComponent<Unit>();
                         //If the unit has detected a player unit, get in line of sight of the player unit and attack
@@ -89,13 +90,13 @@ public class EnemyController : MonoBehaviour
             //if a unit has detected a player unit and the alarm has been given enough time to go off, set the alarm off
             else if (hasDetectedaPlayerUnit && alarmTimer > 5)
             {
-                foreach (Unit unit in units)
+                foreach (Unit unit in units.ToList())
                 {
                     unit.detectionTimer = 2;
                     unit.detectedPlayerUnit = true;
                     unit.detectionIndicator.animator.SetBool("HasDetectedUnit", true);
                 }
-                foreach (GameObject g in map.units) {
+                foreach (GameObject g in map.units.ToList()) {
                     g.GetComponent<Unit>().isDetected = true;
                 }
                 triggerAlarm();

@@ -397,14 +397,14 @@ public class TileMap : MonoBehaviour
             //If the goal was not found, return
             if (currentNode != goal)
             {
-                Debug.Log("No path was found for unit " + unit.name + " to destination " + x + "," + y);
+                Debug.Log("No path was found for unit " + unit.name + " to destination " + x + "," + y + " from source " + unit.tileX + "," + unit.tileY);
                 return;
             }
 
             //Now that we know the goal can be reached, change the colour of the tile to indicate that our unit will be travelling there
             if (unit.selectable)
             {
-                Debug.Log("Path was found for " + unit.name + " to destination " + x + "," + y);
+                Debug.Log("Path was found for " + unit.name + " to destination " + x + "," + y + " from source " + unit.tileX + "," + unit.tileY);
                 tiles[x, y].GetComponent<SpriteRenderer>().color = Color.blue;
             }
 
@@ -616,7 +616,7 @@ public class TileMap : MonoBehaviour
         }
         if (rect.size.x > 1 && rect.size.y > 1)
         {
-            foreach (GameObject u in units)
+            foreach (GameObject u in units.ToList())
             {
                 Vector2 unitScreenPosition = viewingCamera.WorldToScreenPoint(new Vector2(u.transform.position.x, u.transform.position.y));
                 //Debug.Log(u.name + " Screen position is " + unitScreenPosition);
@@ -630,7 +630,7 @@ public class TileMap : MonoBehaviour
             //If no units were found in the drawn area, deselect all units
             if (newUnits.Count == 0)
             {
-                foreach (GameObject unit in selectedUnits)
+                foreach (GameObject unit in selectedUnits.ToList())
                 {
                     deselectUnit(unit);
                 }

@@ -236,13 +236,17 @@ public class Unit : MonoBehaviour
         {
             return;
         }
+        else
+        {
+
+        }
         if (map.tiles[currentPath[0].x, currentPath[0].y].blocked)
         {
             Debug.Log(name + " was attempting to travel to blocked tile " + currentPath[0].x + "," + currentPath[0].y);
             map.GeneratePathTo(currentPath[currentPath.Count - 1].x, currentPath[currentPath.Count - 1].y, this);
         }
         //If the unit is close enough to its next destination
-        if (Vector2.Distance(transform.position, map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y)) < 0.1f || checkIfOverMoved())
+        if (Vector2.Distance(transform.position, map.TileCoordToWorldCoord(currentPath[0].x, currentPath[0].y)) < 0.15f || checkIfOverMoved())
         {
             //If the unit has hit a node but has reached the end of its path
             if (currentPath.Count == 1)
