@@ -288,7 +288,7 @@ public class TileMap : MonoBehaviour
         return new Vector3((int)x, (int)y, 0);
     }
 
-    //Takes in an x and y to move the selected unit to. This method currently uses basic Dyikstra
+    //Takes in an x and y to move the selected unit to. Uses A*
     public void GeneratePathTo(int x, int y, Unit unit)
     {
         //Debug.Log("Origin Tile: " + unit.tileX + "," + unit.tileY + " Goal Tile: " + x + "," + y);
@@ -397,14 +397,14 @@ public class TileMap : MonoBehaviour
             //If the goal was not found, return
             if (currentNode != goal)
             {
-                Debug.Log("No path was found for unit " + unit.name + " to destination " + x + "," + y + " from source " + unit.tileX + "," + unit.tileY);
+                //Debug.Log("No path was found for unit " + unit.name + " to destination " + x + "," + y + " from source " + unit.tileX + "," + unit.tileY);
                 return;
             }
 
             //Now that we know the goal can be reached, change the colour of the tile to indicate that our unit will be travelling there
             if (unit.selectable)
             {
-                Debug.Log("Path was found for " + unit.name + " to destination " + x + "," + y + " from source " + unit.tileX + "," + unit.tileY);
+                //Debug.Log("Path was found for " + unit.name + " to destination " + x + "," + y + " from source " + unit.tileX + "," + unit.tileY);
                 tiles[x, y].GetComponent<SpriteRenderer>().color = Color.blue;
             }
 
