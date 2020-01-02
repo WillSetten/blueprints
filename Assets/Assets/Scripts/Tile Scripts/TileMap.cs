@@ -478,12 +478,16 @@ public class TileMap : MonoBehaviour
     //Sets a single unit as the selected unit
     public void setSelectedUnit(GameObject unit)
     {
-        foreach (GameObject u in selectedUnits)
+        //If shift is being held down, don't clear the list, just add to it
+        if (!Input.GetKeyDown(KeyCode.LeftShift) && !Input.GetKeyDown(KeyCode.RightShift))
         {
-            u.GetComponent<Unit>().selected = false;
-            u.GetComponent<Unit>().changeHighlight();
+            foreach (GameObject u in selectedUnits)
+            {
+                u.GetComponent<Unit>().selected = false;
+                u.GetComponent<Unit>().changeHighlight();
+            }
+            selectedUnits.Clear();
         }
-        selectedUnits.Clear();
         selectedUnits.Add(unit);
         unit.GetComponent<Unit>().selected = true;
         unit.GetComponent<Unit>().changeHighlight();
@@ -492,13 +496,17 @@ public class TileMap : MonoBehaviour
     //Sets a list of gameobjects as the selected units
     public void setSelectedUnits(List<GameObject> newUnits)
     {
-        foreach (GameObject u in selectedUnits)
+        //If shift is being held down, don't clear the list, just add to it
+        if (!Input.GetKeyDown(KeyCode.LeftShift) && !Input.GetKeyDown(KeyCode.RightShift))
         {
-            u.GetComponent<Unit>().selected = false;
-            u.GetComponent<Unit>().changeHighlight();
+            foreach (GameObject u in selectedUnits)
+            {
+                u.GetComponent<Unit>().selected = false;
+                u.GetComponent<Unit>().changeHighlight();
+            }
+            selectedUnits.Clear();
         }
-        selectedUnits.Clear();
-        foreach(GameObject u in newUnits)
+        foreach (GameObject u in newUnits)
         {
             selectedUnits.Add(u);
             u.GetComponent<Unit>().selected = true;
